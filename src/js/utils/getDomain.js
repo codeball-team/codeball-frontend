@@ -1,4 +1,4 @@
 export default function getDomain(url) {
-  const domainRegExp = /(https?:\/\/[^\/]*)/;
+  const domainRegExp = /(https?:\/\/[^/]*)/;
   return url.match(domainRegExp)[0];
 }

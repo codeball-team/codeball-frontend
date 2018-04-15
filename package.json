@@ -4,22 +4,22 @@
   "version": "2.0.0",
   "contributors": [
     {
-      "name": "Michał Marciniec",
-      "email": "michal.marciniec@gmail.com"
-    },
-    {
       "name": "Kamil Mielnik",
       "email": "kamil.adam.mielnik@gmail.com",
       "url": "https://kamilmielnik.github.io/"
+    },
+    {
+      "name": "Michał Marciniec",
+      "email": "michal.marciniec@gmail.com"
     }
   ],
   "license": "MIT",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/michal-marciniec/codeball.git"
+    "url": "https://github.com/codeball-team/codeball-frontend.git"
   },
-  "bugs": "https://github.com/michal-marciniec/codeball/issues",
+  "bugs": "https://github.com/codeball-team/codeball-frontend/issues",
   "scripts": {
     "clean:build": "node ./bin/clean.js createdir",
     "build:html": "node ./bin/buildHtml.js",
