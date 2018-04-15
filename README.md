@@ -1,13 +1,13 @@
-# codeball
-## Frontend environment
-Working directory: `src/frontend/`
-### Installation
+# codeball-frontend
+## Installation
 `npm install`
-### Building
-`npm run build` will produce a clean build in `src/frontend/build/`
 
-`npm run build:windows` will produce a clean build in `src\frontend\build\`
-### Development server
+## Building
+- `npm run build` for Unix
+- `npm run build:windows` for Windows
+
+## Development server
 `npm start` will start a server at `http://localhost:8008`
-### ESLint
+
+## ESLint
 `npm run lint`

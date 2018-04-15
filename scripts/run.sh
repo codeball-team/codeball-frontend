@@ -1,1 +1,0 @@
-nohup java -jar ../build/libs/Codeball.jar &
