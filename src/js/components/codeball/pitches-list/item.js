@@ -1,41 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { BaseComponent } from 'components/base';
 import { Link, ListItem } from 'components/ui';
 import styles from './styles.scss';
 
-class PitchesListItem extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    pitch: PropTypes.object.isRequired
-  };
+const PitchesListItem = ({ children, pitch: { address, id, name } }) => (
+  <Link to={`/pitches/${id}`}>
+    <ListItem className={styles.pitchesListItem}>
+      <div className={styles.name}>
+        {name}
+      </div>
 
-  render() {
-    const {
-      children,
-      pitch: {
-        address,
-        id,
-        name
-      }
-    } = this.props;
+      <div className={styles.address}>
+        {address}
+      </div>
 
-    return (
-      <Link to={`/pitches/${id}`}>
-        <ListItem className={styles.pitchesListItem}>
-          <div className={styles.name}>
-            {name}
-          </div>
+      {children}
+    </ListItem>
+  </Link>
+);
 
-          <div className={styles.address}>
-            {address}
-          </div>
+PitchesListItem.propTypes = {
+  children: PropTypes.node,
+  pitch: PropTypes.object.isRequired
+};
 
-          {children}
-        </ListItem>
-      </Link>
-    );
-  }
-}
-
-export default BaseComponent(PitchesListItem);
+export default PitchesListItem;

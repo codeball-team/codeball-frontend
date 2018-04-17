@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { _ } from 'utils';
-import { ButtonCancel, ButtonEdit, ButtonSave, ButtonsPanel } from 'components/ui';
+import { ButtonCancel, ButtonEdit, ButtonSave, ButtonsPanel, Render } from 'components/ui';
 import styles from './styles.scss';
 
 const SectionDecorator = ChildComponent => {
@@ -31,33 +31,35 @@ const SectionDecorator = ChildComponent => {
 
           <ButtonsPanel className={styles.buttonsPanel}>
             {[
-              <ButtonEdit
-                renderWhen={[
+              <Render
+                key="section-edit"
+                when={[
                   canEdit,
                   isEditable,
                   !isEditing
-                ]}
-                key="section-edit"
-                onClick={onEdit} />,
+                ]}>
+                <ButtonEdit onClick={onEdit} />
+              </Render>,
 
-              <ButtonCancel
-                renderWhen={[
-                  canEdit,
-                  isEditable,
-                  isEditing
-                ]}
+              <Render
                 key="section-cancel"
-                onClick={onCancel} />,
-
-              <ButtonSave
-                renderWhen={[
+                when={[
                   canEdit,
                   isEditable,
                   isEditing
-                ]}
+                ]}>
+                <ButtonCancel onClick={onCancel} />
+              </Render>,
+
+              <Render
                 key="section-save"
-                isDisabled={!canSubmit}
-                onClick={onSave} />,
+                when={[
+                  canEdit,
+                  isEditable,
+                  isEditing
+                ]}>
+                <ButtonSave isDisabled={!canSubmit} onClick={onSave} />
+              </Render>,
 
               ...buttons.filter(Boolean)
             ]}

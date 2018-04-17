@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NotLoaded } from 'components/ui';
+import { NotLoaded, Render } from 'components/ui';
 import { ButtonAddPitch } from 'components/codeball';
 
 const PitchNotLoaded = ({ canAddNew }) => (
   <NotLoaded message="There is no such pitch">
-    <ButtonAddPitch renderWhen={canAddNew} label="Add new pitch" />
+    <Render when={canAddNew}>
+      <ButtonAddPitch label="Add new pitch" />
+    </Render>
   </NotLoaded>
 );
 

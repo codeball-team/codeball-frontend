@@ -1,10 +1,10 @@
 export { push as redirect } from 'react-router-redux';
 
-export * from './ajaxRequestsActions';
-export * from './currentUserActions';
-export * from './gamesActions';
-export * from './newGameActions';
-export * from './newPitchActions';
-export * from './newUserActions';
-export * from './pitchesActions';
-export * from './usersActions';
+export * from './ajax-requests-actions';
+export * from './current-user-actions';
+export * from './games-actions';
+export * from './new-game-actions';
+export * from './new-pitch-actions';
+export * from './new-user-actions';
+export * from './pitches-actions';
+export * from './users-actions';

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { findLabelByValue } from 'utils';
 import { EnrollAnotherUserModel } from 'models';
-import { BaseComponent } from 'components/base';
-import { Form, Select } from 'components/ui';
+import { Form, Render, Select } from 'components/ui';
 
 class GameEnrollAnotherUserForm extends Component {
   static propTypes = {
@@ -37,28 +36,29 @@ class GameEnrollAnotherUserForm extends Component {
 
     return (
       <div className={className}>
-        <Form
-          renderWhen={isEditing}
-          inputs={[
-            {
-              label: 'Player',
-              displayValue: findLabelByValue(usersOptions, userId),
-              isValid: EnrollAnotherUserModel.isUserIdValid(enrollAnotherUser),
-              component: (
-                <Select
-                  noResultsText="There are no players"
-                  placeholder="Select player..."
-                  options={usersOptions}
-                  value={userId}
-                  searchable={false}
-                  clearable={false}
-                  onChange={this.onUserIdChange} />
-              )
-            }
-          ]} />
+        <Render when={isEditing}>
+          <Form
+            inputs={[
+              {
+                label: 'Player',
+                displayValue: findLabelByValue(usersOptions, userId),
+                isValid: EnrollAnotherUserModel.isUserIdValid(enrollAnotherUser),
+                component: (
+                  <Select
+                    noResultsText="There are no players"
+                    placeholder="Select player..."
+                    options={usersOptions}
+                    value={userId}
+                    searchable={false}
+                    clearable={false}
+                    onChange={this.onUserIdChange} />
+                )
+              }
+            ]} />
+        </Render>
       </div>
     );
   }
 }
 
-export default BaseComponent(GameEnrollAnotherUserForm);
+export default GameEnrollAnotherUserForm;

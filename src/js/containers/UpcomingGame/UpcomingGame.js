@@ -7,7 +7,7 @@ import {
 import { upcomingGameContainerSelector } from 'selectors/containers';
 import { EnrollAnotherUserModel } from 'models';
 import { ContainerComponent } from 'components/base';
-import { ButtonSave, ButtonShuffle } from 'components/ui';
+import { ButtonSave, ButtonShuffle, Render } from 'components/ui';
 import {
   GameEnrollAnotherUserFormSection, GameEnrollmentFormSection,
   GameEnrollmentSection, GameInfoSection, GameLineupSection
@@ -108,88 +108,96 @@ export default function GenerateUpcomingGame(getGameId) {
 
       return (
         <main>
-          <GameNotLoaded
-            renderWhen={!hasGameLoaded}
-            canAddNew={hasPermission(PERMISSION_ADD_GAME)} />
+          <Render when={!hasGameLoaded}>
+            <GameNotLoaded canAddNew={hasPermission(PERMISSION_ADD_GAME)} />
+          </Render>
 
-          <GameInfoSection
-            renderWhen={hasGameLoaded}
-            title={pitchName}
-            game={game}
-            pitch={pitch}
-            buttons={[
-              <ButtonSave
-                renderWhen={[
-                  !isEnrollmentOver,
-                  hasPermission(PERMISSION_CLOSE_ENROLMENT)
-                ]}
-                key="close-enrollment"
-                label="Close enrollment"
-                onClick={this.onCloseEnrollment} />,
+          <Render when={hasGameLoaded}>
+            <GameInfoSection
+              title={pitchName}
+              game={game}
+              pitch={pitch}
+              buttons={[
+                <ButtonSave
+                  renderWhen={[
+                    !isEnrollmentOver,
+                    hasPermission(PERMISSION_CLOSE_ENROLMENT)
+                  ]}
+                  key="close-enrollment"
+                  label="Close enrollment"
+                  onClick={this.onCloseEnrollment} />,
 
-              <ButtonShuffle
-                renderWhen={[
-                  isEnrollmentOver,
-                  !isGameOver,
-                  hasPermission(PERMISSION_DRAW_TEAMS)
-                ]}
-                key="draw-teams"
-                label="Draw teams"
-                onClick={this.onDrawTeams} />,
+                <ButtonShuffle
+                  renderWhen={[
+                    isEnrollmentOver,
+                    !isGameOver,
+                    hasPermission(PERMISSION_DRAW_TEAMS)
+                  ]}
+                  key="draw-teams"
+                  label="Draw teams"
+                  onClick={this.onDrawTeams} />,
 
-              <ButtonSave
-                renderWhen={[
-                  isEnrollmentOver,
-                  !isGameOver,
-                  hasPermission(PERMISSION_END_GAME)
-                ]}
-                key="end-game"
-                label="End game"
-                onClick={this.onEndGame} />
-            ]} />
+                <ButtonSave
+                  renderWhen={[
+                    isEnrollmentOver,
+                    !isGameOver,
+                    hasPermission(PERMISSION_END_GAME)
+                  ]}
+                  key="end-game"
+                  label="End game"
+                  onClick={this.onEndGame} />
+              ]} />
+          </Render>
 
-          <GameEnrollmentFormSection
-            renderWhen={[
+          <Render
+            when={[
               hasGameLoaded,
               !isEnrollmentOver,
               hasPermission(PERMISSION_ENROLL)
-            ]}
-            title="Are you going?"
-            enrollmentStatus={selectedEnrollmentStatus}
-            onChange={this.onEnrollmentStatusChange} />
+            ]}>
+            <GameEnrollmentFormSection
+              title="Are you going?"
+              enrollmentStatus={selectedEnrollmentStatus}
+              onChange={this.onEnrollmentStatusChange} />
+          </Render>
 
-          <GameEnrollAnotherUserFormSection
-            renderWhen={[
+          <Render
+            when={[
               hasGameLoaded,
               !isEnrollmentOver,
               unenrolledUsers.length > 0,
               hasPermission(PERMISSION_ENROLL_ANOTHER_USER)
-            ]}
-            title="Enroll another player"
-            canEdit={true}
-            canSubmit={EnrollAnotherUserModel.isValid(enrollAnotherUser)}
-            isEditable={true}
-            isEditing={isEnrollAnotherUserEditing}
-            enrollAnotherUser={enrollAnotherUser}
-            users={unenrolledUsers}
-            onEdit={this.onEnrollAnotherUserEdit}
-            onCancel={this.onEnrollAnotherUserCancel}
-            onSave={this.onEnrollAnotherUserSubmit}
-            onUserIdChange={this.onEnrollAnotherUserIdChange} />
+            ]}>
+            <GameEnrollAnotherUserFormSection
+              title="Enroll another player"
+              canEdit={true}
+              canSubmit={EnrollAnotherUserModel.isValid(enrollAnotherUser)}
+              isEditable={true}
+              isEditing={isEnrollAnotherUserEditing}
+              enrollAnotherUser={enrollAnotherUser}
+              users={unenrolledUsers}
+              onEdit={this.onEnrollAnotherUserEdit}
+              onCancel={this.onEnrollAnotherUserCancel}
+              onSave={this.onEnrollAnotherUserSubmit}
+              onUserIdChange={this.onEnrollAnotherUserIdChange} />
+          </Render>
 
-          <GameLineupSection
-            renderWhen={[
+          <Render
+            when={[
               hasGameLoaded,
               isEnrollmentOver
-            ]}
-            title="Lineups"
-            teamA={teamA}
-            teamB={teamB} />
+            ]}>
+            <GameLineupSection
+              title="Lineups"
+              teamA={teamA}
+              teamB={teamB} />
+          </Render>
 
-          <GameEnrollmentSection
-            renderWhen={hasGameLoaded}
-            title={`Enrolled players (${numberOfEnrolledUsers})`}
-            enrolledUsersPerStatus={enrolledUsersPerStatus} />
+          <Render when={hasGameLoaded}>
+            <GameEnrollmentSection
+              title={`Enrolled players (${numberOfEnrolledUsers})`}
+              enrolledUsersPerStatus={enrolledUsersPerStatus} />
+          </Render>
         </main>
       );
     }

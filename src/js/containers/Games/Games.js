@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME } from 'constants';
 import { gamesContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
+import { Render } from 'components/ui';
 import { GamesListSection } from 'components/sections';
 import { ButtonAddGame } from 'components/codeball';
 
@@ -31,7 +32,9 @@ class Games extends Component {
           hideScore={true}
           urlFormatter={formatUpcomingGameUrl}
           buttons={[
-            <ButtonAddGame key="new" renderWhen={hasPermission(PERMISSION_ADD_GAME)} />
+            <Render key="new" when={hasPermission(PERMISSION_ADD_GAME)}>
+              <ButtonAddGame />
+            </Render>
           ]} />
 
         <GamesListSection

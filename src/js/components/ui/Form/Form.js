@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from 'utils';
-import { InputWrapper } from 'components/ui';
+import { InputWrapper, Render } from 'components/ui';
 import SubmitButton from './submit-button';
 import styles from './styles.scss';
 
@@ -33,10 +33,9 @@ const Form = ({ className, inputs, onSubmit }) => {
         ))}
       </div>
 
-      <SubmitButton
-        renderWhen={Boolean(onSubmit)}
-        isDisabled={!areAllInputsValid}
-        onClick={onSubmit} />
+      <Render when={Boolean(onSubmit)}>
+        <SubmitButton isDisabled={!areAllInputsValid} onClick={onSubmit} />
+      </Render>
     </div>
   );
 };

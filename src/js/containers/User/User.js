@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { PERMISSION_ADD_USER } from 'constants';
 import { userContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
+import { Render } from 'components/ui';
 import { UserProfileSection } from 'components/sections';
 import { UserNotLoaded } from 'components/codeball';
 
@@ -26,14 +27,13 @@ class User extends Component {
 
     return (
       <main>
-        <UserNotLoaded
-          renderWhen={!hasUserLoaded}
-          canAddNew={hasPermission(PERMISSION_ADD_USER)} />
+        <Render when={!hasUserLoaded}>
+          <UserNotLoaded canAddNew={hasPermission(PERMISSION_ADD_USER)} />
+        </Render>
 
-        <UserProfileSection
-          renderWhen={hasUserLoaded}
-          title={`${lastName} ${firstName}`}
-          user={user} />
+        <Render when={hasUserLoaded}>
+          <UserProfileSection title={`${lastName} ${firstName}`} user={user} />
+        </Render>
       </main>
     );
   }

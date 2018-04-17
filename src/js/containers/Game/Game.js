@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME, PERMISSION_EDIT_GAME_SCORE } from 'constants';
 import { gameContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
+import { Render } from 'components/ui';
 import { GameLineupSection, GameScoreSection } from 'components/sections';
 import { GameNotLoaded } from 'components/codeball';
 
@@ -66,29 +67,31 @@ export default function GenerateGame(getGameId) {
 
       return (
         <main>
-          <GameNotLoaded
-            renderWhen={!hasGameLoaded}
-            canAddNew={hasPermission(PERMISSION_ADD_GAME)} />
+          <Render when={!hasGameLoaded}>
+            <GameNotLoaded canAddNew={hasPermission(PERMISSION_ADD_GAME)} />
+          </Render>
 
-          <GameScoreSection
-            renderWhen={hasGameLoaded}
-            title="Result"
-            canEdit={hasPermission(PERMISSION_EDIT_GAME_SCORE)}
-            isEditable={true}
-            isEditing={isGameEditing}
-            pitch={pitch}
-            game={game}
-            onEdit={this.onEdit}
-            onCancel={this.onCancel}
-            onSave={this.onSave}
-            onEditGameScoreA={this.onEditGameScoreA}
-            onEditGameScoreB={this.onEditGameScoreB} />
+          <Render when={hasGameLoaded}>
+            <GameScoreSection
+              title="Result"
+              canEdit={hasPermission(PERMISSION_EDIT_GAME_SCORE)}
+              isEditable={true}
+              isEditing={isGameEditing}
+              pitch={pitch}
+              game={game}
+              onEdit={this.onEdit}
+              onCancel={this.onCancel}
+              onSave={this.onSave}
+              onEditGameScoreA={this.onEditGameScoreA}
+              onEditGameScoreB={this.onEditGameScoreB} />
+          </Render>
 
-          <GameLineupSection
-            renderWhen={hasGameLoaded}
-            title="Lineups"
-            teamA={teamA}
-            teamB={teamB} />
+          <Render when={hasGameLoaded}>
+            <GameLineupSection
+              title="Lineups"
+              teamA={teamA}
+              teamB={teamB} />
+          </Render>
         </main>
       );
     }

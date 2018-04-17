@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { PERMISSION_ADD_USER } from 'constants';
 import { usersContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
+import { Render } from 'components/ui';
 import { UsersListSection } from 'components/sections';
 import { ButtonAddUser } from 'components/codeball';
 
@@ -27,7 +28,9 @@ class Users extends Component {
           currentUser={currentUser}
           users={users}
           buttons={[
-            <ButtonAddUser key="add" renderWhen={hasPermission(PERMISSION_ADD_USER)} />
+            <Render key="add" when={hasPermission(PERMISSION_ADD_USER)}>
+              <ButtonAddUser />
+            </Render>
           ]} />
       </main>
     );

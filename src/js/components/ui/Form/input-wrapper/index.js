@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from 'utils';
-import { Icon } from 'components/ui';
+import { Icon, Render } from 'components/ui';
 import Value from './value';
 import styles from './styles.scss';
 
@@ -13,7 +13,10 @@ const InputWrapper = ({ children, className, displayValue, isValid, label }) => 
     )}>
     <div className={styles.label}>
       <div className={styles.title}>
-        {label}<Value renderWhen={isValid} value={displayValue} />
+        {label}
+        <Render when={isValid}>
+          <Value value={displayValue} />
+        </Render>
       </div>
 
       <div
@@ -24,8 +27,12 @@ const InputWrapper = ({ children, className, displayValue, isValid, label }) => 
             [styles.invalid]: !isValid
           }
         )}>
-        <Icon name="save" renderWhen={isValid} />
-        <Icon name="cancel" renderWhen={!isValid} />
+        <Render when={isValid}>
+          <Icon name="save" />
+        </Render>
+        <Render when={!isValid}>
+          <Icon name="cancel" />
+        </Render>
       </div>
     </div>
 

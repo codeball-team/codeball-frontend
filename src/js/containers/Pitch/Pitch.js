@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { PERMISSION_ADD_PITCH } from 'constants';
 import { pitchContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
+import { Render } from 'components/ui';
 import { PitchInfoSection } from 'components/sections';
 import { PitchNotLoaded } from 'components/codeball';
 
@@ -25,14 +26,15 @@ class Pitch extends Component {
 
     return (
       <main>
-        <PitchNotLoaded
-          renderWhen={!hasPitchLoaded}
-          canAddNew={hasPermission(PERMISSION_ADD_PITCH)} />
+        <Render when={!hasPitchLoaded}>
+          <PitchNotLoaded canAddNew={hasPermission(PERMISSION_ADD_PITCH)} />
+        </Render>
 
-        <PitchInfoSection
-          renderWhen={hasPitchLoaded}
-          title={name}
-          pitch={pitch} />
+        <Render when={hasPitchLoaded}>
+          <PitchInfoSection
+            title={name}
+            pitch={pitch} />
+        </Render>
       </main>
     );
   }

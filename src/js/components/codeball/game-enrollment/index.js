@@ -6,6 +6,7 @@ import {
   ENROLLMENT_STATUS_STRING, ENROLLMENT_STATUS_YES
 } from 'constants';
 import GameEnrollmentList from './list';
+import { Render } from 'components/ui';
 import styles from './styles.scss';
 
 const ENROLLMENT_STATUS_CLASSNAMES = {
@@ -17,12 +18,12 @@ const ENROLLMENT_STATUS_CLASSNAMES = {
 const GameEnrollment = ({ className, enrolledUsersPerStatus }) => (
   <div className={classNames(styles.gameEnrollment, className)}>
     {enrolledUsersPerStatus.map(({ enrollmentStatus, enrolledUsers }, index) => (
-      <GameEnrollmentList
-        key={index}
-        renderWhen={enrolledUsers.length > 0}
-        className={ENROLLMENT_STATUS_CLASSNAMES[enrollmentStatus]}
-        enrollmentStatus={ENROLLMENT_STATUS_STRING[enrollmentStatus]}
-        users={enrolledUsers} />
+      <Render key={index} when={enrolledUsers.length > 0}>
+        <GameEnrollmentList
+          className={ENROLLMENT_STATUS_CLASSNAMES[enrollmentStatus]}
+          enrollmentStatus={ENROLLMENT_STATUS_STRING[enrollmentStatus]}
+          users={enrolledUsers} />
+      </Render>
     ))}
   </div>
 );
