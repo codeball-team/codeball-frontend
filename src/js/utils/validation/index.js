@@ -1,19 +1,9 @@
-export function isId(value) {
-  return isInteger(value);
-}
+export const isId = (value) => isInteger(value);
 
-export function isInRange(value, min, max) {
-  return value >= min && value <= max;
-}
+export const isInRange = (value, min, max) => value >= min && value <= max;
 
-export function isInteger(value) {
-  return Number.isInteger(value);
-}
+export const isInteger = (value) => Number.isInteger(value);
 
-export function isNotEmptyString(value) {
-  return typeof value === 'string' && value.length > 0;
-}
+export const isNotEmptyString = (value) => typeof value === 'string' && value.length > 0;
 
-export function isPositiveInteger(value) {
-  return isInteger(value) && value > 0;
-}
+export const isPositiveInteger = (value) => isInteger(value) && value > 0;

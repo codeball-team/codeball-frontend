@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { findById } from 'utils';
 import { ENROLLMENT_STATUSES, ENROLLMENT_STATUS_YES } from 'constants';
-import { currentUserIdSelector } from 'selectors/models/currentUser';
+import { currentUserIdSelector } from 'selectors/models/current-user';
 import { pitchesSelector } from 'selectors/models/pitches';
 import { usersSelector } from 'selectors/models/users';
 

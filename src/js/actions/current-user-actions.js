@@ -1,6 +1,6 @@
 import request from 'superagent';
 import { ajax } from 'utils';
-import { CURRENT_USER_LOAD } from 'constants/actionTypes';
+import { CURRENT_USER_LOAD } from 'constants/action-types';
 import { currentUserUrl } from 'constants';
 
 export function currentUserLoad() {

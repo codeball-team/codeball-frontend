@@ -1,6 +1,6 @@
 import { _ } from 'utils';
 
-export default function model(options) {
+export default (options) => {
   const {
     getDefaultAttributes,
     fromServerFormat = _.noop,
@@ -30,9 +30,9 @@ export default function model(options) {
     ...validators,
     ...otherStatic
   });
-}
+};
 
-function wrapFromServerFormat(Model, fromServerFormat) {
+const wrapFromServerFormat = (Model, fromServerFormat) => {
   const defaultEmptyArrays = createDefaultEmptyArrays(Model.getDefaultAttributes);
 
   return serverResponse => {
@@ -44,9 +44,9 @@ function wrapFromServerFormat(Model, fromServerFormat) {
 
     return fromServerFormat(serverResponse);
   };
-}
+};
 
-function createDefaultEmptyArrays(getDefaultAttributes) {
+const createDefaultEmptyArrays = (getDefaultAttributes) => {
   const defaultObject = getDefaultAttributes();
   const defaultObjectKeys = Object.keys(defaultObject);
   const arrayAttributes = defaultObjectKeys.filter(key => Array.isArray(defaultObject[key]));
@@ -54,4 +54,4 @@ function createDefaultEmptyArrays(getDefaultAttributes) {
     ...defaultArrays,
     [key]: defaultObject[key]
   }), {});
-}
+};

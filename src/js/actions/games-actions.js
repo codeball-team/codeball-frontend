@@ -18,7 +18,7 @@ import {
   GAME_ENROLL_ANOTHER_USER_SUBMIT,
   GAME_LOAD,
   GAME_SET_SCORE
-} from 'constants/actionTypes';
+} from 'constants/action-types';
 import {
   gameCloseEnrollmentUrl,
   gameDrawTeamsUrl,

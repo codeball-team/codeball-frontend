@@ -1,25 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AjaxSpinner from 'containers/AjaxSpinner/AjaxSpinner';
 import AjaxErrors from 'containers/AjaxErrors/AjaxErrors';
 import { Page } from 'components/ui';
 
-export default class App extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired
-  };
+const App = ({ children }) => (
+  <div>
+    <Page>
+      {children}
+    </Page>
+    <AjaxSpinner />
+    <AjaxErrors />
+  </div>
+);
 
-  render() {
-    const { children } = this.props;
+App.propTypes = {
+  children: PropTypes.node.isRequired
+};
 
-    return (
-      <div>
-        <Page>
-          {children}
-        </Page>
-        <AjaxSpinner />
-        <AjaxErrors />
-      </div>
-    );
-  }
-}
+export default App;

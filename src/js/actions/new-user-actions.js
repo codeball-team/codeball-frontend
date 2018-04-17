@@ -8,7 +8,7 @@ import {
   NEW_USER_CHANGE_ROLE,
   NEW_USER_RESET,
   NEW_USER_SUBMIT
-} from 'constants/actionTypes';
+} from 'constants/action-types';
 import { usersUrl } from 'constants';
 import { NewUserModel } from 'models';
 

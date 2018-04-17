@@ -1,5 +1,5 @@
 export * from './api';
-export * from './backgroundImages';
+export * from './background-images';
 export * from './configuration';
 export * from './enrollment';
 export * from './permissions';

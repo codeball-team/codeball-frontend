@@ -1,2 +1,2 @@
 export ajax from './ajax';
-export ajaxReducer from './ajaxReducer';
+export ajaxReducer from './ajax-reducer';

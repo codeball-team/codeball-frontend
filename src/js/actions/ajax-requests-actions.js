@@ -1,4 +1,4 @@
-import { AJAX_ERROR_ACKNOWLEDGE } from 'constants/actionTypes';
+import { AJAX_ERROR_ACKNOWLEDGE } from 'constants/action-types';
 
 export function ajaxErrorAcknowledge(errorIndex) {
   return {

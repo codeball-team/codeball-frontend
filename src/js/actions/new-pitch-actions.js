@@ -9,7 +9,7 @@ import {
   NEW_PITCH_CHANGE_TYPE,
   NEW_PITCH_RESET,
   NEW_PITCH_SUBMIT
-} from 'constants/actionTypes';
+} from 'constants/action-types';
 import { pitchesUrl } from 'constants';
 import { NewPitchModel } from 'models';
 

@@ -9,7 +9,7 @@ import {
   NEW_GAME_CHANGE_PITCH_ID,
   NEW_GAME_RESET,
   NEW_GAME_SUBMIT
-} from 'constants/actionTypes';
+} from 'constants/action-types';
 import { gamesUrl } from 'constants';
 import { NewGameModel } from 'models';
 

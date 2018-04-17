@@ -1,6 +1,6 @@
 import request from 'superagent';
 import { ajax } from 'utils';
-import { PITCHES_LOAD, PITCH_LOAD } from 'constants/actionTypes';
+import { PITCHES_LOAD, PITCH_LOAD } from 'constants/action-types';
 import { pitchesUrl, pitchUrl } from 'constants';
 
 export function pitchesLoad() {

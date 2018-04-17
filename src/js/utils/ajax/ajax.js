@@ -1,6 +1,6 @@
 import { _, now, safeGet } from 'utils';
-import { AJAX, AJAX_ABORT } from 'constants/actionTypes';
-import requestManager from './requestManager';
+import { AJAX, AJAX_ABORT } from 'constants/action-types';
+import requestManager from './request-manager';
 
 const manager = requestManager();
 const requestOptionsHandlers = {
@@ -76,47 +76,37 @@ export default function ajax(getParams) {
   };
 }
 
-function applyRequestOptions(enhancers, request, options) {
-  return _(options).reduce(
-    (enhancedRequest, isEnabled, key) => {
+const applyRequestOptions = (enhancers, request, options) => _(options).reduce(
+  (enhancedRequest, isEnabled, key) => {
+    if(isEnabled && enhancers.hasOwnProperty(key)) {
+      return enhancers[key](enhancedRequest, options);
+    }
+
+    return enhancedRequest;
+  },
+  request
+);
+
+const applyRequestEnhancers = (enhancers, request, options) => Promise.all(
+  _(options).reduce(
+    (enhancements, isEnabled, key) => {
       if(isEnabled && enhancers.hasOwnProperty(key)) {
-        return enhancers[key](enhancedRequest, options);
+        return [
+          ...enhancements,
+          enhancers[key](request, options)
+        ];
       }
 
-      return enhancedRequest;
+      return enhancements;
     },
-    request
-  );
-}
+    []
+  )
+);
 
-function applyRequestEnhancers(enhancers, request, options) {
-  return Promise.all(
-    _(options).reduce(
-      (enhancements, isEnabled, key) => {
-        if(isEnabled && enhancers.hasOwnProperty(key)) {
-          return [
-            ...enhancements,
-            enhancers[key](request, options)
-          ];
-        }
-
-        return enhancements;
-      },
-      []
-    )
-  );
-}
-
-function createErrorResponse(error, body) {
+const createErrorResponse = (error, body) => {
   const [title, message] = safeGet(error, ['message'], '').split('\n');
   const errorResponse = body || { error: title, message };
   return errorResponse;
-}
+};
 
-function nullToUndefined(value) {
-  if(value === null) {
-    return undefined;
-  }
-
-  return value;
-}
+const nullToUndefined = (value) => value === null ? undefined : value;

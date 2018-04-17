@@ -1,17 +1,17 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import ajaxRequests from './ajaxRequests';
-import currentUserData from './currentUserData';
-import enrollAnotherUser from './enrollAnotherUser';
-import gameData from './gameData';
-import gamesData from './gamesData';
-import newGame from './newGame';
-import newPitch from './newPitch';
-import newUser from './newUser';
-import pitchData from './pitchData';
-import pitchesData from './pitchesData';
-import userData from './userData';
-import usersData from './usersData';
+import ajaxRequests from './ajax-requests';
+import currentUserData from './current-user-data';
+import enrollAnotherUser from './enroll-another-user';
+import gameData from './game-data';
+import gamesData from './games-data';
+import newGame from './new-game';
+import newPitch from './new-pitch';
+import newUser from './new-user';
+import pitchData from './pitch-data';
+import pitchesData from './pitches-data';
+import userData from './user-data';
+import usersData from './users-data';
 
 const rootReducer = combineReducers({
   ajaxRequests,
