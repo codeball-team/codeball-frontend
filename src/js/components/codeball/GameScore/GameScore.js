@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { EditableText, Link } from 'components/ui';
-import './GameScore.scss';
+import styles from './styles.scss';
 
 class GameScore extends Component {
   static propTypes = {
@@ -41,14 +41,10 @@ class GameScore extends Component {
     } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'game-score',
-          className
-        )}>
-        <div className="score">
+      <div className={classNames(styles.gameScore, className)}>
+        <div className={styles.score}>
           <EditableText
-            className="team-score score-a"
+            className={classNames(styles.teamScore, styles.scoreA)}
             isEditing={isEditing}
             text={teamAScore}
             maxLength="2"
@@ -57,24 +53,24 @@ class GameScore extends Component {
           <span> : </span>
 
           <EditableText
-            className="team-score score-b"
+            className={classNames(styles.teamScore, styles.scoreB)}
             isEditing={isEditing}
             text={teamBScore}
             maxLength="2"
             onChange={this.onGameScoreBChanged} />
         </div>
 
-        <div className="details" title="Pitch">
+        <div className={styles.details} title="Pitch">
           <Link to={`/pitches/${pitchId}`}>
             {pitchName}
           </Link>
         </div>
 
-        <div className="details" title="Game date">
+        <div className={styles.details} title="Game date">
           {date}
         </div>
 
-        <div className="details" title="Game time">
+        <div className={styles.details} title="Game time">
           {time}
         </div>
       </div>

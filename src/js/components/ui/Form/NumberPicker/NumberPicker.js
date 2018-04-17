@@ -2,12 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Button, EditableText, Icon } from 'components/ui';
-import './NumberPicker.scss';
+import styles from './styles.scss';
 
 class NumberPicker extends Component {
   static propTypes = {
     className: PropTypes.string,
-    orientation: PropTypes.oneOf(['horizontal', 'vertical']),
+    vertical: PropTypes.bool,
     value: PropTypes.number.isRequired,
     valueFormatter: PropTypes.func,
     values: PropTypes.array.isRequired,
@@ -15,7 +15,6 @@ class NumberPicker extends Component {
   };
 
   static defaultProps = {
-    orientation: 'horizontal',
     valueFormatter: String
   };
 
@@ -39,7 +38,7 @@ class NumberPicker extends Component {
   render() {
     const {
       className,
-      orientation,
+      vertical,
       value,
       valueFormatter
     } = this.props;
@@ -47,21 +46,23 @@ class NumberPicker extends Component {
     return (
       <div
         className={classNames(
-          'number-picker',
-          orientation,
+          styles.numberPicker,
+          {
+            [styles.vertical]: vertical
+          },
           className
         )}>
-        <Button className="subtract" onClick={this.onSubtract}>
+        <Button className={styles.subtract} onClick={this.onSubtract}>
           <Icon name="subtract" />
         </Button>
 
         <EditableText
-          className="value"
+          className={styles.value}
           isDisabled={true}
           isEditing={true}
           text={valueFormatter(value)} />
 
-        <Button className="add" onClick={this.onAdd}>
+        <Button className={styles.add} onClick={this.onAdd}>
           <Icon name="add" />
         </Button>
       </div>

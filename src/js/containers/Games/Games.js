@@ -25,9 +25,9 @@ class Games extends Component {
     return (
       <main>
         <GamesListSection
-          className="upcoming-games"
           title={`Upcoming games (${upcomingGames.length})`}
           games={upcomingGames}
+          hideScore={true}
           urlFormatter={formatUpcomingGameUrl}
           buttons={[
             <ButtonAddGame key="new" renderWhen={hasPermission(PERMISSION_ADD_GAME)} />

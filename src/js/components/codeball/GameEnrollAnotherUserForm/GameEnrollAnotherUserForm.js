@@ -35,11 +35,7 @@ class GameEnrollAnotherUserForm extends Component {
     }));
 
     return (
-      <div
-        className={classNames(
-          'game-enroll-user-form',
-          className
-        )}>
+      <div className={className}>
         <Form
           renderWhen={isEditing}
           inputs={[

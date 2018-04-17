@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { formatRange } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Icon } from 'components/ui';
+import styles from './styles.scss';
 
 class PitchCapacity extends Component {
   static propTypes = {
@@ -14,7 +15,7 @@ class PitchCapacity extends Component {
     const capacity = formatRange(minNumberOfPlayers, maxNumberOfPlayers);
 
     return (
-      <div title="Pitch capacity">
+      <div className={styles.info} title="Pitch capacity">
         <Icon name="people" />
         {capacity}
       </div>

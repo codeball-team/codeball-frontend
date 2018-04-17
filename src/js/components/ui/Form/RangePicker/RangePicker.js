@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { NumberPicker } from 'components/ui';
-import './RangePicker.scss';
+import styles from './styles.scss';
 
 class RangePicker extends Component {
   static propTypes = {
@@ -11,15 +11,14 @@ class RangePicker extends Component {
     maxOptions: PropTypes.array,
     min: PropTypes.number,
     minOptions: PropTypes.array,
-    orientation: PropTypes.oneOf(['horizontal', 'vertical']),
     separator: PropTypes.string,
     valueFormatter: PropTypes.func,
+    vertical: PropTypes.bool,
     onMaxChange: PropTypes.func.isRequired,
     onMinChange: PropTypes.func.isRequired
   };
 
   static defaultProps = {
-    orientation: 'vertical',
     separator: '-'
   };
 
@@ -30,35 +29,31 @@ class RangePicker extends Component {
       maxOptions,
       min,
       minOptions,
-      orientation,
       separator,
       valueFormatter,
+      vertical,
       onMaxChange,
       onMinChange
     } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'range-picker',
-          className
-        )}>
+      <div className={classNames(styles.rangePicker, className)}>
         <NumberPicker
-          className="min-picker"
-          orientation={orientation}
+          className={styles.minPicker}
           values={minOptions}
           value={min}
           valueFormatter={valueFormatter}
+          vertical={vertical}
           onChange={onMinChange} />
 
-        <span className="separator"> {separator} </span>
+        <span className={styles.separator}> {separator} </span>
 
         <NumberPicker
-          className="max-picker"
-          orientation={orientation}
+          className={styles.maxPicker}
           values={maxOptions}
           value={max}
           valueFormatter={valueFormatter}
+          vertical={vertical}
           onChange={onMaxChange} />
       </div>
     );

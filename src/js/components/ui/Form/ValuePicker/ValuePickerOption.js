@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
+import styles from './styles.scss';
 
 class ValuePickerOption extends Component {
   static propTypes = {
@@ -24,10 +25,7 @@ class ValuePickerOption extends Component {
     return (
       <div
         onClick={this.onClick}
-        className={classNames(
-          'value-picker-option',
-          className
-        )}>
+        className={classNames(styles.valuePickerOption, className)}>
         {label}
       </div>
     );

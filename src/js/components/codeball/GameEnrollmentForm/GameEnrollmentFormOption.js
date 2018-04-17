@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Button } from 'components/ui';
+import styles from './styles.scss';
 
 class GameEnrollmentFormOption extends Component {
   static propTypes = {
@@ -22,14 +23,14 @@ class GameEnrollmentFormOption extends Component {
 
     return (
       <Button
-        onClick={this.onClick}
         className={classNames(
-          'option',
+          styles.option,
           className,
           {
-            inactive
+            [styles.inactive]: inactive
           }
-        )}>
+        )}
+        onClick={this.onClick}>
         {text}
       </Button>
     );

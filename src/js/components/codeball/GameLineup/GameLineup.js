@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { TeamLineup } from 'components/codeball';
-import './GameLineup.scss';
+import styles from './styles.scss';
 
 class GameLineup extends Component {
   static propTypes = {
@@ -15,18 +15,9 @@ class GameLineup extends Component {
     const { className, teamA, teamB } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'game-lineup',
-          className
-        )}>
-        <TeamLineup
-          teamName="Team A"
-          users={teamA} />
-
-        <TeamLineup
-          teamName="Team B"
-          users={teamB} />
+      <div className={classNames(styles.gameLineup, className)}>
+        <TeamLineup className={styles.teamLineup} teamName="Team A" users={teamA} />
+        <TeamLineup className={styles.teamLineup} teamName="Team B" users={teamB} />
       </div>
     );
   }

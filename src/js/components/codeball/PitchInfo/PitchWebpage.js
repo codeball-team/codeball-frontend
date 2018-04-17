@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { getDomain } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Icon } from 'components/ui';
+import styles from './styles.scss';
 
 class PitchWebpage extends Component {
   static propTypes = {
@@ -12,7 +13,7 @@ class PitchWebpage extends Component {
     const { url } = this.props;
 
     return (
-      <div className="ellipsis" title="Pitch webpage">
+      <div className={styles.info} title="Pitch webpage">
         <Icon name="world" />
         <a href={url}>
           {getDomain(url)}

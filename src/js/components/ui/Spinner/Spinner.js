@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Icon } from 'components/ui';
-import './Spinner.scss';
+import styles from './styles.scss';
 
 class Spinner extends Component {
   static propTypes = {
@@ -21,14 +21,15 @@ class Spinner extends Component {
     return (
       <div
         className={classNames(
-          'spinner',
-          placement,
+          styles.spinner,
           {
-            visible: show
+            [styles.fixed]: placement === 'fixed',
+            [styles.relative]: placement === 'relative',
+            [styles.visible]: show
           },
           className
         )}>
-        <Icon name="load" className="spinner-image" />
+        <Icon name="load" className={styles.spinnerImage} />
       </div>
     );
   }

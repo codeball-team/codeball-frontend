@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { _, classNames, findLabelByValue, moment, padLeft } from 'utils';
+import { _, findLabelByValue, moment, padLeft } from 'utils';
 import { DATE_FORMAT, MONTH_YEAR_FORMAT, DURATION_OPTIONS, HOUR_OPTIONS, MINUTE_OPTIONS } from 'constants';
 import { NewGameModel } from 'models';
 import { BaseComponent } from 'components/base';
@@ -56,11 +56,7 @@ class NewGame extends Component {
     const selectedStartDate = moment(date);
 
     return (
-      <div
-        className={classNames(
-          'new-game',
-          className
-        )}>
+      <div className={className}>
         <Form
           onSubmit={onSubmit}
           inputs={[
@@ -100,9 +96,9 @@ class NewGame extends Component {
                   minOptions={HOUR_OPTIONS}
                   max={minute}
                   maxOptions={MINUTE_OPTIONS}
-                  orientation="vertical"
                   separator=":"
                   valueFormatter={valueFormatter}
+                  vertical={true}
                   onMinChange={onHourChange}
                   onMaxChange={onMinuteChange} />
               )
@@ -113,7 +109,6 @@ class NewGame extends Component {
               isValid: NewGameModel.isDateValid(newGame),
               component: (
                 <Calendar
-                  className="editable-text-input"
                   dateFormat={MONTH_YEAR_FORMAT}
                   locale="en-GB"
                   minDate={moment()}

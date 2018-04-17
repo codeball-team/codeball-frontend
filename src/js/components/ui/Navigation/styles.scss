@@ -59,7 +59,7 @@ nav.navigation {
           }
         }
 
-        span.label {
+        .label {
           @include tablet-and-smaller {
             @include ellipsis;
             position: absolute;

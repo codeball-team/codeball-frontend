@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
-import './ListItem.scss';
+import styles from './styles.scss';
 
 class ListItem extends Component {
   static propTypes = {
@@ -15,10 +15,7 @@ class ListItem extends Component {
 
     return (
       <div
-        className={classNames(
-          'list-item',
-          className
-        )}
+        className={classNames(styles.listItem, className)}
         onClick={onClick}>
         {children}
       </div>

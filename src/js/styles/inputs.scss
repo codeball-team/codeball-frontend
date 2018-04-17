@@ -2,7 +2,7 @@
 @import '~styles/mixins.scss';
 @import '~styles/datepicker.scss';
 
-.Select {
+:global(.Select) {
   position: relative;
   cursor: default;
 
@@ -10,11 +10,12 @@
     outline: 0;
   }
 
-  .Select-control {
+  :global(.Select-control) {
     @include input;
     line-height: auto;
 
-    .Select-value, .Select-placeholder {
+    :global(.Select-value),
+    :global(.Select-placeholder) {
       @include ellipsis;
       padding-right: $spacing-l;
       cursor: default;
@@ -24,7 +25,7 @@
       }
     }
 
-    .Select-arrow-zone {
+    :global(.Select-arrow-zone) {
       position: absolute;
       right: $spacing-s;
       top: $spacing-xs + 1px;
@@ -37,19 +38,19 @@
     }
   }
 
-  .Select-menu-outer {
+  :global(.Select-menu-outer) {
     top: 36px;
     position: absolute;
     width: 100%;
     z-index: 1;
     box-shadow: $shadow;
 
-    .Select-menu {
+    :global(.Select-menu) {
       border-top: $border-solid;
       max-height: 200px;
       overflow: auto;
 
-      .Select-option {
+      :global(.Select-option) {
         @include input;
         @include ellipsis;
         @include highlight-on-hover($highlight-color-dark);
@@ -57,7 +58,7 @@
       }
     }
 
-    .Select-noresults {
+    :global(.Select-noresults) {
       padding: $spacing-xs $spacing-s;
       text-align: center;
       background-color: white;

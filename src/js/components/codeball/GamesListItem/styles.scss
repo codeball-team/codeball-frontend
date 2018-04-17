@@ -5,6 +5,7 @@
   @include flex-parent;
 
   .date-time {
+    @include ellipsis;
     min-width: 200px;
     flex: 0 1 auto;
     margin-right: $spacing-l;
@@ -21,6 +22,7 @@
 
   .pitch {
     @include flex-child-grow;
+    @include ellipsis;
     margin-right: $spacing-l;
 
     @include phone {

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { BaseComponent } from 'components/base';
 import { Icon } from 'components/ui';
+import styles from './styles.scss';
 
 class GameTime extends Component {
   static propTypes = {
@@ -11,7 +12,7 @@ class GameTime extends Component {
     const { time } = this.props;
 
     return (
-      <div className="ellipsis" title="Game time">
+      <div className={styles.value} title="Game time">
         <Icon name="clock" />
         {time}
       </div>

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { PITCH_TYPE_STRING } from 'constants';
 import { BaseComponent } from 'components/base';
 import { Icon } from 'components/ui';
+import styles from './styles.scss';
 
 class PitchType extends Component {
   static propTypes = {
@@ -12,7 +13,7 @@ class PitchType extends Component {
     const { type } = this.props;
 
     return (
-      <div className="ellipsis" title="Pitch type">
+      <div className={styles.info} title="Pitch type">
         <Icon name="layers" />
         <a href="http://www.worldsoccershop.com/buyers-guide-boots.html">
           {PITCH_TYPE_STRING[type]}

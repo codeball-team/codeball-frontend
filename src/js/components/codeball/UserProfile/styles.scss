@@ -13,7 +13,8 @@
   }
 
   .info {
-    > div {
+    .info-row {
+      @include ellipsis;
       margin-bottom: $spacing-s;
     }
   }

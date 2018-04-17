@@ -2,7 +2,7 @@
 @import '~styles/mixins.scss';
 
 .game-enrollment-form {
-  @include flex-parent(center, flex-start)
+  @include flex-parent(center, flex-start);
   align-content: stretch;
 
   .option {

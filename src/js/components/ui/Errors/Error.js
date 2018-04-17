@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Button } from 'components/ui';
+import styles from './styles.scss';
 
 class Error extends Component {
   static propTypes = {
@@ -27,23 +28,19 @@ class Error extends Component {
     } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'error',
-          className
-        )}>
-        <div className="header">
-          <div className="title ellipsis">
+      <div className={classNames(styles.error, className)}>
+        <div className={styles.header}>
+          <div className={styles.title}>
             {title}
           </div>
 
-          <Button className="dismiss" onClick={this.onErrorAcknowledge}>
-            <span className="icon">&times;</span>
-            <span className="label">Dismiss</span>
+          <Button className={styles.dismiss} onClick={this.onErrorAcknowledge}>
+            <span className={styles.icon}>&times;</span>
+            <span className={styles.label}>Dismiss</span>
           </Button>
         </div>
 
-        <div className="message">
+        <div className={styles.message}>
           {message}
         </div>
       </div>

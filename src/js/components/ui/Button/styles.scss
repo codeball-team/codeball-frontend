@@ -13,7 +13,7 @@
     outline: 0;
   }
 
-  &.is-disabled {
+  &.disabled {
     pointer-events: none;
     color: $fg-color-inactive;
   }

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { BaseComponent } from 'components/base';
 import { Link, ListItem } from 'components/ui';
+import styles from './styles.scss';
 
 class PitchesListItem extends Component {
   static propTypes = {
@@ -20,12 +21,12 @@ class PitchesListItem extends Component {
 
     return (
       <Link to={`/pitches/${id}`}>
-        <ListItem className="pitches-list-item">
-          <div className="name ellipsis">
+        <ListItem className={styles.pitchesListItem}>
+          <div className={styles.name}>
             {name}
           </div>
 
-          <div className="address ellipsis">
+          <div className={styles.address}>
             {address}
           </div>
 

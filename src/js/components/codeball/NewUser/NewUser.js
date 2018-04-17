@@ -4,7 +4,7 @@ import { classNames } from 'utils';
 import { NewUserModel } from 'models';
 import { BaseComponent } from 'components/base';
 import { EditableText, Form, ValuePicker } from 'components/ui';
-import './NewUser.scss';
+import styles from './styles.scss';
 
 class NewUser extends Component {
   static propTypes = {
@@ -37,11 +37,7 @@ class NewUser extends Component {
     } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'new-user',
-          className
-        )}>
+      <div className={classNames(styles.newUser, className)}>
         <Form
           onSubmit={onSubmit}
           inputs={[
@@ -84,7 +80,7 @@ class NewUser extends Component {
               isValid: NewUserModel.isRoleValid(newUser),
               component: (
                 <ValuePicker
-                  className="role-picker"
+                  className={styles.rolePicker}
                   options={roleOptions}
                   value={role}
                   onChange={onRoleChange} />

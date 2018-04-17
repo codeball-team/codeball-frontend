@@ -6,7 +6,7 @@ import PitchAddress from './PitchAddress';
 import PitchCapacity from './PitchCapacity';
 import PitchType from './PitchType';
 import PitchWebpage from './PitchWebpage';
-import './PitchInfo.scss';
+import styles from './styles.scss';
 
 class PitchInfo extends Component {
   static propTypes = {
@@ -27,11 +27,7 @@ class PitchInfo extends Component {
     } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'pitch-info',
-          className
-        )}>
+      <div className={classNames(styles.pitchInfo, className)}>
         <PitchAddress address={address} />
         <PitchWebpage
           renderWhen={!_.isUndefined(url)}

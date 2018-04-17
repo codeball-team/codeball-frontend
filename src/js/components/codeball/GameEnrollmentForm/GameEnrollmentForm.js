@@ -1,30 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import {
-  ENROLLMENT_STATUSES, ENROLLMENT_STATUS_MAYBE,
-  ENROLLMENT_STATUS_NO, ENROLLMENT_STATUS_YES
-} from 'constants';
+import { ENROLLMENT_STATUSES } from 'constants';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import GameEnrollmentFormOption from './GameEnrollmentFormOption';
-import './GameEnrollmentForm.scss';
-
-const GAME_ENROLLMENT_FORM_OPTIONS = [
-  {
-    className: 'yes',
-    value: ENROLLMENT_STATUS_YES,
-    text: 'Yes'
-  },
-  {
-    className: 'maybe',
-    value: ENROLLMENT_STATUS_MAYBE,
-    text: 'Maybe'
-  },
-  {
-    className: 'no',
-    value: ENROLLMENT_STATUS_NO,
-    text: 'No'
-  }
-];
+import GAME_ENROLLMENT_FORM_OPTIONS from './options';
+import styles from './styles.scss';
 
 class GameEnrollmentForm extends Component {
   static propTypes = {
@@ -37,11 +17,7 @@ class GameEnrollmentForm extends Component {
     const { className, enrollmentStatus, onChange } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'game-enrollment-form',
-          className
-        )}>
+      <div className={classNames(styles.gameEnrollmentForm, className)}>
         {GAME_ENROLLMENT_FORM_OPTIONS.map((option, index) => {
           const { value: optionValue } = option;
           return (

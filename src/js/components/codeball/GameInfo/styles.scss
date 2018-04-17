@@ -2,7 +2,8 @@
 @import '~styles/mixins.scss';
 
 .game-info {
-  > div {
+  .value {
+    @include ellipsis;
     margin-bottom: $spacing-s;
   }
 }

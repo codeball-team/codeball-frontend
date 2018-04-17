@@ -8,6 +8,7 @@
 
     .name {
       @include flex-child-grow;
+      @include ellipsis;
       margin-right: $spacing-l;
 
       @include small-phone {
@@ -17,6 +18,7 @@
 
     .address {
       @include flex-child-grow;
+      @include ellipsis;
       text-align: right;
 
       @include small-phone {

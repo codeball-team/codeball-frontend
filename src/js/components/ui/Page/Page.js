@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { BaseComponent } from 'components/base';
 import { Navigation } from 'components/ui';
-import './Page.scss';
+import styles from './styles.scss';
 
 class Page extends Component {
   static propTypes = {
@@ -22,13 +22,13 @@ class Page extends Component {
     const { children } = this.props;
 
     return (
-      <div className="page">
-        <Navigation className="page-menu" />
-        <div className="page-content-container">
-          <div className="page-content">
+      <div className={styles.page}>
+        <Navigation className={styles.pageMenu} />
+        <div className={styles.pageContentContainer}>
+          <div className={styles.pageContent}>
             {children}
 
-            <a href="#" className="back-button" onClick={this.onBackClick}>
+            <a href="#" className={styles.backButton} onClick={this.onBackClick}>
               &laquo; back
             </a>
           </div>

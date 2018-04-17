@@ -12,7 +12,7 @@ class Value extends Component {
     return (
       <span>
         <span>:</span>
-        <span className="text-highlight">{` ${value}`}</span>
+        <span className={styles.textHighlight}>{` ${value}`}</span>
       </span>
     );
   }

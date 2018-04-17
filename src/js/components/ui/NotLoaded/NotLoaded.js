@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
-import './NotLoaded.scss';
+import styles from './styles.scss';
 
 class NotLoaded extends Component {
   static propTypes = {
@@ -14,12 +14,8 @@ class NotLoaded extends Component {
     const { children, className, message } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'not-loaded',
-          className
-        )}>
-        <div className="message">
+      <div className={classNames(styles.notLoaded, className)}>
+        <div className={styles.message}>
           {message}
         </div>
 

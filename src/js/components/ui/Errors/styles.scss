@@ -38,6 +38,7 @@
       align-items: flex-start;
 
       .title {
+        @include ellipsis;
         flex: 1 1 100%;
         font-size: $font-size-m;
         margin-right: $spacing-l;
@@ -46,6 +47,15 @@
       .dismiss {
         flex: 1 0 auto;
         font-size: $font-size-m;
+        padding: 5px;
+
+        .icon {
+          margin-right: $spacing-s;
+        }
+
+        .label {
+          display: inline;
+        }
       }
     }
 

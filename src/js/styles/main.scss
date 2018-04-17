@@ -69,35 +69,3 @@ main {
     }
   }
 }
-
-.ellipsis {
-  @include ellipsis;
-}
-
-.text-highlight {
-  color: $yellow;
-}
-
-.fg-success {
-  color: $bg-color-success;
-}
-
-.fg-default-alert {
-  color: $bg-color-default-alert;
-}
-
-.fg-danger {
-  color: $fg-color-danger;
-}
-
-.bg-success {
-  background-color: $bg-color-success;
-}
-
-.bg-default-alert {
-  background-color: $bg-color-default-alert;
-}
-
-.bg-danger {
-  background-color: $bg-color-danger;
-}

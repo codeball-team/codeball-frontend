@@ -8,14 +8,12 @@
     .submit-button {
       margin-top: $spacing-l;
 
-      &.button {
-        .icon {
-          margin-right: $spacing-s;
-        }
+      .icon {
+        margin-right: $spacing-s;
+      }
 
-        .label {
-          display: inline;
-        }
+      .label {
+        display: inline;
       }
     }
   }

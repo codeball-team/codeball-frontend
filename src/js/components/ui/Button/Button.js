@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { _, classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Link } from 'components/ui';
-import './Button.scss';
+import styles from './styles.scss';
 
 class Button extends Component {
   static propTypes = {
@@ -29,14 +29,14 @@ class Button extends Component {
 
     const button = (
       <div
-        onClick={onClick}
         className={classNames(
-          'button',
+          styles.button,
           {
-            'is-disabled': isDisabled
+            [styles.disabled]: isDisabled
           },
           className
-        )}>
+        )}
+        onClick={onClick}>
         {children}
       </div>
     );

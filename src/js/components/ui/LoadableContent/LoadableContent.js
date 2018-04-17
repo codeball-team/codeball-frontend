@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
-import './LoadableContent.scss';
+import styles from './styles.scss';
 
 class LoadableContent extends Component {
   static propTypes = {
@@ -39,9 +39,9 @@ class LoadableContent extends Component {
     return (
       <div
         className={classNames(
-          'loadable-content',
+          styles.loadableContent,
           {
-            'is-loading': displayLoadingState
+            [styles.loading]: displayLoadingState
           }
         )}>
         {!displayLoadingState && (

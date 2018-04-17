@@ -14,7 +14,7 @@
     border: $border-transparent;
     text-align: center;
 
-    &.is-selected {
+    &.selected {
       border: $border-solid;
     }
   }

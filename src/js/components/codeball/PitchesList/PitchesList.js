@@ -3,7 +3,7 @@ import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { List } from 'components/ui';
 import PitchesListItem from './PitchesListItem';
-import './PitchesList.scss';
+import styles from './styles.scss';
 
 class PitchesList extends Component {
   static propTypes = {
@@ -15,11 +15,7 @@ class PitchesList extends Component {
     const { className, pitches } = this.props;
 
     return (
-      <List
-        className={classNames(
-          'pitches-list',
-          className
-        )}>
+      <List className={classNames(styles.pitchesList, className)}>
         {pitches.map((pitch, index) => (
           <PitchesListItem key={index} pitch={pitch} />
         ))}

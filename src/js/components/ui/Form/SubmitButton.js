@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { BaseComponent } from 'components/base';
 import { ButtonSave } from 'components/ui';
+import styles from './styles.scss';
 
 class SubmitButton extends Component {
   static propTypes = {
@@ -12,9 +13,11 @@ class SubmitButton extends Component {
     const { isDisabled, onClick } = this.props;
 
     return (
-      <div className="submit-button-container">
+      <div className={styles.submitButtonContainer}>
         <ButtonSave
-          className="submit-button"
+          className={styles.submitButton}
+          iconClassName={styles.icon}
+          labelClassName={styles.label}
           isDisabled={isDisabled}
           onClick={onClick} />
       </div>

@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { List } from 'components/ui';
 import { UsersListItem } from 'components/codeball';
@@ -14,11 +13,7 @@ class UsersList extends Component {
     const { className, users } = this.props;
 
     return (
-      <List
-        className={classNames(
-          'users-list',
-          className
-        )}>
+      <List className={className}>
         {users.map((user, index) => (
           <UsersListItem key={index} user={user} />
         ))}

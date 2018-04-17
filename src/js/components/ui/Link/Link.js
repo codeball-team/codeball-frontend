@@ -1,6 +1,6 @@
 import React, { cloneElement, Component, PropTypes } from 'react';
 import { _ } from 'utils';
-import './Link.scss';
+import styles from './styles.scss';
 
 export default class Link extends Component {
   static contextTypes = {
@@ -37,7 +37,7 @@ export default class Link extends Component {
 
     if(!type) {
       return (
-        <a className="link" onClick={this.onClick}>
+        <a className={styles.link} onClick={this.onClick}>
           {children}
         </a>
       );

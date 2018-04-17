@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import ValuePickerOption from './ValuePickerOption';
-import './ValuePicker.scss';
+import styles from './styles.scss';
 
 class ValuePicker extends Component {
   static propTypes = {
@@ -30,18 +30,14 @@ class ValuePicker extends Component {
     } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'value-picker',
-          className
-        )}>
+      <div className={classNames(styles.valuePicker, className)}>
         {options.map(({ label, value }, index) => (
           <ValuePickerOption
             key={index}
             className={classNames(
               optionClassName,
               {
-                'is-selected': value === currentValue
+                [styles.selected]: value === currentValue
               }
             )}
             label={label}

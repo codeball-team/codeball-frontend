@@ -9,6 +9,7 @@
     @include flex-parent(flex-start, flex-start);
 
     .section-title {
+      @included ellipsis;
       flex: 0 1 auto;
       font-size: $font-size-l;
       padding-bottom: $spacing-m;

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import icons from 'components/ui/icons';
-import './Icon.scss';
+import styles from './styles.scss';
 
 class Icon extends Component {
   static propTypes = {
@@ -17,10 +17,7 @@ class Icon extends Component {
     return (
       <IconComponent
         {...restProps}
-        className={classNames(
-          'icon',
-          className
-        )} />
+        className={classNames(styles.icon, className)} />
     );
   }
 }

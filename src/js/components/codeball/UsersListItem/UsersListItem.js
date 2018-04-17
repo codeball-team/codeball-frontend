@@ -3,7 +3,7 @@ import { classNames } from 'utils';
 import { USER_MISSING_PICTURE_URL } from 'constants';
 import { BaseComponent } from 'components/base';
 import { Link, ListItem } from 'components/ui';
-import './UsersListItem.scss';
+import styles from './styles.scss';
 
 class UsersListItem extends Component {
   static propTypes = {
@@ -26,18 +26,14 @@ class UsersListItem extends Component {
 
     return (
       <Link to={`/players/${id}`}>
-        <ListItem
-          className={classNames(
-            'users-list-item',
-            className
-          )}>
+        <ListItem className={classNames(styles.usersListItem, className)}>
           <div
-            className="picture"
+            className={styles.picture}
             style={{
               backgroundImage: `url("${pictureUrl || USER_MISSING_PICTURE_URL}")`
             }} />
 
-          <div className="name ellipsis">
+          <div className={styles.name}>
             {lastName} {firstName}
           </div>
 

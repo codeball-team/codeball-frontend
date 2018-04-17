@@ -5,7 +5,7 @@ import { PitchInfo } from 'components/codeball';
 import GameDate from './GameDate';
 import GameDuration from './GameDuration';
 import GameTime from './GameTime';
-import './GameInfo.scss';
+import styles from './styles.scss';
 
 class GameInfo extends Component {
   static propTypes = {
@@ -26,11 +26,7 @@ class GameInfo extends Component {
     } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'game-info',
-          className
-        )}>
+      <div className={classNames(styles.gameInfo, className)}>
         <GameDate date={date} />
         <GameTime time={time} />
         <GameDuration duration={duration} />

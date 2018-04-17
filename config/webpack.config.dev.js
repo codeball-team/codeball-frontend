@@ -10,7 +10,7 @@ const PATHS = {
 
 const sassLoaders = [
   'style-loader',
-  'css-loader?sourceMap',
+  'css-loader?sourceMap&modules&camelCase',
   'postcss-loader',
   'sass-loader?outputStyle=expanded'
 ];

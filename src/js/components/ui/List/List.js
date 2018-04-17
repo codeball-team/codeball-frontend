@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
-import './List.scss';
+import styles from './styles.scss';
 
 class List extends Component {
   static propTypes = {
@@ -13,11 +13,7 @@ class List extends Component {
     const { children, className } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'list',
-          className
-        )}>
+      <div className={classNames(styles.list, className)}>
         {children}
       </div>
     );

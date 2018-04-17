@@ -1,0 +1,8 @@
+@import '~styles/variables.scss';
+@import '~styles/mixins.scss';
+
+.pitch-info {
+  .info {
+    margin-bottom: $spacing-s;
+  }
+}

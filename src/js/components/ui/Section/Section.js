@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { _ } from 'utils';
 import { BaseComponent } from 'components/base';
 import { ButtonCancel, ButtonEdit, ButtonSave, ButtonsPanel } from 'components/ui';
-import './Section.scss';
+import styles from './styles.scss';
 
 export default function SectionDecorator(ChildComponent) {
   class Section extends Component {
@@ -48,13 +48,13 @@ export default function SectionDecorator(ChildComponent) {
       };
 
       return (
-        <div className="section">
-          <div className="section-bar">
-            <div className="section-title ellipsis">
+        <div className={styles.section}>
+          <div className={styles.sectionBar}>
+            <div className={styles.sectionTitle}>
               {title}
             </div>
 
-            <ButtonsPanel>
+            <ButtonsPanel className={styles.buttonsPanel}>
               {[
                 <ButtonEdit
                   renderWhen={[

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import Error from './Error';
-import './Errors.scss';
+import styles from './styles.scss';
 
 class Errors extends Component {
   static propTypes = {
@@ -15,11 +15,7 @@ class Errors extends Component {
     const { className, errors, onErrorAcknowledge } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'errors',
-          className
-        )}>
+      <div className={classNames(styles.errors, className)}>
         {errors.map((error, index) => (
           <Error
             key={index}

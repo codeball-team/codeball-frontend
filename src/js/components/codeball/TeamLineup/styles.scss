@@ -3,8 +3,10 @@
 
 .team-lineup {
   @include flex-child-grow(100%);
+  @include ellipsis;
 
   .team-name {
+    @include ellipsis;
     text-align: center;
     background-color: $nav-bg-active-color;
     font-size: $font-size-m;

@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Children, Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
-import './ButtonsPanel.scss';
+import styles from './styles.scss';
 
 class ButtonsPanel extends Component {
   static propTypes = {
@@ -13,12 +13,11 @@ class ButtonsPanel extends Component {
     const { children, className } = this.props;
 
     return (
-      <div
-        className={classNames(
-          'buttons-panel',
-          className
-        )}>
-        {children}
+      <div className={classNames(styles.buttonsPanel, className)}>
+        {Children.map(children, (props) => ({
+          ...props,
+          className: classNames(props.className, styles.button)
+        }))}
       </div>
     );
   }

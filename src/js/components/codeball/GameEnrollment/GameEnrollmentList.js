@@ -3,6 +3,7 @@ import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { List } from 'components/ui';
 import GameEnrollmentListItem from './GameEnrollmentListItem';
+import styles from './styles.scss';
 
 class GameEnrollmentList extends Component {
   static propTypes = {
@@ -15,11 +16,7 @@ class GameEnrollmentList extends Component {
     const { className, enrollmentStatus, users } = this.props;
 
     return (
-      <List
-        className={classNames(
-          'game-enrollment-list',
-          className
-        )}>
+      <List className={classNames(vstyles.gameEnrollmentList, className)}>
         {users.map((user, index) => (
           <GameEnrollmentListItem
             key={index}

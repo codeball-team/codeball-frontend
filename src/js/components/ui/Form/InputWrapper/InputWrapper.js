@@ -3,7 +3,7 @@ import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Icon } from 'components/ui';
 import Value from './Value';
-import './InputWrapper.scss';
+import styles from './styles.scss';
 
 class InputWrapper extends Component {
   static propTypes = {
@@ -26,20 +26,20 @@ class InputWrapper extends Component {
     return (
       <div
         className={classNames(
-          'input-wrapper',
+          styles.inputWrapper,
           className
         )}>
-        <div className="label">
-          <div className="title">
+        <div className={styles.label}>
+          <div className={styles.title}>
             {label}<Value renderWhen={isValid} value={displayValue} />
           </div>
 
           <div
             className={classNames(
-              'validation',
+              styles.validation,
               {
-                valid: isValid,
-                invalid: !isValid
+                [styles.valid]: isValid,
+                [styles.invalid]: !isValid
               }
             )}>
             <Icon name="save" renderWhen={isValid} />
@@ -47,7 +47,7 @@ class InputWrapper extends Component {
           </div>
         </div>
 
-        <div className="content">
+        <div>
           {children}
         </div>
       </div>

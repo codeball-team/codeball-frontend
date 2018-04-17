@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { _, classNames } from 'utils';
 import { BaseComponent } from 'components/base';
-import './EditableText.scss';
+import styles from './styles.scss';
 
 class EditableText extends Component {
   static propTypes = {
@@ -44,19 +44,12 @@ class EditableText extends Component {
           value={String(text === undefined ? '' : text)}
           onChange={this.onChange}
           disabled={isDisabled}
-          className={classNames(
-            'editable-text-input',
-            className
-          )} />
+          className={className} />
       );
     }
 
     return (
-      <span
-        className={classNames(
-          'editable-text',
-          className
-        )}>
+      <span className={classNames(styles.editableText, className)}>
         {text}
       </span>
     );

@@ -3,7 +3,7 @@ import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { InputWrapper } from 'components/ui';
 import SubmitButton from './SubmitButton';
-import './Form.scss';
+import styles from './styles.scss';
 
 class Form extends Component {
   static propTypes = {
@@ -26,10 +26,10 @@ class Form extends Component {
     return (
       <div
         className={classNames(
-          'form',
+          styles.form,
           className
         )}>
-        <div className="inputs">
+        <div>
           {visibleInputs.map(({ label, displayValue, isValid, component }, index) => (
             <InputWrapper
               key={index}

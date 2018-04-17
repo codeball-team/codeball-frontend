@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { Button, Icon } from 'components/ui';
-import './IconButton.scss';
+import styles from './styles.scss';
 
 export default function IconButtonDecorator(props) {
   const {
@@ -13,7 +14,9 @@ export default function IconButtonDecorator(props) {
   class IconButton extends Component {
     static propTypes = {
       icon: PropTypes.string,
-      label: PropTypes.string
+      iconClassName: PropTypes.string,
+      label: PropTypes.string,
+      labelClassName: PropTypes.string
     };
 
     static defaultProps = {
@@ -22,13 +25,13 @@ export default function IconButtonDecorator(props) {
     };
 
     render() {
-      const { icon, label, ...restProps } = this.props;
+      const { className, icon, label, iconClassName, labelClassName, ...restProps } = this.props;
       const buttonProps = { ...defaultProps, ...restProps };
 
       return (
-        <Button {...buttonProps}>
-          <Icon name={icon} />
-          <span className="label">{label}</span>
+        <Button className={classNames(styles.button, className)} {...buttonProps}>
+          <Icon className={styles.iconClassName} name={icon} />
+          <span className={classNames(styles.label, styles.labelClassName)}>{label}</span>
         </Button>
       );
     }

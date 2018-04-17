@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { BaseComponent } from 'components/base';
 import { Link, ListItem } from 'components/ui';
-import './GamesListItem.scss';
+import styles from './styles.scss';
 
 class GamesListItem extends Component {
   static propTypes = {
     game: PropTypes.object.isRequired,
+    hideScore: PropTypes.bool,
     urlFormatter: PropTypes.func.isRequired
   };
 
@@ -21,23 +22,26 @@ class GamesListItem extends Component {
         teamBScore,
         time
       },
+      hideScore,
       urlFormatter
     } = this.props;
 
     return (
       <Link to={urlFormatter(id)}>
-        <ListItem className="games-list-item">
-          <div className="date-time ellipsis">
+        <ListItem className={styles.gamesListItem}>
+          <div className={styles.dateTime}>
             {date} {time}
           </div>
 
-          <div className="pitch ellipsis">
+          <div className={styles.pitch}>
             {pitchName}
           </div>
 
-          <div className="score">
-            {teamAScore} : {teamBScore}
-          </div>
+          {!hideScore && (
+            <div className={styles.score}>
+              {teamAScore} : {teamBScore}
+            </div>
+          )}
         </ListItem>
       </Link>
     );

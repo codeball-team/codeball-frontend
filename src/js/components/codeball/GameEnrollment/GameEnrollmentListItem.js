@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';
 import { UsersListItem } from 'components/codeball';
+import styles from './styles.scss';
 
 class GameEnrollmentListItem extends Component {
   static propTypes = {
@@ -15,12 +16,9 @@ class GameEnrollmentListItem extends Component {
 
     return (
       <UsersListItem
-        user={user}
-        className={classNames(
-          'game-enrollment-list-item',
-          className
-        )}>
-        <div className="enrollment-status">
+        className={classNames(styles.gameEnrollmentListItem, className)}
+        user={user}>
+        <div className={styles.enrollmentStatus}>
           {enrollmentStatus}
         </div>
       </UsersListItem>
