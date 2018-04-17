@@ -1,1 +1,1 @@
-export ContainerComponent from './ContainerComponent';
+export ContainerComponent from './container-component';

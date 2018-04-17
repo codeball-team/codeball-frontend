@@ -30,6 +30,7 @@ const IconButtonDecorator = props => {
   };
 
   IconButton.propTypes = {
+    className: PropTypes.string,
     icon: PropTypes.string,
     iconClassName: PropTypes.string,
     label: PropTypes.string,

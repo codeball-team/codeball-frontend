@@ -29,10 +29,6 @@ module.exports = {
     'API_URL': true
   },
 
-  'import/ignore': [
-    '\\.(scss|less|css)$'
-  ],
-
   'rules': {
     // Possible Errors
     'comma-dangle': 'error',

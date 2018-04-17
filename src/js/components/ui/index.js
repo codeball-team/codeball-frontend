@@ -13,11 +13,11 @@ export Button from './button';
 export ButtonsPanel from './buttons-panel';
 export Errors from './errors';
 export Form, {
-  EditableText,
-  InputWrapper,
-  NumberPicker,
-  RangePicker,
-  ValuePicker
+EditableText,
+InputWrapper,
+NumberPicker,
+RangePicker,
+ValuePicker
 } from './form';
 export Icon from './icon';
 export IconButton from './icon-button';

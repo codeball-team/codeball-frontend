@@ -5,7 +5,7 @@ import styles from './styles.scss';
 
 export default class Link extends Component {
   static contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
   };
 
   static propTypes = {
