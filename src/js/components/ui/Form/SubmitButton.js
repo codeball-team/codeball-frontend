@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BaseComponent } from 'components/base';
 import { ButtonSave } from 'components/ui';
 import styles from './styles.scss';

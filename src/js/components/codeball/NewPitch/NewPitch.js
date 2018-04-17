@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   PITCH_MAX_CAPACITY, PITCH_MIN_CAPACITY,
   PITCH_TYPE_OPTIONS, PITCH_TYPE_STRING

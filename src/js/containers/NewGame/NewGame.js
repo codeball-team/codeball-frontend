@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME } from 'constants';
 import { newGameContainerSelector } from 'selectors/containers';
 import { NewGameModel } from 'models';

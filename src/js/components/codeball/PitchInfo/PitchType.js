@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { PITCH_TYPE_STRING } from 'constants';
 import { BaseComponent } from 'components/base';
 import { Icon } from 'components/ui';

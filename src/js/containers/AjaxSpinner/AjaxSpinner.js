@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ajaxSpinnerContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Spinner } from 'components/ui';

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AjaxSpinner from 'containers/AjaxSpinner/AjaxSpinner';
 import AjaxErrors from 'containers/AjaxErrors/AjaxErrors';
 import { Page } from 'components/ui';

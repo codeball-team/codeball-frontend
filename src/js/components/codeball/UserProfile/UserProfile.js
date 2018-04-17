@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ROLE_STRING, USER_MISSING_PICTURE_URL } from 'constants';
 import { classNames } from 'utils';
 import { BaseComponent } from 'components/base';

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { PERMISSION_ADD_USER, ROLE_OPTIONS } from 'constants';
 import { newUserContainerSelector } from 'selectors/containers';
 import { NewUserModel } from 'models';

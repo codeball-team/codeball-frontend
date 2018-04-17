@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { classNames } from 'utils';
 import { Icon, RouterLink } from 'components/ui';
 import styles from './styles.scss';

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { classNames, findLabelByValue } from 'utils';
 import { EnrollAnotherUserModel } from 'models';
 import { BaseComponent } from 'components/base';

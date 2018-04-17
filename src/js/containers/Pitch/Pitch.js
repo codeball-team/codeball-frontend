@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { PERMISSION_ADD_PITCH } from 'constants';
 import { pitchContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
