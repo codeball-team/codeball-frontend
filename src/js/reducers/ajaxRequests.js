@@ -1,4 +1,4 @@
-import { reducer } from 'utils';
+import { _, reducer } from 'utils';
 import {
   AJAX,
   AJAX_ABORT,
@@ -24,10 +24,7 @@ export default reducer(initialState, {
 
     return {
       ...state,
-      errors: [
-        ...errors,
-        error
-      ],
+      errors: _.uniq([ ...errors, error ], JSON.stringify),
       numberOfPendingRequests: state.numberOfPendingRequests - 1
     };
   },
