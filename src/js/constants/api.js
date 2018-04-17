@@ -30,7 +30,7 @@ export function gameUrl(gameId) {
 }
 
 export function gamesUrl() {
-  return `${API_URL}/game`;
+  return `${process.env.API_URL}/game`;
 }
 
 export function pitchUrl(pitchId) {
@@ -38,7 +38,7 @@ export function pitchUrl(pitchId) {
 }
 
 export function pitchesUrl() {
-  return `${API_URL}/pitch`;
+  return `${process.env.API_URL}/pitch`;
 }
 
 export function userUrl(userId) {
@@ -46,5 +46,5 @@ export function userUrl(userId) {
 }
 
 export function usersUrl() {
-  return `${API_URL}/user`;
+  return `${process.env.API_URL}/user`;
 }

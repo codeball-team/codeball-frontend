@@ -3,8 +3,7 @@
 `npm install`
 
 ## Building
-- `npm run build` for Unix
-- `npm run build:windows` for Windows
+`npm run build`
 
 ## Development server
 `npm start` will start a server at `http://localhost:8008`

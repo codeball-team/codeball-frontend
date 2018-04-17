@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import 'node-normalize-scss/_normalize.scss';
 import 'styles/main.scss';
 import React from 'react';
@@ -26,18 +25,6 @@ ReactDOM.render(
 );
 
 function renderContent() {
-  if(process.env.NODE_ENV !== 'production') {
-    const DevTools = require('./containers/DevTools').default;
-
-    return (
-      <div>
-        <BodyBackground images={BACKGROUND_IMAGES} />
-        <Router key="router" history={history} routes={routes} />
-        <DevTools key="devtools" />
-      </div>
-    );
-  }
-
   return (
     <div>
       <BodyBackground images={BACKGROUND_IMAGES} />

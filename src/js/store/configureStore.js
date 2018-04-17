@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from 'reducers';
 import { routerMiddleware } from 'react-router-redux';
-import { persistState } from 'redux-devtools';
 
 export default function configureStore(initialState, history) {
   const store = createStore(rootReducer, initialState, createEnhancer(history));
@@ -31,8 +30,7 @@ function createProductionEnhancer(middleware) {
 function createDevelopmentMiddleware(history) {
   return applyMiddleware(
     routerMiddleware(history),
-    require('redux-thunk').default,
-    require('redux-immutable-state-invariant')()
+    require('redux-thunk').default
   );
 }
 
@@ -43,15 +41,7 @@ function createDevelopmentEnhancer(middleware) {
     return matches.length > 0 ? matches[1] : null;
   };
 
-  const devToolsExtension = window.devToolsExtension;
-
-  return compose(
-    middleware,
-    devToolsExtension ? devToolsExtension() : require('../containers/DevTools').default.instrument(),
-
-    // Optional. Lets you write ?debug_session=<key> in address bar to persist debug sessions
-    persistState(getDebugSessionKey())
-  );
+  return compose(middleware);
 }
 
 function enableWebpackHMRForReducers(store) {
