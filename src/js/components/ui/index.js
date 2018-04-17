@@ -9,25 +9,25 @@ export const Select = BaseComponent(ReactSelect);
 
 export * from './buttons';
 
-export BodyBackground from './BodyBackground/BodyBackground';
-export Button from './Button/Button';
-export ButtonsPanel from './ButtonsPanel/ButtonsPanel';
-export Errors from './Errors/Errors';
+export BodyBackground from './body-background';
+export Button from './button';
+export ButtonsPanel from './buttons-panel';
+export Errors from './errors';
 export Form, {
   EditableText,
   InputWrapper,
   NumberPicker,
   RangePicker,
   ValuePicker
-} from './Form';
-export Icon from './Icon/Icon';
-export IconButton from './IconButton/IconButton';
-export Link from './Link/Link';
-export List from './List/List';
-export ListItem from './ListItem/ListItem';
-export LoadableContent from './LoadableContent/LoadableContent';
-export Navigation from './Navigation/Navigation';
-export NotLoaded from './NotLoaded/NotLoaded';
-export Page from './Page/Page';
-export Section from './Section/Section';
-export Spinner from './Spinner/Spinner';
+} from './form';
+export Icon from './icon';
+export IconButton from './icon-button';
+export Link from './link';
+export List from './list';
+export ListItem from './list-item';
+export LoadableContent from './loadable-content';
+export Navigation from './navigation';
+export NotLoaded from './not-loaded';
+export Page from './page';
+export Section from './section';
+export Spinner from './spinner';

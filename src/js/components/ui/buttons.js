@@ -1,4 +1,4 @@
-import IconButton from './IconButton/IconButton';
+import IconButton from './icon-button';
 
 export const ButtonAdd = IconButton({
   icon: 'add',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IndexRedirect, IndexRoute, Redirect, Route } from 'react-router';
 
-import App from 'components/App';
+import App from 'components/app';
 import Changelog from 'containers/Changelog/Changelog';
 import Game from 'containers/Game/Game';
 import Games from 'containers/Games/Games';

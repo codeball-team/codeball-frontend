@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from 'utils';
-import { BaseComponent } from 'components/base';
 import { Button } from 'components/ui';
 import styles from './styles.scss';
 
@@ -49,4 +48,4 @@ class Error extends Component {
   }
 }
 
-export default BaseComponent(Error);
+export default Error;

@@ -1,7 +1,7 @@
-export default from './Form';
+export default from './form';
 
-export EditableText from './EditableText/EditableText';
-export InputWrapper from './InputWrapper/InputWrapper';
-export NumberPicker from './NumberPicker/NumberPicker';
-export RangePicker from './RangePicker/RangePicker';
-export ValuePicker from './ValuePicker/ValuePicker';
+export EditableText from './editable-text';
+export InputWrapper from './input-wrapper';
+export NumberPicker from './number-picker';
+export RangePicker from './range-picker';
+export ValuePicker from './value-picker';
