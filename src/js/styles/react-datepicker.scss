@@ -1,6 +1,3 @@
-@import '~styles/variables.scss';
-@import '~styles/mixins.scss';
-
 :global(.react-datepicker) {
   $days-in-a-week: 7;
   $cell-size: $spacing-xxl;

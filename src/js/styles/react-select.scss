@@ -1,7 +1,3 @@
-@import '~styles/variables.scss';
-@import '~styles/mixins.scss';
-@import '~styles/datepicker.scss';
-
 :global(.Select) {
   position: relative;
   cursor: default;
@@ -65,12 +61,4 @@
       color: $bg-color;
     }
   }
-}
-
-input {
-  @include input;
-}
-
-::-webkit-input-placeholder {
-  opacity: 1;
 }

@@ -1,6 +1,3 @@
-@import '~styles/variables.scss';
-@import '~styles/mixins.scss';
-
 .game-enrollment-form {
   @include flex-parent(center, flex-start);
   align-content: stretch;

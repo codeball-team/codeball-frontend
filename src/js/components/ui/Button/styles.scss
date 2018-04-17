@@ -1,6 +1,3 @@
-@import '~styles/variables.scss';
-@import '~styles/mixins.scss';
-
 .button {
   @include transparent-clickable-effects;
   display: inline-block;

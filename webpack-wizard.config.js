@@ -6,6 +6,9 @@ module.exports = (webpackWizard, { resolveCwdPath }) => {
       html: resolveCwdPath('html/index.html'),
       js: resolveCwdPath('src/js/main.js'),
       jsDev: resolveCwdPath('src/js/main.js'),
+      styles: [
+        resolveCwdPath('src/js/styles')
+      ],
       modules: [
         resolveCwdPath('src/js')
       ]

@@ -1,6 +1,3 @@
-@import '~styles/variables.scss';
-@import '~styles/mixins.scss';
-
 .team-lineup {
   @include flex-child-grow(100%);
   @include ellipsis;

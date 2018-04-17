@@ -1,6 +1,5 @@
-@import '~styles/variables.scss';
-@import '~styles/mixins.scss';
-@import "~styles/inputs.scss";
+@import './react-datepicker.scss';
+@import './react-select.scss';
 
 * {
   box-sizing: border-box;
@@ -68,4 +67,13 @@ main {
       }
     }
   }
+}
+
+
+input {
+  @include input;
+}
+
+::-webkit-input-placeholder {
+  opacity: 1;
 }
