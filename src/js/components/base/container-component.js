@@ -28,7 +28,7 @@ export default function ContainerComponent(ComponentClass, options) {
       periodicUpdateData.start(this.updateDataCallback(this.props));
     };
 
-    componentWillReceiveProps = newProps => {
+    componentWillReceiveProps = (newProps) => {
       const idPath = ['params', 'id'];
       if(safeGet(newProps, idPath) !== safeGet(this.props, idPath)) {
         periodicUpdateData.restart(this.updateDataCallback(newProps));
@@ -39,7 +39,7 @@ export default function ContainerComponent(ComponentClass, options) {
       periodicUpdateData.end();
     };
 
-    updateDataCallback = props => () => updateData(props);
+    updateDataCallback = (props) => () => updateData(props);
 
     render() {
       const { isLoading, ...childProps } = this.props;
@@ -80,11 +80,11 @@ function applyPeriodicUpdates(periodicDataUpdates) {
 }
 
 function enhanceProps(mapStateToProps) {
-  return state => ({
+  return (state) => ({
     state,
     ...mapStateToProps(state),
-    getPermission: permission => getPermission(state, permission),
-    hasPermission: permission => hasPermission(state, permission)
+    getPermission: (permission) => getPermission(state, permission),
+    hasPermission: (permission) => hasPermission(state, permission)
   });
 }
 

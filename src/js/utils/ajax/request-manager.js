@@ -14,7 +14,7 @@ const requestManager = () => {
 
   return {
     debounce(key, request) {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         abortIfPending(key);
         add(key, request);
         resolve();
@@ -35,7 +35,6 @@ const requestManager = () => {
       });
     }
   };
-
 };
 
 export default requestManager;

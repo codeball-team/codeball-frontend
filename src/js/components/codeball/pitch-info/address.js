@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Icon } from 'components/ui';
 import styles from './styles.scss';
 
-const getMapsUrl = address => `https://www.google.com/maps/?q=${encodeURIComponent(address)}`;
+const getMapsUrl = (address) => `https://www.google.com/maps/?q=${encodeURIComponent(address)}`;
 
 const PitchAddress = ({ address }) => (
   <div className={styles.info} title="Pitch address">

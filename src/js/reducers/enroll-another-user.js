@@ -13,7 +13,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [GAME_ENROLL_ANOTHER_USER_EDIT]: state => ({
+  [GAME_ENROLL_ANOTHER_USER_EDIT]: (state) => ({
     ...state,
     isEditing: true
   }),

@@ -14,7 +14,7 @@ export const ROLE_STRING = {
   [ROLE_USER]: 'User'
 };
 
-export const ROLE_OPTIONS = ROLES.map(role => ({
+export const ROLE_OPTIONS = ROLES.map((role) => ({
   label: `${ROLE_STRING[role]}`,
   value: role
 }));

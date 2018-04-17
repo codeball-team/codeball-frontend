@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 export const currentUserIdSelector = createSelector(
   currentUserSelector,
-  currentUser => currentUser.id
+  (currentUser) => currentUser.id
 );
 
 export function currentUserSelector(state) {

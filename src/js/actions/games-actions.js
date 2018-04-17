@@ -109,7 +109,7 @@ export function gameEnrollAnotherUserReset() {
 }
 
 export function gameEnrollAnotherUserSubmit(gameId, userId, enrollmentStatus) {
-  return ajax(dispatch => ({
+  return ajax((dispatch) => ({
     actionType: GAME_ENROLL_ANOTHER_USER_SUBMIT,
     request: request('PUT', gameEnrollmentUrl(gameId, userId))
       .send(`"${enrollmentStatus}"`),
@@ -122,7 +122,7 @@ export function gameEnrollAnotherUserSubmit(gameId, userId, enrollmentStatus) {
 }
 
 export function gameEnd(gameId) {
-  return ajax(dispatch => ({
+  return ajax((dispatch) => ({
     actionType: GAME_END,
     request: request('PUT', gameEndUrl(gameId)),
     json: true,

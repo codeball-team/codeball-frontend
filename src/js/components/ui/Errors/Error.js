@@ -12,7 +12,7 @@ class Error extends Component {
     onErrorAcknowledge: PropTypes.func.isRequired
   };
 
-  onErrorAcknowledge = event => {
+  onErrorAcknowledge = (event) => {
     const { onErrorAcknowledge, errorIndex } = this.props;
     event.preventDefault();
     onErrorAcknowledge(errorIndex);

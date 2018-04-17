@@ -7,8 +7,8 @@ import { Render } from 'components/ui';
 import { GamesListSection } from 'components/sections';
 import { ButtonAddGame } from 'components/codeball';
 
-const formatUpcomingGameUrl = id => `/games/upcoming/${id}`;
-const formatPreviousGameUrl = id => `/games/previous/${id}`;
+const formatUpcomingGameUrl = (id) => `/games/upcoming/${id}`;
+const formatPreviousGameUrl = (id) => `/games/previous/${id}`;
 
 class Games extends Component {
   static propTypes = {

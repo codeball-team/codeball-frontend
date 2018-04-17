@@ -16,7 +16,7 @@ export function enrollmentsSelector(state) {
 }
 
 export const editableGameSelector = createSelector(
-  state => state.gameData,
+  (state) => state.gameData,
   isGameEditingSelector,
   (gameData, isGameEditing) => (isGameEditing ? gameData.editedGame : gameData.game)
 );
@@ -30,7 +30,7 @@ export const enrolledUsersPerStatusSelector = createSelector(
       {
         enrollmentStatus,
         enrolledUsers: enrollments.filter(
-          enrollment => enrollment.enrollmentStatus === enrollmentStatus
+          (enrollment) => enrollment.enrollmentStatus === enrollmentStatus
         ).map(
           ({ userId }) => findById(enrolledUsers, userId)
         )
@@ -58,13 +58,13 @@ export function isGameEditingSelector(state) {
 
 export const numberOfEnrolledUsersSelector = createSelector(
   enrollmentsSelector,
-  enrollments => enrollments.filter(
+  (enrollments) => enrollments.filter(
     ({ enrollmentStatus }) => enrollmentStatus === ENROLLMENT_STATUS_YES
   ).length
 );
 
 export const pitchSelector = createSelector(
-  state => gameSelector(state).pitchId,
+  (state) => gameSelector(state).pitchId,
   pitchesSelector,
   (pitchId, pitches) => findById(pitches, pitchId)
 );
@@ -79,13 +79,13 @@ export const selectedEnrollmentStatusSelector = createSelector(
 
 export const teamASelector = createSelector(
   usersSelector,
-  state => gameSelector(state).teamA,
+  (state) => gameSelector(state).teamA,
   mapUsersIdsToUsers
 );
 
 export const teamBSelector = createSelector(
   usersSelector,
-  state => gameSelector(state).teamB,
+  (state) => gameSelector(state).teamB,
   mapUsersIdsToUsers
 );
 
@@ -101,5 +101,5 @@ export const unenrolledUsersSelector = createSelector(
 );
 
 function mapUsersIdsToUsers(users, usersIds) {
-  return usersIds.map(userId => findById(users, userId, null)).filter(Boolean);
+  return usersIds.map((userId) => findById(users, userId, null)).filter(Boolean);
 }

@@ -30,12 +30,12 @@ export default function GenerateGame(getGameId) {
       gameEdit();
     };
 
-    onEditGameScoreA = teamAScore => {
+    onEditGameScoreA = (teamAScore) => {
       const { actions: { gameEditScoreA } } = this.props;
       gameEditScoreA(teamAScore);
     };
 
-    onEditGameScoreB = teamBScore => {
+    onEditGameScoreB = (teamBScore) => {
       const { actions: { gameEditScoreB } } = this.props;
       gameEditScoreB(teamBScore);
     };

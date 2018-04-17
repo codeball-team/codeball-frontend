@@ -10,7 +10,7 @@ class AjaxErrors extends Component {
     errors: PropTypes.array.isRequired
   };
 
-  onErrorAcknowledge = errorIndex => {
+  onErrorAcknowledge = (errorIndex) => {
     const { actions } = this.props;
     actions.ajaxErrorAcknowledge(errorIndex);
   };

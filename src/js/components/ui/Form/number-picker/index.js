@@ -26,7 +26,7 @@ class NumberPicker extends Component {
     this.onChange(-1);
   };
 
-  onChange = step => {
+  onChange = (step) => {
     const { value, values, onChange } = this.props;
     const numberOfValues = values.length;
     const indexOfValue = values.indexOf(value);

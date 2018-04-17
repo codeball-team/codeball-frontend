@@ -7,5 +7,5 @@ export function usersSelector(state) {
 
 export const sortedUsersSelector = createSelector(
   usersSelector,
-  users => sortByMany(users, ['lastName', 'firstName'])
+  (users) => sortByMany(users, ['lastName', 'firstName'])
 );

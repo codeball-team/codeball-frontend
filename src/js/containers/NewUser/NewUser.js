@@ -24,22 +24,22 @@ class NewUser extends Component {
     }
   };
 
-  onEmailChange = email => {
+  onEmailChange = (email) => {
     const { actions: { newUserChangeEmail } } = this.props;
     newUserChangeEmail(email);
   };
 
-  onFirstNameChange = firstName => {
+  onFirstNameChange = (firstName) => {
     const { actions: { newUserChangeFirstName } } = this.props;
     newUserChangeFirstName(firstName);
   };
 
-  onLastNameChange = lastName => {
+  onLastNameChange = (lastName) => {
     const { actions: { newUserChangeLastName } } = this.props;
     newUserChangeLastName(lastName);
   };
 
-  onRoleChange = role => {
+  onRoleChange = (role) => {
     const { actions: { newUserChangeRole } } = this.props;
     newUserChangeRole(role);
   };

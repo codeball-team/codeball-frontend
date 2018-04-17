@@ -48,13 +48,13 @@ export function newUserReset() {
 
 export function newUserSubmit(newUser) {
   const payload = NewUserModel.toServerFormat(newUser);
-  return ajax(dispatch => ({
+  return ajax((dispatch) => ({
     actionType: NEW_USER_SUBMIT,
     request: request('POST', usersUrl())
       .send(JSON.stringify(payload)),
     json: true,
     debounce: true,
-    successCallback: response => {
+    successCallback: (response) => {
       const userId = safeGet(response, ['body', 'id']);
       dispatch(push(`/players/${userId}`));
     }

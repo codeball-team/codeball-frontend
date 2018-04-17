@@ -73,12 +73,12 @@ export default function GenerateUpcomingGame(getGameId) {
       gameEnrollAnotherUserSubmit(gameId, userId, enrollmentStatus);
     };
 
-    onEnrollAnotherUserIdChange = userId => {
+    onEnrollAnotherUserIdChange = (userId) => {
       const { actions: { gameEnrollAnotherUserChangeUserId } } = this.props;
       gameEnrollAnotherUserChangeUserId(userId);
     };
 
-    onEnrollmentStatusChange = enrollmentStatus => {
+    onEnrollmentStatusChange = (enrollmentStatus) => {
       const { actions: { gameChangeEnrollmentStatus }, currentUserId, gameId } = this.props;
       gameChangeEnrollmentStatus(gameId, currentUserId, enrollmentStatus);
     };

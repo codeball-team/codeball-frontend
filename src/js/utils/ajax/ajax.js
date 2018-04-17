@@ -4,7 +4,7 @@ import requestManager from './request-manager';
 
 const manager = requestManager();
 const requestOptionsHandlers = {
-  json: request => request.set('Content-Type', 'application/json')
+  json: (request) => request.set('Content-Type', 'application/json')
 };
 const requestManagerHandlers = {
   debounce: (request, startAction) => manager.debounce(startAction, request),
@@ -12,7 +12,7 @@ const requestManagerHandlers = {
 };
 
 export default function ajax(getParams) {
-  return dispatch => {
+  return (dispatch) => {
     const options = {
       failureCallback: _.noop,
       successCallback: _.noop,
@@ -109,4 +109,4 @@ const createErrorResponse = (error, body) => {
   return errorResponse;
 };
 
-const nullToUndefined = (value) => value === null ? undefined : value;
+const nullToUndefined = (value) => (value === null ? undefined : value);

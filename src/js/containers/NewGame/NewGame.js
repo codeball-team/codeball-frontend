@@ -24,27 +24,27 @@ class NewGame extends Component {
     }
   };
 
-  onDateChange = date => {
+  onDateChange = (date) => {
     const { actions: { newGameChangeDate } } = this.props;
     newGameChangeDate(date);
   };
 
-  onDurationChange = duration => {
+  onDurationChange = (duration) => {
     const { actions: { newGameChangeDuration } } = this.props;
     newGameChangeDuration(duration);
   };
 
-  onHourChange = hour => {
+  onHourChange = (hour) => {
     const { actions: { newGameChangeHour } } = this.props;
     newGameChangeHour(hour);
   };
 
-  onMinuteChange = minute => {
+  onMinuteChange = (minute) => {
     const { actions: { newGameChangeMinute } } = this.props;
     newGameChangeMinute(minute);
   };
 
-  onPitchIdChange = pitchId => {
+  onPitchIdChange = (pitchId) => {
     const { actions: { newGameChangePitchId } } = this.props;
     newGameChangePitchId(pitchId);
   };

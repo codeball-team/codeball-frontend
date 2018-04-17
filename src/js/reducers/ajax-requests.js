@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [AJAX]: state => ({
+  [AJAX]: (state) => ({
     ...state,
     numberOfPendingRequests: state.numberOfPendingRequests + 1
   }),
@@ -29,12 +29,12 @@ export default handleActions({
     };
   },
 
-  [AJAX.SUCCESS]: state => ({
+  [AJAX.SUCCESS]: (state) => ({
     ...state,
     numberOfPendingRequests: state.numberOfPendingRequests - 1
   }),
 
-  [AJAX_ABORT]: state => ({
+  [AJAX_ABORT]: (state) => ({
     ...state,
     numberOfPendingRequests: state.numberOfPendingRequests - 1
   }),

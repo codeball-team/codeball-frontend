@@ -1,1 +1,1 @@
-export default (min, max) => min === max ? `${min}` : `${min} - ${max}`;
+export default (min, max) => (min === max ? `${min}` : `${min} - ${max}`);

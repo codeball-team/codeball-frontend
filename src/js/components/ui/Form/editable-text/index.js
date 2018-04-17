@@ -23,7 +23,7 @@ class EditableText extends Component {
     onChange: _.noop
   };
 
-  onChange = event => {
+  onChange = (event) => {
     const { onChange } = this.props;
     onChange(event.target.value);
   };

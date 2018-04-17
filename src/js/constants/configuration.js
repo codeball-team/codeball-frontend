@@ -8,7 +8,7 @@ export const MONTH_YEAR_FORMAT = 'YYYY/MM';
 export const TIME_FORMAT = 'HH:mm';
 export const DATE_TIME_FORMAT = `${DATE_FORMAT} ${TIME_FORMAT}`;
 
-export const DURATION_OPTIONS = [60, 90, 120, 150, 180].map(minutes => ({
+export const DURATION_OPTIONS = [60, 90, 120, 150, 180].map((minutes) => ({
   label: `${minutes} min`,
   value: minutes
 }));

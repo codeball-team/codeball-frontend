@@ -56,13 +56,13 @@ export function newGameReset() {
 
 export function newGameSubmit(newGame) {
   const payload = NewGameModel.toServerFormat(newGame);
-  return ajax(dispatch => ({
+  return ajax((dispatch) => ({
     actionType: NEW_GAME_SUBMIT,
     request: request('POST', gamesUrl())
       .send(JSON.stringify(payload)),
     json: true,
     debounce: true,
-    successCallback: response => {
+    successCallback: (response) => {
       const gameId = safeGet(response, ['body', 'id']);
       dispatch(push(`/games/upcoming/${gameId}`));
     }

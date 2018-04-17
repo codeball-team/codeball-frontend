@@ -12,8 +12,8 @@ export default (options) => {
   class Model {
     static getDefaultAttributes = getDefaultAttributes;
 
-    static isValid = modelInstance => validatorsNames.every(
-      validatorName => Boolean(Model[validatorName](modelInstance))
+    static isValid = (modelInstance) => validatorsNames.every(
+      (validatorName) => Boolean(Model[validatorName](modelInstance))
     );
 
     static fromServerFormat = wrapFromServerFormat(Model, fromServerFormat);
@@ -35,7 +35,7 @@ export default (options) => {
 const wrapFromServerFormat = (Model, fromServerFormat) => {
   const defaultEmptyArrays = createDefaultEmptyArrays(Model.getDefaultAttributes);
 
-  return serverResponse => {
+  return (serverResponse) => {
     if(!serverResponse) {
       return new Model();
     }
@@ -49,7 +49,7 @@ const wrapFromServerFormat = (Model, fromServerFormat) => {
 const createDefaultEmptyArrays = (getDefaultAttributes) => {
   const defaultObject = getDefaultAttributes();
   const defaultObjectKeys = Object.keys(defaultObject);
-  const arrayAttributes = defaultObjectKeys.filter(key => Array.isArray(defaultObject[key]));
+  const arrayAttributes = defaultObjectKeys.filter((key) => Array.isArray(defaultObject[key]));
   return arrayAttributes.reduce((defaultArrays, key) => ({
     ...defaultArrays,
     [key]: defaultObject[key]

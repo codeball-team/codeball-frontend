@@ -56,13 +56,13 @@ export function newPitchReset() {
 
 export function newPitchSubmit(newPitch) {
   const payload = NewPitchModel.toServerFormat(newPitch);
-  return ajax(dispatch => ({
+  return ajax((dispatch) => ({
     actionType: NEW_PITCH_SUBMIT,
     request: request('POST', pitchesUrl())
       .send(JSON.stringify(payload)),
     json: true,
     debounce: true,
-    successCallback: response => {
+    successCallback: (response) => {
       const pitchId = safeGet(response, ['body', 'id']);
       dispatch(push(`/pitches/${pitchId}`));
     }

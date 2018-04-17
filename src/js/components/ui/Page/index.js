@@ -12,7 +12,7 @@ class Page extends Component {
     router: PropTypes.object
   };
 
-  onBackClick = event => {
+  onBackClick = (event) => {
     const { router } = this.context;
     event.preventDefault();
     router.goBack();

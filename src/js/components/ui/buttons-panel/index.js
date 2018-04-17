@@ -5,7 +5,7 @@ import styles from './styles.scss';
 
 const ButtonsPanel = ({ children, className }) => (
   <div className={classNames(styles.buttonsPanel, className)}>
-    {Children.map(children, props => ({
+    {Children.map(children, (props) => ({
       ...props,
       className: classNames(props.className, styles.button)
     }))}

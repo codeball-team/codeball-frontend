@@ -23,27 +23,27 @@ class NewPitch extends Component {
     }
   };
 
-  onAddressChange = address => {
+  onAddressChange = (address) => {
     const { actions: { newPitchChangeAddress } } = this.props;
     newPitchChangeAddress(address);
   };
 
-  onMinNumberOfPlayersChange = minNumberOfPlayers => {
+  onMinNumberOfPlayersChange = (minNumberOfPlayers) => {
     const { actions: { newPitchChangeMinNumberOfPlayers } } = this.props;
     newPitchChangeMinNumberOfPlayers(minNumberOfPlayers);
   };
 
-  onMaxNumberOfPlayersChange = maxNumberOfPlayers => {
+  onMaxNumberOfPlayersChange = (maxNumberOfPlayers) => {
     const { actions: { newPitchChangeMaxNumberOfPlayers } } = this.props;
     newPitchChangeMaxNumberOfPlayers(maxNumberOfPlayers);
   };
 
-  onNameChange = name => {
+  onNameChange = (name) => {
     const { actions: { newPitchChangeName } } = this.props;
     newPitchChangeName(name);
   };
 
-  onTypeChange = type => {
+  onTypeChange = (type) => {
     const { actions: { newPitchChangeType } } = this.props;
     newPitchChangeType(type);
   };

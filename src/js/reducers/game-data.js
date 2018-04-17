@@ -28,7 +28,7 @@ export default ajaxReducer(initialState, GAME_LOAD, {
 
   [GAME_DRAW_TEAMS.SUCCESS]: gameLoaded,
 
-  [GAME_EDIT]: state => ({
+  [GAME_EDIT]: (state) => ({
     ...state,
     editedGame: {
       ...state.game
@@ -36,7 +36,7 @@ export default ajaxReducer(initialState, GAME_LOAD, {
     isEditing: true
   }),
 
-  [GAME_EDIT_CANCEL]: state => ({
+  [GAME_EDIT_CANCEL]: (state) => ({
     ...state,
     editedGame: {},
     isEditing: false

@@ -4,7 +4,7 @@ import { classNames } from 'utils';
 import { Button, Icon } from 'components/ui';
 import styles from './styles.scss';
 
-const IconButtonDecorator = props => {
+const IconButtonDecorator = (props) => {
   const {
     icon: defaultIcon,
     label: defaultLabel,

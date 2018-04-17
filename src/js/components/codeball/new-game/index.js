@@ -6,7 +6,7 @@ import { NewGameModel } from 'models';
 import { Calendar, Form, RangePicker, Select, ValuePicker } from 'components/ui';
 
 const onClickOutside = _.noop;
-const valueFormatter = value => padLeft(value, 2);
+const valueFormatter = (value) => padLeft(value, 2);
 
 class NewGame extends Component {
   static propTypes = {
@@ -26,7 +26,7 @@ class NewGame extends Component {
     onPitchIdChange(value);
   };
 
-  onDateChange = date => {
+  onDateChange = (date) => {
     const { onDateChange } = this.props;
     onDateChange(date.valueOf());
   };

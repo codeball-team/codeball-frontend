@@ -7,5 +7,5 @@ export function pitchesSelector(state) {
 
 export const sortedPitchesSelector = createSelector(
   pitchesSelector,
-  pitches => sortByMany(pitches, ['name'])
+  (pitches) => sortByMany(pitches, ['name'])
 );

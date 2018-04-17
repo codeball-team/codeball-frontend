@@ -4,8 +4,8 @@ import { _ } from 'utils';
 import { ButtonCancel, ButtonEdit, ButtonSave, ButtonsPanel, Render } from 'components/ui';
 import styles from './styles.scss';
 
-const SectionDecorator = ChildComponent => {
-  const Section = props => {
+const SectionDecorator = (ChildComponent) => {
+  const Section = (props) => {
     const {
       buttons = [],
       canEdit,

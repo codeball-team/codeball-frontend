@@ -6,5 +6,5 @@ export function enrollAnotherUserSelector(state) {
 
 export const isEnrollAnotherUserEditingSelector = createSelector(
   enrollAnotherUserSelector,
-  enrollAnotherUser => enrollAnotherUser.isEditing
+  (enrollAnotherUser) => enrollAnotherUser.isEditing
 );
