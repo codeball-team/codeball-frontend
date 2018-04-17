@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { _ } from 'utils';
-import PureRenderComponent from './PureRenderComponent';
 
 export default function ConditionalRender(ComponentClass) {
   class EnhancedComponent extends Component {
@@ -31,5 +30,5 @@ export default function ConditionalRender(ComponentClass) {
     }
   }
 
-  return PureRenderComponent(EnhancedComponent);
+  return EnhancedComponent;
 }

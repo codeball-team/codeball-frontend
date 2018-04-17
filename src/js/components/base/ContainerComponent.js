@@ -6,7 +6,6 @@ import { _, periodicCallback, safeGet } from 'utils';
 import { AUTO_REFRESH_DELAY, ROLE_USER, ROLES_PERMISSIONS } from 'constants';
 import * as actions from 'actions';
 import { LoadableContent } from 'components/ui';
-import PureRenderComponent from './PureRenderComponent';
 
 export default function ContainerComponent(ComponentClass, options) {
   const {
@@ -54,10 +53,7 @@ export default function ContainerComponent(ComponentClass, options) {
     }
   }
 
-  return connect(
-    enhanceProps(mapStateToProps),
-    mapDispatchToProps
-  )(PureRenderComponent(Container));
+  return connect(enhanceProps(mapStateToProps), mapDispatchToProps)(Container);
 }
 
 function handleOptions(options = {}) {
