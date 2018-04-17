@@ -32,3 +32,11 @@ export default function ConditionalRender(ComponentClass) {
 
   return EnhancedComponent;
 }
+
+/*
+used by:
+  Form
+  Button
+  UserProfileSection
+  ...TODO
+*/

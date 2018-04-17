@@ -15,7 +15,7 @@ class ButtonsPanel extends Component {
 
     return (
       <div className={classNames(styles.buttonsPanel, className)}>
-        {Children.map(children, (props) => ({
+        {Children.map(children, props => ({
           ...props,
           className: classNames(props.className, styles.button)
         }))}
