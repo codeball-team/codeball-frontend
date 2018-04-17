@@ -5,12 +5,63 @@ class Changelog extends Component {
   render() {
     return (
       <main>
+        {release3()}
+        <hr />
         {release2()}
         <hr />
         {release1()}
       </main>
     );
   }
+}
+
+function release3() {
+  return (
+    <div>
+      <h2>Relase 3 (2018/X/Y)</h2>
+      <h3>Features</h3>
+      <ul>
+        <li>TODO</li>
+      </ul>
+
+      <h3>Bugfixes</h3>
+      <ul>
+        <li>
+          Backend
+          <ul>
+            <li>TODO</li>
+          </ul>
+        </li>
+
+        <li>
+          Frontend
+          <ul>
+            <li>TODO</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Technical improvements</h3>
+      <ul>
+        <li>
+          Backend
+          <ul>
+            <li>TODO</li>
+          </ul>
+        </li>
+
+        <li>
+          Frontend
+          <ul>
+            <li>Introducing CSS modules</li>
+            <li>Introducing webpack-wizard</li>
+            <li>Introducing prop-types</li>
+            <li>Updating frontend libraries</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 function release2() {
