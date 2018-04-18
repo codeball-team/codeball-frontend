@@ -23,7 +23,7 @@ const Navigation = ({ className }) => (
       {links.map(({ icon, label, to }, index) => (
         <li key={index}>
           <RouterLink activeClassName={styles.focus} to={to}>
-            <Icon name={icon} />
+            <Icon className={styles.icon} name={icon} />
             <span className={styles.label}>
               {label}
             </span>

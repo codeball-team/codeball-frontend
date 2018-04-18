@@ -1,4 +1,4 @@
-import { Calendar as ReactDatepickerCalendar } from 'react-datepicker/es';
+import { Calendar as ReactDatepickerCalendar } from 'react-datepicker/lib';
 import { NavLink as ReactRouterLink } from 'react-router-dom';
 import ReactSelect from 'react-select';
 

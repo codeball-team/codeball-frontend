@@ -22,7 +22,7 @@ const IconButtonDecorator = (props) => {
     const buttonProps = { ...defaultProps, ...restProps };
 
     return (
-      <Button className={classNames(styles.button, className)} {...buttonProps}>
+      <Button {...buttonProps} className={classNames(styles.button, className)}>
         <Icon className={classNames(styles.icon, iconClassName)} name={icon} />
         <span className={classNames(styles.label, labelClassName)}>{label}</span>
       </Button>

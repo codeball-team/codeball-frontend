@@ -54,6 +54,11 @@ nav.navigation {
             width: 18px;
             margin-right: 0;
           }
+
+          @include small-phone {
+            font-size: $font-size-m;
+            margin-right: 0;
+          }
         }
 
         .label {

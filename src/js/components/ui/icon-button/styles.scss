@@ -7,22 +7,20 @@
     &:last-child {
       margin-right: 0;
     }
-  }
 
-  @include tablet-and-smaller {
-    .icon {
+    @include tablet-and-smaller {
       font-size: $font-size-s;
       margin-right: $spacing-xs;
     }
-  }
 
-  @include small-phone {
-    .icon {
+    @include small-phone {
       font-size: $font-size-m;
       margin-right: 0;
     }
+  }
 
-    .label {
+  .label {
+    @include small-phone {
       display: none;
     }
   }
