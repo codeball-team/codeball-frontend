@@ -1,47 +1,26 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from 'reducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { routerMiddleware } from 'react-router-redux';
+import rootReducer from 'reducers';
 
-export default function configureStore(initialState, history) {
+const initialState = undefined;
+const composer = process.env.NODE_ENV === 'development' ? composeWithDevTools : compose;
+
+export default (history) => {
   const store = createStore(rootReducer, initialState, createEnhancer(history));
-  enableWebpackHMRForReducers(store);
+  enableHmrForReducers(store);
   return store;
-}
+};
 
-function createEnhancer(history) {
-  if(process.env.NODE_ENV !== 'production') {
-    return createDevelopmentEnhancer(createDevelopmentMiddleware(history));
-  }
+const createEnhancer = (history) => composer(applyMiddleware(
+  routerMiddleware(history),
+  require('redux-thunk').default
+));
 
-  return createProductionEnhancer(createProductionMiddleware(history));
-}
-
-function createProductionMiddleware(history) {
-  return applyMiddleware(
-    routerMiddleware(history),
-    require('redux-thunk').default
-  );
-}
-
-function createProductionEnhancer(middleware) {
-  return compose(middleware);
-}
-
-function createDevelopmentMiddleware(history) {
-  return applyMiddleware(
-    routerMiddleware(history),
-    require('redux-thunk').default
-  );
-}
-
-function createDevelopmentEnhancer(middleware) {
-  return compose(middleware);
-}
-
-function enableWebpackHMRForReducers(store) {
+const enableHmrForReducers = (store) => {
   if(module.hot) {
     module.hot.accept('../reducers', () =>
       store.replaceReducer(require('../reducers').default)
     );
   }
-}
+};

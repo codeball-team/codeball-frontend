@@ -4,22 +4,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { ConnectedRouter } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 import { BACKGROUND_IMAGES } from 'constants';
 import configureStore from './store/configure-store';
 import { BodyBackground } from 'components/ui';
-import routes from './routes';
+import App from 'components/app';
 
-const store = configureStore(undefined, browserHistory);
+const history = createHistory();
+const store = configureStore(history);
 const rootElement = document.getElementById('app');
-const history = syncHistoryWithStore(browserHistory, store);
 
 FastClick.attach(document.body);
 
 ReactDOM.render(
   <Provider store={store}>
-    {renderContent()}
+    <ConnectedRouter history={history}>
+      {renderContent()}
+    </ConnectedRouter>
   </Provider>,
   rootElement
 );
@@ -28,7 +30,7 @@ function renderContent() {
   return (
     <div>
       <BodyBackground images={BACKGROUND_IMAGES} />
-      <Router history={history} routes={routes} />
+      <App />
     </div>
   );
 }

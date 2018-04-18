@@ -4,6 +4,15 @@ import { classNames } from 'utils';
 import { Icon, RouterLink } from 'components/ui';
 import styles from './styles.scss';
 
+const links = [
+  { icon: 'alarm', label: 'Upcoming game', to: '/upcoming-game' },
+  { icon: 'podium', label: 'Last game', to: '/last-game' },
+  { icon: 'calendar', label: 'Games', to: '/games' },
+  { icon: 'people', label: 'Players', to: '/players' },
+  { icon: 'location', label: 'Pitches', to: '/pitches' },
+  { icon: 'clipboard', label: 'Changelog', to: '/changelog' }
+];
+
 const Navigation = ({ className }) => (
   <nav className={classNames(styles.navigation, className)}>
     <div className={styles.menuLogo}>
@@ -11,59 +20,16 @@ const Navigation = ({ className }) => (
     </div>
 
     <ul>
-      <li>
-        <RouterLink activeClassName={styles.focus} to="/upcoming-game">
-          <Icon name="alarm" />
-          <span className={styles.label}>
-            Upcoming game
-          </span>
-        </RouterLink>
-      </li>
-
-      <li>
-        <RouterLink activeClassName={styles.focus} to="/last-game">
-          <Icon name="podium" />
-          <span className={styles.label}>
-            Last game
-          </span>
-        </RouterLink>
-      </li>
-
-      <li>
-        <RouterLink activeClassName={styles.focus} to="/games">
-          <Icon name="calendar" />
-          <span className={styles.label}>
-            Games
-          </span>
-        </RouterLink>
-      </li>
-
-      <li>
-        <RouterLink activeClassName={styles.focus} to="/players" >
-          <Icon name="people" />
-          <span className={styles.label}>
-            Players
-          </span>
-        </RouterLink>
-      </li>
-
-      <li>
-        <RouterLink activeClassName={styles.focus} to="/pitches" >
-          <Icon name="location" />
-          <span className={styles.label}>
-            Pitches
-          </span>
-        </RouterLink>
-      </li>
-
-      <li>
-        <RouterLink activeClassName={styles.focus} to="/changelog" >
-          <Icon name="clipboard" />
-          <span className={styles.label}>
-            Changelog
-          </span>
-        </RouterLink>
-      </li>
+      {links.map(({ icon, label, to }, index) => (
+        <li key={index}>
+          <RouterLink activeClassName={styles.focus} to={to}>
+            <Icon name={icon} />
+            <span className={styles.label}>
+              {label}
+            </span>
+          </RouterLink>
+        </li>
+      ))}
     </ul>
   </nav>
 );

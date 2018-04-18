@@ -1,5 +1,5 @@
-import ReactDatepickerCalendar from 'react-datepicker/lib/calendar';
-import { Link as ReactRouterLink } from 'react-router';
+import { Calendar as ReactDatepickerCalendar } from 'react-datepicker/es';
+import { NavLink as ReactRouterLink } from 'react-router-dom';
 import ReactSelect from 'react-select';
 
 export const Calendar = ReactDatepickerCalendar;
@@ -12,13 +12,7 @@ export BodyBackground from './body-background';
 export Button from './button';
 export ButtonsPanel from './buttons-panel';
 export Errors from './errors';
-export Form, {
-EditableText,
-InputWrapper,
-NumberPicker,
-RangePicker,
-ValuePicker
-} from './form';
+export Form, { EditableText, InputWrapper, NumberPicker, RangePicker, ValuePicker } from './form';
 export Icon from './icon';
 export IconButton from './icon-button';
 export Link from './link';

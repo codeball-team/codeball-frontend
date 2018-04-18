@@ -26,7 +26,7 @@ const rootReducer = combineReducers({
   pitchesData,
   userData,
   usersData,
-  routing: routerReducer
+  router: routerReducer
 });
 
 export default rootReducer;
