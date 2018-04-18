@@ -28,7 +28,7 @@ export function newUserSubmit(newUser) {
     json: true,
     debounce: true,
     successCallback: (response) => {
-      const userId = safeGet(response, ['body', 'id']);
+      const userId = safeGet(response, [ 'body', 'id' ]);
       dispatch(push(`/players/${userId}`));
     }
   }));

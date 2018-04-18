@@ -17,7 +17,7 @@ export const previousGamesSelector = createSelector(
 
 export const sortedGamesSelector = createSelector(
   [ gamesSelector ],
-  (games) => sortByMany(games, ['date']).reverse()
+  (games) => sortByMany(games, [ 'date' ]).reverse()
 );
 
 export const upcomingGamesSelector = createSelector(

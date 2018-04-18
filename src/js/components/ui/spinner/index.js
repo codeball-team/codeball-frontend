@@ -21,7 +21,7 @@ const Spinner = ({ className, placement = 'relative', show }) => (
 
 Spinner.propTypes = {
   className: PropTypes.string,
-  placement: PropTypes.oneOf(['fixed', 'relative']),
+  placement: PropTypes.oneOf([ 'fixed', 'relative' ]),
   show: PropTypes.bool.isRequired
 };
 

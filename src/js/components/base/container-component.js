@@ -29,7 +29,7 @@ export default function ContainerComponent(ComponentClass, options) {
     };
 
     componentWillReceiveProps = (newProps) => {
-      const idPath = ['params', 'id'];
+      const idPath = [ 'params', 'id' ];
       if (safeGet(newProps, idPath) !== safeGet(this.props, idPath)) {
         periodicUpdateData.restart(this.updateDataCallback(newProps));
       }
@@ -89,7 +89,7 @@ function enhanceProps(mapStateToProps) {
 }
 
 function getPermission(state, permission) {
-  const role = safeGet(state, ['currentUserData', 'currentUser', 'role'], ROLE_USER);
+  const role = safeGet(state, [ 'currentUserData', 'currentUser', 'role' ], ROLE_USER);
   return ROLES_PERMISSIONS[role][permission];
 }
 

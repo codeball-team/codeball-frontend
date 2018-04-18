@@ -30,9 +30,9 @@ const GameModel = model({
       isEnrollmentOver: serverResponse.isEnrollmentOver,
       isGameOver: serverResponse.isGameOver,
       pitchId: serverResponse.pitchId,
-      teamA: [...serverResponse.teamAIds],
+      teamA: [ ...serverResponse.teamAIds ],
       teamAScore: serverResponse.teamAScore,
-      teamB: [...serverResponse.teamBIds],
+      teamB: [ ...serverResponse.teamBIds ],
       teamBScore: serverResponse.teamBScore,
       time: date.format(TIME_FORMAT)
     });

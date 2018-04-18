@@ -24,7 +24,7 @@ export default handleActions({
 
     return {
       ...state,
-      errors: _.uniq([...errors, error], JSON.stringify),
+      errors: _.uniq([ ...errors, error ], JSON.stringify),
       numberOfPendingRequests: state.numberOfPendingRequests - 1
     };
   },

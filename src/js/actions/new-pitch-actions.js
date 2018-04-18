@@ -30,7 +30,7 @@ export function newPitchSubmit(newPitch) {
     json: true,
     debounce: true,
     successCallback: (response) => {
-      const pitchId = safeGet(response, ['body', 'id']);
+      const pitchId = safeGet(response, [ 'body', 'id' ]);
       dispatch(push(`/pitches/${pitchId}`));
     }
   }));

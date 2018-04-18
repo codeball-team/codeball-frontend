@@ -31,7 +31,7 @@ export default function ajax(getParams) {
     applyRequestEnhancers(requestManagerHandlers, request, options).then(() => {
       request.end((error, response = {}) => {
         manager.forget(actionType);
-        const body = nullToUndefined(safeGet(response, ['body']));
+        const body = nullToUndefined(safeGet(response, [ 'body' ]));
 
         if (error || !response.ok) {
           const errorResponse = createErrorResponse(error, body);
@@ -104,7 +104,7 @@ const applyRequestEnhancers = (enhancers, request, options) => Promise.all(
 );
 
 const createErrorResponse = (error, body) => {
-  const [title, message] = safeGet(error, ['message'], '').split('\n');
+  const [ title, message ] = safeGet(error, [ 'message' ], '').split('\n');
   const errorResponse = body || { error: title, message };
   return errorResponse;
 };

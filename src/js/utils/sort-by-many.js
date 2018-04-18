@@ -3,13 +3,13 @@ export default (list, attributes, options = {}) => {
     caseSensitive = false,
     localized = true
   } = options;
-  const reversedAttributes = [...attributes].reverse();
+  const reversedAttributes = [ ...attributes ].reverse();
   const attributeGetterCreator = caseSensitive ? createAttributeGetter : createLowerCaseAttributeGetter;
   const attributeComparatorCreator = localized ? createLocaleAttributeComparator : createAttributeComparator;
 
   return reversedAttributes.reduce(
     (sortedList, attribute) => sortedList.sort(attributeComparatorCreator(attributeGetterCreator(attribute))),
-    [...list]
+    [ ...list ]
   );
 };
 

@@ -30,7 +30,7 @@ export function newGameSubmit(newGame) {
     json: true,
     debounce: true,
     successCallback: (response) => {
-      const gameId = safeGet(response, ['body', 'id']);
+      const gameId = safeGet(response, [ 'body', 'id' ]);
       dispatch(push(`/games/upcoming/${gameId}`));
     }
   }));

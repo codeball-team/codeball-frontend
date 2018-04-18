@@ -23,7 +23,7 @@ export default ajaxReducer(initialState, PITCHES_LOAD, {
   [PITCHES_LOAD.SUCCESS]: (state, action) => {
     const { response = [] } = action;
     const pitches = response.map(PitchModel.fromServerFormat);
-    const sortedPitches = sortByMany(pitches, ['name']);
+    const sortedPitches = sortByMany(pitches, [ 'name' ]);
 
     return {
       ...initialState,

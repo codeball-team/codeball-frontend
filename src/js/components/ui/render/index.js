@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { _ } from 'utils';
 
 const Render = ({ children, when = true }) => {
-  const renderConditions = _([when]).flatten();
+  const renderConditions = _([ when ]).flatten();
   const shouldRender = renderConditions.every(Boolean);
   return shouldRender ? children : null;
 };

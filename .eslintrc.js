@@ -163,7 +163,7 @@ module.exports = {
     'no-sync': 'error',
 
     // Stylistic Issues
-    // 'array-bracket-spacing': ['error', 'always'],
+    'array-bracket-spacing': ['error', 'always'],
     'block-spacing': ['error', 'always'],
     'brace-style': ['error', '1tbs'],
     'camelcase': ['error', {
