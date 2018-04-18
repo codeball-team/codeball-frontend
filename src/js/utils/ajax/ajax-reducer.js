@@ -25,11 +25,11 @@ const ajaxReducer = (initialState, actionType, handlers) => {
     const { type } = action;
     const ajaxHandler = ajaxHandlers[type];
 
-    if(ajaxHandler) {
+    if (ajaxHandler) {
       const newState = ajaxHandler(state, action);
       const hasHashChanged = lastUpdateHash !== newState.lastUpdateHash;
 
-      if(hasHashChanged) {
+      if (hasHashChanged) {
         return {
           ...newState,
           ...originalReducer(newState, action)

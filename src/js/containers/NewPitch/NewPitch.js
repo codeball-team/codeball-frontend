@@ -16,7 +16,7 @@ class NewPitch extends Component {
 
   componentWillMount = () => {
     const { actions: { newPitchReset, redirect }, hasPermission } = this.props;
-    if(hasPermission(PERMISSION_ADD_PITCH)) {
+    if (hasPermission(PERMISSION_ADD_PITCH)) {
       newPitchReset();
     } else {
       redirect('/unauthorized');

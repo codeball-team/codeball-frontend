@@ -1,18 +1,17 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { _ } from 'utils';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import styles from './styles.scss';
 
 const Link = ({ children, onClick }) => {
-  if(!children) {
+  if (!children) {
     return null;
   }
 
   const { type } = children;
 
-  if(!type) {
+  if (!type) {
     return (
       <a className={styles.link} onClick={onClick}>
         {children}

@@ -210,7 +210,7 @@ class UpcomingGame extends Component {
 export default ContainerComponent(UpcomingGame, {
   mapStateToProps: upcomingGameContainerSelector,
   periodicDataUpdates: true,
-  updateData: ({ actions, id, match, ...props }) => {
+  updateData: ({ actions, id, match }) => {
     actions.currentUserLoad();
     actions.gameLoad(id || match.params.id);
     actions.pitchesLoad();

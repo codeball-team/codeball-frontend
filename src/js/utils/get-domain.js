@@ -1,5 +1,5 @@
 export default (url) => {
-  if(!url) {
+  if (!url) {
     return '';
   }
   const domainRegExp = /(https?:\/\/[^/]*)/;

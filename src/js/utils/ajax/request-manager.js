@@ -4,7 +4,7 @@ const requestManager = () => {
   const add = (key, request) => requests.set(key, request);
   const remove = (key) => requests.delete(key);
   const abortIfPending = (key) => {
-    if(isPending(key)) {
+    if (isPending(key)) {
       const request = requests.get(key);
       request.abort();
       remove(key);
@@ -27,7 +27,7 @@ const requestManager = () => {
 
     throttle(key, request) {
       return new Promise((resolve, reject) => {
-        if(!isPending(key)) {
+        if (!isPending(key)) {
           add(key, request);
           resolve();
         }

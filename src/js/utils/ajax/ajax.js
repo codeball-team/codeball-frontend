@@ -33,7 +33,7 @@ export default function ajax(getParams) {
         manager.forget(actionType);
         const body = nullToUndefined(safeGet(response, ['body']));
 
-        if(error || !response.ok) {
+        if (error || !response.ok) {
           const errorResponse = createErrorResponse(error, body);
           dispatch({
             type: actionType.FAILURE,
@@ -78,7 +78,7 @@ export default function ajax(getParams) {
 
 const applyRequestOptions = (enhancers, request, options) => _(options).reduce(
   (enhancedRequest, isEnabled, key) => {
-    if(isEnabled && enhancers.hasOwnProperty(key)) {
+    if (isEnabled && enhancers.hasOwnProperty(key)) {
       return enhancers[key](enhancedRequest, options);
     }
 
@@ -90,7 +90,7 @@ const applyRequestOptions = (enhancers, request, options) => _(options).reduce(
 const applyRequestEnhancers = (enhancers, request, options) => Promise.all(
   _(options).reduce(
     (enhancements, isEnabled, key) => {
-      if(isEnabled && enhancers.hasOwnProperty(key)) {
+      if (isEnabled && enhancers.hasOwnProperty(key)) {
         return [
           ...enhancements,
           enhancers[key](request, options)

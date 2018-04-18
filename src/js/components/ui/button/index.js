@@ -19,7 +19,7 @@ const Button = ({ children, className, isDisabled, redirect, onClick = _.noop })
     </div>
   );
 
-  if(redirect) {
+  if (redirect) {
     return (
       <Link to={redirect}>
         {button}

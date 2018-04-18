@@ -163,7 +163,7 @@ module.exports = {
     'no-sync': 'error',
 
     // Stylistic Issues
-    'array-bracket-spacing': ['error', 'never'],
+    // 'array-bracket-spacing': ['error', 'always'],
     'block-spacing': ['error', 'always'],
     'brace-style': ['error', '1tbs'],
     'camelcase': ['error', {
@@ -195,12 +195,7 @@ module.exports = {
     }],
     'keyword-spacing': ['error', {
       'before': true,
-      'after': true,
-      'overrides': {
-        'if': {
-          'after': false
-        }
-      }
+      'after': true
     }],
     'linebreak-style': ['error', 'unix'],
     'lines-around-comment': 'off',
@@ -385,7 +380,7 @@ module.exports = {
     'react/jsx-max-props-per-line': ['error', {
       'maximum': 3
     }],
-    'react/jsx-no-bind': 'warn',
+    'react/jsx-no-bind': 'off',
     'react/jsx-no-duplicate-props': 'error',
     'react/jsx-no-literals': 'off',
     'react/jsx-no-target-blank': 'error',

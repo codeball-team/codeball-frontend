@@ -36,7 +36,7 @@ const wrapFromServerFormat = (Model, fromServerFormat) => {
   const defaultEmptyArrays = createDefaultEmptyArrays(Model.getDefaultAttributes);
 
   return (serverResponse) => {
-    if(!serverResponse) {
+    if (!serverResponse) {
       return new Model();
     }
 

@@ -8,7 +8,7 @@ import styles from './styles.scss';
 const Form = ({ className, inputs, onSubmit }) => {
   const visibleInputs = inputs.reduce((inputsToRender, input) => {
     const haveAllInputsBeenValidSoFar = inputsToRender.every(({ isValid }) => isValid);
-    if(haveAllInputsBeenValidSoFar) {
+    if (haveAllInputsBeenValidSoFar) {
       inputsToRender.push(input);
     }
     return inputsToRender;

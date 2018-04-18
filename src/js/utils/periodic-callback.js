@@ -1,7 +1,7 @@
 import { _ } from 'utils';
 
 export default (delay) => {
-  if(!delay) {
+  if (!delay) {
     return nullPeriodicCallback();
   }
 
