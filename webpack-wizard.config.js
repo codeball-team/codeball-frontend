@@ -1,3 +1,6 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require('webpack');
+
 module.exports = (webpackWizard, { resolveCwdPath }) => {
   const webpackConfig = webpackWizard({
     devPort: 8008,
@@ -18,6 +21,15 @@ module.exports = (webpackWizard, { resolveCwdPath }) => {
   webpackConfig.node = {
     constants: false
   };
+
+  if (process.env.ANALYZE_BUNDLE) {
+    webpackConfig.plugins.push(new BundleAnalyzerPlugin());
+  }
+
+  webpackConfig.plugins.push(new webpack.ContextReplacementPlugin(
+    /moment[\/\\]locale$/,
+    /en|pl/
+  ));
 
   return webpackConfig;
 };

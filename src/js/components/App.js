@@ -27,7 +27,6 @@ const App = () => (
     <Page>
       <Switch>
         <Redirect exact={true} from="/" to="/upcoming-game" />
-        <Route exact={true} path="/" component={UpcomingGame} />
         <Route exact={true} path="/404" component={NotFound} />
         <Route exact={true} path="/changelog" component={Changelog} />
         <Route exact={true} path="/games" component={Games} />
