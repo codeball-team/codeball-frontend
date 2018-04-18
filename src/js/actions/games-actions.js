@@ -1,3 +1,4 @@
+import { createAction } from 'redux-actions';
 import request from 'superagent';
 import { ajax } from 'utils';
 import { push } from 'react-router-redux';
@@ -57,56 +58,14 @@ export function gameDrawTeams(gameId) {
   }));
 }
 
-export function gameEdit() {
-  return {
-    type: GAME_EDIT
-  };
-}
-
-export function gameEditCancel() {
-  return {
-    type: GAME_EDIT_CANCEL
-  };
-}
-
-export function gameEditScoreA(teamAScore) {
-  return {
-    type: GAME_EDIT_SCORE_A,
-    teamAScore
-  };
-}
-
-export function gameEditScoreB(teamBScore) {
-  return {
-    type: GAME_EDIT_SCORE_B,
-    teamBScore
-  };
-}
-
-export function gameEnrollAnotherUserCancel() {
-  return {
-    type: GAME_ENROLL_ANOTHER_USER_EDIT_CANCEL
-  };
-}
-
-export function gameEnrollAnotherUserChangeUserId(userId) {
-  return {
-    type: GAME_ENROLL_ANOTHER_USER_CHANGE_USER_ID,
-    userId
-  };
-}
-
-export function gameEnrollAnotherUserEdit() {
-  return {
-    type: GAME_ENROLL_ANOTHER_USER_EDIT
-  };
-}
-
-export function gameEnrollAnotherUserReset() {
-  return {
-    type: GAME_ENROLL_ANOTHER_USER_RESET
-  };
-}
+export const gameEdit = createAction(GAME_EDIT);
+export const gameEditCancel = createAction(GAME_EDIT_CANCEL);
+export const gameEditScoreA = createAction(GAME_EDIT_SCORE_A, (teamAScore) => teamAScore);
+export const gameEditScoreB = createAction(GAME_EDIT_SCORE_B, (teamBScore) => teamBScore);
+export const gameEnrollAnotherUserCancel = createAction(GAME_ENROLL_ANOTHER_USER_EDIT_CANCEL);
+export const gameEnrollAnotherUserChangeUserId = createAction(GAME_ENROLL_ANOTHER_USER_CHANGE_USER_ID, (userId) => userId);
+export const gameEnrollAnotherUserEdit = createAction(GAME_ENROLL_ANOTHER_USER_EDIT);
+export const gameEnrollAnotherUserReset = createAction(GAME_ENROLL_ANOTHER_USER_RESET);
 
 export function gameEnrollAnotherUserSubmit(gameId, userId, enrollmentStatus) {
   return ajax((dispatch) => ({

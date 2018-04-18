@@ -39,16 +39,11 @@ export default handleActions({
     numberOfPendingRequests: state.numberOfPendingRequests - 1
   }),
 
-  [AJAX_ERROR_ACKNOWLEDGE]: (state, action) => {
-    const { errorIndex } = action;
-    const { errors } = state;
-
-    return {
-      ...state,
-      errors: [
-        ...errors.slice(0, errorIndex),
-        ...errors.slice(errorIndex + 1)
-      ]
-    };
-  }
+  [AJAX_ERROR_ACKNOWLEDGE]: (state, { payload: errorIndex }) => ({
+    ...state,
+    errors: [
+      ...state.errors.slice(0, errorIndex),
+      ...state.errors.slice(errorIndex + 1)
+    ]
+  })
 }, initialState);

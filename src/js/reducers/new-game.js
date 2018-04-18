@@ -12,49 +12,10 @@ import { NewGameModel } from 'models';
 const initialState = new NewGameModel();
 
 export default handleActions({
-  [NEW_GAME_CHANGE_DATE]: (state, action) => {
-    const { date } = action;
-
-    return {
-      ...state,
-      date
-    };
-  },
-
-  [NEW_GAME_CHANGE_DURATION]: (state, action) => {
-    const { duration } = action;
-
-    return {
-      ...state,
-      duration
-    };
-  },
-
-  [NEW_GAME_CHANGE_HOUR]: (state, action) => {
-    const { hour } = action;
-    return {
-      ...state,
-      hour
-    };
-  },
-
-  [NEW_GAME_CHANGE_MINUTE]: (state, action) => {
-    const { minute } = action;
-
-    return {
-      ...state,
-      minute
-    };
-  },
-
-  [NEW_GAME_CHANGE_PITCH_ID]: (state, action) => {
-    const { pitchId } = action;
-
-    return {
-      ...state,
-      pitchId
-    };
-  },
-
+  [NEW_GAME_CHANGE_DATE]: (state, { payload: date }) => ({ ...state, date }),
+  [NEW_GAME_CHANGE_DURATION]: (state, { payload: duration }) => ({ ...state, duration }),
+  [NEW_GAME_CHANGE_HOUR]: (state, { payload: hour }) => ({ ...state, hour }),
+  [NEW_GAME_CHANGE_MINUTE]: (state, { payload: minute }) => ({ ...state, minute }),
+  [NEW_GAME_CHANGE_PITCH_ID]: (state, { payload: pitchId }) => ({ ...state, pitchId }),
   [NEW_GAME_RESET]: () => initialState
 }, initialState);

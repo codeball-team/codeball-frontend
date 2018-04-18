@@ -1,3 +1,4 @@
+import { createAction } from 'redux-actions';
 import request from 'superagent';
 import { ajax, safeGet } from 'utils';
 import { push } from 'react-router-redux';
@@ -13,46 +14,12 @@ import {
 import { pitchesUrl } from 'constants';
 import { NewPitchModel } from 'models';
 
-export function newPitchChangeAddress(address) {
-  return {
-    type: NEW_PITCH_CHANGE_ADDRESS,
-    address
-  };
-}
-
-export function newPitchChangeMaxNumberOfPlayers(maxNumberOfPlayers) {
-  return {
-    type: NEW_PITCH_CHANGE_MAX_NUMBER_OF_PLAYERS,
-    maxNumberOfPlayers
-  };
-}
-
-export function newPitchChangeMinNumberOfPlayers(minNumberOfPlayers) {
-  return {
-    type: NEW_PITCH_CHANGE_MIN_NUMBER_OF_PLAYERS,
-    minNumberOfPlayers
-  };
-}
-
-export function newPitchChangeName(name) {
-  return {
-    type: NEW_PITCH_CHANGE_NAME,
-    name
-  };
-}
-
-export function newPitchChangeType(pitchType) {
-  return {
-    type: NEW_PITCH_CHANGE_TYPE,
-    pitchType
-  };
-}
-
-export function newPitchReset() {
-  return {
-    type: NEW_PITCH_RESET
-  };
-}
+export const newPitchChangeAddress = createAction(NEW_PITCH_CHANGE_ADDRESS, (address) => address);
+export const newPitchChangeMaxNumberOfPlayers = createAction(NEW_PITCH_CHANGE_MAX_NUMBER_OF_PLAYERS, (maxNumberOfPlayers) => maxNumberOfPlayers);
+export const newPitchChangeMinNumberOfPlayers = createAction(NEW_PITCH_CHANGE_MIN_NUMBER_OF_PLAYERS, (minNumberOfPlayers) => minNumberOfPlayers);
+export const newPitchChangeName = createAction(NEW_PITCH_CHANGE_NAME, (name) => name);
+export const newPitchChangeType = createAction(NEW_PITCH_CHANGE_TYPE, (pitchType) => pitchType);
+export const newPitchReset = createAction(NEW_PITCH_RESET);
 
 export function newPitchSubmit(newPitch) {
   const payload = NewPitchModel.toServerFormat(newPitch);

@@ -18,14 +18,10 @@ export default handleActions({
     isEditing: true
   }),
 
-  [GAME_ENROLL_ANOTHER_USER_CHANGE_USER_ID]: (state, action) => {
-    const { userId } = action;
-
-    return {
-      ...state,
-      userId
-    };
-  },
+  [GAME_ENROLL_ANOTHER_USER_CHANGE_USER_ID]: (state, { payload: userId }) => ({
+    ...state,
+    userId
+  }),
 
   [GAME_ENROLL_ANOTHER_USER_EDIT_CANCEL]: () => initialState,
 

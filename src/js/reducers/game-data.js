@@ -42,29 +42,21 @@ export default ajaxReducer(initialState, GAME_LOAD, {
     isEditing: false
   }),
 
-  [GAME_EDIT_SCORE_A]: (state, action) => {
-    const { teamAScore } = action;
+  [GAME_EDIT_SCORE_A]: (state, { payload: teamAScore }) => ({
+    ...state,
+    editedGame: {
+      ...state.editedGame,
+      teamAScore: parseNumber(teamAScore)
+    }
+  }),
 
-    return {
-      ...state,
-      editedGame: {
-        ...state.editedGame,
-        teamAScore: parseNumber(teamAScore)
-      }
-    };
-  },
-
-  [GAME_EDIT_SCORE_B]: (state, action) => {
-    const { teamBScore } = action;
-
-    return {
-      ...state,
-      editedGame: {
-        ...state.editedGame,
-        teamBScore: parseNumber(teamBScore)
-      }
-    };
-  },
+  [GAME_EDIT_SCORE_B]: (state, { payload: teamBScore }) => ({
+    ...state,
+    editedGame: {
+      ...state.editedGame,
+      teamBScore: parseNumber(teamBScore)
+    }
+  }),
 
   [GAME_END.SUCCESS]: gameLoaded,
 

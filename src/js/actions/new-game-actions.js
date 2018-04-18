@@ -1,3 +1,4 @@
+import { createAction } from 'redux-actions';
 import request from 'superagent';
 import { ajax, safeGet } from 'utils';
 import { push } from 'react-router-redux';
@@ -13,46 +14,12 @@ import {
 import { gamesUrl } from 'constants';
 import { NewGameModel } from 'models';
 
-export function newGameChangeDate(date) {
-  return {
-    type: NEW_GAME_CHANGE_DATE,
-    date
-  };
-}
-
-export function newGameChangeDuration(duration) {
-  return {
-    type: NEW_GAME_CHANGE_DURATION,
-    duration
-  };
-}
-
-export function newGameChangeHour(hour) {
-  return {
-    type: NEW_GAME_CHANGE_HOUR,
-    hour
-  };
-}
-
-export function newGameChangeMinute(minute) {
-  return {
-    type: NEW_GAME_CHANGE_MINUTE,
-    minute
-  };
-}
-
-export function newGameChangePitchId(pitchId) {
-  return {
-    type: NEW_GAME_CHANGE_PITCH_ID,
-    pitchId
-  };
-}
-
-export function newGameReset() {
-  return {
-    type: NEW_GAME_RESET
-  };
-}
+export const newGameChangeDate = createAction(NEW_GAME_CHANGE_DATE, (date) => date);
+export const newGameChangeDuration = createAction(NEW_GAME_CHANGE_DURATION, (duration) => duration);
+export const newGameChangeHour = createAction(NEW_GAME_CHANGE_HOUR, (hour) => hour);
+export const newGameChangeMinute = createAction(NEW_GAME_CHANGE_MINUTE, (minute) => minute);
+export const newGameChangePitchId = createAction(NEW_GAME_CHANGE_PITCH_ID, (pitchId) => pitchId);
+export const newGameReset = createAction(NEW_GAME_RESET);
 
 export function newGameSubmit(newGame) {
   const payload = NewGameModel.toServerFormat(newGame);
