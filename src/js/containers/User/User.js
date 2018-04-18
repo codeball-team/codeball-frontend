@@ -42,8 +42,8 @@ class User extends Component {
 export default ContainerComponent(User, {
   mapStateToProps: userContainerSelector,
   periodicDataUpdates: true,
-  updateData: ({ actions, ...props }) => {
+  updateData: ({ actions, match }) => {
     actions.currentUserLoad();
-    actions.userLoad(props.params.id);
+    actions.userLoad(match.params.id);
   }
 });
