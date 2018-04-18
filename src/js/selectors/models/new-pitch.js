@@ -1,3 +1,1 @@
-export function newPitchSelector(state) {
-  return state.newPitch;
-}
+export const newPitchSelector = (state) => state.newPitch;

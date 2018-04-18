@@ -1,7 +1,3 @@
-export function hasPitchLoadedSelector(state) {
-  return state.pitchData.hasLoaded;
-}
+export const hasPitchLoadedSelector = (state) => state.pitchData.hasLoaded;
 
-export function pitchSelector(state) {
-  return state.pitchData.pitch;
-}
+export const pitchSelector = (state) => state.pitchData.pitch;

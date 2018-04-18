@@ -1,7 +1,3 @@
-export function hasUserLoadedSelector(state) {
-  return state.userData.hasLoaded;
-}
+export const hasUserLoadedSelector = (state) => state.userData.hasLoaded;
 
-export function userSelector(state) {
-  return state.userData.user;
-}
+export const userSelector = (state) => state.userData.user;

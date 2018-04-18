@@ -1,3 +1,1 @@
-export function newGameSelector(state) {
-  return state.newGame;
-}
+export const newGameSelector = (state) => state.newGame;

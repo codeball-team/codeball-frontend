@@ -1,3 +1,1 @@
-export function newUserSelector(state) {
-  return state.newUser;
-}
+export const newUserSelector = (state) => state.newUser;
