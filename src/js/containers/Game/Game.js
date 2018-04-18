@@ -7,104 +7,107 @@ import { Render } from 'components/ui';
 import { GameLineupSection, GameScoreSection } from 'components/sections';
 import { GameNotLoaded } from 'components/codeball';
 
-export default function GenerateGame(getGameId) {
-  class Game extends Component {
-    static propTypes = {
-      actions: PropTypes.object.isRequired,
-      game: PropTypes.object.isRequired,
-      hasGameLoaded: PropTypes.bool.isRequired,
-      hasPermission: PropTypes.func.isRequired,
-      isGameEditing: PropTypes.bool.isRequired,
-      pitch: PropTypes.object.isRequired,
-      teamA: PropTypes.array.isRequired,
-      teamB: PropTypes.array.isRequired
-    };
+class Game extends Component {
+  static propTypes = {
+    actions: PropTypes.object.isRequired,
+    game: PropTypes.object.isRequired,
+    hasGameLoaded: PropTypes.bool.isRequired,
+    hasPermission: PropTypes.func.isRequired,
+    id: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    isGameEditing: PropTypes.bool.isRequired,
+    match: PropTypes.object,
+    pitch: PropTypes.object.isRequired,
+    teamA: PropTypes.array.isRequired,
+    teamB: PropTypes.array.isRequired
+  };
 
-    onCancel = () => {
-      const { actions: { gameEditCancel } } = this.props;
-      gameEditCancel();
-    };
+  onCancel = () => {
+    const { actions: { gameEditCancel } } = this.props;
+    gameEditCancel();
+  };
 
-    onEdit = () => {
-      const { actions: { gameEdit } } = this.props;
-      gameEdit();
-    };
+  onEdit = () => {
+    const { actions: { gameEdit } } = this.props;
+    gameEdit();
+  };
 
-    onEditGameScoreA = (teamAScore) => {
-      const { actions: { gameEditScoreA } } = this.props;
-      gameEditScoreA(teamAScore);
-    };
+  onEditGameScoreA = (teamAScore) => {
+    const { actions: { gameEditScoreA } } = this.props;
+    gameEditScoreA(teamAScore);
+  };
 
-    onEditGameScoreB = (teamBScore) => {
-      const { actions: { gameEditScoreB } } = this.props;
-      gameEditScoreB(teamBScore);
-    };
+  onEditGameScoreB = (teamBScore) => {
+    const { actions: { gameEditScoreB } } = this.props;
+    gameEditScoreB(teamBScore);
+  };
 
-    onSave = () => {
-      const {
-        actions: {
-          gameSetScore
-        },
-        game: {
-          id: gameId,
-          teamAScore,
-          teamBScore
-        }
-      } = this.props;
-      gameSetScore(gameId, teamAScore, teamBScore);
-    };
+  onSave = () => {
+    const {
+      actions: {
+        gameSetScore
+      },
+      game: {
+        id: gameId,
+        teamAScore,
+        teamBScore
+      }
+    } = this.props;
+    gameSetScore(gameId, teamAScore, teamBScore);
+  };
 
-    render() {
-      const {
-        game,
-        hasGameLoaded,
-        hasPermission,
-        isGameEditing,
-        pitch,
-        teamA,
-        teamB
-      } = this.props;
+  render() {
+    const {
+      game,
+      hasGameLoaded,
+      hasPermission,
+      isGameEditing,
+      pitch,
+      teamA,
+      teamB
+    } = this.props;
 
-      return (
-        <main>
-          <Render when={!hasGameLoaded}>
-            <GameNotLoaded canAddNew={hasPermission(PERMISSION_ADD_GAME)} />
-          </Render>
+    return (
+      <main>
+        <Render when={!hasGameLoaded}>
+          <GameNotLoaded canAddNew={hasPermission(PERMISSION_ADD_GAME)} />
+        </Render>
 
-          <Render when={hasGameLoaded}>
-            <GameScoreSection
-              title="Result"
-              canEdit={hasPermission(PERMISSION_EDIT_GAME_SCORE)}
-              isEditable={true}
-              isEditing={isGameEditing}
-              pitch={pitch}
-              game={game}
-              onEdit={this.onEdit}
-              onCancel={this.onCancel}
-              onSave={this.onSave}
-              onEditGameScoreA={this.onEditGameScoreA}
-              onEditGameScoreB={this.onEditGameScoreB} />
-          </Render>
+        <Render when={hasGameLoaded}>
+          <GameScoreSection
+            title="Result"
+            canEdit={hasPermission(PERMISSION_EDIT_GAME_SCORE)}
+            isEditable={true}
+            isEditing={isGameEditing}
+            pitch={pitch}
+            game={game}
+            onEdit={this.onEdit}
+            onCancel={this.onCancel}
+            onSave={this.onSave}
+            onEditGameScoreA={this.onEditGameScoreA}
+            onEditGameScoreB={this.onEditGameScoreB} />
+        </Render>
 
-          <Render when={hasGameLoaded}>
-            <GameLineupSection
-              title="Lineups"
-              teamA={teamA}
-              teamB={teamB} />
-          </Render>
-        </main>
-      );
-    }
+        <Render when={hasGameLoaded}>
+          <GameLineupSection
+            title="Lineups"
+            teamA={teamA}
+            teamB={teamB} />
+        </Render>
+      </main>
+    );
   }
-
-  return ContainerComponent(Game, {
-    mapStateToProps: gameContainerSelector,
-    periodicDataUpdates: true,
-    updateData: ({ actions, ...props }) => {
-      actions.currentUserLoad();
-      actions.gameLoad(getGameId(props));
-      actions.pitchesLoad();
-      actions.usersLoad();
-    }
-  });
 }
+
+export default ContainerComponent(Game, {
+  mapStateToProps: gameContainerSelector,
+  periodicDataUpdates: true,
+  updateData: ({ actions, id, match, ...props }) => {
+    actions.currentUserLoad();
+    actions.gameLoad(id || match.params.id);
+    actions.pitchesLoad();
+    actions.usersLoad();
+  }
+});

@@ -30,9 +30,9 @@ const App = () => (
         <Route exact={true} path="/changelog" component={Changelog} />
         <Route exact={true} path="/games" component={Games} />
         <Route exact={true} path="/games/new" component={NewGame} />
-        <Route exact={true} path="/games/previous/:id" component={Game(getIdFromRoute)} />
-        <Route exact={true} path="/games/upcoming/:id" component={UpcomingGame(getIdFromRoute)} />
-        <Route exact={true} path="/last-game" component={Game(() => 'last')} />
+        <Route exact={true} path="/games/previous/:id" component={Game} />
+        <Route exact={true} path="/games/upcoming/:id" component={UpcomingGame} />
+        <Route exact={true} path="/last-game" render={() => <Game id="last" />} />
         <Route exact={true} path="/pitches" component={Pitches} />
         <Route exact={true} path="/pitches/new" component={NewPitch} />
         <Route exact={true} path="/pitches/:id" component={Pitch} />
@@ -40,7 +40,7 @@ const App = () => (
         <Route exact={true} path="/players/new" component={NewUser} />
         <Route exact={true} path="/players/:id" component={User} />
         <Route exact={true} path="/unauthorized" component={Unauthorized} />
-        <Route exact={true} path="/upcoming-game" component={UpcomingGame(() => 'upcoming')} />
+        <Route exact={true} path="/upcoming-game" render={() => <UpcomingGame id="upcoming" />} />
         <Route component={NotFound} />
       </Switch>
     </Page>
