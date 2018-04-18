@@ -56,7 +56,7 @@ function release3() {
             <li>Introducing CSS modules</li>
             <li>Introducing webpack-wizard</li>
             <li>Introducing prop-types</li>
-            <li>Updating frontend libraries</li>
+            <li>Upgrading dependencies</li>
           </ul>
         </li>
       </ul>

@@ -12,3 +12,15 @@
     }
   }
 }
+
+.yes {
+  background-color: $bg-color-success;
+}
+
+.no {
+  background-color: $bg-color-danger;
+}
+
+.maybe {
+  background-color: $bg-color-default-alert;
+}

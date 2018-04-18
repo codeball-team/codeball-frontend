@@ -16,7 +16,7 @@ const SubmitButton = ({ isDisabled, onClick }) => (
 
 SubmitButton.propTypes = {
   isDisabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func
 };
 
 export default SubmitButton;

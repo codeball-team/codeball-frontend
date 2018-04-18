@@ -16,11 +16,7 @@ const Form = ({ className, inputs, onSubmit }) => {
   const areAllInputsValid = visibleInputs.every(({ isValid }) => isValid);
 
   return (
-    <div
-      className={classNames(
-        styles.form,
-        className
-      )}>
+    <div className={classNames(styles.form, className)}>
       <div>
         {visibleInputs.map(({ label, displayValue, isValid, component }, index) => (
           <InputWrapper

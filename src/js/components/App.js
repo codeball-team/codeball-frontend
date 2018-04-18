@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import Changelog from 'containers/Changelog/Changelog';
 import Game from 'containers/Game/Game';
 import Games from 'containers/Games/Games';
@@ -22,22 +22,23 @@ const App = () => (
   <div>
     <Page>
       <Switch>
+        <Redirect exact={true} from="/" to="/upcoming-game" />
         <Route exact={true} path="/" component={UpcomingGame} />
         <Route exact={true} path="/404" component={NotFound} />
         <Route exact={true} path="/changelog" component={Changelog} />
-        <Route exact={true} path="/last-game" component={Game(() => 'last')} />
-        <Route exact={true} path="/upcoming-game" component={UpcomingGame(() => 'upcoming')} />
         <Route exact={true} path="/games" component={Games} />
         <Route exact={true} path="/games/new" component={NewGame} />
         <Route exact={true} path="/games/previous/:id" component={Game(getIdFromRoute)} />
         <Route exact={true} path="/games/upcoming/:id" component={UpcomingGame(getIdFromRoute)} />
+        <Route exact={true} path="/last-game" component={Game(() => 'last')} />
         <Route exact={true} path="/pitches" component={Pitches} />
         <Route exact={true} path="/pitches/new" component={NewPitch} />
         <Route exact={true} path="/pitches/:id" component={Pitch} />
         <Route exact={true} path="/players" component={Users} />
         <Route exact={true} path="/players/new" component={NewUser} />
         <Route exact={true} path="/players/:id" component={User} />
-        <Route exact={true} path="unauthorized" component={Unauthorized} />
+        <Route exact={true} path="/unauthorized" component={Unauthorized} />
+        <Route exact={true} path="/upcoming-game" component={UpcomingGame(() => 'upcoming')} />
         <Route component={NotFound} />
       </Switch>
     </Page>

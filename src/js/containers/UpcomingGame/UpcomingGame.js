@@ -118,34 +118,34 @@ export default function GenerateUpcomingGame(getGameId) {
               game={game}
               pitch={pitch}
               buttons={[
-                <ButtonSave
-                  renderWhen={[
+                <Render
+                  key="close-enrollment"
+                  when={[
                     !isEnrollmentOver,
                     hasPermission(PERMISSION_CLOSE_ENROLMENT)
-                  ]}
-                  key="close-enrollment"
-                  label="Close enrollment"
-                  onClick={this.onCloseEnrollment} />,
+                  ]}>
+                  <ButtonSave label="Close enrollment" onClick={this.onCloseEnrollment} />
+                </Render>,
 
-                <ButtonShuffle
-                  renderWhen={[
+                <Render
+                  key="draw-teams"
+                  when={[
                     isEnrollmentOver,
                     !isGameOver,
                     hasPermission(PERMISSION_DRAW_TEAMS)
-                  ]}
-                  key="draw-teams"
-                  label="Draw teams"
-                  onClick={this.onDrawTeams} />,
+                  ]}>
+                  <ButtonShuffle label="Draw teams" onClick={this.onDrawTeams} />
+                </Render>,
 
-                <ButtonSave
-                  renderWhen={[
+                <Render
+                  key="end-game"
+                  when={[
                     isEnrollmentOver,
                     !isGameOver,
                     hasPermission(PERMISSION_END_GAME)
-                  ]}
-                  key="end-game"
-                  label="End game"
-                  onClick={this.onEndGame} />
+                  ]}>
+                  <ButtonSave label="End game" onClick={this.onEndGame} />
+                </Render>
               ]} />
           </Render>
 

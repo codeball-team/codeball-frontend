@@ -34,21 +34,21 @@
       "command": "webpack-wizard build",
       "env": {
         "NODE_ENV": "production",
-        "API_URL": "http://localhost:8080"
+        "API_URL": "http://localhost:8080/api"
       }
     },
     "build:prod": {
       "command": "webpack-wizard build",
       "env": {
         "NODE_ENV": "production",
-        "API_URL": "http://kamilmielnik.com:8080"
+        "API_URL": "http://kamilmielnik.com:8080/api"
       }
     },
     "start": {
       "command": "webpack-wizard start",
       "env": {
         "NODE_ENV": "development",
-        "API_URL": "http://localhost:8080"
+        "API_URL": "http://localhost:8080/api"
       }
     },
     "start:prod": {
