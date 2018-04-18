@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { BACKGROUND_IMAGES } from 'constants';
 import Changelog from 'containers/Changelog/Changelog';
 import Game from 'containers/Game/Game';
 import Games from 'containers/Games/Games';
@@ -16,10 +17,11 @@ import User from 'containers/User/User';
 import Users from 'containers/Users/Users';
 import AjaxSpinner from 'containers/AjaxSpinner/AjaxSpinner';
 import AjaxErrors from 'containers/AjaxErrors/AjaxErrors';
-import { Page } from 'components/ui';
+import { BodyBackground, Page } from 'components/ui';
 
 const App = () => (
   <div>
+    <BodyBackground images={BACKGROUND_IMAGES} />
     <Page>
       <Switch>
         <Redirect exact={true} from="/" to="/upcoming-game" />

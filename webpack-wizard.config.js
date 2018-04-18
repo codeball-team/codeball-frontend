@@ -4,8 +4,8 @@ module.exports = (webpackWizard, { resolveCwdPath }) => {
     input: {
       favicon: resolveCwdPath('html/favicon.ico'),
       html: resolveCwdPath('html/index.html'),
-      js: resolveCwdPath('src/js/main.js'),
-      jsDev: resolveCwdPath('src/js/main.js'),
+      js: resolveCwdPath('src/js/index.js'),
+      jsDev: resolveCwdPath('src/js/index-dev.js'),
       styles: [
         resolveCwdPath('src/js/styles')
       ],

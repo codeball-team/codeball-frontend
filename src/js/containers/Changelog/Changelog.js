@@ -53,6 +53,7 @@ function release3() {
         <li>
           Frontend
           <ul>
+            <li>Severe refactoring</li>
             <li>Introducing CSS modules</li>
             <li>Introducing webpack-wizard</li>
             <li>Introducing prop-types</li>
