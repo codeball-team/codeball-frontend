@@ -7,13 +7,8 @@ const initialState = {
 };
 
 export default ajaxReducer(initialState, CURRENT_USER_LOAD, {
-  [CURRENT_USER_LOAD.SUCCESS]: (state, action) => {
-    const { response } = action;
-    const currentUser = UserModel.fromServerFormat(response);
-
-    return {
-      ...initialState,
-      currentUser
-    };
-  }
+  [CURRENT_USER_LOAD.SUCCESS]: (state, { response }) => ({
+    ...initialState,
+    currentUser: UserModel.fromServerFormat(response)
+  })
 });

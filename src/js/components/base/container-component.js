@@ -10,8 +10,10 @@ import { LoadableContent } from 'components/ui';
 export default function ContainerComponent(ComponentClass, options) {
   const {
     doesNotNeedUpdatingData,
+    mapDispatchToProps,
     mapStateToProps,
-    periodicUpdateData,
+    mergeProps,
+    periodicUpdates,
     updateData
   } = handleOptions(options);
 
@@ -25,18 +27,18 @@ export default function ContainerComponent(ComponentClass, options) {
     };
 
     componentWillMount = () => {
-      periodicUpdateData.start(this.updateDataCallback(this.props));
+      periodicUpdates.start(this.updateDataCallback(this.props));
     };
 
     componentWillReceiveProps = (newProps) => {
       const idPath = [ 'params', 'id' ];
       if (safeGet(newProps, idPath) !== safeGet(this.props, idPath)) {
-        periodicUpdateData.restart(this.updateDataCallback(newProps));
+        periodicUpdates.restart(this.updateDataCallback(newProps));
       }
     };
 
     componentWillUnmount = () => {
-      periodicUpdateData.end();
+      periodicUpdates.end();
     };
 
     updateDataCallback = (props) => () => updateData(props);
@@ -53,20 +55,24 @@ export default function ContainerComponent(ComponentClass, options) {
     }
   }
 
-  return connect(enhanceProps(mapStateToProps), mapDispatchToProps)(Container);
+  return connect(enhanceProps(mapStateToProps), mapDispatchToProps, mergeProps)(Container);
 }
 
 function handleOptions(options = {}) {
   const {
-    mapStateToProps = () => ({}),
+    mapDispatchToProps,
+    mapStateToProps = () => null,
+    mergeProps,
     periodicDataUpdates = false,
     updateData = _.noop
   } = options;
 
   return {
     doesNotNeedUpdatingData: updateData === _.noop,
+    mapDispatchToProps: getMapDispatchToProps(mapDispatchToProps),
     mapStateToProps,
-    periodicUpdateData: applyPeriodicUpdates(periodicDataUpdates),
+    mergeProps,
+    periodicUpdates: applyPeriodicUpdates(periodicDataUpdates),
     updateData
   };
 }
@@ -97,8 +103,13 @@ function hasPermission(state, permission) {
   return Boolean(getPermission(state, permission));
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
+function getMapDispatchToProps(mapDispatchToProps = {}) {
+  return (dispatch) => ({
+    dispatch,
+    actions: bindActionCreators(actions, dispatch),
+    ...Object.keys(mapDispatchToProps).reduce((props, key) => {
+      props[key] = (...params) => dispatch(mapDispatchToProps[key](...params));
+      return props;
+    }, {})
+  });
 }

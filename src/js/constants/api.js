@@ -1,50 +1,18 @@
-export function currentUserUrl() {
-  return `${usersUrl()}/me`;
-}
+// TODO: remove file
+export const currentUserUrl = () => `${usersUrl()}/me`;
+export const gameCloseEnrollmentUrl = (gameId) => `${gameUrl(gameId)}/finishEnrollment`;
+export const gameDrawTeamsUrl = (gameId) => `${gameUrl(gameId)}/team`;
+export const gameEndUrl = (gameId) => `${gameUrl(gameId)}/end`;
+export const gameEnrollmentUrl = (gameId, userId) => userId
+  ? gameEnrollmentUserUrl(gameId, userId)
+  : gameEnrollmentBaseUrl(gameId);
+export const gameSetScoreUrl = (gameId) => `${gameUrl(gameId)}/score`;
+export const gameUrl = (gameId) => `${gamesUrl()}/${gameId}`;
+export const gamesUrl = () => `${process.env.API_URL}/game`;
+export const pitchUrl = (pitchId) => `${pitchesUrl()}/${pitchId}`;
+export const pitchesUrl = () => `${process.env.API_URL}/pitch`;
+export const userUrl = (userId) => `${usersUrl()}/${userId}`;
+export const usersUrl = () => `${process.env.API_URL}/user`;
 
-export function gameCloseEnrollmentUrl(gameId) {
-  return `${gameUrl(gameId)}/finishEnrollment`;
-}
-
-export function gameDrawTeamsUrl(gameId) {
-  return `${gameUrl(gameId)}/team`;
-}
-
-export function gameEndUrl(gameId) {
-  return `${gameUrl(gameId)}/end`;
-}
-
-export function gameEnrollmentUrl(gameId, userId) {
-  if (userId) {
-    return `${gameUrl(gameId)}/enrollment/${userId}`;
-  }
-  return `${gameUrl(gameId)}/enrollment`;
-}
-
-export function gameSetScoreUrl(gameId) {
-  return `${gameUrl(gameId)}/score`;
-}
-
-export function gameUrl(gameId) {
-  return `${gamesUrl()}/${gameId}`;
-}
-
-export function gamesUrl() {
-  return `${process.env.API_URL}/game`;
-}
-
-export function pitchUrl(pitchId) {
-  return `${pitchesUrl()}/${pitchId}`;
-}
-
-export function pitchesUrl() {
-  return `${process.env.API_URL}/pitch`;
-}
-
-export function userUrl(userId) {
-  return `${usersUrl()}/${userId}`;
-}
-
-export function usersUrl() {
-  return `${process.env.API_URL}/user`;
-}
+const gameEnrollmentBaseUrl = (gameId) => `${gameUrl(gameId)}/enrollment`;
+const gameEnrollmentUserUrl = (gameId, userId) => `${gameEnrollmentBaseUrl(gameId)}/${userId}`;

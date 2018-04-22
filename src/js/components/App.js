@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import { BACKGROUND_IMAGES } from 'constants';
 import Changelog from 'containers/Changelog/Changelog';
-import Game from 'containers/Game/Game';
+import Game from 'modules/game';
 import Games from 'containers/Games/Games';
 import NewGame from 'containers/NewGame/NewGame';
 import NewPitch from 'containers/NewPitch/NewPitch';

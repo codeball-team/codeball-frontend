@@ -13,7 +13,8 @@ module.exports = (webpackWizard, { resolveCwdPath }) => {
         resolveCwdPath('src/js/styles')
       ],
       modules: [
-        resolveCwdPath('src/js')
+        resolveCwdPath('src/js'),
+        resolveCwdPath('src/js/modules')
       ]
     }
   });

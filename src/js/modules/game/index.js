@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME, PERMISSION_EDIT_GAME_SCORE } from 'constants';
+import { actions } from './state';
 import { gameContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
@@ -24,40 +25,6 @@ class Game extends Component {
     teamB: PropTypes.array.isRequired
   };
 
-  onCancel = () => {
-    const { actions: { gameEditCancel } } = this.props;
-    gameEditCancel();
-  };
-
-  onEdit = () => {
-    const { actions: { gameEdit } } = this.props;
-    gameEdit();
-  };
-
-  onEditGameScoreA = (teamAScore) => {
-    const { actions: { gameEditScoreA } } = this.props;
-    gameEditScoreA(teamAScore);
-  };
-
-  onEditGameScoreB = (teamBScore) => {
-    const { actions: { gameEditScoreB } } = this.props;
-    gameEditScoreB(teamBScore);
-  };
-
-  onSave = () => {
-    const {
-      actions: {
-        gameSetScore
-      },
-      game: {
-        id: gameId,
-        teamAScore,
-        teamBScore
-      }
-    } = this.props;
-    gameSetScore(gameId, teamAScore, teamBScore);
-  };
-
   render() {
     const {
       game,
@@ -66,7 +33,12 @@ class Game extends Component {
       isGameEditing,
       pitch,
       teamA,
-      teamB
+      teamB,
+      onCancel,
+      onEdit,
+      onEditGameScoreA,
+      onEditGameScoreB,
+      onSave
     } = this.props;
 
     return (
@@ -83,11 +55,11 @@ class Game extends Component {
             isEditing={isGameEditing}
             pitch={pitch}
             game={game}
-            onEdit={this.onEdit}
-            onCancel={this.onCancel}
-            onSave={this.onSave}
-            onEditGameScoreA={this.onEditGameScoreA}
-            onEditGameScoreB={this.onEditGameScoreB} />
+            onEdit={onEdit}
+            onCancel={onCancel}
+            onSave={onSave}
+            onEditGameScoreA={onEditGameScoreA}
+            onEditGameScoreB={onEditGameScoreB} />
         </Render>
 
         <Render when={hasGameLoaded}>
@@ -101,12 +73,25 @@ class Game extends Component {
   }
 }
 
+const mapStateToProps = gameContainerSelector;
+
+const mapDispatchToProps = {
+  onCancel: actions.game.editCancel,
+  onEdit: actions.game.edit,
+  onEditGameScoreA: actions.game.editScoreA,
+  onEditGameScoreB: actions.game.editScoreB,
+  onSave: actions.game.saveScore
+};
+
+const allActions = actions; // TODO: remove
+
 export default ContainerComponent(Game, {
-  mapStateToProps: gameContainerSelector,
+  mapStateToProps,
+  mapDispatchToProps,
   periodicDataUpdates: true,
-  updateData: ({ actions, id, match }) => {
+  updateData: ({ actions, dispatch, id, match }) => {
     actions.currentUserLoad();
-    actions.gameLoad(id || match.params.id);
+    dispatch(allActions.game.load(id || match.params.id));
     actions.pitchesLoad();
     actions.usersLoad();
   }

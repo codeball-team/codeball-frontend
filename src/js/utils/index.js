@@ -2,6 +2,7 @@ export * from 'utils/ajax';
 export { createActions, handleActions, combineActions } from 'redux-actions';
 export _ from 'underscore';
 export classNames from 'classnames';
+export * from './fetch';
 export findById from './find-by-id';
 export findLabelByValue from './find-label-by-value';
 export formatRange from './format-range';

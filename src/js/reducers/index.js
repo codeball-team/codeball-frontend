@@ -3,7 +3,7 @@ import { routerReducer } from 'react-router-redux';
 import ajaxRequests from './ajax-requests';
 import currentUserData from './current-user-data';
 import enrollAnotherUser from './enroll-another-user';
-import gameData from './game-data';
+import gameData from 'game/state';
 import gamesData from './games-data';
 import newGame from './new-game';
 import newPitch from './new-pitch';

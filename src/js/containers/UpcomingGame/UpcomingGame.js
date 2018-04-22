@@ -4,6 +4,7 @@ import {
   PERMISSION_ADD_GAME, PERMISSION_CLOSE_ENROLMENT, PERMISSION_DRAW_TEAMS,
   PERMISSION_END_GAME, PERMISSION_ENROLL, PERMISSION_ENROLL_ANOTHER_USER
 } from 'constants';
+import { actions } from 'game/state';
 import { upcomingGameContainerSelector } from 'selectors/containers';
 import { EnrollAnotherUserModel } from 'models';
 import { ContainerComponent } from 'components/base';
@@ -207,12 +208,14 @@ class UpcomingGame extends Component {
   }
 }
 
+const allActions = actions; // TODO: remove
+
 export default ContainerComponent(UpcomingGame, {
   mapStateToProps: upcomingGameContainerSelector,
   periodicDataUpdates: true,
-  updateData: ({ actions, id, match }) => {
+  updateData: ({ actions, dispatch, id, match }) => {
     actions.currentUserLoad();
-    actions.gameLoad(id || match.params.id);
+    dispatch(allActions.game.load(id || match.params.id));
     actions.pitchesLoad();
     actions.usersLoad();
   }

@@ -8,11 +8,22 @@ const ajaxReducerInitialState = {
 };
 
 const ajaxReducer = (initialState, actionType, handlers) => {
-  const ajaxHandlers = {
-    [actionType]: onAjaxStart,
-    [actionType.FAILURE]: onAjaxFail,
-    [actionType.SUCCESS]: onAjaxSuccess
-  };
+  let ajaxHandlers;
+
+  if (Array.isArray(actionType)) {
+    const [ start, failure, success ] = actionType;
+    ajaxHandlers = {
+      [start]: onAjaxStart,
+      [failure]: onAjaxFailure,
+      [success]: onAjaxSuccess
+    };
+  } else {
+    ajaxHandlers = {
+      [actionType]: onAjaxStart,
+      [actionType.FAILURE]: onAjaxFailure,
+      [actionType.SUCCESS]: onAjaxSuccess
+    };
+  }
 
   const reducerInitialState = {
     ...ajaxReducerInitialState,
@@ -56,7 +67,7 @@ const onAjaxSuccess = (state, action) => ({
   hasLoaded: true
 });
 
-const onAjaxFail = (state, action) => ({
+const onAjaxFailure = (state, action) => ({
   ...onAjaxEnd(state, action),
   hasLoaded: false
 });
