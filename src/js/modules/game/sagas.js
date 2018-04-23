@@ -12,8 +12,8 @@ import {
   putEnd,
   putEnrollAnotherUser,
   putScore
-} from './api';
-import { actions } from './state';
+} from 'game/api';
+import { actions } from 'game/state';
 
 export default function* gameSagas() {
   yield takeLatest(actions.game.changeEnrollmentStatus, onChangeEnrollmentStatus);

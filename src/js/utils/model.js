@@ -17,6 +17,7 @@ export default (options) => {
     );
 
     static fromServerFormat = wrapFromServerFormat(Model, fromServerFormat);
+    static arrayFromServerFormat = (array = []) => array.map(Model.fromServerFormat);
 
     constructor(attributes) {
       Object.assign(

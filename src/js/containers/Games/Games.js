@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME } from 'constants';
 import { actions as currentUserActions } from 'current-user/state';
+import { actions as gamesActions } from 'games/state';
 import { gamesContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
@@ -52,7 +53,7 @@ export default ContainerComponent(Games, {
   periodicDataUpdates: true,
   updateData: ({ actions, dispatch }) => {
     dispatch(currentUserActions.currentUser.load());
-    actions.gamesLoad();
+    dispatch(gamesActions.games.load());
     actions.pitchesLoad();
     actions.usersLoad();
   }

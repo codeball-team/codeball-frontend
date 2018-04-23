@@ -57,6 +57,8 @@ function release3() {
             <li>Introducing CSS modules</li>
             <li>Introducing webpack-wizard</li>
             <li>Introducing prop-types</li>
+            <li>Introducing re-reselect</li>
+            <li>Removing superagent in favor of fetch</li>
             <li>Upgrading dependencies</li>
           </ul>
         </li>

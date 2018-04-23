@@ -4,7 +4,7 @@ import ajaxRequests from 'ajax/state';
 import currentUserData from 'current-user/state';
 import enrollAnotherUser from './enroll-another-user';
 import gameData from 'game/state';
-import gamesData from './games-data';
+import gamesData from 'games/state';
 import newGame from './new-game';
 import newPitch from './new-pitch';
 import newUser from './new-user';

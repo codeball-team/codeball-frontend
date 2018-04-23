@@ -1,7 +1,7 @@
 import { fetchJson } from 'utils';
+import { getGamesUrl } from 'games/api';
 
 export const getGameUrl = (gameId) => `${getGamesUrl()}/${gameId}`;
-export const getGamesUrl = () => `${process.env.API_URL}/game`;
 export const getGameCloseEnrollmentUrl = (gameId) => `${getGameUrl(gameId)}/finishEnrollment`;
 export const getGameDrawTeamsUrl = (gameId) => `${getGameUrl(gameId)}/team`;
 export const getGameEndUrl = (gameId) => `${getGameUrl(gameId)}/end`;
@@ -13,7 +13,6 @@ export const getGameEnrollmentBaseUrl = (gameId) => `${getGameUrl(gameId)}/enrol
 export const getGameEnrollmentUserUrl = (gameId, userId) => `${getGameEnrollmentBaseUrl(gameId)}/${userId}`;
 
 export const getGame = (gameId) => fetchJson(getGameUrl(gameId));
-export const getGames = () => fetchJson(getGamesUrl());
 export const putChangeEnrollmentStatus = (gameId, enrollmentStatus) => fetchJson(getGameEnrollmentUrl(gameId), {
   method: 'PUT',
   body: `"${enrollmentStatus}"`
