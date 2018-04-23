@@ -14,24 +14,24 @@ export const getGameEnrollmentUserUrl = (gameId, userId) => `${getGameEnrollment
 
 export const getGame = (gameId) => fetchJson(getGameUrl(gameId));
 export const getGames = () => fetchJson(getGamesUrl());
-export const putGameChangeEnrollmentStatus = (gameId, enrollmentStatus) => fetchJson(getGameEnrollmentUrl(gameId), {
+export const putChangeEnrollmentStatus = (gameId, enrollmentStatus) => fetchJson(getGameEnrollmentUrl(gameId), {
   method: 'PUT',
   body: `"${enrollmentStatus}"`
 });
-export const putGameCloseEnrollment = (gameId) => fetchJson(getGameCloseEnrollmentUrl(gameId), {
+export const putCloseEnrollment = (gameId) => fetchJson(getGameCloseEnrollmentUrl(gameId), {
   method: 'PUT'
 });
-export const putGameDrawTeams = (gameId) => fetchJson(getGameDrawTeamsUrl(gameId), {
+export const putDrawTeams = (gameId) => fetchJson(getGameDrawTeamsUrl(gameId), {
   method: 'PUT'
 });
-export const putGameEnd = (gameId) => fetchJson(getGameEndUrl(gameId), {
+export const putEnd = (gameId) => fetchJson(getGameEndUrl(gameId), {
   method: 'PUT'
 });
-export const putGameEnrollAnotherUser = (gameId, userId, enrollmentStatus) => fetchJson(getGameEnrollmentUrl(gameId, userId), {
+export const putEnrollAnotherUser = (gameId, userId, enrollmentStatus) => fetchJson(getGameEnrollmentUrl(gameId, userId), {
   method: 'PUT',
   body: `"${enrollmentStatus}"`
 });
-export const putGameScore = (gameId, teamAScore, teamBScore) => fetchJson(getGameSetScoreUrl(gameId), {
+export const putScore = (gameId, teamAScore, teamBScore) => fetchJson(getGameSetScoreUrl(gameId), {
   method: 'PUT',
   body: JSON.stringify({ teamAScore, teamBScore })
 });

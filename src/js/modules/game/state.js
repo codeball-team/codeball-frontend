@@ -11,24 +11,24 @@ const initialState = {
 
 export const actions = createActions({
   game: {
-    ...createAjaxActions(GameModel.fromServerFormat, {
-      changeEnrollmentStatus: (gameId, enrollmentStatus) => ({ enrollmentStatus, gameId }),
-      closeEnrollment: (gameId) => (gameId),
-      drawTeams: (gameId) => (gameId),
-      end: (gameId) => (gameId),
-      enrollAnotherUser: (gameId, userId) => ({ gameId, userId }),
-      load: (gameId) => gameId,
-      loadAll: undefined,
-      saveScore: undefined,
-    }),
     edit: undefined,
     editCancel: undefined,
-    editScoreA: parseNumber,
-    editScoreB: parseNumber,
+    changeScoreA: parseNumber,
+    changeScoreB: parseNumber,
     enrollAnotherUserCancel: undefined,
     enrollAnotherUserChangeUserId: undefined,
     enrollAnotherUserEdit: undefined,
-    enrollAnotherUserReset: undefined
+    enrollAnotherUserReset: undefined,
+    ...createAjaxActions(GameModel.fromServerFormat, {
+      changeEnrollmentStatus: (enrollmentStatus) => enrollmentStatus,
+      closeEnrollment: undefined,
+      drawTeams: undefined,
+      end: undefined,
+      enrollAnotherUser: (userId) => userId,
+      load: (gameId) => gameId,
+      loadAll: undefined,
+      saveScore: undefined
+    })
   }
 });
 
@@ -71,7 +71,7 @@ export default ajaxReducer(initialState, ajaxActions, {
     isEditing: false
   }),
 
-  [actions.game.editScoreA]: (state, { payload: teamAScore }) => ({
+  [actions.game.changeScoreA]: (state, { payload: teamAScore }) => ({
     ...state,
     editedGame: {
       ...state.editedGame,
@@ -79,7 +79,7 @@ export default ajaxReducer(initialState, ajaxActions, {
     }
   }),
 
-  [actions.game.editScoreB]: (state, { payload: teamBScore }) => ({
+  [actions.game.changeScoreB]: (state, { payload: teamBScore }) => ({
     ...state,
     editedGame: {
       ...state.editedGame,

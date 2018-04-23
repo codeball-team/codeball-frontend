@@ -6,12 +6,12 @@ import { push } from 'react-router-redux';
 import {
   getGame,
   getGames,
-  putGameChangeEnrollmentStatus,
-  putGameCloseEnrollment,
-  putGameDrawTeams,
-  putGameEnd,
-  putGameEnrollAnotherUser,
-  putGameScore
+  putChangeEnrollmentStatus,
+  putCloseEnrollment,
+  putDrawTeams,
+  putEnd,
+  putEnrollAnotherUser,
+  putScore
 } from './api';
 import { actions } from './state';
 
@@ -26,38 +26,42 @@ export default function* gameSagas() {
   yield throttle(API_THROTTLE, actions.game.loadAll, onGamesLoad);
 }
 
-function *onChangeEnrollmentStatus({ payload: { enrollmentStatus, gameId } }) {
+function *onChangeEnrollmentStatus({ payload: enrollmentStatus }) {
   yield call(delay, API_DEBOUNCE);
   try {
-    const game = yield call(putGameChangeEnrollmentStatus, gameId, enrollmentStatus);
+    const gameId = yield select(gameIdSelector);
+    const game = yield call(putChangeEnrollmentStatus, gameId, enrollmentStatus);
     yield put(actions.game.changeEnrollmentStatusSuccess(game));
   } catch(error) {
     yield put(actions.game.changeEnrollmentStatusFailure(error));
   }
 }
 
-function *onCloseEnrollment({ payload: gameId }) {
+function *onCloseEnrollment() {
   try {
-    const game = yield call(putGameCloseEnrollment, gameId);
+    const gameId = yield select(gameIdSelector);
+    const game = yield call(putCloseEnrollment, gameId);
     yield put(actions.game.closeEnrollmentSuccess(game));
   } catch(error) {
     yield put(actions.game.closeEnrollmentFailure(error));
   }
 }
 
-function *onDrawTeams({ payload: gameId }) {
+function *onDrawTeams() {
   try {
-    const game = yield call(putGameDrawTeams, gameId);
+    const gameId = yield select(gameIdSelector);
+    const game = yield call(putDrawTeams, gameId);
     yield put(actions.game.drawTeamsSuccess(game));
   } catch(error) {
     yield put(actions.game.drawTeamsFailure(error));
   }
 }
 
-function *onEnrollAnotherUser({ payload: { gameId, userId } }) {
+function *onEnrollAnotherUser({ payload: userId }) {
   yield call(delay, API_DEBOUNCE);
   try {
-    const game = yield call(putGameEnrollAnotherUser, gameId, userId, ENROLLMENT_STATUS_YES);
+    const gameId = yield select(gameIdSelector);
+    const game = yield call(putEnrollAnotherUser, gameId, userId, ENROLLMENT_STATUS_YES);
     yield put(actions.game.enrollAnotherUserSuccess(game));
     yield put(actions.game.enrollAnotherUserReset());
   } catch(error) {
@@ -65,9 +69,10 @@ function *onEnrollAnotherUser({ payload: { gameId, userId } }) {
   }
 }
 
-function *onEnd({ payload: gameId }) {
+function *onEnd() {
   try {
-    const game = yield call(putGameEnd, gameId);
+    const gameId = yield select(gameIdSelector);
+    const game = yield call(putEnd, gameId);
     yield put(actions.game.endSuccess(game));
     yield put(push(`/games/previous/${gameId}`));
   } catch(error) {
@@ -75,7 +80,7 @@ function *onEnd({ payload: gameId }) {
   }
 }
 
-function *onLoad({ payload: gameId }) {
+function *onLoad({ payload: gameId}) {
   yield call(delay, API_DEBOUNCE);
   try {
     const game = yield call(getGame, gameId);
@@ -89,7 +94,7 @@ function *onSaveScore() {
   yield call(delay, API_DEBOUNCE);
   try {
     const { id, teamAScore, teamBScore } = yield select(editableGameSelector);
-    const game = yield call(putGameScore, id, teamAScore, teamBScore);
+    const game = yield call(putScore, id, teamAScore, teamBScore);
     yield put(actions.game.saveScoreSuccess(game));
   } catch(error) {
     yield put(actions.game.saveScoreFailure(error));

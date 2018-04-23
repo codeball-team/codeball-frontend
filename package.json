@@ -86,6 +86,7 @@
     "moment": "^2.15.0",
     "node-normalize-scss": "^3.0.0",
     "prop-types": "^15.6.1",
+    "re-reselect": "^2.0.0",
     "react": "^16.3.2",
     "react-datepicker": "^1.4.1",
     "react-dom": "^16.3.2",

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME, PERMISSION_EDIT_GAME_SCORE } from 'constants';
-import { actions } from './state';
+import { actions } from 'game/state';
 import { gameContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
-import { GameLineupSection, GameScoreSection } from 'components/sections';
+import { GameLineupSection } from 'components/sections';
+import GameScore from 'game/components/score';
 import { GameNotLoaded } from 'components/codeball';
 
 class Game extends Component {
@@ -48,18 +49,7 @@ class Game extends Component {
         </Render>
 
         <Render when={hasGameLoaded}>
-          <GameScoreSection
-            title="Result"
-            canEdit={hasPermission(PERMISSION_EDIT_GAME_SCORE)}
-            isEditable={true}
-            isEditing={isGameEditing}
-            pitch={pitch}
-            game={game}
-            onEdit={onEdit}
-            onCancel={onCancel}
-            onSave={onSave}
-            onEditGameScoreA={onEditGameScoreA}
-            onEditGameScoreB={onEditGameScoreB} />
+          <GameScore title="Result" />
         </Render>
 
         <Render when={hasGameLoaded}>
@@ -78,8 +68,6 @@ const mapStateToProps = gameContainerSelector;
 const mapDispatchToProps = {
   onCancel: actions.game.editCancel,
   onEdit: actions.game.edit,
-  onEditGameScoreA: actions.game.editScoreA,
-  onEditGameScoreB: actions.game.editScoreB,
   onSave: actions.game.saveScore
 };
 

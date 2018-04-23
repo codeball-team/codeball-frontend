@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  PERMISSION_ADD_GAME, PERMISSION_CLOSE_ENROLMENT, PERMISSION_DRAW_TEAMS,
+  PERMISSION_ADD_GAME, PERMISSION_CLOSE_ENROLLMENT, PERMISSION_DRAW_TEAMS,
   PERMISSION_END_GAME, PERMISSION_ENROLL, PERMISSION_ENROLL_ANOTHER_USER
 } from 'constants';
 import { actions } from 'game/state';
@@ -36,57 +36,11 @@ class UpcomingGame extends Component {
     selectedEnrollmentStatus: PropTypes.string,
     teamA: PropTypes.array.isRequired,
     teamB: PropTypes.array.isRequired,
-    unenrolledUsers: PropTypes.array.isRequired
+    unenrolledUsers: PropTypes.array.isRequired,
+    onMount: PropTypes.func.isRequired
   };
 
-  componentWillMount = () => {
-    const { actions: { gameEnrollAnotherUserReset } } = this.props;
-    gameEnrollAnotherUserReset();
-  };
-
-  onCloseEnrollment = () => {
-    const { actions: { gameCloseEnrollment }, gameId } = this.props;
-    gameCloseEnrollment(gameId);
-  };
-
-  onDrawTeams = () => {
-    const { actions: { gameDrawTeams }, gameId } = this.props;
-    gameDrawTeams(gameId);
-  };
-
-  onEndGame = () => {
-    const { actions: { gameEnd }, gameId } = this.props;
-    gameEnd(gameId);
-  };
-
-  onEnrollAnotherUserCancel = () => {
-    const { actions: { gameEnrollAnotherUserCancel } } = this.props;
-    gameEnrollAnotherUserCancel();
-  };
-
-  onEnrollAnotherUserEdit = () => {
-    const { actions: { gameEnrollAnotherUserEdit } } = this.props;
-    gameEnrollAnotherUserEdit();
-  };
-
-  onEnrollAnotherUserSubmit = () => {
-    const {
-      actions: { gameEnrollAnotherUserSubmit },
-      enrollAnotherUser: { userId, enrollmentStatus },
-      gameId
-    } = this.props;
-    gameEnrollAnotherUserSubmit(gameId, userId, enrollmentStatus);
-  };
-
-  onEnrollAnotherUserIdChange = (userId) => {
-    const { actions: { gameEnrollAnotherUserChangeUserId } } = this.props;
-    gameEnrollAnotherUserChangeUserId(userId);
-  };
-
-  onEnrollmentStatusChange = (enrollmentStatus) => {
-    const { actions: { gameChangeEnrollmentStatus }, currentUserId, gameId } = this.props;
-    gameChangeEnrollmentStatus(gameId, currentUserId, enrollmentStatus);
-  };
+  componentWillMount = () => this.props.onMount();
 
   render() {
     const {
@@ -108,7 +62,15 @@ class UpcomingGame extends Component {
       selectedEnrollmentStatus,
       teamA,
       teamB,
-      unenrolledUsers
+      unenrolledUsers,
+      onCloseEnrollment,
+      onDrawTeams,
+      onEndGame,
+      onEnrollmentStatusChange,
+      onEnrollAnotherUserEdit,
+      onEnrollAnotherUserCancel,
+      onEnrollAnotherUserSubmit,
+      onEnrollAnotherUserIdChange
     } = this.props;
 
     return (
@@ -127,9 +89,9 @@ class UpcomingGame extends Component {
                 key="close-enrollment"
                 when={[
                   !isEnrollmentOver,
-                  hasPermission(PERMISSION_CLOSE_ENROLMENT)
+                  hasPermission(PERMISSION_CLOSE_ENROLLMENT)
                 ]}>
-                <ButtonSave label="Close enrollment" onClick={this.onCloseEnrollment} />
+                <ButtonSave label="Close enrollment" onClick={onCloseEnrollment} />
               </Render>,
 
               <Render
@@ -139,7 +101,7 @@ class UpcomingGame extends Component {
                   !isGameOver,
                   hasPermission(PERMISSION_DRAW_TEAMS)
                 ]}>
-                <ButtonShuffle label="Draw teams" onClick={this.onDrawTeams} />
+                <ButtonShuffle label="Draw teams" onClick={onDrawTeams} />
               </Render>,
 
               <Render
@@ -149,7 +111,7 @@ class UpcomingGame extends Component {
                   !isGameOver,
                   hasPermission(PERMISSION_END_GAME)
                 ]}>
-                <ButtonSave label="End game" onClick={this.onEndGame} />
+                <ButtonSave label="End game" onClick={onEndGame} />
               </Render>
             ]} />
         </Render>
@@ -163,7 +125,7 @@ class UpcomingGame extends Component {
           <GameEnrollmentFormSection
             title="Are you going?"
             enrollmentStatus={selectedEnrollmentStatus}
-            onChange={this.onEnrollmentStatusChange} />
+            onChange={onEnrollmentStatusChange} />
         </Render>
 
         <Render
@@ -181,10 +143,10 @@ class UpcomingGame extends Component {
             isEditing={isEnrollAnotherUserEditing}
             enrollAnotherUser={enrollAnotherUser}
             users={unenrolledUsers}
-            onEdit={this.onEnrollAnotherUserEdit}
-            onCancel={this.onEnrollAnotherUserCancel}
-            onSave={this.onEnrollAnotherUserSubmit}
-            onUserIdChange={this.onEnrollAnotherUserIdChange} />
+            onEdit={onEnrollAnotherUserEdit}
+            onCancel={onEnrollAnotherUserCancel}
+            onSave={onEnrollAnotherUserSubmit}
+            onUserIdChange={onEnrollAnotherUserIdChange} />
         </Render>
 
         <Render
@@ -208,10 +170,23 @@ class UpcomingGame extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  onCloseEnrollment: actions.game.closeEnrollment,
+  onDrawTeams: actions.game.drawTeams,
+  onEndGame: actions.game.end,
+  onEnrollAnotherUserCancel: actions.game.enrollAnotherUserCancel,
+  onEnrollAnotherUserEdit: actions.game.enrollAnotherUserEdit,
+  onEnrollAnotherUserSubmit: actions.game.enrollAnotherUser,
+  onEnrollAnotherUserIdChange: actions.game.enrollAnotherUserChangeUserId,
+  onEnrollmentStatusChange: actions.game.changeEnrollmentStatus,
+  onMount: actions.game.enrollAnotherUserReset
+};
+
 const allActions = actions; // TODO: remove
 
 export default ContainerComponent(UpcomingGame, {
   mapStateToProps: upcomingGameContainerSelector,
+  mapDispatchToProps,
   periodicDataUpdates: true,
   updateData: ({ actions, dispatch, id, match }) => {
     actions.currentUserLoad();

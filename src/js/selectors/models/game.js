@@ -19,6 +19,8 @@ export const hasGameLoadedSelector = (state) => state.gameData.hasLoaded;
 
 export const isGameEditingSelector = (state) => state.gameData.isEditing;
 
+export const canEdit = (state) => state.gameData.isEditing;
+
 export const enrolledUsersSelector = createSelector(
   [ enrollmentsSelector, usersSelector ],
   (enrollments, users) => enrollments.map(({ userId }) => findById(users, userId))
@@ -28,6 +30,11 @@ export const editableGameSelector = createSelector(
   [ (state) => state.gameData, isGameEditingSelector ],
   (gameData, isGameEditing) => (isGameEditing ? gameData.editedGame : gameData.game)
 );
+
+export const selectDate = createSelector(gameSelector, ({ date }) => date);
+export const selectTime = createSelector(gameSelector, ({ time }) => time);
+export const selectTeamAScore = createSelector(editableGameSelector, ({ teamAScore }) => teamAScore);
+export const selectTeamBScore = createSelector(editableGameSelector, ({ teamBScore }) => teamBScore);
 
 export const enrolledUsersPerStatusSelector = createSelector(
   [ enrolledUsersSelector, enrollmentsSelector ],
@@ -58,6 +65,9 @@ export const pitchSelector = createSelector(
   [ pitchesSelector, (state) => gameSelector(state).pitchId ],
   findById
 );
+
+export const selectPitchId = createSelector(pitchSelector, ({ id }) => id);
+export const selectPitchName = createSelector(pitchSelector, ({ name }) => name);
 
 export const selectedEnrollmentStatusSelector = createSelector(
   [ currentUserIdSelector, enrollmentsSelector ],
