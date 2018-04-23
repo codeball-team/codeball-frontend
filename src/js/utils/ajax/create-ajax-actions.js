@@ -1,4 +1,5 @@
-import { AJAX } from 'constants/action-types';
+import { actions } from 'ajax/state';
+// import { ErrorModel } from 'models';
 
 export default (...params) => {
   if (typeof params[0] === 'string') {
@@ -19,14 +20,14 @@ const createAjaxActionsMap = (successPayloadCreator, map) => Object.keys(map).re
 const createAjaxActionsSet = (name, [ payloadCreator, successPayloadCreator ]) => ({
   [name]: [
     payloadCreator,
-    () => ({ ajax: AJAX })
+    () => ({ ajax: actions.ajax.start })
   ],
   [`${name}Failure`]: [
-    (error) => error,
-    (error) => ({ ajax: AJAX.FAILURE, error })
+    (error) => error, // TODO: use ErrorModel.fromServerFormat
+    (error) => ({ ajax: actions.ajax.failure, error })
   ],
   [`${name}Success`]: [
     successPayloadCreator,
-    () => ({ ajax: AJAX.SUCCESS })
+    () => ({ ajax: actions.ajax.success })
   ]
 });

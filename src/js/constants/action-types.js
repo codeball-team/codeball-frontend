@@ -9,9 +9,6 @@ function ajaxActionType(type) {
   };
 }
 
-export const AJAX_ABORT = 'AJAX_ABORT';
-export const AJAX_ERROR_ACKNOWLEDGE = 'AJAX_ERROR_ACKNOWLEDGE';
-export const AJAX = ajaxActionType('AJAX');
 export const CURRENT_USER_LOAD = ajaxActionType('CURRENT_USER_LOAD');
 export const GAMES_LOAD = ajaxActionType('GAMES_LOAD');
 export const NEW_GAME_CHANGE_DATE = 'NEW_GAME_CHANGE_DATE';

@@ -1,5 +1,5 @@
 import { _, now, safeGet } from 'utils';
-import { AJAX, AJAX_ABORT } from 'constants/action-types';
+import { actions } from 'ajax/state';
 import requestManager from './request-manager';
 
 const manager = requestManager();
@@ -42,7 +42,7 @@ export default function ajax(getParams) {
             timestamp
           });
           dispatch({
-            type: AJAX.FAILURE,
+            type: actions.ajax.failure,
             response: errorResponse
           });
           failureCallback(response);
@@ -53,21 +53,16 @@ export default function ajax(getParams) {
             response: body,
             timestamp
           });
-          dispatch({ type: AJAX.SUCCESS });
+          dispatch({ type: actions.ajax.success });
           successCallback(response);
         }
       });
-
-      request.xhr.onabort = () => {
-        dispatch({ type: AJAX_ABORT });
-        dispatch({ type: actionType.FAILURE, timestamp });
-      };
 
       dispatch({
         type: actionType,
         ...actionsData
       });
-      dispatch({ type: AJAX });
+      dispatch({ type: actions.ajax.start });
     }, () => {
       manager.forget(actionType);
     });

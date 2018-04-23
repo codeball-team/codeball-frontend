@@ -14,8 +14,8 @@ import Unauthorized from 'containers/Unauthorized/Unauthorized';
 import UpcomingGame from 'modules/game/containers/upcoming';
 import User from 'containers/User/User';
 import Users from 'containers/Users/Users';
-import AjaxSpinner from 'containers/AjaxSpinner/AjaxSpinner';
-import AjaxErrors from 'containers/AjaxErrors/AjaxErrors';
+import AjaxSpinner from 'ajax/containers/spinner';
+import AjaxErrors from 'ajax/containers/errors';
 import { BodyBackground, Page } from 'components/ui';
 
 const PreviousGame = () => <Game id="last" />;

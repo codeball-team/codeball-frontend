@@ -1,5 +1,4 @@
 import { put, takeEvery } from 'redux-saga/effects';
-import { AJAX } from 'constants/action-types';
 import { editableGameSelector } from 'selectors/models/game';
 
 export default function* ajaxSagas() {

@@ -50,7 +50,7 @@ class Games extends Component {
 export default ContainerComponent(Games, {
   mapStateToProps: gamesContainerSelector,
   periodicDataUpdates: true,
-  updateData: ({ actions }) => {
+  updateData: ({ actions, dispatch }) => {
     dispatch(currentUserActions.currentUser.load());
     actions.gamesLoad();
     actions.pitchesLoad();
