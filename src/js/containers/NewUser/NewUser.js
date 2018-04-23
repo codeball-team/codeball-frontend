@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_USER, ROLE_OPTIONS } from 'constants';
+import { actions as currentUserActions } from 'current-user/state';
 import { newUserContainerSelector } from 'selectors/containers';
 import { NewUserModel } from 'models';
 import { ContainerComponent } from 'components/base';
@@ -84,6 +85,6 @@ export default ContainerComponent(NewUser, {
   mapStateToProps: newUserContainerSelector,
   periodicDataUpdates: true,
   updateData: ({ actions }) => {
-    actions.currentUserLoad();
+    dispatch(currentUserActions.currentUser.load());
   }
 });

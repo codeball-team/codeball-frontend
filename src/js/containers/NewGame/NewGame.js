@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME } from 'constants';
+import { actions as currentUserActions } from 'current-user/state';
 import { newGameContainerSelector } from 'selectors/containers';
 import { NewGameModel } from 'models';
 import { ContainerComponent } from 'components/base';
@@ -88,7 +89,7 @@ export default ContainerComponent(NewGame, {
   mapStateToProps: newGameContainerSelector,
   periodicDataUpdates: true,
   updateData: ({ actions }) => {
-    actions.currentUserLoad();
+    dispatch(currentUserActions.currentUser.load());
     actions.pitchesLoad();
   }
 });

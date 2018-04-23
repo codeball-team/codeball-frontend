@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_PITCH } from 'constants';
+import { actions as currentUserActions } from 'current-user/state';
 import { newPitchContainerSelector } from 'selectors/containers';
 import { NewPitchModel } from 'models';
 import { ContainerComponent } from 'components/base';
@@ -86,6 +87,6 @@ export default ContainerComponent(NewPitch, {
   mapStateToProps: newPitchContainerSelector,
   periodicDataUpdates: true,
   updateData: ({ actions }) => {
-    actions.currentUserLoad();
+    dispatch(currentUserActions.currentUser.load());
   }
 });

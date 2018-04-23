@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME } from 'constants';
+import { actions as currentUserActions } from 'current-user/state';
 import { gamesContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
@@ -50,7 +51,7 @@ export default ContainerComponent(Games, {
   mapStateToProps: gamesContainerSelector,
   periodicDataUpdates: true,
   updateData: ({ actions }) => {
-    actions.currentUserLoad();
+    dispatch(currentUserActions.currentUser.load());
     actions.gamesLoad();
     actions.pitchesLoad();
     actions.usersLoad();

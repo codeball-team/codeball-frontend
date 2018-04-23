@@ -5,6 +5,7 @@ import {
   PERMISSION_END_GAME, PERMISSION_ENROLL, PERMISSION_ENROLL_ANOTHER_USER
 } from 'constants';
 import { actions } from 'game/state';
+import { actions as currentUserActions } from 'current-user/state';
 import { upcomingGameContainerSelector } from 'selectors/containers';
 import { EnrollAnotherUserModel } from 'models';
 import { ContainerComponent } from 'components/base';
@@ -189,7 +190,7 @@ export default ContainerComponent(UpcomingGame, {
   mapDispatchToProps,
   periodicDataUpdates: true,
   updateData: ({ actions, dispatch, id, match }) => {
-    actions.currentUserLoad();
+    dispatch(currentUserActions.currentUser.load());
     dispatch(allActions.game.load(id || match.params.id));
     actions.pitchesLoad();
     actions.usersLoad();

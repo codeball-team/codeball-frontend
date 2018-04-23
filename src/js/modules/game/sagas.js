@@ -80,7 +80,7 @@ function *onEnd() {
   }
 }
 
-function *onLoad({ payload: gameId}) {
+function *onLoad({ payload: gameId }) {
   yield call(delay, API_DEBOUNCE);
   try {
     const game = yield call(getGame, gameId);

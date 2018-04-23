@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import ajaxRequests from './ajax-requests';
-import currentUserData from './current-user-data';
+import currentUserData from 'current-user/state';
 import enrollAnotherUser from './enroll-another-user';
 import gameData from 'game/state';
 import gamesData from './games-data';
