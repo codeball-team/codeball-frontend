@@ -7,14 +7,20 @@ export const fetch = (url, options) => globalFetch(url, getOptions(options))
   })
   .then((response) => {
     if (!response.ok) {
-      const error = new Error(response.statusText);
-      error.response = response;
-      throw response.body;
+      return response.json().then((json) => {
+        if (json) {
+          throw json;
+        }
+
+        throw {
+          error: `HTTP ${response.status}: ${response.statusText || 'Unknown error'}`
+        };
+      })
     }
     return response;
   });
 
-export const fetchJson = (...params) => globalFetch(...params)
+export const fetchJson = (...params) => fetch(...params)
   .then((response) => response.json());
 
 const getOptions = (options = {}) => ({

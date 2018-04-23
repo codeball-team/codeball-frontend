@@ -1,5 +1,5 @@
 import { combineActions, createActions } from 'redux-actions';
-import { ajaxReducer, parseNumber } from 'utils';
+import { ajaxReducer, createAjaxActions, parseNumber } from 'utils';
 import { GameModel } from 'models';
 import { actions as newGameActions } from 'new-game/state';
 
@@ -11,38 +11,24 @@ const initialState = {
 
 export const actions = createActions({
   game: {
-    changeEnrollmentStatus: (gameId, enrollmentStatus) => ({ enrollmentStatus, gameId }),
-    changeEnrollmentStatusFailure: (error) => (error),
-    changeEnrollmentStatusSuccess: GameModel.fromServerFormat,
-    closeEnrollment: (gameId) => (gameId),
-    closeEnrollmentFailure: (error) => (error),
-    closeEnrollmentSuccess: GameModel.fromServerFormat,
-    drawTeams: (gameId) => (gameId),
-    drawTeamsFailure: (error) => (error),
-    drawTeamsSuccess: GameModel.fromServerFormat,
+    ...createAjaxActions(GameModel.fromServerFormat, {
+      changeEnrollmentStatus: (gameId, enrollmentStatus) => ({ enrollmentStatus, gameId }),
+      closeEnrollment: (gameId) => (gameId),
+      drawTeams: (gameId) => (gameId),
+      end: (gameId) => (gameId),
+      enrollAnotherUser: (gameId, userId) => ({ gameId, userId }),
+      load: (gameId) => gameId,
+      loadAll: undefined,
+      saveScore: undefined,
+    }),
     edit: undefined,
     editCancel: undefined,
     editScoreA: parseNumber,
     editScoreB: parseNumber,
-    end: (gameId) => (gameId),
-    endFailure: (error) => (error),
-    endSuccess: GameModel.fromServerFormat,
     enrollAnotherUserCancel: undefined,
     enrollAnotherUserChangeUserId: undefined,
     enrollAnotherUserEdit: undefined,
-    enrollAnotherUserReset: undefined,
-    enrollAnotherUser: (gameId, userId) => ({ gameId, userId }),
-    enrollAnotherUserFailure: (error) => (error),
-    enrollAnotherUserSuccess: GameModel.fromServerFormat,
-    load: (gameId) => (gameId),
-    loadFailure: (error) => (error),
-    loadSuccess: GameModel.fromServerFormat,
-    loadAll: undefined,
-    loadAllFailure: (error) => (error),
-    loadAllSuccess: GameModel.fromServerFormat,
-    saveScore: undefined,
-    saveScoreFailure: (error) => (error),
-    saveScoreSuccess: GameModel.fromServerFormat
+    enrollAnotherUserReset: undefined
   }
 });
 

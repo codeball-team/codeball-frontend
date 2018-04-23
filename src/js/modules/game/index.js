@@ -90,9 +90,9 @@ export default ContainerComponent(Game, {
   mapDispatchToProps,
   periodicDataUpdates: true,
   updateData: ({ actions, dispatch, id, match }) => {
-    actions.currentUserLoad();
     dispatch(allActions.game.load(id || match.params.id));
-    actions.pitchesLoad();
-    actions.usersLoad();
+    // actions.currentUserLoad();
+    // actions.pitchesLoad();
+    // actions.usersLoad();
   }
 });
