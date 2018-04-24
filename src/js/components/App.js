@@ -10,7 +10,7 @@ import NewUser from 'new-user/containers';
 import NotFound from 'not-found';
 import Pitch from 'containers/Pitch/Pitch';
 import Pitches from 'containers/Pitches/Pitches';
-import Unauthorized from 'containers/Unauthorized/Unauthorized';
+import Unauthorized from 'unauthorized';
 import UpcomingGame from 'game/containers/upcoming';
 import User from 'containers/User/User';
 import Users from 'containers/Users/Users';
