@@ -15,10 +15,11 @@ import { ContainerComponent } from 'components/base';
 import { ButtonSave, ButtonShuffle, Render } from 'components/ui';
 import {
   GameEnrollmentFormSection,
-  GameEnrollmentSection, GameInfoSection, GameLineupSection
+  GameEnrollmentSection, GameInfoSection,
 } from 'components/sections';
 import GameEnrollAnotherUserFormSection from 'enroll-another-user/containers';
 import { GameNotLoaded } from 'components/codeball';
+import Lineup from 'game/components/lineup';
 
 class UpcomingGame extends Component {
   static propTypes = {
@@ -155,10 +156,7 @@ class UpcomingGame extends Component {
             hasGameLoaded,
             isEnrollmentOver
           ]}>
-          <GameLineupSection
-            title="Lineups"
-            teamA={teamA}
-            teamB={teamB} />
+          <Lineup title="Lineups" />
         </Render>
 
         <Render when={hasGameLoaded}>

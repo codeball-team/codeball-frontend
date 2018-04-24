@@ -8,9 +8,9 @@ import { actions as usersActions } from 'users/state';
 import { gameContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
-import { GameLineupSection } from 'components/sections';
-import GameScore from 'game/components/score';
 import { GameNotLoaded } from 'components/codeball';
+import Lineup from 'game/components/lineup';
+import Score from 'game/components/score';
 
 class Game extends Component {
   static propTypes = {
@@ -51,14 +51,8 @@ class Game extends Component {
         </Render>
 
         <Render when={hasGameLoaded}>
-          <GameScore title="Result" />
-        </Render>
-
-        <Render when={hasGameLoaded}>
-          <GameLineupSection
-            title="Lineups"
-            teamA={teamA}
-            teamB={teamB} />
+          <Score title="Result" />
+          <Lineup title="Lineups" />
         </Render>
       </main>
     );

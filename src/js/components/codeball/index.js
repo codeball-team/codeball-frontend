@@ -3,7 +3,6 @@ export * from './buttons';
 export GameEnrollment from './game-enrollment';
 export GameEnrollmentForm from './game-enrollment-form';
 export GameInfo from './game-info';
-export GameLineup from './game-lineup';
 export GameNotLoaded from './game-not-loaded';
 export GameScore from './game-score';
 export GamesList from './games-list';

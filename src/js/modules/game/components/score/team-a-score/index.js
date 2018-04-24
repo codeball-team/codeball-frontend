@@ -1,19 +1,16 @@
 import { connect } from 'react-redux';
-import { classNames } from 'utils';
 import { actions } from 'game/state';
-import { isGameEditingSelector, selectTeamBScore } from 'selectors/models/game';
+import { isGameEditingSelector, selectTeamAScore } from 'selectors/models/game';
 import { EditableText } from 'components/ui';
-import styles from './styles.scss';
 
 const mapStateToProps = (state) => ({
-  className: classNames(styles.teamScore, styles.scoreB),
   isEditing: isGameEditingSelector(state),
-  text: selectTeamBScore(state),
+  text: selectTeamAScore(state),
   maxLength: 2
 });
 
 const mapDispatchToProps = {
-  onChange: actions.game.changeScoreB
+  onChange: actions.game.changeScoreA
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditableText);
