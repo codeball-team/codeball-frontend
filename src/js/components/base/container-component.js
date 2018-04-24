@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { _, periodicCallback, safeGet } from 'utils';
 import { AUTO_REFRESH_DELAY, ROLE_USER, ROLES_PERMISSIONS } from 'constants';
-import * as actions from 'actions';
 import { LoadableContent } from 'components/ui';
 
 export default function ContainerComponent(ComponentClass, options) {
@@ -58,7 +57,7 @@ export default function ContainerComponent(ComponentClass, options) {
   return connect(enhanceProps(mapStateToProps), mapDispatchToProps, mergeProps)(Container);
 }
 
-function handleOptions(options = {}) {
+const handleOptions = (options = {}) => {
   const {
     mapDispatchToProps,
     mapStateToProps = () => null,
@@ -75,41 +74,34 @@ function handleOptions(options = {}) {
     periodicUpdates: applyPeriodicUpdates(periodicDataUpdates),
     updateData
   };
-}
+};
 
-function applyPeriodicUpdates(periodicDataUpdates) {
+const applyPeriodicUpdates = (periodicDataUpdates) => {
   if (periodicDataUpdates) {
     return periodicCallback(AUTO_REFRESH_DELAY);
   }
 
   return periodicCallback();
-}
+};
 
-function enhanceProps(mapStateToProps) {
-  return (state) => ({
-    state,
-    ...mapStateToProps(state),
-    getPermission: (permission) => getPermission(state, permission),
-    hasPermission: (permission) => hasPermission(state, permission)
-  });
-}
+const enhanceProps = (mapStateToProps) => (state) => ({
+  state,
+  ...mapStateToProps(state),
+  getPermission: (permission) => getPermission(state, permission),
+  hasPermission: (permission) => hasPermission(state, permission)
+});
 
-function getPermission(state, permission) {
+const getPermission = (state, permission) => {
   const role = safeGet(state, [ 'currentUserData', 'currentUser', 'role' ], ROLE_USER);
   return ROLES_PERMISSIONS[role][permission];
-}
+};
 
-function hasPermission(state, permission) {
-  return Boolean(getPermission(state, permission));
-}
+const hasPermission = (state, permission) => Boolean(getPermission(state, permission));
 
-function getMapDispatchToProps(mapDispatchToProps = {}) {
-  return (dispatch) => ({
-    dispatch,
-    actions: bindActionCreators(actions, dispatch),
-    ...Object.keys(mapDispatchToProps).reduce((props, key) => {
-      props[key] = (...params) => dispatch(mapDispatchToProps[key](...params));
-      return props;
-    }, {})
-  });
-}
+const getMapDispatchToProps = (mapDispatchToProps = {}) => (dispatch) => ({
+  dispatch,
+  ...Object.keys(mapDispatchToProps).reduce((props, key) => {
+    props[key] = (...params) => dispatch(mapDispatchToProps[key](...params));
+    return props;
+  }, {})
+});

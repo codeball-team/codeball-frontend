@@ -11,7 +11,6 @@ import { ButtonCancel, ButtonSave } from 'components/ui';
 
 class NewPitch extends Component {
   static propTypes = {
-    actions: PropTypes.object.isRequired,
     hasPermission: PropTypes.func.isRequired,
     newPitch: PropTypes.object.isRequired,
     onMount: PropTypes.func.isRequired

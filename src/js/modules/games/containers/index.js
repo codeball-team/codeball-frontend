@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME } from 'constants';
 import { actions as currentUserActions } from 'current-user/state';
-import { actions as gamesActions } from 'games/state';
+import { actions } from 'games/state';
+import { actions as pitchesActions } from 'pitches/state';
 import { actions as usersActions } from 'users/state';
 import { gamesContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
@@ -52,10 +53,10 @@ class Games extends Component {
 export default ContainerComponent(Games, {
   mapStateToProps: gamesContainerSelector,
   periodicDataUpdates: true,
-  updateData: ({ actions, dispatch }) => {
+  updateData: ({ dispatch }) => {
+    dispatch(actions.games.load());
     dispatch(currentUserActions.currentUser.load());
-    dispatch(gamesActions.games.load());
+    dispatch(pitchesActions.pitches.load());
     dispatch(usersActions.users.load());
-    actions.pitchesLoad();
   }
 });

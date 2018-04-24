@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME } from 'constants';
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-game/state';
+import { actions as pitchesActions } from 'pitches/state';
 import { newGameContainerSelector } from 'selectors/containers';
 import { NewGameModel } from 'models';
 import { ContainerComponent } from 'components/base';
@@ -11,7 +12,6 @@ import { ButtonCancel, ButtonSave } from 'components/ui';
 
 class NewGame extends Component {
   static propTypes = {
-    actions: PropTypes.object.isRequired,
     hasPermission: PropTypes.func.isRequired,
     newGame: PropTypes.object.isRequired,
     pitches: PropTypes.array.isRequired,
@@ -71,8 +71,8 @@ export default ContainerComponent(NewGame, {
     onSubmit: actions.newGame.submit
   },
   periodicDataUpdates: true,
-  updateData: ({ actions, dispatch }) => {
+  updateData: ({ dispatch }) => {
     dispatch(currentUserActions.currentUser.load());
-    actions.pitchesLoad();
+    dispatch(pitchesActions.pitches.load());
   }
 });

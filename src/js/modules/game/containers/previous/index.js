@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME, PERMISSION_EDIT_GAME_SCORE } from 'constants';
-import { actions } from 'game/state';
 import { actions as currentUserActions } from 'current-user/state';
+import { actions } from 'game/state';
+import { actions as pitchesActions } from 'pitches/state';
 import { actions as usersActions } from 'users/state';
 import { gameContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
@@ -13,7 +14,6 @@ import { GameNotLoaded } from 'components/codeball';
 
 class Game extends Component {
   static propTypes = {
-    actions: PropTypes.object.isRequired,
     game: PropTypes.object.isRequired,
     hasGameLoaded: PropTypes.bool.isRequired,
     hasPermission: PropTypes.func.isRequired,
@@ -65,24 +65,18 @@ class Game extends Component {
   }
 }
 
-const mapStateToProps = gameContainerSelector;
-
-const mapDispatchToProps = {
-  onCancel: actions.game.editCancel,
-  onEdit: actions.game.edit,
-  onSave: actions.game.saveScore
-};
-
-const allActions = actions; // TODO: remove
-
 export default ContainerComponent(Game, {
-  mapStateToProps,
-  mapDispatchToProps,
+  mapStateToProps: gameContainerSelector,
+  mapDispatchToProps: {
+    onCancel: actions.game.editCancel,
+    onEdit: actions.game.edit,
+    onSave: actions.game.saveScore
+  },
   periodicDataUpdates: true,
-  updateData: ({ actions, dispatch, id, match }) => {
-    dispatch(allActions.game.load(id || match.params.id));
+  updateData: ({ dispatch, id, match }) => {
+    dispatch(actions.game.load(id || match.params.id));
     dispatch(currentUserActions.currentUser.load());
+    dispatch(pitchesActions.pitches.load());
     dispatch(usersActions.users.load());
-    // actions.pitchesLoad();
   }
 });

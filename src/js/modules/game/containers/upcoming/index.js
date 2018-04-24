@@ -6,6 +6,7 @@ import {
 } from 'constants';
 import { actions } from 'game/state';
 import { actions as currentUserActions } from 'current-user/state';
+import { actions as pitchesActions } from 'pitches/state';
 import { actions as usersActions } from 'users/state';
 import { upcomingGameContainerSelector } from 'selectors/containers';
 import { EnrollAnotherUserModel } from 'models';
@@ -19,7 +20,6 @@ import { GameNotLoaded } from 'components/codeball';
 
 class UpcomingGame extends Component {
   static propTypes = {
-    actions: PropTypes.object.isRequired,
     currentUserId: PropTypes.number,
     enrollAnotherUser: PropTypes.object.isRequired,
     enrolledUsersPerStatus: PropTypes.array.isRequired,
@@ -172,28 +172,24 @@ class UpcomingGame extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  onCloseEnrollment: actions.game.closeEnrollment,
-  onDrawTeams: actions.game.drawTeams,
-  onEndGame: actions.game.end,
-  onEnrollAnotherUserCancel: actions.game.enrollAnotherUserCancel,
-  onEnrollAnotherUserEdit: actions.game.enrollAnotherUserEdit,
-  onEnrollAnotherUserSubmit: actions.game.enrollAnotherUser,
-  onEnrollAnotherUserIdChange: actions.game.enrollAnotherUserChangeUserId,
-  onEnrollmentStatusChange: actions.game.changeEnrollmentStatus,
-  onMount: actions.game.enrollAnotherUserReset
-};
-
-const allActions = actions; // TODO: remove
-
 export default ContainerComponent(UpcomingGame, {
   mapStateToProps: upcomingGameContainerSelector,
-  mapDispatchToProps,
+  mapDispatchToProps: {
+    onCloseEnrollment: actions.game.closeEnrollment,
+    onDrawTeams: actions.game.drawTeams,
+    onEndGame: actions.game.end,
+    onEnrollAnotherUserCancel: actions.game.enrollAnotherUserCancel,
+    onEnrollAnotherUserEdit: actions.game.enrollAnotherUserEdit,
+    onEnrollAnotherUserSubmit: actions.game.enrollAnotherUser,
+    onEnrollAnotherUserIdChange: actions.game.enrollAnotherUserChangeUserId,
+    onEnrollmentStatusChange: actions.game.changeEnrollmentStatus,
+    onMount: actions.game.enrollAnotherUserReset
+  },
   periodicDataUpdates: true,
-  updateData: ({ actions, dispatch, id, match }) => {
+  updateData: ({ dispatch, id, match }) => {
     dispatch(currentUserActions.currentUser.load());
-    dispatch(allActions.game.load(id || match.params.id));
-    actions.pitchesLoad();
+    dispatch(actions.game.load(id || match.params.id));
+    dispatch(pitchesActions.pitches.load());
     dispatch(usersActions.users.load());
   }
 });
