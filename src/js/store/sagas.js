@@ -5,6 +5,8 @@ import gamesSagas from 'games/sagas';
 import newGameSagas from 'new-game/sagas';
 import newPitchSagas from 'new-pitch/sagas';
 import newUserSagas from 'new-user/sagas';
+import pitchSagas from 'pitch/sagas';
+import userSagas from 'user/sagas';
 import usersSagas from 'users/sagas';
 
 export default function* rootSagas() {
@@ -15,5 +17,7 @@ export default function* rootSagas() {
   yield* newGameSagas();
   yield* newPitchSagas();
   yield* newUserSagas();
+  yield* pitchSagas();
+  yield* userSagas();
   yield* usersSagas();
 }

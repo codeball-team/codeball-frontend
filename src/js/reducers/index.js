@@ -8,9 +8,9 @@ import gamesData from 'games/state';
 import newGame from 'new-game/state';
 import newPitch from 'new-pitch/state';
 import newUser from 'new-user/state';
-import pitchData from './pitch-data';
+import pitchData from 'pitch/state';
 import pitchesData from './pitches-data';
-import userData from './user-data';
+import userData from 'user/state';
 import usersData from 'users/state';
 
 const rootReducer = combineReducers({

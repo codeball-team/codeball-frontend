@@ -3,11 +3,11 @@ import { ajaxReducer, createAjaxActions } from 'utils';
 import { UserModel } from 'models';
 
 const initialState = {
-  currentUser: new UserModel()
+  user: new UserModel()
 };
 
 export const actions = createActions({
-  currentUser: {
+  user: {
     ...createAjaxActions(UserModel.fromServerFormat, {
       load: undefined
     })
@@ -15,11 +15,11 @@ export const actions = createActions({
 });
 
 const ajaxActions = [
-  actions.currentUser.load,
-  actions.currentUser.loadFailure,
-  actions.currentUser.loadSuccess
+  actions.user.load,
+  actions.user.loadFailure,
+  actions.user.loadSuccess
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
-  [actions.currentUser.loadSuccess]: (state, { payload: currentUser }) => ({ ...initialState, currentUser })
+  [actions.user.loadSuccess]: (state, { payload: user }) => ({ ...initialState, user })
 });

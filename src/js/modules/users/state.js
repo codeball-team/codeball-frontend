@@ -11,7 +11,7 @@ const initialState = {
 export const actions = createActions({
   users: {
     ...createAjaxActions(UserModel.arrayFromServerFormat, {
-      load: undefined
+      load: (userId) => userId
     })
   }
 });
