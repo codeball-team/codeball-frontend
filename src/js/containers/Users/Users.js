@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_USER } from 'constants';
 import { actions as currentUserActions } from 'current-user/state';
+import { actions as usersActions } from 'users/state';
 import { usersContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
@@ -43,6 +44,6 @@ export default ContainerComponent(Users, {
   periodicDataUpdates: true,
   updateData: ({ actions, dispatch }) => {
     dispatch(currentUserActions.currentUser.load());
-    actions.usersLoad();
+    dispatch(usersActions.users.load());
   }
 });

@@ -20,14 +20,24 @@ const createAjaxActionsMap = (successPayloadCreator, map) => Object.keys(map).re
 const createAjaxActionsSet = (name, [ payloadCreator, successPayloadCreator ]) => ({
   [name]: [
     payloadCreator,
-    () => ({ ajax: actions.ajax.start })
+    () => ({
+      ajax: actions.ajax.start
+    })
   ],
   [`${name}Failure`]: [
     (error) => error, // TODO: use ErrorModel.fromServerFormat
-    (error) => ({ ajax: actions.ajax.failure, error })
+    (response) => ({
+      ajax: actions.ajax.failure,
+      response
+    })
   ],
   [`${name}Success`]: [
     successPayloadCreator,
-    () => ({ ajax: actions.ajax.success })
+    (response) => ({
+      ajax: actions.ajax.success,
+      response
+    })
   ]
 });
+
+

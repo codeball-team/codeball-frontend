@@ -1,16 +1,7 @@
 import request from 'superagent';
 import { ajax } from 'utils';
-import { USERS_LOAD, USER_LOAD } from 'constants/action-types';
-import { usersUrl, userUrl } from 'constants';
-
-export function usersLoad() {
-  return ajax(() => ({
-    actionType: USERS_LOAD,
-    request: request('GET', usersUrl()),
-    json: true,
-    throttle: true
-  }));
-}
+import { USER_LOAD } from 'constants/action-types';
+import { userUrl } from 'constants';
 
 export function userLoad(userId) {
   return ajax(() => ({

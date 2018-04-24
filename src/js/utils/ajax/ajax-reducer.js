@@ -3,7 +3,6 @@ import { getObjectHash, handleActions } from 'utils';
 const ajaxReducerInitialState = {
   isLoading: false,
   hasLoaded: false,
-  lastUpdateTimestamp: undefined,
   lastUpdateHash: undefined
 };
 
@@ -19,9 +18,9 @@ const ajaxReducer = (initialState, actionType, handlers) => {
     };
   } else {
     ajaxHandlers = {
-      [actionType]: onAjaxStart,
-      [actionType.FAILURE]: onAjaxFailure,
-      [actionType.SUCCESS]: onAjaxSuccess
+      [actionType]: onAjaxStartOld,
+      [actionType.FAILURE]: onAjaxFailureOld,
+      [actionType.SUCCESS]: onAjaxSuccessOld
     };
   }
 
@@ -57,10 +56,10 @@ const ajaxReducer = (initialState, actionType, handlers) => {
   };
 };
 
-const onAjaxStart = (state, action) => onUpdate({
+const onAjaxStart = (state, action) => ({
   ...state,
   isLoading: true
-}, action);
+});
 
 const onAjaxSuccess = (state, action) => ({
   ...onAjaxEnd(state, action),
@@ -72,15 +71,31 @@ const onAjaxFailure = (state, action) => ({
   hasLoaded: false
 });
 
-const onAjaxEnd = (state, action) => onUpdate({
+const onAjaxEnd = (state, { payload: { response } }) => ({
+  ...state,
+  isLoading: false,
+  lastUpdateHash: getObjectHash(response)
+});
+
+const onAjaxStartOld = (state, action) => ({
+  ...state,
+  isLoading: true
+});
+
+const onAjaxSuccessOld = (state, action) => ({
+  ...onAjaxEndOld(state, action),
+  hasLoaded: true
+});
+
+const onAjaxFailureOld = (state, action) => ({
+  ...onAjaxEndOld(state, action),
+  hasLoaded: false
+});
+
+const onAjaxEndOld = (state, action) => ({
   ...state,
   isLoading: false,
   lastUpdateHash: getObjectHash(action.response)
-}, action);
-
-const onUpdate = (state, action) => ({
-  ...state,
-  lastUpdateTimestamp: action.timestamp
 });
 
 export default ajaxReducer;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { PERMISSION_ADD_GAME } from 'constants';
 import { actions as currentUserActions } from 'current-user/state';
 import { actions as gamesActions } from 'games/state';
+import { actions as usersActions } from 'users/state';
 import { gamesContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
@@ -54,7 +55,7 @@ export default ContainerComponent(Games, {
   updateData: ({ actions, dispatch }) => {
     dispatch(currentUserActions.currentUser.load());
     dispatch(gamesActions.games.load());
+    dispatch(usersActions.users.load());
     actions.pitchesLoad();
-    actions.usersLoad();
   }
 });

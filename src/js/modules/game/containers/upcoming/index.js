@@ -6,6 +6,7 @@ import {
 } from 'constants';
 import { actions } from 'game/state';
 import { actions as currentUserActions } from 'current-user/state';
+import { actions as usersActions } from 'users/state';
 import { upcomingGameContainerSelector } from 'selectors/containers';
 import { EnrollAnotherUserModel } from 'models';
 import { ContainerComponent } from 'components/base';
@@ -193,6 +194,6 @@ export default ContainerComponent(UpcomingGame, {
     dispatch(currentUserActions.currentUser.load());
     dispatch(allActions.game.load(id || match.params.id));
     actions.pitchesLoad();
-    actions.usersLoad();
+    dispatch(usersActions.users.load());
   }
 });

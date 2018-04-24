@@ -1,11 +1,8 @@
 import { createActions, handleActions } from 'redux-actions';
-import { GameModel } from 'models';
+import { createAjaxActions } from 'utils';
+import { GameModel, NewGameModel } from 'models';
 
-const initialState = {
-  isEditing: false,
-  game: new GameModel(),
-  editedGame: {}
-};
+const initialState = new NewGameModel();
 
 export const actions = createActions({
   newGame: {
@@ -15,9 +12,9 @@ export const actions = createActions({
     changeMinute: (minute) => minute,
     changePitchId: (pitchId) => pitchId,
     reset: undefined,
-    submit: (newGame) => newGame,
-    submitFailure: (error) => error,
-    submitSuccess: GameModel.fromServerFormat
+    ...createAjaxActions(GameModel.fromServerFormat, {
+      submit: undefined
+    })
   }
 });
 

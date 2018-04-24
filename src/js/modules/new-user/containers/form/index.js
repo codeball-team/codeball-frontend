@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_USER, ROLE_OPTIONS } from 'constants';
 import { actions as currentUserActions } from 'current-user/state';
+import { actions } from 'new-user/state';
 import { newUserContainerSelector } from 'selectors/containers';
 import { NewUserModel } from 'models';
 import { ContainerComponent } from 'components/base';
@@ -10,48 +11,24 @@ import { ButtonCancel, ButtonSave } from 'components/ui';
 
 class NewUser extends Component {
   static propTypes = {
-    actions: PropTypes.object.isRequired,
     getPermission: PropTypes.func.isRequired,
-    hasPermission: PropTypes.func.isRequired,
     newUser: PropTypes.object.isRequired
   };
 
   componentWillMount = () => {
-    const { actions: { newUserReset, redirect }, hasPermission } = this.props;
-    if (hasPermission(PERMISSION_ADD_USER)) {
-      newUserReset();
-    } else {
-      redirect('/unauthorized');
-    }
-  };
-
-  onEmailChange = (email) => {
-    const { actions: { newUserChangeEmail } } = this.props;
-    newUserChangeEmail(email);
-  };
-
-  onFirstNameChange = (firstName) => {
-    const { actions: { newUserChangeFirstName } } = this.props;
-    newUserChangeFirstName(firstName);
-  };
-
-  onLastNameChange = (lastName) => {
-    const { actions: { newUserChangeLastName } } = this.props;
-    newUserChangeLastName(lastName);
-  };
-
-  onRoleChange = (role) => {
-    const { actions: { newUserChangeRole } } = this.props;
-    newUserChangeRole(role);
-  };
-
-  onSubmit = () => {
-    const { actions: { newUserSubmit }, newUser } = this.props;
-    newUserSubmit(newUser);
+    this.props.onMount();
   };
 
   render() {
-    const { getPermission, newUser } = this.props;
+    const {
+      getPermission,
+      newUser,
+      onEmailChange,
+      onFirstNameChange,
+      onLastNameChange,
+      onRoleChange,
+      onSubmit
+    } = this.props;
     const rule = getPermission(PERMISSION_ADD_USER);
     const roleOptions = ROLE_OPTIONS.filter(({ value }) => rule.includes(value));
 
@@ -69,13 +46,13 @@ class NewUser extends Component {
             <ButtonSave
               key="save"
               isDisabled={!NewUserModel.isValid(newUser)}
-              onClick={this.onSubmit} />
+              onClick={onSubmit} />
           ]}
-          onEmailChange={this.onEmailChange}
-          onFirstNameChange={this.onFirstNameChange}
-          onLastNameChange={this.onLastNameChange}
-          onRoleChange={this.onRoleChange}
-          onSubmit={this.onSubmit} />
+          onEmailChange={onEmailChange}
+          onFirstNameChange={onFirstNameChange}
+          onLastNameChange={onLastNameChange}
+          onRoleChange={onRoleChange}
+          onSubmit={onSubmit} />
       </main>
     );
   }
@@ -83,6 +60,14 @@ class NewUser extends Component {
 
 export default ContainerComponent(NewUser, {
   mapStateToProps: newUserContainerSelector,
+  mapDispatchToProps: {
+    onEmailChange: actions.newUser.changeEmail,
+    onFirstNameChange: actions.newUser.changeFirstName,
+    onLastNameChange: actions.newUser.changeLastName,
+    onMount: actions.newUser.reset,
+    onRoleChange: actions.newUser.changeRole,
+    onSubmit: actions.newUser.submit
+  },
   periodicDataUpdates: true,
   updateData: ({ actions, dispatch }) => {
     dispatch(currentUserActions.currentUser.load());

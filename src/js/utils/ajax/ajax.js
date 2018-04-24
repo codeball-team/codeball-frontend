@@ -1,4 +1,4 @@
-import { _, now, safeGet } from 'utils';
+import { _, safeGet } from 'utils';
 import { actions } from 'ajax/state';
 import requestManager from './request-manager';
 
@@ -25,7 +25,6 @@ export default function ajax(getParams) {
       failureCallback,
       successCallback
     } = options;
-    const timestamp = now();
 
     applyRequestOptions(requestOptionsHandlers, request, options);
     applyRequestEnhancers(requestManagerHandlers, request, options).then(() => {
@@ -38,8 +37,7 @@ export default function ajax(getParams) {
           dispatch({
             type: actionType.FAILURE,
             ...actionsData,
-            response: errorResponse,
-            timestamp
+            response: errorResponse
           });
           dispatch({
             type: actions.ajax.failure,
@@ -50,8 +48,7 @@ export default function ajax(getParams) {
           dispatch({
             type: actionType.SUCCESS,
             ...actionsData,
-            response: body,
-            timestamp
+            response: body
           });
           dispatch({ type: actions.ajax.success });
           successCallback(response);

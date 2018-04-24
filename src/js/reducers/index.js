@@ -5,13 +5,13 @@ import currentUserData from 'current-user/state';
 import enrollAnotherUser from './enroll-another-user';
 import gameData from 'game/state';
 import gamesData from 'games/state';
-import newGame from './new-game';
+import newGame from 'new-game/state';
 import newPitch from './new-pitch';
-import newUser from './new-user';
+import newUser from 'new-user/state';
 import pitchData from './pitch-data';
 import pitchesData from './pitches-data';
 import userData from './user-data';
-import usersData from './users-data';
+import usersData from 'users/state';
 
 const rootReducer = combineReducers({
   ajaxRequests,

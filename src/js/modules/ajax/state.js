@@ -12,7 +12,7 @@ export const actions = createActions({
     acknowledge: (errorIndex) => errorIndex,
     failure: ErrorModel.fromServerFormat,
     start: undefined,
-    success: undefined
+    success: (response) => response
   }
 });
 
