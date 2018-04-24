@@ -1,5 +1,5 @@
 import { createActions, handleActions } from 'redux-actions';
-import { createAjaxActions } from 'utils';
+import { createAjaxActions, noop } from 'utils';
 import { PitchModel, NewPitchModel } from 'models';
 
 const initialState = new NewPitchModel();
@@ -11,9 +11,9 @@ export const actions = createActions({
     changeMinNumberOfPlayers: (minNumberOfPlayers) => minNumberOfPlayers,
     changeName: (name) => name,
     changeType: (type) => type,
-    reset: undefined,
+    reset: noop,
     ...createAjaxActions(PitchModel.fromServerFormat, {
-      submit: undefined
+      submit: noop
     })
   }
 });

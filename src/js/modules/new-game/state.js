@@ -1,5 +1,5 @@
 import { createActions, handleActions } from 'redux-actions';
-import { createAjaxActions } from 'utils';
+import { createAjaxActions, noop } from 'utils';
 import { GameModel, NewGameModel } from 'models';
 
 const initialState = new NewGameModel();
@@ -11,9 +11,9 @@ export const actions = createActions({
     changeHour: (hour) => hour,
     changeMinute: (minute) => minute,
     changePitchId: (pitchId) => pitchId,
-    reset: undefined,
+    reset: noop,
     ...createAjaxActions(GameModel.fromServerFormat, {
-      submit: undefined
+      submit: noop
     })
   }
 });

@@ -1,5 +1,5 @@
 import { createActions, handleActions } from 'redux-actions';
-import { createAjaxActions } from 'utils';
+import { createAjaxActions, noop } from 'utils';
 import { NewUserModel, UserModel } from 'models';
 
 const initialState = new NewUserModel();
@@ -10,9 +10,9 @@ export const actions = createActions({
     changeFirstName: (firstName) => firstName,
     changeLastName: (lastName) => lastName,
     changeRole: (role) => role,
-    reset: undefined,
+    reset: noop,
     ...createAjaxActions(UserModel.fromServerFormat, {
-      submit: undefined
+      submit: noop
     })
   }
 });

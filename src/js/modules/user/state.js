@@ -9,7 +9,7 @@ const initialState = {
 export const actions = createActions({
   user: {
     ...createAjaxActions(UserModel.fromServerFormat, {
-      load: undefined
+      load: (userId) => userId
     })
   }
 });

@@ -1,5 +1,5 @@
 import { combineActions, createActions } from 'redux-actions';
-import { ajaxReducer, createAjaxActions, parseNumber } from 'utils';
+import { ajaxReducer, createAjaxActions, noop, parseNumber } from 'utils';
 import { GameModel } from 'models';
 import { actions as newGameActions } from 'new-game/state';
 import { actions as enrollAnotherUserActions } from 'enroll-another-user/state';
@@ -12,17 +12,17 @@ const initialState = {
 
 export const actions = createActions({
   game: {
-    edit: undefined,
-    editCancel: undefined,
+    edit: noop,
+    editCancel: noop,
     changeScoreA: parseNumber,
     changeScoreB: parseNumber,
     ...createAjaxActions(GameModel.fromServerFormat, {
       changeEnrollmentStatus: (enrollmentStatus) => enrollmentStatus,
-      closeEnrollment: undefined,
-      drawTeams: undefined,
-      end: undefined,
+      closeEnrollment: noop,
+      drawTeams: noop,
+      end: noop,
       load: (gameId) => gameId,
-      saveScore: undefined
+      saveScore: noop
     })
   }
 });

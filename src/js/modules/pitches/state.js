@@ -1,5 +1,5 @@
 import { createActions } from 'redux-actions';
-import { ajaxReducer, createAjaxActions } from 'utils';
+import { ajaxReducer, createAjaxActions, noop } from 'utils';
 import { PitchModel } from 'models';
 import { actions as newPitchActions } from 'new-pitch/state';
 
@@ -10,7 +10,7 @@ const initialState = {
 export const actions = createActions({
   pitches: {
     ...createAjaxActions(PitchModel.arrayFromServerFormat, {
-      load: undefined
+      load: noop
     })
   }
 });

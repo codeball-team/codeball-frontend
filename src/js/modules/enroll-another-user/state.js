@@ -1,5 +1,5 @@
 import { combineActions, createActions, handleActions } from 'redux-actions';
-import { createAjaxActions } from 'utils';
+import { createAjaxActions, noop } from 'utils';
 import { EnrollAnotherUserModel, GameModel } from 'models';
 
 const initialState = {
@@ -9,12 +9,12 @@ const initialState = {
 
 export const actions = createActions({
   enrollAnotherUser: {
-    cancel: undefined,
+    cancel: noop,
     changeUserId: (userId) => userId,
-    edit: undefined,
-    reset: undefined,
+    edit: noop,
+    reset: noop,
     ...createAjaxActions(GameModel.fromServerFormat, {
-      submit: undefined
+      submit: noop
     })
   }
 });

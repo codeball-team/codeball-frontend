@@ -1,5 +1,5 @@
 import { createActions } from 'redux-actions';
-import { ajaxReducer, createAjaxActions } from 'utils';
+import { ajaxReducer, createAjaxActions, noop } from 'utils';
 import { UserModel } from 'models';
 import { actions as currentUserActions } from 'current-user/state';
 import { actions as newUserActions } from 'new-user/state';
@@ -11,7 +11,7 @@ const initialState = {
 export const actions = createActions({
   users: {
     ...createAjaxActions(UserModel.arrayFromServerFormat, {
-      load: (userId) => userId
+      load: noop
     })
   }
 });

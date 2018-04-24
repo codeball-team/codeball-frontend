@@ -9,6 +9,7 @@ export formatRange from './format-range';
 export getDomain from './get-domain';
 export getObjectHash from './get-object-hash';
 export md5 from 'js-md5';
+export const noop = () => undefined;
 export model from './model';
 export moment from 'moment';
 export now from './now';

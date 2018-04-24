@@ -1,5 +1,5 @@
 import { createActions } from 'redux-actions';
-import { ajaxReducer, createAjaxActions } from 'utils';
+import { ajaxReducer, createAjaxActions, noop } from 'utils';
 import { GameModel } from 'models';
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
 export const actions = createActions({
   games: {
     ...createAjaxActions(GameModel.arrayFromServerFormat, {
-      load: undefined
+      load: noop
     })
   }
 });
