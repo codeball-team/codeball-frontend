@@ -14,9 +14,10 @@ import { EnrollAnotherUserModel } from 'models';
 import { ContainerComponent } from 'components/base';
 import { ButtonSave, ButtonShuffle, Render } from 'components/ui';
 import {
-  GameEnrollAnotherUserFormSection, GameEnrollmentFormSection,
+  GameEnrollmentFormSection,
   GameEnrollmentSection, GameInfoSection, GameLineupSection
 } from 'components/sections';
+import GameEnrollAnotherUserFormSection from 'enroll-another-user/containers';
 import { GameNotLoaded } from 'components/codeball';
 
 class UpcomingGame extends Component {
