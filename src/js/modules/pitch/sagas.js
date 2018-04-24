@@ -8,12 +8,12 @@ export default function* pitchSagas() {
   yield takeLatest(actions.pitch.load, onLoad);
 }
 
-function *onLoad({ payload: pitchId }) {
+function* onLoad({ payload: pitchId }) {
   yield call(delay, API_DEBOUNCE);
   try {
     const pitch = yield call(getPitch, pitchId);
     yield put(actions.pitch.loadSuccess(pitch));
-  } catch(error) {
+  } catch (error) {
     yield put(actions.pitch.loadFailure(error));
   }
 }

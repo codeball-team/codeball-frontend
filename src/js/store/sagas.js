@@ -1,3 +1,5 @@
+/* eslint max-statements: "off" */
+
 import ajaxSagas from 'ajax/sagas';
 import currentUserSagas from 'current-user/sagas';
 import enrollAnotherUserSagas from 'enroll-another-user/sagas';

@@ -15,7 +15,7 @@ export const fetch = (url, options) => globalFetch(url, getOptions(options))
         throw {
           error: `HTTP ${response.status}: ${response.statusText || 'Unknown error'}`
         };
-      })
+      });
     }
     return response;
   });
@@ -31,9 +31,3 @@ const getOptions = (options = {}) => ({
     'Content-Type': 'application/json'
   })
 });
-
-const createErrorResponse = (error, body) => {
-  const [ title, message ] = safeGet(error, [ 'message' ], '').split('\n');
-  const errorResponse = body || { error: title, message };
-  return errorResponse;
-};

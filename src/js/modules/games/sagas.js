@@ -7,11 +7,11 @@ export default function* gamesSagas() {
   yield throttle(API_THROTTLE, actions.games.load, onLoad);
 }
 
-function *onLoad() {
+function* onLoad() {
   try {
     const games = yield call(getGames);
     yield put(actions.games.loadSuccess(games));
-  } catch(error) {
+  } catch (error) {
     yield put(actions.games.loadFailure(error));
   }
 }

@@ -12,21 +12,21 @@ export default function* newUserSagas() {
   yield takeLatest(actions.newUser.submit, onSubmit);
 }
 
-function *onReset() {
+function* onReset() {
   const canAddUser = yield select(selectCanAddUser);
   if (!canAddUser) {
     yield put(push('/unauthorized'));
   }
 }
 
-function *onSubmit() {
+function* onSubmit() {
   yield call(delay, API_DEBOUNCE);
   try {
     const newUser = yield select(newUserSelector);
     const user = yield call(postNewUser, newUser);
     yield put(actions.newUser.submitSuccess(user));
     yield put(push(`/players/${user.id}`));
-  } catch(error) {
+  } catch (error) {
     yield put(actions.newUser.submitFailure(error));
   }
 }

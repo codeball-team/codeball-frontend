@@ -12,21 +12,21 @@ export default function* newPitchSagas() {
   yield takeLatest(actions.newPitch.submit, onSubmit);
 }
 
-function *onReset() {
+function* onReset() {
   const canAddPitch = yield select(selectCanAddPitch);
   if (!canAddPitch) {
     yield put(push('/unauthorized'));
   }
 }
 
-function *onSubmit() {
+function* onSubmit() {
   yield call(delay, API_DEBOUNCE);
   try {
     const newPitch = yield select(newPitchSelector);
     const pitch = yield call(postNewPitch, newPitch);
     yield put(actions.newPitch.submitSuccess(pitch));
     yield put(push(`/pitches/${pitch.id}`));
-  } catch(error) {
+  } catch (error) {
     yield put(actions.newPitch.submitFailure(error));
   }
 }

@@ -8,12 +8,12 @@ export default function* userSagas() {
   yield takeLatest(actions.user.load, onLoad);
 }
 
-function *onLoad({ payload: userId }) {
+function* onLoad({ payload: userId }) {
   yield call(delay, API_DEBOUNCE);
   try {
     const user = yield call(getUser, userId);
     yield put(actions.user.loadSuccess(user));
-  } catch(error) {
+  } catch (error) {
     yield put(actions.user.loadFailure(error));
   }
 }

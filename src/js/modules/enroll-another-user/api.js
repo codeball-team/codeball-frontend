@@ -1,7 +1,12 @@
 import { fetchJson } from 'utils';
-import { getGameEnrollmentUrl } from 'game/api';
+import { getGameEnrollmentBaseUrl } from 'game/api';
 
-export const putEnrollAnotherUser = (gameId, userId, enrollmentStatus) => fetchJson(getGameEnrollmentUrl(gameId, userId), {
-  method: 'PUT',
-  body: `"${enrollmentStatus}"`
-});
+export const getGameEnrollmentUserUrl = (gameId, userId) => `${getGameEnrollmentBaseUrl(gameId)}/${userId}`;
+
+export const putEnrollAnotherUser = (gameId, userId, enrollmentStatus) => fetchJson(
+  getGameEnrollmentUserUrl(gameId, userId),
+  {
+    method: 'PUT',
+    body: `"${enrollmentStatus}"`
+  }
+);

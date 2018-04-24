@@ -12,21 +12,21 @@ export default function* newGameSagas() {
   yield takeLatest(actions.newGame.submit, onSubmit);
 }
 
-function *onReset() {
+function* onReset() {
   const canAddGame = yield select(selectCanAddGame);
   if (!canAddGame) {
     yield put(push('/unauthorized'));
   }
 }
 
-function *onSubmit() {
+function* onSubmit() {
   yield call(delay, API_DEBOUNCE);
   try {
     const newGame = yield select(newGameSelector);
     const game = yield call(postNewGame, newGame);
     yield put(actions.newGame.submitSuccess(game));
     yield put(push(`/games/upcoming/${game.id}`));
-  } catch(error) {
+  } catch (error) {
     yield put(actions.newGame.submitFailure(error));
   }
 }

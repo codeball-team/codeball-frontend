@@ -7,11 +7,11 @@ export default function* pitchesSagas() {
   yield throttle(API_THROTTLE, actions.pitches.load, onLoad);
 }
 
-function *onLoad() {
+function* onLoad() {
   try {
     const pitches = yield call(getPitches);
     yield put(actions.pitches.loadSuccess(pitches));
-  } catch(error) {
+  } catch (error) {
     yield put(actions.pitches.loadFailure(error));
   }
 }

@@ -7,11 +7,11 @@ export default function* usersSagas() {
   yield throttle(API_THROTTLE, actions.users.load, onLoad);
 }
 
-function *onLoad() {
+function* onLoad() {
   try {
     const users = yield call(getUsers);
     yield put(actions.users.loadSuccess(users));
-  } catch(error) {
+  } catch (error) {
     yield put(actions.users.loadFailure(error));
   }
 }

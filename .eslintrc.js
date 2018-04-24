@@ -118,7 +118,7 @@ module.exports = {
     'no-self-assign': 'error',
     'no-self-compare': 'error',
     'no-sequences': 'error',
-    'no-throw-literal': 'error',
+    'no-throw-literal': 'off',
     'no-unmodified-loop-condition': 'error',
     'no-unused-expressions': 'error',
     'no-unused-labels': 'error',
@@ -216,13 +216,13 @@ module.exports = {
     'new-parens': 'error',
     'newline-after-var': 'off',
     'newline-before-return': 'off',
-    'newline-per-chained-call': 'error',
+    'newline-per-chained-call': 'off',
     'no-array-constructor': 'error',
     'no-bitwise': 'error',
     'no-continue': 'error',
-    'no-inline-comments': 'error',
+    'no-inline-comments': 'off',
     'no-lonely-if': 'error',
-    'no-mixed-operators': 'error',
+    'no-mixed-operators': 'off',
     'no-mixed-spaces-and-tabs': 'error',
     'no-multiple-empty-lines': 'error',
     'no-negated-condition': 'error',
@@ -280,8 +280,8 @@ module.exports = {
     }],
     'constructor-super': 'error',
     'generator-star-spacing': ['error', {
-      'before': true,
-      'after': false
+      'before': false,
+      'after': true
     }],
     'no-class-assign': 'error',
     'no-confusing-arrow': ['error', {
@@ -311,8 +311,8 @@ module.exports = {
     'sort-imports': 'off',
     'template-curly-spacing': ['error', 'never'],
     'yield-star-spacing': ['error', {
-      'before': true,
-      'after': false
+      'before': false,
+      'after': true
     }],
 
     // React

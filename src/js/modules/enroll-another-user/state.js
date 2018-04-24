@@ -1,4 +1,4 @@
-import { combineActions, createActions, handleActions } from 'redux-actions';
+import { createActions, handleActions } from 'redux-actions';
 import { createAjaxActions, noop } from 'utils';
 import { EnrollAnotherUserModel, GameModel } from 'models';
 

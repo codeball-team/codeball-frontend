@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import createCachedSelector from 're-reselect';
 import {
   PERMISSION_ADD_GAME,
   PERMISSION_ADD_PITCH,
@@ -9,12 +8,12 @@ import {
   ROLES_PERMISSIONS
 } from 'constants';
 
-const selectPermission = (state, { permission }) => permission;
 
 export const selectRoot = (state) => state.currentUserData;
 export const selectCurrentUser = createSelector(selectRoot, ({ currentUser }) => currentUser);
 export const selectRole = createSelector(selectCurrentUser, ({ role }) => role || ROLE_USER);
 
+// const selectPermission = (state, { permission }) => permission;
 // export const selectHasPermission = createCachedSelector(
 //   [ selectRole, selectPermission ],
 //   (role, permission) => ROLES_PERMISSIONS[role][permission]
