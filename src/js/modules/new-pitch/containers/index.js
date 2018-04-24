@@ -22,8 +22,8 @@ class NewPitch extends Component {
     const {
       newPitch,
       onAddressChange,
-      onMinNumberOfPlayersChange,
-      onMaxNumberOfPlayersChange,
+      onMinCapacityChange,
+      onMaxCapacityChange,
       onNameChange,
       onTypeChange,
       onSubmit
@@ -43,8 +43,8 @@ class NewPitch extends Component {
             </React.Fragment>
           )}
           onAddressChange={onAddressChange}
-          onMinNumberOfPlayersChange={onMinNumberOfPlayersChange}
-          onMaxNumberOfPlayersChange={onMaxNumberOfPlayersChange}
+          onMinCapacityChange={onMinCapacityChange}
+          onMaxCapacityChange={onMaxCapacityChange}
           onNameChange={onNameChange}
           onTypeChange={onTypeChange}
           onSubmit={onSubmit} />
@@ -57,8 +57,8 @@ export default ContainerComponent(NewPitch, {
   mapStateToProps: newPitchContainerSelector,
   mapDispatchToProps: {
     onAddressChange: actions.newPitch.changeAddress,
-    onMinNumberOfPlayersChange: actions.newPitch.changeMinNumberOfPlayers,
-    onMaxNumberOfPlayersChange: actions.newPitch.changeMaxNumberOfPlayers,
+    onMinCapacityChange: actions.newPitch.changeMinCapacity,
+    onMaxCapacityChange: actions.newPitch.changeMaxCapacity,
     onMount: actions.newPitch.reset,
     onNameChange: actions.newPitch.changeName,
     onTypeChange: actions.newPitch.changeType,

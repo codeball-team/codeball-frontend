@@ -5,15 +5,11 @@ export const getGameUrl = (gameId) => `${getGamesUrl()}/${gameId}`;
 export const getGameCloseEnrollmentUrl = (gameId) => `${getGameUrl(gameId)}/finishEnrollment`;
 export const getGameDrawTeamsUrl = (gameId) => `${getGameUrl(gameId)}/team`;
 export const getGameEndUrl = (gameId) => `${getGameUrl(gameId)}/end`;
-export const getGameEnrollmentUrl = (gameId, userId) => userId
-  ? getGameEnrollmentUserUrl(gameId, userId)
-  : getGameEnrollmentBaseUrl(gameId);
 export const getGameEnrollmentBaseUrl = (gameId) => `${getGameUrl(gameId)}/enrollment`;
-export const getGameEnrollmentUserUrl = (gameId, userId) => `${getGameEnrollmentBaseUrl(gameId)}/${userId}`;
 export const getGameSetScoreUrl = (gameId) => `${getGameUrl(gameId)}/score`;
 
 export const getGame = (gameId) => fetchJson(getGameUrl(gameId));
-export const putChangeEnrollmentStatus = (gameId, enrollmentStatus) => fetchJson(getGameEnrollmentUrl(gameId), {
+export const putChangeEnrollmentStatus = (gameId, enrollmentStatus) => fetchJson(getGameEnrollmentBaseUrl(gameId), {
   method: 'PUT',
   body: `"${enrollmentStatus}"`
 });

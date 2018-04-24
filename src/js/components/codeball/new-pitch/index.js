@@ -13,19 +13,19 @@ const NewPitch = ({
   newPitch,
   newPitch: {
     address,
-    maxNumberOfPlayers,
-    minNumberOfPlayers,
+    maxCapacity,
+    minCapacity,
     name,
     type
   },
   onAddressChange,
-  onMaxNumberOfPlayersChange,
-  onMinNumberOfPlayersChange,
+  onMaxCapacityChange,
+  onMinCapacityChange,
   onNameChange,
   onTypeChange,
   onSubmit
 }) => {
-  const capacity = formatRange(minNumberOfPlayers, maxNumberOfPlayers);
+  const capacity = formatRange(minCapacity, maxCapacity);
 
   return (
     <div className={className}>
@@ -71,14 +71,14 @@ const NewPitch = ({
             isValid: NewPitchModel.isCapacityValid(newPitch),
             component: (
               <RangePicker
-                min={minNumberOfPlayers}
-                minOptions={_.range(PITCH_MIN_CAPACITY, maxNumberOfPlayers + 1, 2)}
-                max={maxNumberOfPlayers}
-                maxOptions={_.range(minNumberOfPlayers, PITCH_MAX_CAPACITY + 1, 2)}
+                min={minCapacity}
+                minOptions={_.range(PITCH_MIN_CAPACITY, maxCapacity + 1, 2)}
+                max={maxCapacity}
+                maxOptions={_.range(minCapacity, PITCH_MAX_CAPACITY + 1, 2)}
                 separator="-"
                 vertical={true}
-                onMinChange={onMinNumberOfPlayersChange}
-                onMaxChange={onMaxNumberOfPlayersChange} />
+                onMinChange={onMinCapacityChange}
+                onMaxChange={onMaxCapacityChange} />
             )
           }
         ]} />
@@ -90,8 +90,8 @@ NewPitch.propTypes = {
   className: PropTypes.string,
   newPitch: PropTypes.object.isRequired,
   onAddressChange: PropTypes.func.isRequired,
-  onMaxNumberOfPlayersChange: PropTypes.func.isRequired,
-  onMinNumberOfPlayersChange: PropTypes.func.isRequired,
+  onMaxCapacityChange: PropTypes.func.isRequired,
+  onMinCapacityChange: PropTypes.func.isRequired,
   onNameChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onTypeChange: PropTypes.func.isRequired

@@ -13,8 +13,8 @@ const PitchInfo = ({
   className,
   pitch: {
     address,
-    maxNumberOfPlayers,
-    minNumberOfPlayers,
+    maxCapacity,
+    minCapacity,
     type,
     url
   }
@@ -28,8 +28,8 @@ const PitchInfo = ({
       <PitchType type={type} />
     </Render>
     <PitchCapacity
-      minNumberOfPlayers={minNumberOfPlayers}
-      maxNumberOfPlayers={maxNumberOfPlayers} />
+      minCapacity={minCapacity}
+      maxCapacity={maxCapacity} />
   </div>
 );
 

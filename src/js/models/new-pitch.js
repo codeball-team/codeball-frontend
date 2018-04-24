@@ -4,8 +4,8 @@ import { isInteger, isNotEmptyString } from 'utils/validation';
 const NewPitchModel = model({
   getDefaultAttributes: () => ({
     address: undefined,
-    minNumberOfPlayers: 6,
-    maxNumberOfPlayers: 10,
+    minCapacity: 6,
+    maxCapacity: 10,
     name: undefined,
     type: undefined
   }),
@@ -15,20 +15,20 @@ const NewPitchModel = model({
       return isNotEmptyString(address);
     },
 
-    isCapacityValid({ minNumberOfPlayers, maxNumberOfPlayers }) {
+    isCapacityValid({ minCapacity, maxCapacity }) {
       return [
-        this.isMinNumberOfPlayersValid({ minNumberOfPlayers }),
-        this.isMaxNumberOfPlayersValid({ maxNumberOfPlayers }),
-        minNumberOfPlayers <= maxNumberOfPlayers
+        this.isMinCapacityValid({ minCapacity }),
+        this.isMaxCapacityValid({ maxCapacity }),
+        minCapacity <= maxCapacity
       ].every(Boolean);
     },
 
-    isMinNumberOfPlayersValid({ minNumberOfPlayers }) {
-      return isInteger(minNumberOfPlayers) && minNumberOfPlayers >= 2;
+    isMinCapacityValid({ minCapacity }) {
+      return isInteger(minCapacity) && minCapacity >= 2;
     },
 
-    isMaxNumberOfPlayersValid({ maxNumberOfPlayers }) {
-      return isInteger(maxNumberOfPlayers) && maxNumberOfPlayers <= 22;
+    isMaxCapacityValid({ maxCapacity }) {
+      return isInteger(maxCapacity) && maxCapacity <= 22;
     },
 
     isNameValid({ name }) {
@@ -41,12 +41,12 @@ const NewPitchModel = model({
   },
 
   toServerFormat(newPitchModel) {
-    const { address, minNumberOfPlayers, maxNumberOfPlayers, name, type } = newPitchModel;
+    const { address, minCapacity, maxCapacity, name, type } = newPitchModel;
 
     return {
       address,
-      minNumberOfPlayers,
-      maxNumberOfPlayers,
+      minNumberOfPlayers: minCapacity,
+      maxNumberOfPlayers: maxCapacity,
       name,
       pitchType: type
     };

@@ -4,8 +4,8 @@ const PitchModel = model({
   getDefaultAttributes: () => ({
     address: undefined,
     id: undefined,
-    maxNumberOfPlayers: 0,
-    minNumberOfPlayers: 0,
+    maxCapacity: 0,
+    minCapacity: 0,
     name: '',
     type: undefined,
     url: undefined
@@ -15,8 +15,8 @@ const PitchModel = model({
     return new PitchModel({
       address: serverResponse.address,
       id: serverResponse.id,
-      maxNumberOfPlayers: serverResponse.maxNumberOfPlayers,
-      minNumberOfPlayers: serverResponse.minNumberOfPlayers,
+      maxCapacity: serverResponse.maxNumberOfPlayers,
+      minCapacity: serverResponse.minNumberOfPlayers,
       name: serverResponse.name,
       type: serverResponse.pitchType
     });

@@ -4,16 +4,16 @@ import { formatRange } from 'utils';
 import { Icon } from 'components/ui';
 import styles from './styles.scss';
 
-const PitchCapacity = ({ minNumberOfPlayers, maxNumberOfPlayers }) => (
+const PitchCapacity = ({ minCapacity, maxCapacity }) => (
   <div className={styles.info} title="Pitch capacity">
     <Icon name="people" />
-    {formatRange(minNumberOfPlayers, maxNumberOfPlayers)}
+    {formatRange(minCapacity, maxCapacity)}
   </div>
 );
 
 PitchCapacity.propTypes = {
-  maxNumberOfPlayers: PropTypes.number,
-  minNumberOfPlayers: PropTypes.number
+  maxCapacity: PropTypes.number,
+  minCapacity: PropTypes.number
 };
 
 export default PitchCapacity;

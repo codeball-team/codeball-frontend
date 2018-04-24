@@ -7,8 +7,8 @@ const initialState = new NewPitchModel();
 export const actions = createActions({
   newPitch: {
     changeAddress: (address) => address,
-    changeMaxNumberOfPlayers: (maxNumberOfPlayers) => maxNumberOfPlayers,
-    changeMinNumberOfPlayers: (minNumberOfPlayers) => minNumberOfPlayers,
+    changeMaxCapacity: (maxCapacity) => maxCapacity,
+    changeMinCapacity: (minCapacity) => minCapacity,
     changeName: (name) => name,
     changeType: (type) => type,
     reset: noop,
@@ -20,8 +20,8 @@ export const actions = createActions({
 
 export default handleActions({
   [actions.newPitch.changeAddress]: (state, { payload: address }) => ({ ...state, address }),
-  [actions.newPitch.changeMaxNumberOfPlayers]: (state, { payload: maxNumberOfPlayers }) => ({ ...state, maxNumberOfPlayers }),
-  [actions.newPitch.changeMinNumberOfPlayers]: (state, { payload: minNumberOfPlayers }) => ({ ...state, minNumberOfPlayers }),
+  [actions.newPitch.changeMaxCapacity]: (state, { payload: maxCapacity }) => ({ ...state, maxCapacity }),
+  [actions.newPitch.changeMinCapacity]: (state, { payload: minCapacity }) => ({ ...state, minCapacity }),
   [actions.newPitch.changeName]: (state, { payload: name }) => ({ ...state, name }),
   [actions.newPitch.changeType]: (state, { payload: type }) => ({ ...state, type }),
   [actions.newPitch.reset]: () => initialState
