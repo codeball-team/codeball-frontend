@@ -2,6 +2,7 @@ import { combineActions, createActions } from 'redux-actions';
 import { ajaxReducer, createAjaxActions, parseNumber } from 'utils';
 import { GameModel } from 'models';
 import { actions as newGameActions } from 'new-game/state';
+import { actions as enrollAnotherUserActions } from 'enroll-another-user/state';
 
 const initialState = {
   isEditing: false,
@@ -15,16 +16,11 @@ export const actions = createActions({
     editCancel: undefined,
     changeScoreA: parseNumber,
     changeScoreB: parseNumber,
-    enrollAnotherUserCancel: undefined,
-    enrollAnotherUserChangeUserId: undefined,
-    enrollAnotherUserEdit: undefined,
-    enrollAnotherUserReset: undefined,
     ...createAjaxActions(GameModel.fromServerFormat, {
       changeEnrollmentStatus: (enrollmentStatus) => enrollmentStatus,
       closeEnrollment: undefined,
       drawTeams: undefined,
       end: undefined,
-      enrollAnotherUser: (userId) => userId,
       load: (gameId) => gameId,
       saveScore: undefined
     })
@@ -43,9 +39,9 @@ export default ajaxReducer(initialState, ajaxActions, {
     actions.game.closeEnrollmentSuccess,
     actions.game.drawTeamsSuccess,
     actions.game.endSuccess,
-    actions.game.enrollAnotherUserSuccess,
     actions.game.loadSuccess,
     actions.game.saveScoreSuccess,
+    enrollAnotherUserActions.enrollAnotherUser.submitSuccess,
     newGameActions.newGame.submit,
     newGameActions.newGame.submitSuccess
   )]: (state, { payload: game }) => ({ ...initialState, game }),

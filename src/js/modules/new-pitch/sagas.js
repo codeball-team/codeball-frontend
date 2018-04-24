@@ -20,7 +20,7 @@ function *onReset() {
 }
 
 function *onSubmit() {
-  yield delay(API_DEBOUNCE);
+  yield call(delay, API_DEBOUNCE);
   try {
     const newPitch = yield select(newPitchSelector);
     const pitch = yield call(postNewPitch, newPitch);

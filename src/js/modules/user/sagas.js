@@ -9,7 +9,7 @@ export default function* userSagas() {
 }
 
 function *onLoad({ payload: userId }) {
-  yield delay(API_DEBOUNCE);
+  yield call(delay, API_DEBOUNCE);
   try {
     const user = yield call(getUser, userId);
     yield put(actions.user.loadSuccess(user));

@@ -9,7 +9,7 @@ export default function* pitchSagas() {
 }
 
 function *onLoad({ payload: pitchId }) {
-  yield delay(API_DEBOUNCE);
+  yield call(delay, API_DEBOUNCE);
   try {
     const pitch = yield call(getPitch, pitchId);
     yield put(actions.pitch.loadSuccess(pitch));

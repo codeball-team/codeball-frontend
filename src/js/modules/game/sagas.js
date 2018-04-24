@@ -9,7 +9,6 @@ import {
   putCloseEnrollment,
   putDrawTeams,
   putEnd,
-  putEnrollAnotherUser,
   putScore
 } from 'game/api';
 import { actions } from 'game/state';
@@ -18,7 +17,6 @@ export default function* gameSagas() {
   yield takeLatest(actions.game.changeEnrollmentStatus, onChangeEnrollmentStatus);
   yield throttle(API_THROTTLE, actions.game.closeEnrollment, onCloseEnrollment);
   yield throttle(API_THROTTLE, actions.game.drawTeams, onDrawTeams);
-  yield takeLatest(actions.game.enrollAnotherUser, onEnrollAnotherUser);
   yield throttle(API_THROTTLE, actions.game.end, onEnd);
   yield takeLatest(actions.game.load, onLoad);
   yield takeLatest(actions.game.saveScore, onSaveScore);
@@ -52,18 +50,6 @@ function *onDrawTeams() {
     yield put(actions.game.drawTeamsSuccess(game));
   } catch(error) {
     yield put(actions.game.drawTeamsFailure(error));
-  }
-}
-
-function *onEnrollAnotherUser({ payload: userId }) {
-  yield call(delay, API_DEBOUNCE);
-  try {
-    const gameId = yield select(gameIdSelector);
-    const game = yield call(putEnrollAnotherUser, gameId, userId, ENROLLMENT_STATUS_YES);
-    yield put(actions.game.enrollAnotherUserSuccess(game));
-    yield put(actions.game.enrollAnotherUserReset());
-  } catch(error) {
-    yield put(actions.game.enrollAnotherUserFailure(error));
   }
 }
 

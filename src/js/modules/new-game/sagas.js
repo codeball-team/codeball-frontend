@@ -20,7 +20,7 @@ function *onReset() {
 }
 
 function *onSubmit() {
-  yield delay(API_DEBOUNCE);
+  yield call(delay, API_DEBOUNCE);
   try {
     const newGame = yield select(newGameSelector);
     const game = yield call(postNewGame, newGame);

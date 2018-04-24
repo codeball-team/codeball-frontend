@@ -6,6 +6,7 @@ import {
 } from 'constants';
 import { actions } from 'game/state';
 import { actions as currentUserActions } from 'current-user/state';
+import { actions as enrollAnotherUserActions } from 'enroll-another-user/state';
 import { actions as pitchesActions } from 'pitches/state';
 import { actions as usersActions } from 'users/state';
 import { upcomingGameContainerSelector } from 'selectors/containers';
@@ -175,12 +176,12 @@ export default ContainerComponent(UpcomingGame, {
     onCloseEnrollment: actions.game.closeEnrollment,
     onDrawTeams: actions.game.drawTeams,
     onEndGame: actions.game.end,
-    onEnrollAnotherUserCancel: actions.game.enrollAnotherUserCancel,
-    onEnrollAnotherUserEdit: actions.game.enrollAnotherUserEdit,
-    onEnrollAnotherUserSubmit: actions.game.enrollAnotherUser,
-    onEnrollAnotherUserIdChange: actions.game.enrollAnotherUserChangeUserId,
+    onEnrollAnotherUserCancel: enrollAnotherUserActions.enrollAnotherUser.cancel,
+    onEnrollAnotherUserEdit: enrollAnotherUserActions.enrollAnotherUser.edit,
+    onEnrollAnotherUserSubmit: enrollAnotherUserActions.enrollAnotherUser.submit,
+    onEnrollAnotherUserIdChange: enrollAnotherUserActions.enrollAnotherUser.changeUserId,
     onEnrollmentStatusChange: actions.game.changeEnrollmentStatus,
-    onMount: actions.game.enrollAnotherUserReset
+    onMount: enrollAnotherUserActions.enrollAnotherUser.reset
   },
   periodicDataUpdates: true,
   updateData: ({ dispatch, id, match }) => {
