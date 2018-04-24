@@ -25,15 +25,15 @@ export default handleActions({
     ]
   }),
 
-  [actions.ajax.start]: (state) => ({
-    ...state,
-    numberOfPendingRequests: state.numberOfPendingRequests + 1
-  }),
-
   [actions.ajax.failure]: (state, { payload: error }) => ({
     ...state,
     errors: _.uniq([ ...state.errors, error ], JSON.stringify),
     numberOfPendingRequests: state.numberOfPendingRequests - 1
+  }),
+
+  [actions.ajax.start]: (state) => ({
+    ...state,
+    numberOfPendingRequests: state.numberOfPendingRequests + 1
   }),
 
   [actions.ajax.success]: (state) => ({

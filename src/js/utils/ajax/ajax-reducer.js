@@ -6,24 +6,13 @@ const ajaxReducerInitialState = {
   lastUpdateHash: undefined
 };
 
-const ajaxReducer = (initialState, actionType, handlers) => {
-  let ajaxHandlers;
-
-  if (Array.isArray(actionType)) {
-    const [ start, failure, success ] = actionType;
-    ajaxHandlers = {
-      [start]: onAjaxStart,
-      [failure]: onAjaxFailure,
-      [success]: onAjaxSuccess
-    };
-  } else {
-    ajaxHandlers = {
-      [actionType]: onAjaxStartOld,
-      [actionType.FAILURE]: onAjaxFailureOld,
-      [actionType.SUCCESS]: onAjaxSuccessOld
-    };
-  }
-
+const ajaxReducer = (initialState, actionTypes, handlers) => {
+  const [ start, failure, success ] = actionTypes;
+  const ajaxHandlers = {
+    [start]: onAjaxStart,
+    [failure]: onAjaxFailure,
+    [success]: onAjaxSuccess
+  };
   const reducerInitialState = {
     ...ajaxReducerInitialState,
     ...initialState
@@ -56,14 +45,9 @@ const ajaxReducer = (initialState, actionType, handlers) => {
   };
 };
 
-const onAjaxStart = (state, action) => ({
+const onAjaxStart = (state) => ({
   ...state,
   isLoading: true
-});
-
-const onAjaxSuccess = (state, action) => ({
-  ...onAjaxEnd(state, action),
-  hasLoaded: true
 });
 
 const onAjaxFailure = (state, action) => ({
@@ -71,31 +55,15 @@ const onAjaxFailure = (state, action) => ({
   hasLoaded: false
 });
 
+const onAjaxSuccess = (state, action) => ({
+  ...onAjaxEnd(state, action),
+  hasLoaded: true
+});
+
 const onAjaxEnd = (state, { payload }) => ({
   ...state,
   isLoading: false,
   lastUpdateHash: getObjectHash(payload)
-});
-
-const onAjaxStartOld = (state, action) => ({
-  ...state,
-  isLoading: true
-});
-
-const onAjaxSuccessOld = (state, action) => ({
-  ...onAjaxEndOld(state, action),
-  hasLoaded: true
-});
-
-const onAjaxFailureOld = (state, action) => ({
-  ...onAjaxEndOld(state, action),
-  hasLoaded: false
-});
-
-const onAjaxEndOld = (state, action) => ({
-  ...state,
-  isLoading: false,
-  lastUpdateHash: getObjectHash(action.response)
 });
 
 export default ajaxReducer;
