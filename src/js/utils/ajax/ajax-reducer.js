@@ -71,10 +71,10 @@ const onAjaxFailure = (state, action) => ({
   hasLoaded: false
 });
 
-const onAjaxEnd = (state, { payload: { response } }) => ({
+const onAjaxEnd = (state, { payload }) => ({
   ...state,
   isLoading: false,
-  lastUpdateHash: getObjectHash(response)
+  lastUpdateHash: getObjectHash(payload)
 });
 
 const onAjaxStartOld = (state, action) => ({

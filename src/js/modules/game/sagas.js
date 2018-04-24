@@ -5,7 +5,6 @@ import { editableGameSelector } from 'selectors/models/game';
 import { push } from 'react-router-redux';
 import {
   getGame,
-  getGames,
   putChangeEnrollmentStatus,
   putCloseEnrollment,
   putDrawTeams,
@@ -23,7 +22,6 @@ export default function* gameSagas() {
   yield throttle(API_THROTTLE, actions.game.end, onEnd);
   yield takeLatest(actions.game.load, onLoad);
   yield takeLatest(actions.game.saveScore, onSaveScore);
-  yield throttle(API_THROTTLE, actions.game.loadAll, onGamesLoad);
 }
 
 function *onChangeEnrollmentStatus({ payload: enrollmentStatus }) {
@@ -98,14 +96,5 @@ function *onSaveScore() {
     yield put(actions.game.saveScoreSuccess(game));
   } catch(error) {
     yield put(actions.game.saveScoreFailure(error));
-  }
-}
-
-function *onGamesLoad() {
-  try {
-    const game = yield call(getGames);
-    yield put(actions.game.loadAllSuccess(game));
-  } catch(error) {
-    yield put(actions.game.loadAllFailure(error));
   }
 }

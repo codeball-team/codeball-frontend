@@ -26,7 +26,6 @@ export const actions = createActions({
       end: undefined,
       enrollAnotherUser: (userId) => userId,
       load: (gameId) => gameId,
-      loadAll: undefined,
       saveScore: undefined
     })
   }

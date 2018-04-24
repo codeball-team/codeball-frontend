@@ -69,7 +69,7 @@ export default ContainerComponent(NewUser, {
     onSubmit: actions.newUser.submit
   },
   periodicDataUpdates: true,
-  updateData: ({ actions, dispatch }) => {
+  updateData: ({ dispatch }) => {
     dispatch(currentUserActions.currentUser.load());
   }
 });
