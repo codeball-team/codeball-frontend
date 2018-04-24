@@ -21,8 +21,5 @@ const ajaxActions = [
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
-  [actions.games.loadSuccess]: (state, { payload: games }) => ({
-    ...initialState,
-    games
-  })
+  [actions.games.loadSuccess]: (state, { payload: games }) => ({ ...initialState, games })
 });
