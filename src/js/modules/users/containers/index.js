@@ -29,11 +29,11 @@ class Users extends Component {
           title={`Players (${users.length})`}
           currentUser={currentUser}
           users={users}
-          buttons={[
+          buttons={(
             <Render key="add" when={hasPermission(PERMISSION_ADD_USER)}>
               <ButtonAddUser />
             </Render>
-          ]} />
+          )} />
       </main>
     );
   }

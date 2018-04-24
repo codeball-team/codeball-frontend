@@ -38,16 +38,14 @@ class NewGame extends Component {
           title="New game"
           newGame={newGame}
           pitches={pitches}
-          buttons={[
-            <ButtonCancel
-              key="cancel"
-              redirect="/games" />,
-
-            <ButtonSave
-              key="save"
-              isDisabled={!NewGameModel.isValid(newGame)}
-              onClick={onSubmit} />
-          ]}
+          buttons={(
+            <React.Fragment>
+              <ButtonCancel redirect="/games" />
+              <ButtonSave
+                isDisabled={!NewGameModel.isValid(newGame)}
+                onClick={onSubmit} />
+            </React.Fragment>
+          )}
           onDateChange={onDateChange}
           onDurationChange={onDurationChange}
           onHourChange={onHourChange}

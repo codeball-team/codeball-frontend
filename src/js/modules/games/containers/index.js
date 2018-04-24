@@ -35,11 +35,13 @@ class Games extends Component {
           games={upcomingGames}
           hideScore={true}
           urlFormatter={formatUpcomingGameUrl}
-          buttons={[
-            <Render key="new" when={hasPermission(PERMISSION_ADD_GAME)}>
-              <ButtonAddGame />
-            </Render>
-          ]} />
+          buttons={(
+            <React.Fragment>
+              <Render key="new" when={hasPermission(PERMISSION_ADD_GAME)}>
+                <ButtonAddGame />
+              </Render>
+            </React.Fragment>
+          )} />
 
         <GamesListSection
           title={`Previous games (${previousGames.length})`}

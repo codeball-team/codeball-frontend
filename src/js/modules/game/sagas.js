@@ -1,7 +1,7 @@
 import { delay } from 'redux-saga';
 import { call, put, select, takeLatest, throttle } from 'redux-saga/effects';
 import { API_DEBOUNCE, API_THROTTLE, ENROLLMENT_STATUS_YES } from 'constants';
-import { editableGameSelector } from 'selectors/models/game';
+import { editableGameSelector, gameIdSelector } from 'selectors/models/game';
 import { push } from 'react-router-redux';
 import {
   getGame,

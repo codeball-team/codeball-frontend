@@ -34,16 +34,14 @@ class NewPitch extends Component {
         <NewPitchSection
           title="New pitch"
           newPitch={newPitch}
-          buttons={[
-            <ButtonCancel
-              key="cancel"
-              redirect="/pitches" />,
-
-            <ButtonSave
-              key="save"
-              isDisabled={!NewPitchModel.isValid(newPitch)}
-              onClick={onSubmit} />
-          ]}
+          buttons={(
+            <React.Fragment>
+              <ButtonCancel redirect="/pitches" />
+              <ButtonSave
+                isDisabled={!NewPitchModel.isValid(newPitch)}
+                onClick={onSubmit} />
+            </React.Fragment>
+          )}
           onAddressChange={onAddressChange}
           onMinNumberOfPlayersChange={onMinNumberOfPlayersChange}
           onMaxNumberOfPlayersChange={onMaxNumberOfPlayersChange}

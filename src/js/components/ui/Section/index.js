@@ -7,7 +7,7 @@ import styles from './styles.scss';
 const SectionDecorator = (ChildComponent) => {
   const Section = (props) => {
     const {
-      buttons = [],
+      buttons,
       canEdit,
       canSubmit = true,
       isEditable,
@@ -30,39 +30,34 @@ const SectionDecorator = (ChildComponent) => {
           </div>
 
           <ButtonsPanel className={styles.buttonsPanel}>
-            {[
-              <Render
-                key="section-edit"
-                when={[
-                  canEdit,
-                  isEditable,
-                  !isEditing
-                ]}>
-                <ButtonEdit onClick={onEdit} />
-              </Render>,
+            <Render
+              when={[
+                canEdit,
+                isEditable,
+                !isEditing
+              ]}>
+              <ButtonEdit onClick={onEdit} />
+            </Render>
 
-              <Render
-                key="section-cancel"
-                when={[
-                  canEdit,
-                  isEditable,
-                  isEditing
-                ]}>
-                <ButtonCancel onClick={onCancel} />
-              </Render>,
+            <Render
+              when={[
+                canEdit,
+                isEditable,
+                isEditing
+              ]}>
+              <ButtonCancel onClick={onCancel} />
+            </Render>
 
-              <Render
-                key="section-save"
-                when={[
-                  canEdit,
-                  isEditable,
-                  isEditing
-                ]}>
-                <ButtonSave isDisabled={!canSubmit} onClick={onSave} />
-              </Render>,
+            <Render
+              when={[
+                canEdit,
+                isEditable,
+                isEditing
+              ]}>
+              <ButtonSave isDisabled={!canSubmit} onClick={onSave} />
+            </Render>
 
-              ...buttons.filter(Boolean)
-            ]}
+            {buttons}
           </ButtonsPanel>
         </div>
 
@@ -72,7 +67,7 @@ const SectionDecorator = (ChildComponent) => {
   };
 
   Section.propTypes = {
-    buttons: PropTypes.array,
+    buttons: PropTypes.node,
     canEdit: PropTypes.bool,
     canSubmit: PropTypes.bool,
     isEditable: PropTypes.bool,

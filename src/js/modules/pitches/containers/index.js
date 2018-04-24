@@ -23,11 +23,11 @@ class Pitches extends Component {
         <PitchesListSection
           title={`Pitches (${pitches.length})`}
           pitches={pitches}
-          buttons={[
+          buttons={(
             <Render key="add" when={hasPermission(PERMISSION_ADD_PITCH)}>
               <ButtonAddPitch />
             </Render>
-          ]} />
+          )} />
       </main>
     );
   }

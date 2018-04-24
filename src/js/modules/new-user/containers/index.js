@@ -38,16 +38,14 @@ class NewUser extends Component {
           title="New player"
           newUser={newUser}
           roleOptions={roleOptions}
-          buttons={[
-            <ButtonCancel
-              key="cancel"
-              redirect="/players" />,
-
-            <ButtonSave
-              key="save"
-              isDisabled={!NewUserModel.isValid(newUser)}
-              onClick={onSubmit} />
-          ]}
+          buttons={(
+            <React.Fragment>
+              <ButtonCancel redirect="/players" />
+              <ButtonSave
+                isDisabled={!NewUserModel.isValid(newUser)}
+                onClick={onSubmit} />
+            </React.Fragment>
+          )}
           onEmailChange={onEmailChange}
           onFirstNameChange={onFirstNameChange}
           onLastNameChange={onLastNameChange}

@@ -86,36 +86,33 @@ class UpcomingGame extends Component {
             title={pitchName}
             game={game}
             pitch={pitch}
-            buttons={[
-              <Render
-                key="close-enrollment"
-                when={[
-                  !isEnrollmentOver,
-                  hasPermission(PERMISSION_CLOSE_ENROLLMENT)
-                ]}>
-                <ButtonSave label="Close enrollment" onClick={onCloseEnrollment} />
-              </Render>,
-
-              <Render
-                key="draw-teams"
-                when={[
-                  isEnrollmentOver,
-                  !isGameOver,
-                  hasPermission(PERMISSION_DRAW_TEAMS)
-                ]}>
-                <ButtonShuffle label="Draw teams" onClick={onDrawTeams} />
-              </Render>,
-
-              <Render
-                key="end-game"
-                when={[
-                  isEnrollmentOver,
-                  !isGameOver,
-                  hasPermission(PERMISSION_END_GAME)
-                ]}>
-                <ButtonSave label="End game" onClick={onEndGame} />
-              </Render>
-            ]} />
+            buttons={(
+              <React.Fragment>
+                <Render
+                  when={[
+                    !isEnrollmentOver,
+                    hasPermission(PERMISSION_CLOSE_ENROLLMENT)
+                  ]}>
+                  <ButtonSave label="Close enrollment" onClick={onCloseEnrollment} />
+                </Render>
+                <Render
+                  when={[
+                    isEnrollmentOver,
+                    !isGameOver,
+                    hasPermission(PERMISSION_DRAW_TEAMS)
+                  ]}>
+                  <ButtonShuffle label="Draw teams" onClick={onDrawTeams} />
+                </Render>
+                <Render
+                  when={[
+                    isEnrollmentOver,
+                    !isGameOver,
+                    hasPermission(PERMISSION_END_GAME)
+                  ]}>
+                  <ButtonSave label="End game" onClick={onEndGame} />
+                </Render>
+              </React.Fragment>
+            )} />
         </Render>
 
         <Render
