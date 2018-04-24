@@ -1,8 +1,8 @@
 import { delay } from 'redux-saga';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { API_DEBOUNCE, ENROLLMENT_STATUS_YES } from 'constants';
+import { API_DEBOUNCE } from 'constants';
 import { gameIdSelector } from 'selectors/models/game';
-import { selectUserId } from 'enroll-another-user/selectors';
+import { selectEnrollmentStatus, selectUserId } from 'enroll-another-user/selectors';
 import { putEnrollAnotherUser } from 'enroll-another-user/api';
 import { actions } from 'enroll-another-user/state';
 
@@ -14,8 +14,9 @@ function *onEnrollAnotherUser() {
   yield call(delay, API_DEBOUNCE);
   try {
     const userId = yield select(selectUserId);
+    const enrollmentStatus = yield select(selectEnrollmentStatus)
     const gameId = yield select(gameIdSelector);
-    const game = yield call(putEnrollAnotherUser, gameId, userId, ENROLLMENT_STATUS_YES);
+    const game = yield call(putEnrollAnotherUser, gameId, userId, enrollmentStatus);
     yield put(actions.enrollAnotherUser.submitSuccess(game));
     yield put(actions.enrollAnotherUser.reset());
   } catch(error) {

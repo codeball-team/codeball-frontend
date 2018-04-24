@@ -68,22 +68,22 @@
     }
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.2.3",
     "better-npm-run": "^0.1.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
     "http-server": "^0.11.1",
-    "react-hot-loader": "^4.0.1",
+    "react-hot-loader": "^4.1.2",
     "redux-devtools-extension": "^2.13.2",
     "webpack-bundle-analyzer": "^2.11.1",
-    "webpack-wizard": "0.1.0-beta.11"
+    "webpack-wizard": "0.1.0-beta.13"
   },
   "dependencies": {
     "classnames": "^2.2.5",
     "fastclick": "^1.0.6",
     "history": "^4.7.2",
     "js-md5": "0.7.3",
-    "moment": "^2.15.0",
+    "moment": "^2.22.1",
     "node-normalize-scss": "^3.0.0",
     "prop-types": "^15.6.1",
     "re-reselect": "^2.0.0",
@@ -91,7 +91,7 @@
     "react-datepicker": "^1.4.1",
     "react-dom": "^16.3.2",
     "react-icon-base": "2.1.2",
-    "react-icons": "^2.2.1",
+    "react-icons": "^2.2.7",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
@@ -99,9 +99,9 @@
     "redux": "^4.0.0",
     "redux-actions": "^2.3.0",
     "redux-saga": "^0.16.0",
-    "redux-thunk": "^2.1.0",
+    "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "superagent": "^3.8.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.9.0"
   }
 }
