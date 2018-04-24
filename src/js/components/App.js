@@ -7,7 +7,7 @@ import Games from 'games/containers';
 import NewGame from 'new-game/containers';
 import NewPitch from 'new-pitch/containers';
 import NewUser from 'new-user/containers';
-import NotFound from 'containers/NotFound/NotFound';
+import NotFound from 'not-found';
 import Pitch from 'containers/Pitch/Pitch';
 import Pitches from 'containers/Pitches/Pitches';
 import Unauthorized from 'containers/Unauthorized/Unauthorized';
