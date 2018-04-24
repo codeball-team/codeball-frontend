@@ -1,0 +1,7 @@
+- refactor buttons={[ to buttons={<React.Fragment>
+- move components to modules & use connect in components
+- refactor selectors (rename *Selector to select*)
+- cleanup refactoring adaptors
+- cleanup TODO
+- untangle libraries from utils
+- refactor models

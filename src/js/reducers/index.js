@@ -6,7 +6,7 @@ import enrollAnotherUser from './enroll-another-user';
 import gameData from 'game/state';
 import gamesData from 'games/state';
 import newGame from 'new-game/state';
-import newPitch from './new-pitch';
+import newPitch from 'new-pitch/state';
 import newUser from 'new-user/state';
 import pitchData from './pitch-data';
 import pitchesData from './pitches-data';

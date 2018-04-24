@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import createCachedSelector from 're-reselect';
 import {
   PERMISSION_ADD_GAME,
+  PERMISSION_ADD_PITCH,
   PERMISSION_ADD_USER,
   PERMISSION_EDIT_GAME_SCORE,
   ROLE_USER,
@@ -20,5 +21,6 @@ export const selectRole = createSelector(selectCurrentUser, ({ role }) => role |
 // )(selectPermission);
 export const selectPermissions = createSelector(selectRole, (role) => ROLES_PERMISSIONS[role]);
 export const selectCanAddGame = createSelector(selectPermissions, (permissions) => permissions[PERMISSION_ADD_GAME]);
+export const selectCanAddPitch = createSelector(selectPermissions, (permissions) => permissions[PERMISSION_ADD_PITCH]);
 export const selectCanAddUser = createSelector(selectPermissions, (permissions) => permissions[PERMISSION_ADD_USER]);
 export const selectCanEditGameScore = createSelector(selectPermissions, (permissions) => permissions[PERMISSION_EDIT_GAME_SCORE]);

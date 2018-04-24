@@ -3,6 +3,7 @@ import currentUserSagas from 'current-user/sagas';
 import gameSagas from 'game/sagas';
 import gamesSagas from 'games/sagas';
 import newGameSagas from 'new-game/sagas';
+import newPitchSagas from 'new-pitch/sagas';
 import newUserSagas from 'new-user/sagas';
 import usersSagas from 'users/sagas';
 
@@ -12,6 +13,7 @@ export default function* rootSagas() {
   yield* gameSagas();
   yield* gamesSagas();
   yield* newGameSagas();
+  yield* newPitchSagas();
   yield* newUserSagas();
   yield* usersSagas();
 }
