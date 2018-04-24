@@ -45,8 +45,5 @@ export default ajaxReducer(initialState, ajaxActions, {
     ]
   }),
 
-  [actions.users.loadSuccess]: (state, { payload: users }) => ({
-    ...initialState,
-    users
-  })
+  [actions.users.loadSuccess]: (state, { payload: users }) => ({ ...initialState, users })
 });

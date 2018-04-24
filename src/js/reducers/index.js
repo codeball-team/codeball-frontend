@@ -9,7 +9,7 @@ import newGame from 'new-game/state';
 import newPitch from 'new-pitch/state';
 import newUser from 'new-user/state';
 import pitchData from 'pitch/state';
-import pitchesData from './pitches-data';
+import pitchesData from 'pitches/state';
 import userData from 'user/state';
 import usersData from 'users/state';
 
