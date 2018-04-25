@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { selectDate } from 'selectors/models/game';
+import { selectDate } from 'game/selectors';
 import Date from './component';
 
 const mapStateToProps = (state) => ({

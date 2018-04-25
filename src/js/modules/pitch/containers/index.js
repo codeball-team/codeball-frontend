@@ -6,24 +6,19 @@ import { actions } from 'pitch/state';
 import { pitchContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
-import { PitchInfoSection } from 'components/sections';
+import Info from 'pitch/components/info';
 import { PitchNotLoaded } from 'components/codeball';
 
 class Pitch extends Component {
   static propTypes = {
     hasPermission: PropTypes.func.isRequired,
-    hasPitchLoaded: PropTypes.bool.isRequired,
-    pitch: PropTypes.object.isRequired
+    hasPitchLoaded: PropTypes.bool.isRequired
   };
 
   render() {
     const {
       hasPermission,
-      hasPitchLoaded,
-      pitch,
-      pitch: {
-        name
-      }
+      hasPitchLoaded
     } = this.props;
 
     return (
@@ -33,9 +28,7 @@ class Pitch extends Component {
         </Render>
 
         <Render when={hasPitchLoaded}>
-          <PitchInfoSection
-            title={name}
-            pitch={pitch} />
+          <Info />
         </Render>
       </main>
     );

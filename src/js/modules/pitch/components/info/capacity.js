@@ -4,7 +4,7 @@ import { formatRange } from 'utils';
 import { Icon } from 'components/ui';
 import styles from './styles.scss';
 
-const PitchCapacity = ({ minCapacity, maxCapacity }) => (
+const PitchCapacity = ({ maxCapacity, minCapacity }) => (
   <div className={styles.info} title="Pitch capacity">
     <Icon name="people" />
     {formatRange(minCapacity, maxCapacity)}

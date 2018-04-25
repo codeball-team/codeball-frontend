@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { actions } from 'game/state';
-import { isGameEditingSelector, selectTeamAScore } from 'selectors/models/game';
+import { selectIsEditing, selectTeamAScore } from 'game/selectors';
 import { EditableText } from 'components/ui';
 
 const mapStateToProps = (state) => ({
-  isEditing: isGameEditingSelector(state),
-  text: selectTeamAScore(state),
-  maxLength: 2
+  isEditing: selectIsEditing(state),
+  maxLength: 2,
+  text: selectTeamAScore(state)
 });
 
 const mapDispatchToProps = {

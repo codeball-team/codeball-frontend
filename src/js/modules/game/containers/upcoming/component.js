@@ -8,9 +8,10 @@ import { EnrollAnotherUserModel } from 'models';
 import { SaveButton, ShuffleButton, Render } from 'components/ui';
 import {
   GameEnrollmentFormSection,
-  GameEnrollmentSection, GameInfoSection,
+  GameEnrollmentSection,
 } from 'components/sections';
 import GameEnrollAnotherUserFormSection from 'enroll-another-user/containers';
+import Info from 'game/components/info';
 import Lineup from 'game/components/lineup';
 import NotLoaded from 'game/components/not-loaded';
 
@@ -78,10 +79,7 @@ class Upcoming extends Component {
         </Render>
 
         <Render when={hasGameLoaded}>
-          <GameInfoSection
-            title={pitchName}
-            game={game}
-            pitch={pitch}
+          <Info
             buttons={(
               <React.Fragment>
                 <Render

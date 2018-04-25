@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { PITCH_TYPE_STRING } from 'constants';
-import { _, classNames } from 'utils';
+import { _ } from 'utils';
 import { Render } from 'components/ui';
 import PitchAddress from './address';
 import PitchCapacity from './capacity';
@@ -9,16 +10,7 @@ import PitchType from './type';
 import PitchWebpage from './webpage';
 import styles from './styles.scss';
 
-const PitchInfo = ({
-  className,
-  pitch: {
-    address,
-    maxCapacity,
-    minCapacity,
-    type,
-    url
-  }
-}) => (
+const Info = ({ className, pitch: { address, maxCapacity, minCapacity, type, url } }) => (
   <div className={classNames(styles.pitchInfo, className)}>
     <PitchAddress address={address} />
     <Render when={!_.isUndefined(url)}>
@@ -27,15 +19,13 @@ const PitchInfo = ({
     <Render when={!_.isUndefined(PITCH_TYPE_STRING[type])}>
       <PitchType type={type} />
     </Render>
-    <PitchCapacity
-      minCapacity={minCapacity}
-      maxCapacity={maxCapacity} />
+    <PitchCapacity maxCapacity={maxCapacity} minCapacity={minCapacity} />
   </div>
 );
 
-PitchInfo.propTypes = {
+Info.propTypes = {
   className: PropTypes.string,
   pitch: PropTypes.object.isRequired
 };
 
-export default PitchInfo;
+export default Info;
