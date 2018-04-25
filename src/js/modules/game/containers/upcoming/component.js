@@ -37,7 +37,7 @@ class Upcoming extends Component {
     onMount: PropTypes.func.isRequired
   };
 
-  componentWillMount = () => this.props.onMount();
+  componentDidMount = () => this.props.onMount();
 
   render() {
     const {

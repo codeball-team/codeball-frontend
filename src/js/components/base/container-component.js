@@ -24,13 +24,15 @@ export default function ContainerComponent(ComponentClass, options) {
       isLoading: false
     };
 
-    componentWillMount = () => {
+    componentDidMount = () => {
       periodicUpdates.start(this.updateDataCallback(this.props));
     };
 
     componentWillReceiveProps = (newProps) => {
-      const idPath = [ 'params', 'id' ];
-      if (safeGet(newProps, idPath) !== safeGet(this.props, idPath)) {
+      const idChanged = newProps.id !== this.props.id;
+      const routerIdPath = [ 'match', 'params', 'id' ];
+      const routerIdChanged = safeGet(newProps, routerIdPath) !== safeGet(this.props, routerIdPath);
+      if (idChanged || routerIdChanged) {
         periodicUpdates.restart(this.updateDataCallback(newProps));
       }
     };

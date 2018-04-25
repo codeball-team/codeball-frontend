@@ -16,7 +16,7 @@ class NewPitch extends Component {
     onTypeChange: PropTypes.func.isRequired
   };
 
-  componentWillMount = () => this.props.onMount();
+  componentDidMount = () => this.props.onMount();
 
   render() {
     const {

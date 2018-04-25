@@ -17,7 +17,7 @@ class NewGame extends Component {
     onSubmit: PropTypes.func.isRequired
   };
 
-  componentWillMount = () => this.props.onMount();
+  componentDidMount = () => this.props.onMount();
 
   render() {
     const {

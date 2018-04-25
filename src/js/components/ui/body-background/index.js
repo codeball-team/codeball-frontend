@@ -9,7 +9,7 @@ class BodyBackground extends Component {
     images: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
   };
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     const { images } = this.props;
     this.changeBackground(images);
   };
