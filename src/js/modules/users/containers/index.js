@@ -7,7 +7,7 @@ import { usersContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
 import { UsersListSection } from 'components/sections';
-import { ButtonAddUser } from 'components/codeball';
+import { AddUserButton } from 'components/codeball';
 
 class Users extends Component {
   static propTypes = {
@@ -31,7 +31,7 @@ class Users extends Component {
           users={users}
           buttons={(
             <Render key="add" when={hasPermission(PERMISSION_ADD_USER)}>
-              <ButtonAddUser />
+              <AddUserButton />
             </Render>
           )} />
       </main>

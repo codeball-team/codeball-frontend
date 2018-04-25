@@ -7,7 +7,7 @@ import { newPitchContainerSelector } from 'selectors/containers';
 import { NewPitchModel } from 'models';
 import { ContainerComponent } from 'components/base';
 import { NewPitchSection } from 'components/sections';
-import { ButtonCancel, ButtonSave } from 'components/ui';
+import { CancelButton, SaveButton } from 'components/ui';
 
 class NewPitch extends Component {
   static propTypes = {
@@ -36,8 +36,8 @@ class NewPitch extends Component {
           newPitch={newPitch}
           buttons={(
             <React.Fragment>
-              <ButtonCancel redirect="/pitches" />
-              <ButtonSave
+              <CancelButton redirect="/pitches" />
+              <SaveButton
                 isDisabled={!NewPitchModel.isValid(newPitch)}
                 onClick={onSubmit} />
             </React.Fragment>

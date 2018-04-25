@@ -7,7 +7,7 @@ import { newUserContainerSelector } from 'selectors/containers';
 import { NewUserModel } from 'models';
 import { ContainerComponent } from 'components/base';
 import { NewUserSection } from 'components/sections';
-import { ButtonCancel, ButtonSave } from 'components/ui';
+import { CancelButton, SaveButton } from 'components/ui';
 
 class NewUser extends Component {
   static propTypes = {
@@ -40,8 +40,8 @@ class NewUser extends Component {
           roleOptions={roleOptions}
           buttons={(
             <React.Fragment>
-              <ButtonCancel redirect="/players" />
-              <ButtonSave
+              <CancelButton redirect="/players" />
+              <SaveButton
                 isDisabled={!NewUserModel.isValid(newUser)}
                 onClick={onSubmit} />
             </React.Fragment>

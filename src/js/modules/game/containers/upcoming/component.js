@@ -5,7 +5,7 @@ import {
   PERMISSION_END_GAME, PERMISSION_ENROLL, PERMISSION_ENROLL_ANOTHER_USER
 } from 'constants';
 import { EnrollAnotherUserModel } from 'models';
-import { ButtonSave, ButtonShuffle, Render } from 'components/ui';
+import { SaveButton, ShuffleButton, Render } from 'components/ui';
 import {
   GameEnrollmentFormSection,
   GameEnrollmentSection, GameInfoSection,
@@ -89,7 +89,7 @@ class Upcoming extends Component {
                     !isEnrollmentOver,
                     hasPermission(PERMISSION_CLOSE_ENROLLMENT)
                   ]}>
-                  <ButtonSave label="Close enrollment" onClick={onCloseEnrollment} />
+                  <SaveButton label="Close enrollment" onClick={onCloseEnrollment} />
                 </Render>
                 <Render
                   when={[
@@ -97,7 +97,7 @@ class Upcoming extends Component {
                     !isGameOver,
                     hasPermission(PERMISSION_DRAW_TEAMS)
                   ]}>
-                  <ButtonShuffle label="Draw teams" onClick={onDrawTeams} />
+                  <ShuffleButton label="Draw teams" onClick={onDrawTeams} />
                 </Render>
                 <Render
                   when={[
@@ -105,7 +105,7 @@ class Upcoming extends Component {
                     !isGameOver,
                     hasPermission(PERMISSION_END_GAME)
                   ]}>
-                  <ButtonSave label="End game" onClick={onEndGame} />
+                  <SaveButton label="End game" onClick={onEndGame} />
                 </Render>
               </React.Fragment>
             )} />

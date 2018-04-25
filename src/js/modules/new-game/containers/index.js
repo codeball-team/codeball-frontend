@@ -8,7 +8,7 @@ import { newGameContainerSelector } from 'selectors/containers';
 import { NewGameModel } from 'models';
 import { ContainerComponent } from 'components/base';
 import { NewGameSection } from 'components/sections';
-import { ButtonCancel, ButtonSave } from 'components/ui';
+import { CancelButton, SaveButton } from 'components/ui';
 
 class NewGame extends Component {
   static propTypes = {
@@ -40,8 +40,8 @@ class NewGame extends Component {
           pitches={pitches}
           buttons={(
             <React.Fragment>
-              <ButtonCancel redirect="/games" />
-              <ButtonSave
+              <CancelButton redirect="/games" />
+              <SaveButton
                 isDisabled={!NewGameModel.isValid(newGame)}
                 onClick={onSubmit} />
             </React.Fragment>

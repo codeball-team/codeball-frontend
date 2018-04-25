@@ -1,25 +1,25 @@
 import IconButton from './icon-button';
 
-export const ButtonAdd = IconButton({
+export const AddButton = IconButton({
   icon: 'add',
   label: 'Add'
 });
 
-export const ButtonCancel = IconButton({
+export const CancelButton = IconButton({
   icon: 'cancel',
   label: 'Cancel'
 });
 
-export const ButtonEdit = IconButton({
+export const EditButton = IconButton({
   icon: 'edit',
   label: 'Edit'
 });
 
-export const ButtonSave = IconButton({
+export const SaveButton = IconButton({
   icon: 'save',
   label: 'Save'
 });
 
-export const ButtonShuffle = IconButton({
+export const ShuffleButton = IconButton({
   icon: 'shuffle'
 });

@@ -7,7 +7,7 @@ import { pitchesContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
 import { PitchesListSection } from 'components/sections';
-import { ButtonAddPitch } from 'components/codeball';
+import { AddPitchButton } from 'components/codeball';
 
 class Pitches extends Component {
   static propTypes = {
@@ -25,7 +25,7 @@ class Pitches extends Component {
           pitches={pitches}
           buttons={(
             <Render key="add" when={hasPermission(PERMISSION_ADD_PITCH)}>
-              <ButtonAddPitch />
+              <AddPitchButton />
             </Render>
           )} />
       </main>

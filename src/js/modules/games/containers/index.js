@@ -9,7 +9,7 @@ import { gamesContainerSelector } from 'selectors/containers';
 import { ContainerComponent } from 'components/base';
 import { Render } from 'components/ui';
 import { GamesListSection } from 'components/sections';
-import { ButtonAddGame } from 'components/codeball';
+import { AddGameButton } from 'components/codeball';
 
 const formatUpcomingGameUrl = (id) => `/games/upcoming/${id}`;
 const formatPreviousGameUrl = (id) => `/games/previous/${id}`;
@@ -38,7 +38,7 @@ class Games extends Component {
           buttons={(
             <React.Fragment>
               <Render key="new" when={hasPermission(PERMISSION_ADD_GAME)}>
-                <ButtonAddGame />
+                <AddGameButton />
               </Render>
             </React.Fragment>
           )} />
