@@ -8,7 +8,13 @@ import { CancelButton, SaveButton } from 'components/ui';
 class NewUser extends Component {
   static propTypes = {
     getPermission: PropTypes.func.isRequired,
-    newUser: PropTypes.object.isRequired
+    newUser: PropTypes.object.isRequired,
+    onEmailChange: PropTypes.func.isRequired,
+    onFirstNameChange: PropTypes.func.isRequired,
+    onLastNameChange: PropTypes.func.isRequired,
+    onMount: PropTypes.func.isRequired,
+    onRoleChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired
   };
 
   componentWillMount = () => {

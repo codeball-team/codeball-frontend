@@ -8,7 +8,7 @@ import { EnrollAnotherUserModel } from 'models';
 import { SaveButton, ShuffleButton, Render } from 'components/ui';
 import {
   GameEnrollmentFormSection,
-  GameEnrollmentSection,
+  GameEnrollmentSection
 } from 'components/sections';
 import GameEnrollAnotherUserFormSection from 'enroll-another-user/containers';
 import Info from 'game/components/info';
@@ -17,25 +17,23 @@ import NotLoaded from 'game/components/not-loaded';
 
 class Upcoming extends Component {
   static propTypes = {
-    currentUserId: PropTypes.number,
     enrollAnotherUser: PropTypes.object.isRequired,
     enrolledUsersPerStatus: PropTypes.array.isRequired,
     game: PropTypes.object.isRequired,
-    gameId: PropTypes.number,
     hasGameLoaded: PropTypes.bool.isRequired,
     hasPermission: PropTypes.func.isRequired,
-    id: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
     isEnrollAnotherUserEditing: PropTypes.bool.isRequired,
-    match: PropTypes.object,
     numberOfEnrolledUsers: PropTypes.number.isRequired,
-    pitch: PropTypes.object.isRequired,
     selectedEnrollmentStatus: PropTypes.string,
-    teamA: PropTypes.array.isRequired,
-    teamB: PropTypes.array.isRequired,
     unenrolledUsers: PropTypes.array.isRequired,
+    onCloseEnrollment: PropTypes.func.isRequired,
+    onDrawTeams: PropTypes.func.isRequired,
+    onEndGame: PropTypes.func.isRequired,
+    onEnrollAnotherUserCancel: PropTypes.func.isRequired,
+    onEnrollAnotherUserEdit: PropTypes.func.isRequired,
+    onEnrollAnotherUserIdChange: PropTypes.func.isRequired,
+    onEnrollAnotherUserSubmit: PropTypes.func.isRequired,
+    onEnrollmentStatusChange: PropTypes.func.isRequired,
     onMount: PropTypes.func.isRequired
   };
 
@@ -46,7 +44,6 @@ class Upcoming extends Component {
       hasPermission,
       enrollAnotherUser,
       enrolledUsersPerStatus,
-      game,
       game: {
         isEnrollmentOver,
         isGameOver
@@ -54,13 +51,7 @@ class Upcoming extends Component {
       hasGameLoaded,
       isEnrollAnotherUserEditing,
       numberOfEnrolledUsers,
-      pitch,
-      pitch: {
-        name: pitchName
-      },
       selectedEnrollmentStatus,
-      teamA,
-      teamB,
       unenrolledUsers,
       onCloseEnrollment,
       onDrawTeams,

@@ -1,3 +1,4 @@
+- refacto inputs={[ to inputs={<React.Fragment>
 - move components to modules & use connect in components
 - refactor selectors (rename *Selector to select*)
 - cleanup refactoring adaptors
@@ -8,3 +9,4 @@
 - export const actions = createActions({ => export const { actions } = createActions({
 - ensure fromServerFormat & toServerFormat usage
 - random neverending spinner bug
+- ensure no models are used in components (only in selectors & reducers)

@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { PERMISSION_ADD_PITCH } from 'constants';
 import { NewPitchModel } from 'models';
-import { ContainerComponent } from 'components/base';
 import { NewPitchSection } from 'components/sections';
 import { CancelButton, SaveButton } from 'components/ui';
 
 class NewPitch extends Component {
   static propTypes = {
-    hasPermission: PropTypes.func.isRequired,
     newPitch: PropTypes.object.isRequired,
-    onMount: PropTypes.func.isRequired
+    onAddressChange: PropTypes.func.isRequired,
+    onMaxCapacityChange: PropTypes.func.isRequired,
+    onMinCapacityChange: PropTypes.func.isRequired,
+    onMount: PropTypes.func.isRequired,
+    onNameChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    onTypeChange: PropTypes.func.isRequired
   };
 
   componentWillMount = () => this.props.onMount();
@@ -19,11 +22,11 @@ class NewPitch extends Component {
     const {
       newPitch,
       onAddressChange,
-      onMinCapacityChange,
       onMaxCapacityChange,
+      onMinCapacityChange,
       onNameChange,
-      onTypeChange,
-      onSubmit
+      onSubmit,
+      onTypeChange
     } = this.props;
 
     return (

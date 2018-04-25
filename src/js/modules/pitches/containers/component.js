@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_PITCH } from 'constants';
 import { Render } from 'components/ui';

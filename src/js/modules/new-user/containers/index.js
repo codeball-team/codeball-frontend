@@ -1,4 +1,3 @@
-import { PERMISSION_ADD_USER, ROLE_OPTIONS } from 'constants';
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-user/state';
 import { newUserContainerSelector } from 'selectors/containers';
