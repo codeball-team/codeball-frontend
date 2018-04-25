@@ -1,61 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { PERMISSION_ADD_GAME } from 'constants';
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-game/state';
 import { actions as pitchesActions } from 'pitches/state';
 import { newGameContainerSelector } from 'selectors/containers';
-import { NewGameModel } from 'models';
 import { ContainerComponent } from 'components/base';
-import { NewGameSection } from 'components/sections';
-import { CancelButton, SaveButton } from 'components/ui';
-
-class NewGame extends Component {
-  static propTypes = {
-    hasPermission: PropTypes.func.isRequired,
-    newGame: PropTypes.object.isRequired,
-    pitches: PropTypes.array.isRequired,
-    onMount: PropTypes.func.isRequired
-  };
-
-  componentWillMount = () => this.props.onMount();
-
-  render() {
-    const {
-      newGame,
-      pitches,
-      onDateChange,
-      onDurationChange,
-      onHourChange,
-      onMinuteChange,
-      onPitchIdChange,
-      onSubmit
-    } = this.props;
-
-    return (
-      <main>
-        <NewGameSection
-          title="New game"
-          newGame={newGame}
-          pitches={pitches}
-          buttons={(
-            <React.Fragment>
-              <CancelButton redirect="/games" />
-              <SaveButton
-                isDisabled={!NewGameModel.isValid(newGame)}
-                onClick={onSubmit} />
-            </React.Fragment>
-          )}
-          onDateChange={onDateChange}
-          onDurationChange={onDurationChange}
-          onHourChange={onHourChange}
-          onMinuteChange={onMinuteChange}
-          onPitchIdChange={onPitchIdChange}
-          onSubmit={onSubmit} />
-      </main>
-    );
-  }
-}
+import NewGame from './component';
 
 export default ContainerComponent(NewGame, {
   mapStateToProps: newGameContainerSelector,
