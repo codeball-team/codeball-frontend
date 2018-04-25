@@ -1,5 +1,3 @@
-export ajaxErrorsContainerSelector from './ajax-errors-container-selector';
-export ajaxSpinnerContainerSelector from './ajax-spinner-container-selector';
 export gameContainerSelector from './game-container-selector';
 export gamesContainerSelector from './games-container-selector';
 export newGameContainerSelector from './new-game-container-selector';

@@ -1,10 +1,12 @@
 import { actions } from 'ajax/state';
-import { ajaxErrorsContainerSelector } from 'selectors/containers';
+import { selectNonSilentErrors } from 'ajax/selectors';
 import { ContainerComponent } from 'components/base';
 import { Errors } from 'components/ui';
 
 export default ContainerComponent(Errors, {
-  mapStateToProps: ajaxErrorsContainerSelector,
+  mapStateToProps: (state) => ({
+    errors: selectNonSilentErrors(state)
+  }),
   mapDispatchToProps: {
     onErrorAcknowledge: actions.ajax.acknowledge
   }

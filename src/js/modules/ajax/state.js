@@ -3,8 +3,8 @@ import { _ } from 'utils';
 import { ErrorModel } from 'models';
 
 const initialState = {
-  numberOfPendingRequests: 0,
-  errors: []
+  errors: [],
+  pendingCount: 0
 };
 
 export const actions = createActions({
@@ -28,16 +28,16 @@ export default handleActions({
   [actions.ajax.failure]: (state, { payload: error }) => ({
     ...state,
     errors: _.uniq([ ...state.errors, error ], JSON.stringify),
-    numberOfPendingRequests: state.numberOfPendingRequests - 1
+    pendingCount: state.pendingCount - 1
   }),
 
   [actions.ajax.start]: (state) => ({
     ...state,
-    numberOfPendingRequests: state.numberOfPendingRequests + 1
+    pendingCount: state.pendingCount + 1
   }),
 
   [actions.ajax.success]: (state) => ({
     ...state,
-    numberOfPendingRequests: state.numberOfPendingRequests - 1
+    pendingCount: state.pendingCount - 1
   })
 }, initialState);
