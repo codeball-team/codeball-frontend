@@ -9,6 +9,5 @@ export NewPitch from './new-pitch';
 export NewUser from './new-user';
 export PitchesList from './pitches-list';
 export TeamLineup from './team-lineup';
-export UserNotLoaded from './user-not-loaded';
 export UserProfile from './user-profile';
 export UsersList from './users-list';

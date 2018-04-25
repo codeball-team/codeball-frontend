@@ -21,5 +21,5 @@ export const selectRole = createSelector(selectCurrentUser, ({ role }) => role |
 export const selectPermissions = createSelector(selectRole, (role) => ROLES_PERMISSIONS[role]);
 export const selectCanAddGame = createSelector(selectPermissions, (permissions) => permissions[PERMISSION_ADD_GAME]);
 export const selectCanAddPitch = createSelector(selectPermissions, (permissions) => permissions[PERMISSION_ADD_PITCH]);
-export const selectCanAddUser = createSelector(selectPermissions, (permissions) => permissions[PERMISSION_ADD_USER]);
+export const selectCanAddUser = createSelector(selectPermissions, (permissions) => Boolean(permissions[PERMISSION_ADD_USER]));
 export const selectCanEditGameScore = createSelector(selectPermissions, (permissions) => permissions[PERMISSION_EDIT_GAME_SCORE]);
