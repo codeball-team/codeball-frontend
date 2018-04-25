@@ -7,7 +7,6 @@ export GamesList from './games-list';
 export NewGame from './new-game';
 export NewPitch from './new-pitch';
 export NewUser from './new-user';
-export PitchNotLoaded from './pitch-not-loaded';
 export PitchesList from './pitches-list';
 export TeamLineup from './team-lineup';
 export UserNotLoaded from './user-not-loaded';
