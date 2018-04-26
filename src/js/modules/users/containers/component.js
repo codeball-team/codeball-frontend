@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PERMISSION_ADD_USER } from 'constants';
+import { connect } from 'react-redux';
+import { selectCanAddUser } from 'current-user/selectors';
 import { Render } from 'components/ui';
-import UsersListSection from 'users/components/list';
 import { AddUserButton } from 'components/codeball';
+import List from 'users/components/list';
 
-const Users = ({ hasPermission, currentUser, users }) => (
+const Users = ({ canAddNew }) => (
   <main>
-    <UsersListSection
-      title={`Players (${users.length})`}
-      currentUser={currentUser}
-      users={users}
+    <List
       buttons={(
-        <Render when={hasPermission(PERMISSION_ADD_USER)}>
+        <Render when={canAddNew}>
           <AddUserButton />
         </Render>
       )} />
@@ -20,9 +18,11 @@ const Users = ({ hasPermission, currentUser, users }) => (
 );
 
 Users.propTypes = {
-  currentUser: PropTypes.object.isRequired,
-  hasPermission: PropTypes.func.isRequired,
-  users: PropTypes.array.isRequired
+  canAddNew: PropTypes.bool
 };
 
-export default Users;
+const mapStateToProps = (state) => ({
+  canAddNew: selectCanAddUser(state)
+});
+
+export default connect(mapStateToProps)(Users);
