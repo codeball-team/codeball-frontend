@@ -2,7 +2,6 @@ export * from './buttons';
 
 export GameEnrollment from './game-enrollment';
 export GameEnrollmentForm from './game-enrollment-form';
-export GameScore from './game-score';
 export GamesList from './games-list';
 export NewGame from './new-game';
 export NewPitch from './new-pitch';
