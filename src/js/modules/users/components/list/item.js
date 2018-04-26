@@ -5,7 +5,7 @@ import { USER_MISSING_PICTURE_URL } from 'constants';
 import { Link, ListItem } from 'components/ui';
 import styles from './styles.scss';
 
-const UsersListItem = ({
+const Item = ({
   children,
   className,
   user: {
@@ -32,10 +32,10 @@ const UsersListItem = ({
   </Link>
 );
 
-UsersListItem.propTypes = {
+Item.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   user: PropTypes.object.isRequired
 };
 
-export default UsersListItem;
+export default Item;

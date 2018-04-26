@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List } from 'components/ui';
-import UsersListItem from './item';
+import Item from './item';
 
-const UsersList = ({ className, users }) => (
+const Users = ({ className, users }) => (
   <List className={className}>
     {users.map((user, index) => (
-      <UsersListItem key={index} user={user} />
+      <Item key={index} user={user} />
     ))}
   </List>
 );
 
-UsersList.propTypes = {
+Users.propTypes = {
   className: PropTypes.string,
   users: PropTypes.array.isRequired
 };
 
-export default UsersList;
+export default Users;

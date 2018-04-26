@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PERMISSION_ADD_USER } from 'constants';
 import { Render } from 'components/ui';
-import { UsersListSection } from 'components/sections';
+import UsersListSection from 'users/components/list';
 import { AddUserButton } from 'components/codeball';
 
 const Users = ({ hasPermission, currentUser, users }) => (

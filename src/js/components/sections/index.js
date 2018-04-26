@@ -10,8 +10,7 @@ import {
   NewUser,
   PitchesList,
   PitchInfo,
-  UserProfile,
-  UsersList
+  UserProfile
 } from 'components/codeball';
 
 export const GameEnrollmentSection = Section(GameEnrollment);
@@ -25,4 +24,3 @@ export const NewUserSection = Section(NewUser);
 export const PitchesListSection = Section(PitchesList);
 export const PitchInfoSection = Section(PitchInfo);
 export const UserProfileSection = Section(UserProfile);
-export const UsersListSection = Section(UsersList);

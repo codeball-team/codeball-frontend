@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { classNames } from 'utils';
-import { UsersList } from 'components/codeball';
+import Users from 'users/components/list/component';
 import styles from './styles.scss';
 
 const TeamLineup = ({ className, teamName, users }) => (
@@ -10,7 +10,7 @@ const TeamLineup = ({ className, teamName, users }) => (
       {teamName}
     </div>
 
-    <UsersList users={users} />
+    <Users users={users} />
   </div>
 );
 
