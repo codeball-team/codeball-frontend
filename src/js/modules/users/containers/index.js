@@ -1,11 +1,15 @@
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'users/state';
-import { usersContainerSelector } from 'selectors/containers';
+import { selectCanAddUser } from 'current-user/selectors';
+import { selectDataIsLoading } from 'users/selectors';
 import { ContainerComponent } from 'components/base';
 import Users from './component';
 
 export default ContainerComponent(Users, {
-  mapStateToProps: usersContainerSelector,
+  mapStateToProps: (state) => ({
+    canAddNew: selectCanAddUser(state),
+    isLoading: selectDataIsLoading(state)
+  }),
   periodicDataUpdates: true,
   updateData: ({ dispatch }) => {
     dispatch(currentUserActions.currentUser.load());

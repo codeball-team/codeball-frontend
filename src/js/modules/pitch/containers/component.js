@@ -4,20 +4,20 @@ import { Render } from 'components/ui';
 import Info from 'pitch/components/info';
 import NotLoaded from 'pitch/components/not-loaded';
 
-const Pitch = ({ hasPitchLoaded }) => (
+const Pitch = ({ hasLoaded }) => (
   <main>
-    <Render when={!hasPitchLoaded}>
+    <Render when={!hasLoaded}>
       <NotLoaded />
     </Render>
 
-    <Render when={hasPitchLoaded}>
+    <Render when={hasLoaded}>
       <Info />
     </Render>
   </main>
 );
 
 Pitch.propTypes = {
-  hasPitchLoaded: PropTypes.bool.isRequired
+  hasLoaded: PropTypes.bool.isRequired
 };
 
 export default Pitch;

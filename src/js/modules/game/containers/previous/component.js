@@ -5,13 +5,13 @@ import Lineup from 'game/components/lineup';
 import NotLoaded from 'game/components/not-loaded';
 import Score from 'game/components/score';
 
-const Previous = ({ hasGameLoaded }) => (
+const Previous = ({ hasLoaded }) => (
   <main>
-    <Render when={!hasGameLoaded}>
+    <Render when={!hasLoaded}>
       <NotLoaded />
     </Render>
 
-    <Render when={hasGameLoaded}>
+    <Render when={hasLoaded}>
       <Score title="Result" />
       <Lineup title="Lineups" />
     </Render>
@@ -19,7 +19,7 @@ const Previous = ({ hasGameLoaded }) => (
 );
 
 Previous.propTypes = {
-  hasGameLoaded: PropTypes.bool.isRequired
+  hasLoaded: PropTypes.bool.isRequired
 };
 
 export default Previous;

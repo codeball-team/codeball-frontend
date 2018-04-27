@@ -1,7 +1,8 @@
 import { createSelector } from 'reselect';
 import { findById } from 'utils';
-import { selectPitches } from 'pitches/selectors';
-import { selectUsers } from 'users/selectors';
+import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/selectors';
+import { selectIsLoading as selectPitchesIsLoading, selectPitches } from 'pitches/selectors';
+import { selectIsLoading as selectUsersIsLoading, selectUsers } from 'users/selectors';
 
 const mapUsersIdsToUsers = (users, usersIds) => usersIds
   .map((userId) => findById(users, userId, null))
@@ -9,6 +10,12 @@ const mapUsersIdsToUsers = (users, usersIds) => usersIds
 
 export const selectRoot = (state) => state.gameData;
 export const selectGame = createSelector(selectRoot, ({ game }) => game);
+export const selectIsLoading = createSelector(selectRoot, ({ isLoading }) => isLoading);
+export const selectDataIsLoading = createSelector(
+  [ selectCurrentUserIsLoading, selectIsLoading, selectPitchesIsLoading, selectUsersIsLoading ],
+  (...isLoading) => isLoading.some(Boolean)
+);
+export const selectHasLoaded = createSelector(selectRoot, ({ hasLoaded }) => hasLoaded);
 export const selectIsEditing = createSelector(selectRoot, ({ isEditing }) => isEditing);
 export const selectEditedGame = createSelector(selectRoot, ({ editedGame }) => editedGame);
 export const selectEditableGame = createSelector(

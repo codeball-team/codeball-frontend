@@ -10,6 +10,7 @@ import {
 
 
 export const selectRoot = (state) => state.currentUserData;
+export const selectIsLoading = createSelector(selectRoot, ({ isLoading }) => isLoading);
 export const selectCurrentUser = createSelector(selectRoot, ({ currentUser }) => currentUser);
 export const selectRole = createSelector(selectCurrentUser, ({ role }) => role || ROLE_USER);
 

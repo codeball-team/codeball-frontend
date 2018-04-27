@@ -2,12 +2,15 @@ import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'game/state';
 import { actions as pitchesActions } from 'pitches/state';
 import { actions as usersActions } from 'users/state';
-import { gameContainerSelector } from 'selectors/containers';
+import { selectHasLoaded, selectDataIsLoading } from 'game/selectors';
 import { ContainerComponent } from 'components/base';
-import Game from './component';
+import Previous from './component';
 
-export default ContainerComponent(Game, {
-  mapStateToProps: gameContainerSelector,
+export default ContainerComponent(Previous, {
+  mapStateToProps: (state) => ({
+    hasLoaded: selectHasLoaded(state),
+    isLoading: selectDataIsLoading(state)
+  }),
   periodicDataUpdates: true,
   updateData: ({ dispatch, id, match }) => {
     dispatch(actions.game.load(id || match.params.id));
