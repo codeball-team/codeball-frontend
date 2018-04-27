@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { classNames } from 'utils';
+import classNames from 'classnames';
 import { List } from 'components/ui';
-import PitchesListItem from './item';
+import Item from './item';
 import styles from './styles.scss';
 
-const PitchesList = ({ className, pitches }) => (
+const Pitches = ({ className, pitches }) => (
   <List className={classNames(styles.pitchesList, className)}>
     {pitches.map((pitch, index) => (
-      <PitchesListItem key={index} pitch={pitch} />
+      <Item key={index} pitch={pitch} />
     ))}
   </List>
 );
 
-PitchesList.propTypes = {
+Pitches.propTypes = {
   className: PropTypes.string,
   pitches: PropTypes.array.isRequired
 };
 
-export default PitchesList;
+export default Pitches;

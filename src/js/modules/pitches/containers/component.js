@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PERMISSION_ADD_PITCH } from 'constants';
 import { Render } from 'components/ui';
-import { PitchesListSection } from 'components/sections';
 import { AddPitchButton } from 'components/codeball';
+import PitchesList from 'pitches/components/list';
 
-const Pitches = ({ hasPermission, pitches }) => (
+const Pitches = ({ canAddNew }) => (
   <main>
-    <PitchesListSection
-      title={`Pitches (${pitches.length})`}
-      pitches={pitches}
+    <PitchesList
       buttons={(
         <React.Fragment>
-          <Render when={hasPermission(PERMISSION_ADD_PITCH)}>
+          <Render when={canAddNew}>
             <AddPitchButton />
           </Render>
         </React.Fragment>
@@ -21,8 +18,7 @@ const Pitches = ({ hasPermission, pitches }) => (
 );
 
 Pitches.propTypes = {
-  hasPermission: PropTypes.func.isRequired,
-  pitches: PropTypes.array.isRequired
+  canAddNew: PropTypes.bool
 };
 
 export default Pitches;

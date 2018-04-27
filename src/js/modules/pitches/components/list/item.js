@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, ListItem } from 'components/ui';
 import styles from './styles.scss';
 
-const PitchesListItem = ({ children, pitch: { address, id, name } }) => (
+const Item = ({ children, pitch: { address, id, name } }) => (
   <Link to={`/pitches/${id}`}>
     <ListItem className={styles.pitchesListItem}>
       <div className={styles.name}>
@@ -19,9 +19,9 @@ const PitchesListItem = ({ children, pitch: { address, id, name } }) => (
   </Link>
 );
 
-PitchesListItem.propTypes = {
+Item.propTypes = {
   children: PropTypes.node,
   pitch: PropTypes.object.isRequired
 };
 
-export default PitchesListItem;
+export default Item;

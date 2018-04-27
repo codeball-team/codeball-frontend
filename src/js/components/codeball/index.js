@@ -5,5 +5,4 @@ export GameEnrollmentForm from './game-enrollment-form';
 export NewGame from './new-game';
 export NewPitch from './new-pitch';
 export NewUser from './new-user';
-export PitchesList from './pitches-list';
 export UserProfile from './user-profile';
