@@ -23,7 +23,6 @@ const NextGame = () => <UpcomingGame id="upcoming" />;
 
 const App = () => (
   <div>
-    <BodyBackground images={BACKGROUND_IMAGES} />
     <Page>
       <Switch>
         <Redirect exact={true} from="/" to="/upcoming-game" />
@@ -45,6 +44,8 @@ const App = () => (
         <Route component={NotFound} />
       </Switch>
     </Page>
+
+    <BodyBackground images={BACKGROUND_IMAGES} />
     <AjaxSpinner />
     <AjaxErrors />
   </div>
