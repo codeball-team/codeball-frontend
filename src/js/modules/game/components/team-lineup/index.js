@@ -4,10 +4,10 @@ import { classNames } from 'utils';
 import Users from 'users/components/list/component';
 import styles from './styles.scss';
 
-const TeamLineup = ({ className, teamName, users }) => (
+const TeamLineup = ({ className, name, users }) => (
   <div className={classNames(styles.teamLineup, className)}>
-    <div className={styles.teamName}>
-      {teamName}
+    <div className={styles.name}>
+      {name}
     </div>
 
     <Users users={users} />
@@ -16,7 +16,7 @@ const TeamLineup = ({ className, teamName, users }) => (
 
 TeamLineup.propTypes = {
   className: PropTypes.string,
-  teamName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   users: PropTypes.array.isRequired
 };
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { TeamLineup } from 'components/codeball';
+import TeamLineup from 'game/components/team-lineup';
 import styles from './styles.scss';
 
 const Lineup = ({ className, teamA, teamB }) => (
   <div className={classNames(styles.gameLineup, className)}>
-    <TeamLineup className={styles.teamLineup} teamName="Team A" users={teamA} />
-    <TeamLineup className={styles.teamLineup} teamName="Team B" users={teamB} />
+    <TeamLineup className={styles.teamLineup} name="Team A" users={teamA} />
+    <TeamLineup className={styles.teamLineup} name="Team B" users={teamB} />
   </div>
 );
 
