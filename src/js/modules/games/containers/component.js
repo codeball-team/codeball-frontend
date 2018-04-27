@@ -1,39 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PERMISSION_ADD_GAME } from 'constants';
 import { Render } from 'components/ui';
-import { GamesListSection } from 'components/sections';
 import { AddGameButton } from 'components/codeball';
+import PreviousList from 'games/components/previous-list';
+import UpcomingList from 'games/components/upcoming-list';
 
-const formatUpcomingGameUrl = (id) => `/games/upcoming/${id}`;
-const formatPreviousGameUrl = (id) => `/games/previous/${id}`;
-
-const Games = ({ hasPermission, previousGames, upcomingGames }) => (
+const Games = ({ canAddNew }) => (
   <main>
-    <GamesListSection
-      title={`Upcoming games (${upcomingGames.length})`}
-      games={upcomingGames}
-      hideScore={true}
-      urlFormatter={formatUpcomingGameUrl}
+    <UpcomingList
       buttons={(
         <React.Fragment>
-          <Render when={hasPermission(PERMISSION_ADD_GAME)}>
+          <Render when={canAddNew}>
             <AddGameButton />
           </Render>
         </React.Fragment>
       )} />
 
-    <GamesListSection
-      title={`Previous games (${previousGames.length})`}
-      games={previousGames}
-      urlFormatter={formatPreviousGameUrl} />
+    <PreviousList />
   </main>
 );
 
 Games.propTypes = {
-  hasPermission: PropTypes.func.isRequired,
-  previousGames: PropTypes.array.isRequired,
-  upcomingGames: PropTypes.array.isRequired
+  canAddNew: PropTypes.bool
 };
 
 export default Games;

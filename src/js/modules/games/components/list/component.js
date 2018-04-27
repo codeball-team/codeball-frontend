@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List } from 'components/ui';
-import GamesListItem from './item';
+import Item from './item';
 
-const GamesList = ({ className, games, hideScore, urlFormatter }) => (
+const Games = ({ className, games, hideScore, urlFormatter }) => (
   <List className={className}>
     {games.map((game, index) => (
-      <GamesListItem
+      <Item
         key={index}
         game={game}
         hideScore={hideScore}
@@ -15,11 +15,11 @@ const GamesList = ({ className, games, hideScore, urlFormatter }) => (
   </List>
 );
 
-GamesList.propTypes = {
+Games.propTypes = {
   className: PropTypes.string,
   games: PropTypes.array.isRequired,
   hideScore: PropTypes.bool,
   urlFormatter: PropTypes.func.isRequired
 };
 
-export default GamesList;
+export default Games;

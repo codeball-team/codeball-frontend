@@ -3,7 +3,6 @@ import {
   GameEnrollment,
   GameEnrollmentForm,
   GameLineup,
-  GamesList,
   NewGame,
   NewPitch,
   NewUser,
@@ -15,7 +14,6 @@ import {
 export const GameEnrollmentSection = Section(GameEnrollment);
 export const GameEnrollmentFormSection = Section(GameEnrollmentForm);
 export const GameLineupSection = Section(GameLineup);
-export const GamesListSection = Section(GamesList);
 export const NewGameSection = Section(NewGame);
 export const NewPitchSection = Section(NewPitch);
 export const NewUserSection = Section(NewUser);

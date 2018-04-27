@@ -11,9 +11,11 @@ const Pitches = ({ hasPermission, pitches }) => (
       title={`Pitches (${pitches.length})`}
       pitches={pitches}
       buttons={(
-        <Render when={hasPermission(PERMISSION_ADD_PITCH)}>
-          <AddPitchButton />
-        </Render>
+        <React.Fragment>
+          <Render when={hasPermission(PERMISSION_ADD_PITCH)}>
+            <AddPitchButton />
+          </Render>
+        </React.Fragment>
       )} />
   </main>
 );

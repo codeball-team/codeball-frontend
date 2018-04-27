@@ -10,9 +10,11 @@ const Users = ({ canAddNew }) => (
   <main>
     <List
       buttons={(
-        <Render when={canAddNew}>
-          <AddUserButton />
-        </Render>
+        <React.Fragment>
+          <Render when={canAddNew}>
+            <AddUserButton />
+          </Render>
+        </React.Fragment>
       )} />
   </main>
 );

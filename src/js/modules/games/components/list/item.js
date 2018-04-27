@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, ListItem } from 'components/ui';
 import styles from './styles.scss';
 
-const GamesListItem = ({
+const Item = ({
   game: {
     id,
     date,
@@ -36,10 +36,10 @@ const GamesListItem = ({
   </Link>
 );
 
-GamesListItem.propTypes = {
+Item.propTypes = {
   game: PropTypes.object.isRequired,
   hideScore: PropTypes.bool,
   urlFormatter: PropTypes.func.isRequired
 };
 
-export default GamesListItem;
+export default Item;
