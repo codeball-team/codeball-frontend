@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { ENROLLMENT_STATUSES, ENROLLMENT_STATUS_YES } from 'constants';
 import { findById } from 'utils';
 import { selectIsLoading as selectCurrentUserIsLoading, selectCurrentUserId } from 'current-user/selectors';
 import { selectIsLoading as selectPitchesIsLoading, selectPitches } from 'pitches/selectors';
@@ -22,6 +23,7 @@ export const selectEditableGame = createSelector(
   [ selectIsEditing, selectGame, selectEditedGame ],
   (isEditing, game, editedGame) => isEditing ? editedGame : game
 );
+
 export const selectEnrollments = createSelector(selectGame, ({ enrollments }) => enrollments);
 export const selectEnrollmentStatus = createSelector(
   [ selectCurrentUserId, selectEnrollments ],
@@ -29,6 +31,34 @@ export const selectEnrollmentStatus = createSelector(
     ({ userId }) => userId === currentUserId
   ) || {}).enrollmentStatus
 );
+export const selectEnrolledUsers = createSelector(
+  [ selectEnrollments, selectUsers ],
+  (enrollments, users) => enrollments.map(({ userId }) => findById(users, userId))
+);
+export const selectEnrolledUsersPerStatus = createSelector(
+  [ selectEnrolledUsers, selectEnrollments ],
+  (enrolledUsers, enrollments) => ENROLLMENT_STATUSES.reduce(
+    (enrolledUsersPerStatus, enrollmentStatus) => ([
+      ...enrolledUsersPerStatus,
+      {
+        enrollmentStatus,
+        enrolledUsers: enrollments.filter(
+          (enrollment) => enrollment.enrollmentStatus === enrollmentStatus
+        ).map(
+          ({ userId }) => findById(enrolledUsers, userId)
+        )
+      }
+    ]),
+    []
+  )
+);
+export const selectNumberOfEnrollments = createSelector(
+  [ selectEnrollments ],
+  (enrollments) => enrollments.filter(
+    ({ enrollmentStatus }) => enrollmentStatus === ENROLLMENT_STATUS_YES
+  ).length
+);
+
 export const selectPitchId = createSelector(selectGame, ({ pitchId }) => pitchId);
 export const selectPitch = createSelector([ selectPitches, selectPitchId ], findById);
 export const selectPitchName = createSelector(selectPitch, ({ name }) => name);

@@ -5,8 +5,8 @@ import {
   PERMISSION_END_GAME, PERMISSION_ENROLL, PERMISSION_ENROLL_ANOTHER_USER
 } from 'constants';
 import { SaveButton, ShuffleButton, Render } from 'components/ui';
-import { GameEnrollmentSection } from 'components/sections';
 import EnrollAnotherUser from 'enroll-another-user/containers';
+import Enrollments from 'game/components/enrollments';
 import EnrollmentForm from 'game/components/enrollment-form';
 import Info from 'game/components/info';
 import Lineup from 'game/components/lineup';
@@ -14,17 +14,14 @@ import NotLoaded from 'game/components/not-loaded';
 
 class Upcoming extends Component {
   static propTypes = {
-    enrolledUsersPerStatus: PropTypes.array.isRequired,
     game: PropTypes.object.isRequired,
     hasGameLoaded: PropTypes.bool.isRequired,
     hasPermission: PropTypes.func.isRequired,
     numberOfEnrolledUsers: PropTypes.number.isRequired,
-    selectedEnrollmentStatus: PropTypes.string,
     unenrolledUsers: PropTypes.array.isRequired,
     onCloseEnrollment: PropTypes.func.isRequired,
     onDrawTeams: PropTypes.func.isRequired,
     onEndGame: PropTypes.func.isRequired,
-    onEnrollmentStatusChange: PropTypes.func.isRequired,
     onMount: PropTypes.func.isRequired
   };
 
@@ -33,19 +30,16 @@ class Upcoming extends Component {
   render() {
     const {
       hasPermission,
-      enrolledUsersPerStatus,
       game: {
         isEnrollmentOver,
         isGameOver
       },
       hasGameLoaded,
       numberOfEnrolledUsers,
-      selectedEnrollmentStatus,
       unenrolledUsers,
       onCloseEnrollment,
       onDrawTeams,
-      onEndGame,
-      onEnrollmentStatusChange
+      onEndGame
     } = this.props;
 
     return (
@@ -113,9 +107,7 @@ class Upcoming extends Component {
         </Render>
 
         <Render when={hasGameLoaded}>
-          <GameEnrollmentSection
-            title={`Enrolled players (${numberOfEnrolledUsers})`}
-            enrolledUsersPerStatus={enrolledUsersPerStatus} />
+          <Enrollments title={`Enrolled players (${numberOfEnrolledUsers})`} />
         </Render>
       </main>
     );

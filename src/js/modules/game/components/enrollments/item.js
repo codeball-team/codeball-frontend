@@ -4,7 +4,7 @@ import { classNames } from 'utils';
 import UsersListItem from 'users/components/list/item';
 import styles from './styles.scss';
 
-const GameEnrollmentListItem = ({ className, enrollmentStatus, user }) => (
+const Item = ({ className, enrollmentStatus, user }) => (
   <UsersListItem
     className={classNames(styles.gameEnrollmentListItem, className)}
     user={user}>
@@ -14,10 +14,10 @@ const GameEnrollmentListItem = ({ className, enrollmentStatus, user }) => (
   </UsersListItem>
 );
 
-GameEnrollmentListItem.propTypes = {
+Item.propTypes = {
   className: PropTypes.string,
   enrollmentStatus: PropTypes.string.isRequired,
   user: PropTypes.object.isRequired
 };
 
-export default GameEnrollmentListItem;
+export default Item;
