@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'underscore';
 import { connect } from 'react-redux';
-import { _, periodicCallback, safeGet } from 'utils';
+import { withRouter } from 'react-router-dom';
+import { periodicCallback } from 'utils';
 import { AUTO_REFRESH_DELAY, ROLE_USER, ROLES_PERMISSIONS } from 'constants';
 import { LoadableContent } from 'components/ui';
 
@@ -18,7 +20,12 @@ export default function ContainerComponent(ComponentClass, options) {
   class Container extends Component {
     static propTypes = {
       id: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
-      isLoading: doesNotNeedUpdatingData ? PropTypes.bool : PropTypes.bool.isRequired
+      isLoading: doesNotNeedUpdatingData ? PropTypes.bool : PropTypes.bool.isRequired,
+      match: PropTypes.shape({
+        params: PropTypes.shape({
+          id: PropTypes.string
+        })
+      }).isRequired
     };
 
     static defaultProps = {
@@ -31,8 +38,7 @@ export default function ContainerComponent(ComponentClass, options) {
 
     componentWillReceiveProps = (newProps) => {
       const idChanged = newProps.id !== this.props.id;
-      const routerIdPath = [ 'match', 'params', 'id' ];
-      const routerIdChanged = safeGet(newProps, routerIdPath) !== safeGet(this.props, routerIdPath);
+      const routerIdChanged = newProps.match.params.id !== this.props.match.params.id;
       if (idChanged || routerIdChanged) {
         periodicUpdates.restart(this.updateDataCallback(newProps));
       }
@@ -56,7 +62,7 @@ export default function ContainerComponent(ComponentClass, options) {
     }
   }
 
-  return connect(enhanceProps(mapStateToProps), mapDispatchToProps, mergeProps)(Container);
+  return connect(enhanceProps(mapStateToProps), mapDispatchToProps, mergeProps)(withRouter(Container));
 }
 
 const handleOptions = (options = {}) => {
@@ -89,16 +95,13 @@ const applyPeriodicUpdates = (periodicDataUpdates) => {
 const enhanceProps = (mapStateToProps) => (state) => ({
   state,
   ...mapStateToProps(state),
-  getPermission: (permission) => getPermission(state, permission),
-  hasPermission: (permission) => hasPermission(state, permission)
+  getPermission: (permission) => getPermission(state, permission)
 });
 
 const getPermission = (state, permission) => {
-  const role = safeGet(state, [ 'currentUserData', 'currentUser', 'role' ], ROLE_USER);
+  const role = state.currentUserData.currentUser.role || ROLE_USER;
   return ROLES_PERMISSIONS[role][permission];
 };
-
-const hasPermission = (state, permission) => Boolean(getPermission(state, permission));
 
 const getMapDispatchToProps = (mapDispatchToProps = {}) => (dispatch) => ({
   dispatch,

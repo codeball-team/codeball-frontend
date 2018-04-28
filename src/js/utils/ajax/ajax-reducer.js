@@ -1,4 +1,5 @@
-import { getObjectHash, handleActions } from 'utils';
+import { handleActions } from 'redux-actions';
+import { getObjectHash } from 'utils';
 
 const ajaxReducerInitialState = {
   isLoading: false,

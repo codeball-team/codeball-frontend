@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { _, classNames } from 'utils';
+import classNames from 'classnames';
+import _ from 'underscore';
 import { Link } from 'components/ui';
 import styles from './styles.scss';
 

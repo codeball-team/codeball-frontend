@@ -1,4 +1,4 @@
-import { _ } from 'utils';
+import _ from 'underscore';
 
 export const AUTO_REFRESH_DELAY = 10000;
 export const USER_MISSING_PICTURE_URL = require('../../images/user-missing-picture.png');

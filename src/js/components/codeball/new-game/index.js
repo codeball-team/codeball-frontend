@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { _, findLabelByValue, moment, padLeft } from 'utils';
+import _ from 'underscore';
+import moment from 'moment';
+import { findLabelByValue, padLeft } from 'utils';
 import { DATE_FORMAT, MONTH_YEAR_FORMAT, DURATION_OPTIONS, HOUR_OPTIONS, MINUTE_OPTIONS } from 'constants';
 import { NewGameModel } from 'models';
 import { Calendar, Form, RangePicker, Select, ValuePicker } from 'components/ui';

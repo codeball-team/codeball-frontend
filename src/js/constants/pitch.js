@@ -1,4 +1,4 @@
-import { _ } from 'utils';
+import _ from 'underscore';
 
 export const PITCH_MAX_CAPACITY = 22;
 export const PITCH_MIN_CAPACITY = 2;

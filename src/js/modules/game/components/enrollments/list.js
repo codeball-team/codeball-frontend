@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { classNames } from 'utils';
+import classNames from 'classnames';
 import { List } from 'components/ui';
 import Item from './item';
 import styles from './styles.scss';

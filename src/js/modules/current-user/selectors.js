@@ -22,7 +22,7 @@ export const selectPermissions = createSelector(selectRole, (role) => ROLES_PERM
 
 const createPermissionSelector = (permission) => createSelector(
   [ selectPermissions ],
-  (permissions) => permissions[permission]
+  (permissions) => Boolean(permissions[permission])
 );
 export const selectCanAddGame = createPermissionSelector(PERMISSION_ADD_GAME);
 export const selectCanAddPitch = createPermissionSelector(PERMISSION_ADD_PITCH);

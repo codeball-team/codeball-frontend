@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { classNames } from 'utils';
+import classNames from 'classnames';
 import { Button } from 'components/ui';
 import styles from './styles.scss';
 

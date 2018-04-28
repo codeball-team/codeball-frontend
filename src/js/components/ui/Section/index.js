@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { _ } from 'utils';
+import _ from 'underscore';
 import { CancelButton, EditButton, SaveButton, ButtonsPanel, Render } from 'components/ui';
 import styles from './styles.scss';
 

@@ -1,6 +1,6 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
-import { classNames } from 'utils';
+import classNames from 'classnames';
 import styles from './styles.scss';
 
 const mapChild = (child) => ({

@@ -1,4 +1,5 @@
-import { model, moment, unixToJavaTimestamp } from 'utils';
+import moment from 'moment';
+import { model, unixToJavaTimestamp } from 'utils';
 import { isId, isInRange, isInteger, isPositiveInteger } from 'utils/validation';
 
 const NewGameModel = model({

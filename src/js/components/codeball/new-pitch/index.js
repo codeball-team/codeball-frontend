@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'underscore';
 import {
   PITCH_MAX_CAPACITY, PITCH_MIN_CAPACITY,
   PITCH_TYPE_OPTIONS, PITCH_TYPE_STRING
 } from 'constants';
-import { _, formatRange } from 'utils';
+import { formatRange } from 'utils';
 import { NewPitchModel } from 'models';
 import { EditableText, Form, RangePicker, ValuePicker } from 'components/ui';
 

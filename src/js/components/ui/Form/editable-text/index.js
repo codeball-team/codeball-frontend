@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { _, classNames } from 'utils';
+import classNames from 'classnames';
+import _ from 'underscore';
 import styles from './styles.scss';
 
 class EditableText extends Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { classNames } from 'utils';
+import classNames from 'classnames';
 import { InputWrapper, Render } from 'components/ui';
 import SubmitButton from './submit-button';
 import styles from './styles.scss';

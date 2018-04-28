@@ -1,4 +1,5 @@
-import { javaToUnixTimestamp, model, moment } from 'utils';
+import moment from 'moment';
+import { javaToUnixTimestamp, model } from 'utils';
 import { DATE_FORMAT, TIME_FORMAT } from 'constants';
 import { EnrollmentModel } from 'models';
 

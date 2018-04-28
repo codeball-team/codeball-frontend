@@ -1,5 +1,5 @@
+import _ from 'underscore';
 import { createActions, handleActions } from 'redux-actions';
-import { _ } from 'utils';
 import { ErrorModel } from 'models';
 
 const initialState = {

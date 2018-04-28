@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { ROLE_STRING, USER_MISSING_PICTURE_URL } from 'constants';
-import { classNames } from 'utils';
 import { Icon } from 'components/ui';
 import styles from './styles.scss';
 

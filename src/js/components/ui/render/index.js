@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { _ } from 'utils';
+import _ from 'underscore';
 
 const Render = ({ children, when = true }) => {
   const renderConditions = _([ when ]).flatten();
