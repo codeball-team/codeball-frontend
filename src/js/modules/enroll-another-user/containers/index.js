@@ -15,6 +15,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   onCancel: actions.enrollAnotherUser.cancel,
   onEdit: actions.enrollAnotherUser.edit,
+  onMount: actions.enrollAnotherUser.reset,
   onSave: actions.enrollAnotherUser.submit
 };
 

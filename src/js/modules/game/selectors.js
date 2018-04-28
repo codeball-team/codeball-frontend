@@ -52,13 +52,23 @@ export const selectEnrolledUsersPerStatus = createSelector(
     []
   )
 );
-export const selectNumberOfEnrollments = createSelector(
+export const selectNumberOfEnrolledUsers = createSelector(
   [ selectEnrollments ],
   (enrollments) => enrollments.filter(
     ({ enrollmentStatus }) => enrollmentStatus === ENROLLMENT_STATUS_YES
   ).length
 );
+export const selectNumberOfNotEnrolledUsers = createSelector(
+  [ selectCurrentUserId, selectEnrollments, selectUsers ],
+  (currentUserId, enrollments, users) => users.filter(
+    ({ id }) => id !== currentUserId && enrollments.findIndex(
+      ({ userId }) => id === userId
+    ) < 0
+  ).length
+);
 
+export const selectIsEnrollmentOver = createSelector(selectGame, ({ isEnrollmentOver }) => isEnrollmentOver);
+export const selectIsGameOver = createSelector(selectGame, ({ isGameOver }) => isGameOver);
 export const selectPitchId = createSelector(selectGame, ({ pitchId }) => pitchId);
 export const selectPitch = createSelector([ selectPitches, selectPitchId ], findById);
 export const selectPitchName = createSelector(selectPitch, ({ name }) => name);

@@ -68,7 +68,7 @@ module.exports = {
     'accessor-pairs': 'error',
     'array-callback-return': 'error',
     'block-scoped-var': 'error',
-    'complexity': ['error', 3],
+    'complexity': 'off',
     'consistent-return': 'error',
     'curly': ['error', 'all'],
     'default-case': 'error',

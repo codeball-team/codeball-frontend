@@ -1,9 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  PERMISSION_CLOSE_ENROLLMENT, PERMISSION_DRAW_TEAMS,
-  PERMISSION_END_GAME, PERMISSION_ENROLL, PERMISSION_ENROLL_ANOTHER_USER
-} from 'constants';
 import { SaveButton, ShuffleButton, Render } from 'components/ui';
 import EnrollAnotherUser from 'enroll-another-user/containers';
 import Enrollments from 'game/components/enrollments';
@@ -12,106 +8,75 @@ import Info from 'game/components/info';
 import Lineup from 'game/components/lineup';
 import NotLoaded from 'game/components/not-loaded';
 
-class Upcoming extends Component {
-  static propTypes = {
-    game: PropTypes.object.isRequired,
-    hasGameLoaded: PropTypes.bool.isRequired,
-    hasPermission: PropTypes.func.isRequired,
-    numberOfEnrolledUsers: PropTypes.number.isRequired,
-    unenrolledUsers: PropTypes.array.isRequired,
-    onCloseEnrollment: PropTypes.func.isRequired,
-    onDrawTeams: PropTypes.func.isRequired,
-    onEndGame: PropTypes.func.isRequired,
-    onMount: PropTypes.func.isRequired
-  };
+const Upcoming = ({
+  canCloseEnrollment,
+  canDrawTeams,
+  canEndGame,
+  canEnroll,
+  canEnrollAnotherUser,
+  hasLoaded,
+  isEnrollmentOver,
+  isGameOver,
+  numberOfEnrolledUsers,
+  numberOfNotEnrolledUsers,
+  onCloseEnrollment,
+  onDrawTeams,
+  onEndGame
+}) => (
+  <main>
+    <Render when={!hasLoaded}>
+      <NotLoaded />
+    </Render>
 
-  componentDidMount = () => this.props.onMount();
+    <Render when={hasLoaded}>
+      <Info
+        buttons={(
+          <React.Fragment>
+            <Render when={canCloseEnrollment && !isEnrollmentOver}>
+              <SaveButton label="Close enrollment" onClick={onCloseEnrollment} />
+            </Render>
+            <Render when={canDrawTeams && isEnrollmentOver && !isGameOver}>
+              <ShuffleButton label="Draw teams" onClick={onDrawTeams} />
+            </Render>
+            <Render when={canEndGame && isEnrollmentOver && !isGameOver}>
+              <SaveButton label="End game" onClick={onEndGame} />
+            </Render>
+          </React.Fragment>
+        )} />
+    </Render>
 
-  render() {
-    const {
-      hasPermission,
-      game: {
-        isEnrollmentOver,
-        isGameOver
-      },
-      hasGameLoaded,
-      numberOfEnrolledUsers,
-      unenrolledUsers,
-      onCloseEnrollment,
-      onDrawTeams,
-      onEndGame
-    } = this.props;
+    <Render when={canEnroll && hasLoaded && !isEnrollmentOver}>
+      <EnrollmentForm title="Are you going?" />
+    </Render>
 
-    return (
-      <main>
-        <Render when={!hasGameLoaded}>
-          <NotLoaded />
-        </Render>
+    <Render when={canEnrollAnotherUser && hasLoaded && !isEnrollmentOver && numberOfNotEnrolledUsers > 0}>
+      <EnrollAnotherUser title="Enroll another player" />
+    </Render>
 
-        <Render when={hasGameLoaded}>
-          <Info
-            buttons={(
-              <React.Fragment>
-                <Render
-                  when={[
-                    !isEnrollmentOver,
-                    hasPermission(PERMISSION_CLOSE_ENROLLMENT)
-                  ]}>
-                  <SaveButton label="Close enrollment" onClick={onCloseEnrollment} />
-                </Render>
-                <Render
-                  when={[
-                    isEnrollmentOver,
-                    !isGameOver,
-                    hasPermission(PERMISSION_DRAW_TEAMS)
-                  ]}>
-                  <ShuffleButton label="Draw teams" onClick={onDrawTeams} />
-                </Render>
-                <Render
-                  when={[
-                    isEnrollmentOver,
-                    !isGameOver,
-                    hasPermission(PERMISSION_END_GAME)
-                  ]}>
-                  <SaveButton label="End game" onClick={onEndGame} />
-                </Render>
-              </React.Fragment>
-            )} />
-        </Render>
+    <Render when={hasLoaded && isEnrollmentOver}>
+      <Lineup title="Lineups" />
+    </Render>
 
-        <Render
-          when={[
-            hasGameLoaded,
-            !isEnrollmentOver,
-            hasPermission(PERMISSION_ENROLL)
-          ]}>
-          <EnrollmentForm title="Are you going?" />
-        </Render>
+    <Render when={hasLoaded}>
+      <Enrollments title={`Enrolled players (${numberOfEnrolledUsers})`} />
+    </Render>
+  </main>
+);
 
-        <Render
-          when={[
-            hasGameLoaded,
-            !isEnrollmentOver,
-            unenrolledUsers.length > 0,
-            hasPermission(PERMISSION_ENROLL_ANOTHER_USER)
-          ]}>
-          <EnrollAnotherUser title="Enroll another player" />
-        </Render>
-
-        <Render
-          when={[
-            hasGameLoaded,
-            isEnrollmentOver
-          ]}>
-          <Lineup title="Lineups" />
-        </Render>
-
-        <Render when={hasGameLoaded}>
-          <Enrollments title={`Enrolled players (${numberOfEnrolledUsers})`} />
-        </Render>
-      </main>
-    );
-  }
-}
+Upcoming.propTypes = {
+  canCloseEnrollment: PropTypes.bool,
+  canDrawTeams: PropTypes.bool,
+  canEndGame: PropTypes.bool,
+  canEnroll: PropTypes.bool,
+  canEnrollAnotherUser: PropTypes.bool,
+  hasLoaded: PropTypes.bool,
+  isEnrollmentOver: PropTypes.bool,
+  isGameOver: PropTypes.bool,
+  numberOfEnrolledUsers: PropTypes.number,
+  numberOfNotEnrolledUsers: PropTypes.number,
+  onCloseEnrollment: PropTypes.func.isRequired,
+  onDrawTeams: PropTypes.func.isRequired,
+  onEndGame: PropTypes.func.isRequired
+};
 
 export default Upcoming;
