@@ -1,5 +1,5 @@
 import { actions } from 'ajax/state';
-// import { ErrorModel } from 'models';
+import { ErrorModel } from 'models';
 
 export default (...params) => {
   if (typeof params[0] === 'string') {
@@ -25,7 +25,7 @@ const createAjaxActionsSet = (name, [ payloadCreator, successPayloadCreator ]) =
     })
   ],
   [`${name}Failure`]: [
-    (error) => error, // TODO: use ErrorModel.fromServerFormat
+    ErrorModel.fromServerFormat,
     (response) => ({
       ajax: actions.ajax.failure,
       response

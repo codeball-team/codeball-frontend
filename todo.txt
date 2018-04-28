@@ -1,4 +1,3 @@
-- cleanup TODO
 - refactor models
 - eslint
 - export const actions = createActions({ => export const { actions } = createActions({

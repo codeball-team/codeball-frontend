@@ -6,7 +6,6 @@ export default function* ajaxSagas() {
 
 function* onAction({ meta }) {
   if (meta && meta.ajax) {
-    // TODO: rename "response" to "error"
     yield put(meta.ajax(meta.response));
   }
 }
