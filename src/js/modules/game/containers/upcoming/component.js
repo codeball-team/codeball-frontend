@@ -10,7 +10,7 @@ import {
   GameEnrollmentFormSection,
   GameEnrollmentSection
 } from 'components/sections';
-import GameEnrollAnotherUserFormSection from 'enroll-another-user/containers';
+import EnrollAnotherUser from 'enroll-another-user/containers';
 import Info from 'game/components/info';
 import Lineup from 'game/components/lineup';
 import NotLoaded from 'game/components/not-loaded';
@@ -119,18 +119,7 @@ class Upcoming extends Component {
             unenrolledUsers.length > 0,
             hasPermission(PERMISSION_ENROLL_ANOTHER_USER)
           ]}>
-          <GameEnrollAnotherUserFormSection
-            title="Enroll another player"
-            canEdit={true}
-            canSubmit={EnrollAnotherUserModel.isValid(enrollAnotherUser)}
-            isEditable={true}
-            isEditing={isEnrollAnotherUserEditing}
-            enrollAnotherUser={enrollAnotherUser}
-            users={unenrolledUsers}
-            onEdit={onEnrollAnotherUserEdit}
-            onCancel={onEnrollAnotherUserCancel}
-            onSave={onEnrollAnotherUserSubmit}
-            onUserIdChange={onEnrollAnotherUserIdChange} />
+          <EnrollAnotherUser title="Enroll another player" />
         </Render>
 
         <Render

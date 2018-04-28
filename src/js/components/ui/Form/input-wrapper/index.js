@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { classNames } from 'utils';
+import classNames from 'classnames';
 import { Icon, Render } from 'components/ui';
 import Value from './value';
 import styles from './styles.scss';
 
 const InputWrapper = ({ children, className, displayValue, isValid, label }) => (
-  <div
-    className={classNames(
-      styles.inputWrapper,
-      className
-    )}>
+  <div className={classNames(styles.inputWrapper, className)}>
     <div className={styles.label}>
       <div className={styles.title}>
         {label}

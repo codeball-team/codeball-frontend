@@ -1,4 +1,21 @@
+import { connect } from 'react-redux';
+import { actions } from 'enroll-another-user/state';
+import { selectDisplayValue, selectIsEditing, selectIsValid } from 'enroll-another-user/selectors';
 import { Section } from 'components/ui';
-import GameEnrollAnotherUserForm from './component';
+import EnrollAnotherUser from './component';
 
-export default Section(GameEnrollAnotherUserForm);
+const mapStateToProps = (state) => ({
+  canEdit: true,
+  displayValue: selectDisplayValue(state),
+  isEditable: true,
+  isEditing: selectIsEditing(state),
+  isValid: selectIsValid(state)
+});
+
+const mapDispatchToProps = {
+  onCancel: actions.enrollAnotherUser.cancel,
+  onEdit: actions.enrollAnotherUser.edit,
+  onSave: actions.enrollAnotherUser.submit
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Section(EnrollAnotherUser));

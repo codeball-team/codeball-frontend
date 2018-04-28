@@ -13,3 +13,10 @@ export const selectDataIsLoading = createSelector(
 export const selectHasLoaded = createSelector(selectRoot, ({ hasLoaded }) => hasLoaded);
 export const selectUsers = createSelector(selectRoot, ({ users }) => users);
 export const selectSortedUsers = createSelector(selectUsers, sortUsers);
+export const selectUsersOptions = createSelector(
+  [ selectSortedUsers ],
+  (users) => users.map(({ id, firstName, lastName }) => ({
+    label: `${lastName} ${firstName}`,
+    value: id
+  }))
+);
