@@ -1,11 +1,7 @@
-- refacto inputs={[ to inputs={<React.Fragment>
-- move components to modules & use connect in components
 - refactor selectors (rename *Selector to select*)
-- cleanup refactoring adaptors
+- cleanup refactoring adapters
 - cleanup TODO
-- untangle libraries from utils
 - refactor models
 - eslint
 - export const actions = createActions({ => export const { actions } = createActions({
 - ensure fromServerFormat & toServerFormat usage
-- ensure no models are used in components (only in selectors & reducers)

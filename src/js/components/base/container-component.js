@@ -4,7 +4,7 @@ import _ from 'underscore';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { periodicCallback } from 'utils';
-import { AUTO_REFRESH_DELAY, ROLE_USER, ROLES_PERMISSIONS } from 'constants';
+import { AUTO_REFRESH_DELAY } from 'constants';
 import { LoadableContent } from 'components/ui';
 
 export default function ContainerComponent(ComponentClass, options) {
@@ -62,7 +62,7 @@ export default function ContainerComponent(ComponentClass, options) {
     }
   }
 
-  return connect(enhanceProps(mapStateToProps), mapDispatchToProps, mergeProps)(withRouter(Container));
+  return connect(mapStateToProps, mapDispatchToProps, mergeProps)(withRouter(Container));
 }
 
 const handleOptions = (options = {}) => {
@@ -90,17 +90,6 @@ const applyPeriodicUpdates = (periodicDataUpdates) => {
   }
 
   return periodicCallback();
-};
-
-const enhanceProps = (mapStateToProps) => (state) => ({
-  state,
-  ...mapStateToProps(state),
-  getPermission: (permission) => getPermission(state, permission)
-});
-
-const getPermission = (state, permission) => {
-  const role = state.currentUserData.currentUser.role || ROLE_USER;
-  return ROLES_PERMISSIONS[role][permission];
 };
 
 const getMapDispatchToProps = (mapDispatchToProps = {}) => (dispatch) => ({
