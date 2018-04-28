@@ -17,7 +17,7 @@ export default function ContainerComponent(ComponentClass, options) {
 
   class Container extends Component {
     static propTypes = {
-      id: PropTypes.number,
+      id: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
       isLoading: doesNotNeedUpdatingData ? PropTypes.bool : PropTypes.bool.isRequired
     };
 

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { findById } from 'utils';
-import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/selectors';
+import { selectIsLoading as selectCurrentUserIsLoading, selectCurrentUserId } from 'current-user/selectors';
 import { selectIsLoading as selectPitchesIsLoading, selectPitches } from 'pitches/selectors';
 import { selectIsLoading as selectUsersIsLoading, selectUsers } from 'users/selectors';
 
@@ -21,6 +21,13 @@ export const selectEditedGame = createSelector(selectRoot, ({ editedGame }) => e
 export const selectEditableGame = createSelector(
   [ selectIsEditing, selectGame, selectEditedGame ],
   (isEditing, game, editedGame) => isEditing ? editedGame : game
+);
+export const selectEnrollments = createSelector(selectGame, ({ enrollments }) => enrollments);
+export const selectEnrollmentStatus = createSelector(
+  [ selectCurrentUserId, selectEnrollments ],
+  (currentUserId, enrollments) => (enrollments.find(
+    ({ userId }) => userId === currentUserId
+  ) || {}).enrollmentStatus
 );
 export const selectPitchId = createSelector(selectGame, ({ pitchId }) => pitchId);
 export const selectPitch = createSelector([ selectPitches, selectPitchId ], findById);

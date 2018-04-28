@@ -5,11 +5,9 @@ import {
   PERMISSION_END_GAME, PERMISSION_ENROLL, PERMISSION_ENROLL_ANOTHER_USER
 } from 'constants';
 import { SaveButton, ShuffleButton, Render } from 'components/ui';
-import {
-  GameEnrollmentFormSection,
-  GameEnrollmentSection
-} from 'components/sections';
+import { GameEnrollmentSection } from 'components/sections';
 import EnrollAnotherUser from 'enroll-another-user/containers';
+import EnrollmentForm from 'game/components/enrollment-form';
 import Info from 'game/components/info';
 import Lineup from 'game/components/lineup';
 import NotLoaded from 'game/components/not-loaded';
@@ -93,10 +91,7 @@ class Upcoming extends Component {
             !isEnrollmentOver,
             hasPermission(PERMISSION_ENROLL)
           ]}>
-          <GameEnrollmentFormSection
-            title="Are you going?"
-            enrollmentStatus={selectedEnrollmentStatus}
-            onChange={onEnrollmentStatusChange} />
+          <EnrollmentForm title="Are you going?" />
         </Render>
 
         <Render

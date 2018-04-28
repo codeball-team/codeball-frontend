@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { classNames } from 'utils';
+import classNames from 'classnames';
 import { Button } from 'components/ui';
 import styles from './styles.scss';
 
-class GameEnrollmentFormOption extends Component {
+class Option extends Component {
   static propTypes = {
     className: PropTypes.string,
     inactive: PropTypes.bool,
@@ -37,4 +37,4 @@ class GameEnrollmentFormOption extends Component {
   }
 }
 
-export default GameEnrollmentFormOption;
+export default Option;
