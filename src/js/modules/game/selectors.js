@@ -58,14 +58,22 @@ export const selectNumberOfEnrolledUsers = createSelector(
     ({ enrollmentStatus }) => enrollmentStatus === ENROLLMENT_STATUS_YES
   ).length
 );
-export const selectNumberOfNotEnrolledUsers = createSelector(
+export const selectNotEnrolledUsers = createSelector(
   [ selectCurrentUserId, selectEnrollments, selectUsers ],
   (currentUserId, enrollments, users) => users.filter(
     ({ id }) => id !== currentUserId && enrollments.findIndex(
       ({ userId }) => id === userId
     ) < 0
-  ).length
+  )
 );
+export const selectNotEnrolledUsersOptions = createSelector(
+  [ selectNotEnrolledUsers ],
+  (users) => users.map(({ id, firstName, lastName }) => ({
+    label: `${lastName} ${firstName}`,
+    value: id
+  }))
+);
+export const selectNumberOfNotEnrolledUsers = createSelector(selectNotEnrolledUsers, ({ length }) => length);
 
 export const selectIsEnrollmentOver = createSelector(selectGame, ({ isEnrollmentOver }) => isEnrollmentOver);
 export const selectIsGameOver = createSelector(selectGame, ({ isGameOver }) => isGameOver);
