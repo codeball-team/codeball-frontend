@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { selectUsers } from 'users/selectors';
+import { selectSortedUsers } from 'users/selectors';
 import { Section } from 'components/ui';
 import List from './component';
 
 const mapStateToProps = (state) => {
-  const users = selectUsers(state);
+  const users = selectSortedUsers(state);
 
   return {
     title: `Players (${users.length})`,

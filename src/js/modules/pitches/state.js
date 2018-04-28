@@ -31,6 +31,4 @@ export default ajaxReducer(initialState, ajaxActions, {
   }),
 
   [actions.pitches.loadSuccess]: (state, { payload: pitches }) => ({ ...initialState, pitches })
-  // TODO: const sortedPitches = sortByMany(pitches, [ 'name' ]);
-  // jest zalozenie, ze w reducerze juz sa posortowane pitche. trzeba przeniesc do selectora
 });
