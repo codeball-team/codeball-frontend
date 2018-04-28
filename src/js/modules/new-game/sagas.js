@@ -2,10 +2,10 @@ import { delay } from 'redux-saga';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
 import { API_DEBOUNCE } from 'constants';
-import { newGameSelector } from 'selectors/models/new-game';
-import { selectCanAddGame } from 'current-user/selectors';
-import { postNewGame } from 'new-game/api';
 import { actions } from 'new-game/state';
+import { selectCanAddGame } from 'current-user/selectors';
+import { selectNewGame } from 'new-game/selectors';
+import { postNewGame } from 'new-game/api';
 
 export default function* newGameSagas() {
   yield takeLatest(actions.newGame.reset, onReset);
@@ -22,7 +22,7 @@ function* onReset() {
 function* onSubmit() {
   yield call(delay, API_DEBOUNCE);
   try {
-    const newGame = yield select(newGameSelector);
+    const newGame = yield select(selectNewGame);
     const game = yield call(postNewGame, newGame);
     yield put(actions.newGame.submitSuccess(game));
     yield put(push(`/games/upcoming/${game.id}`));

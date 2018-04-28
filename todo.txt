@@ -1,5 +1,3 @@
-- refactor selectors (rename *Selector to select*)
-- cleanup refactoring adapters
 - cleanup TODO
 - refactor models
 - eslint

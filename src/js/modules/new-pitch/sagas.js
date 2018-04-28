@@ -2,10 +2,10 @@ import { delay } from 'redux-saga';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
 import { API_DEBOUNCE } from 'constants';
-import { newPitchSelector } from 'selectors/models/new-pitch';
-import { selectCanAddPitch } from 'current-user/selectors';
-import { postNewPitch } from 'new-pitch/api';
 import { actions } from 'new-pitch/state';
+import { selectCanAddPitch } from 'current-user/selectors';
+import { selectNewPitch } from 'new-pitch/selectors';
+import { postNewPitch } from 'new-pitch/api';
 
 export default function* newPitchSagas() {
   yield takeLatest(actions.newPitch.reset, onReset);
@@ -24,7 +24,7 @@ function* onReset() {
 function* onSubmit() {
   yield call(delay, API_DEBOUNCE);
   try {
-    const newPitch = yield select(newPitchSelector);
+    const newPitch = yield select(selectNewPitch);
     const pitch = yield call(postNewPitch, newPitch);
     yield put(actions.newPitch.submitSuccess(pitch));
     yield put(push(`/pitches/${pitch.id}`));

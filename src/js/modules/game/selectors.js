@@ -11,6 +11,7 @@ const mapUsersIdsToUsers = (users, usersIds) => usersIds
 
 export const selectRoot = (state) => state.gameData;
 export const selectGame = createSelector(selectRoot, ({ game }) => game);
+export const selectGameId = createSelector(selectGame, ({ id }) => id);
 export const selectIsLoading = createSelector(selectRoot, ({ isLoading }) => isLoading);
 export const selectDataIsLoading = createSelector(
   [ selectCurrentUserIsLoading, selectIsLoading, selectPitchesIsLoading, selectUsersIsLoading ],
