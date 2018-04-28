@@ -5,10 +5,10 @@ import { selectUsersOptions } from 'users/selectors';
 
 export const selectRoot = (state) => state.enrollAnotherUser;
 export const selectEnrollmentStatus = createSelector(selectRoot, ({ enrollmentStatus }) => enrollmentStatus);
+export const selectIsEditing = createSelector(selectRoot, ({ isEditing }) => isEditing);
 export const selectUserId = createSelector(selectRoot, ({ userId }) => userId);
-export const selectDisplayValue = createSelector(
+export const selectUserIdDisplayValue = createSelector(
   [ selectUsersOptions, selectUserId ],
   findLabelByValue
 );
-export const selectIsEditing = createSelector(selectRoot, ({ isEditing }) => isEditing);
-export const selectIsValid = createSelector(selectRoot, EnrollAnotherUserModel.isUserIdValid);
+export const selectUserIdIsValid = createSelector(selectRoot, EnrollAnotherUserModel.isUserIdValid);

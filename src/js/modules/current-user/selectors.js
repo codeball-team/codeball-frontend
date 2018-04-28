@@ -9,6 +9,7 @@ import {
   PERMISSION_END_GAME,
   PERMISSION_ENROLL,
   PERMISSION_ENROLL_ANOTHER_USER,
+  ROLE_OPTIONS,
   ROLE_USER,
   ROLES_PERMISSIONS
 } from 'constants';
@@ -27,6 +28,10 @@ const createPermissionSelector = (permission) => createSelector(
 export const selectCanAddGame = createPermissionSelector(PERMISSION_ADD_GAME);
 export const selectCanAddPitch = createPermissionSelector(PERMISSION_ADD_PITCH);
 export const selectCanAddUser = createPermissionSelector(PERMISSION_ADD_USER);
+export const selectAddUserOptions = createSelector(
+  [ selectPermissions ],
+  (permissions) => ROLE_OPTIONS.filter(({ value }) => permissions[PERMISSION_ADD_USER].includes(value))
+);
 export const selectCanCloseEnrollment = createPermissionSelector(PERMISSION_CLOSE_ENROLLMENT);
 export const selectCanDrawTeams = createPermissionSelector(PERMISSION_DRAW_TEAMS);
 export const selectCanEditGameScore = createPermissionSelector(PERMISSION_EDIT_GAME_SCORE);

@@ -16,6 +16,8 @@ function* onReset() {
   const canAddGame = yield select(selectCanAddGame);
   if (!canAddGame) {
     yield put(push('/unauthorized'));
+  } else {
+    document.querySelector('input').focus();
   }
 }
 

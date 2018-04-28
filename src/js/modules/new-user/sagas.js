@@ -16,6 +16,8 @@ function* onReset() {
   const canAddUser = yield select(selectCanAddUser);
   if (!canAddUser) {
     yield put(push('/unauthorized'));
+  } else {
+    document.querySelector('input').focus();
   }
 }
 

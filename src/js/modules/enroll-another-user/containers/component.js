@@ -5,34 +5,21 @@ import UserIdSelect from 'enroll-another-user/components/user-id-select';
 
 class EnrollAnotherUser extends Component {
   static propTypes = {
-    className: PropTypes.string,
-    displayValue: PropTypes.string,
     isEditing: PropTypes.bool,
-    isValid: PropTypes.bool,
     onMount: PropTypes.func.isRequired
   };
 
   componentDidMount = () => this.props.onMount();
 
   render() {
-    const { className, displayValue, isEditing, isValid } = this.props;
+    const { isEditing } = this.props;
 
     return (
-      <div className={className}>
-        <Render when={isEditing}>
-          <Form
-            inputs={[
-              {
-                label: 'Player',
-                displayValue,
-                isValid,
-                component: (
-                  <UserIdSelect />
-                )
-              }
-            ]} />
-        </Render>
-      </div>
+      <Render when={isEditing}>
+        <Form>
+          <UserIdSelect />
+        </Form>
+      </Render>
     );
   }
 }

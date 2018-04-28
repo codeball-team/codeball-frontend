@@ -16,6 +16,8 @@ function* onReset() {
   const canAddPitch = yield select(selectCanAddPitch);
   if (!canAddPitch) {
     yield put(push('/unauthorized'));
+  } else {
+    document.querySelector('input').focus();
   }
 }
 

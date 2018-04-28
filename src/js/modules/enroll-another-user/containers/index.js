@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
 import { actions } from 'enroll-another-user/state';
-import { selectDisplayValue, selectIsEditing, selectIsValid } from 'enroll-another-user/selectors';
+import { selectIsEditing } from 'enroll-another-user/selectors';
 import { Section } from 'components/ui';
 import EnrollAnotherUser from './component';
 
 const mapStateToProps = (state) => ({
   canEdit: true,
-  displayValue: selectDisplayValue(state),
   isEditable: true,
-  isEditing: selectIsEditing(state),
-  isValid: selectIsValid(state)
+  isEditing: selectIsEditing(state)
 });
 
 const mapDispatchToProps = {

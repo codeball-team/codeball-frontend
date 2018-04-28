@@ -1,59 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { PERMISSION_ADD_USER, ROLE_OPTIONS } from 'constants';
-import { NewUserModel } from 'models';
-import { NewUserSection } from 'components/sections';
+import Form from 'new-user/components/form';
 import { CancelButton, SaveButton } from 'components/ui';
 
 class NewUser extends Component {
   static propTypes = {
-    getPermission: PropTypes.func.isRequired,
-    newUser: PropTypes.object.isRequired,
-    onEmailChange: PropTypes.func.isRequired,
-    onFirstNameChange: PropTypes.func.isRequired,
-    onLastNameChange: PropTypes.func.isRequired,
+    isValid: PropTypes.bool,
     onMount: PropTypes.func.isRequired,
-    onRoleChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired
   };
 
-  componentDidMount = () => {
-    this.props.onMount();
-  };
+  componentDidMount = () => this.props.onMount();
 
   render() {
-    const {
-      getPermission,
-      newUser,
-      onEmailChange,
-      onFirstNameChange,
-      onLastNameChange,
-      onRoleChange,
-      onSubmit
-    } = this.props;
-    const rule = getPermission(PERMISSION_ADD_USER);
-    const roleOptions = ROLE_OPTIONS.filter(({ value }) => rule.includes(value));
+    const { isValid, onSubmit } = this.props;
 
     return (
-      <main>
-        <NewUserSection
-          title="New player"
-          newUser={newUser}
-          roleOptions={roleOptions}
-          buttons={(
-            <React.Fragment>
-              <CancelButton redirect="/players" />
-              <SaveButton
-                isDisabled={!NewUserModel.isValid(newUser)}
-                onClick={onSubmit} />
-            </React.Fragment>
-          )}
-          onEmailChange={onEmailChange}
-          onFirstNameChange={onFirstNameChange}
-          onLastNameChange={onLastNameChange}
-          onRoleChange={onRoleChange}
-          onSubmit={onSubmit} />
-      </main>
+      <Form
+        buttons={(
+          <React.Fragment>
+            <CancelButton redirect="/players" />
+            <SaveButton isDisabled={!isValid} onClick={onSubmit} />
+          </React.Fragment>
+        )} />
     );
   }
 }
