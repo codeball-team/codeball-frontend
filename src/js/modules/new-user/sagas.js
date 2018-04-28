@@ -14,10 +14,10 @@ export default function* newUserSagas() {
 
 function* onReset() {
   const canAddUser = yield select(selectCanAddUser);
-  if (!canAddUser) {
-    yield put(push('/unauthorized'));
-  } else {
+  if (canAddUser) {
     document.querySelector('input').focus();
+  } else {
+    yield put(push('/unauthorized'));
   }
 }
 

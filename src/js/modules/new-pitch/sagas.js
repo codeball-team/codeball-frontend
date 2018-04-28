@@ -14,10 +14,10 @@ export default function* newPitchSagas() {
 
 function* onReset() {
   const canAddPitch = yield select(selectCanAddPitch);
-  if (!canAddPitch) {
-    yield put(push('/unauthorized'));
-  } else {
+  if (canAddPitch) {
     document.querySelector('input').focus();
+  } else {
+    yield put(push('/unauthorized'));
   }
 }
 
