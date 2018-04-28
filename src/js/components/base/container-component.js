@@ -32,9 +32,7 @@ export default function ContainerComponent(ComponentClass, options) {
       isLoading: false
     };
 
-    componentDidMount = () => {
-      periodicUpdates.start(this.updateDataCallback(this.props));
-    };
+    componentDidMount = () => periodicUpdates.start(this.updateDataCallback(this.props));
 
     componentWillReceiveProps = (newProps) => {
       const idChanged = newProps.id !== this.props.id;
@@ -44,9 +42,7 @@ export default function ContainerComponent(ComponentClass, options) {
       }
     };
 
-    componentWillUnmount = () => {
-      periodicUpdates.end();
-    };
+    componentWillUnmount = () => periodicUpdates.end();
 
     updateDataCallback = (props) => () => updateData(props);
 
@@ -54,10 +50,9 @@ export default function ContainerComponent(ComponentClass, options) {
       const { isLoading, ...childProps } = this.props;
 
       return (
-        <LoadableContent
-          ComponentClass={ComponentClass}
-          childProps={childProps}
-          isLoading={isLoading} />
+        <LoadableContent isLoading={isLoading}>
+          <ComponentClass {...childProps} />
+        </LoadableContent>
       );
     }
   }

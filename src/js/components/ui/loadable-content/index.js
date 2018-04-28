@@ -5,8 +5,7 @@ import styles from './styles.scss';
 
 class LoadableContent extends Component {
   static propTypes = {
-    childProps: PropTypes.object,
-    ComponentClass: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired,
     isLoading: PropTypes.bool.isRequired
   };
 
@@ -32,7 +31,7 @@ class LoadableContent extends Component {
   };
 
   render() {
-    const { childProps, ComponentClass, isLoading } = this.props;
+    const { children, isLoading } = this.props;
     const { hasBeenFullyLoaded } = this.state;
     const displayLoadingState = !hasBeenFullyLoaded && isLoading;
 
@@ -44,9 +43,7 @@ class LoadableContent extends Component {
             [styles.loading]: displayLoadingState
           }
         )}>
-        {!displayLoadingState && (
-          <ComponentClass {...childProps} />
-        )}
+        {!displayLoadingState && children}
       </div>
     );
   }
