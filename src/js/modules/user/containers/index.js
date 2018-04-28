@@ -1,14 +1,13 @@
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'user/state';
-import { selectDataIsLoading, selectHasLoaded, selectUser } from 'user/selectors';
+import { selectDataIsLoading, selectHasLoaded } from 'user/selectors';
 import { ContainerComponent } from 'components/base';
 import User from './component';
 
 export default ContainerComponent(User, {
   mapStateToProps: (state) => ({
     hasLoaded: selectHasLoaded(state),
-    isLoading: selectDataIsLoading(state),
-    user: selectUser(state)
+    isLoading: selectDataIsLoading(state)
   }),
   periodicDataUpdates: true,
   updateData: ({ dispatch, match }) => {
