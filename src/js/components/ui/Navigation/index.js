@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Icon, RouterLink } from 'components/ui';
+import { Icon } from 'components/ui';
 import styles from './styles.scss';
 
 const links = [
@@ -22,12 +23,12 @@ const Navigation = ({ className }) => (
     <ul>
       {links.map(({ icon, label, to }, index) => (
         <li key={index}>
-          <RouterLink activeClassName={styles.focus} to={to}>
+          <NavLink activeClassName={styles.focus} to={to}>
             <Icon className={styles.icon} name={icon} />
             <span className={styles.label}>
               {label}
             </span>
-          </RouterLink>
+          </NavLink>
         </li>
       ))}
     </ul>

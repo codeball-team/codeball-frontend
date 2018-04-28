@@ -1,10 +1,5 @@
-import { Calendar as ReactDatepickerCalendar } from 'react-datepicker/lib';
-import { NavLink as ReactRouterLink } from 'react-router-dom';
-import ReactSelect from 'react-select';
-
-export const Calendar = ReactDatepickerCalendar;
-export const RouterLink = ReactRouterLink;
-export const Select = ReactSelect;
+export { Calendar } from 'react-datepicker/lib';
+export Select from 'react-select';
 
 export * from './buttons';
 

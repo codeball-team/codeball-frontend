@@ -20,8 +20,8 @@ const NewGameModel = model({
       return isPositiveInteger(duration);
     },
 
-    isStartTimeValid({ hour, minute }) {
-      return this.isHourValid({ hour }) && this.isMinuteValid({ minute });
+    isTimeValid({ hour, minute }) {
+      return NewGameModel.isHourValid({ hour }) && NewGameModel.isMinuteValid({ minute });
     },
 
     isHourValid({ hour }) {

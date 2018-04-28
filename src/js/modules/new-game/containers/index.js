@@ -1,19 +1,17 @@
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-game/state';
 import { actions as pitchesActions } from 'pitches/state';
-import { newGameContainerSelector } from 'selectors/containers';
+import { selectDataIsLoading, selectIsValid } from 'new-game/selectors';
 import { ContainerComponent } from 'components/base';
 import NewGame from './component';
 
 export default ContainerComponent(NewGame, {
-  mapStateToProps: newGameContainerSelector,
+  mapStateToProps: (state) => ({
+    isLoading: selectDataIsLoading(state),
+    isValid: selectIsValid(state)
+  }),
   mapDispatchToProps: {
-    onDateChange: actions.newGame.changeDate,
-    onDurationChange: actions.newGame.changeDuration,
-    onHourChange: actions.newGame.changeHour,
-    onMinuteChange: actions.newGame.changeMinute,
     onMount: actions.newGame.reset,
-    onPitchIdChange: actions.newGame.changePitchId,
     onSubmit: actions.newGame.submit
   },
   periodicDataUpdates: true,

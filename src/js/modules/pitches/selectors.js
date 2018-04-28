@@ -8,3 +8,7 @@ export const selectDataIsLoading = createSelector(
   (...isLoading) => isLoading.some(Boolean)
 );
 export const selectPitches = createSelector(selectRoot, ({ pitches }) => pitches);
+export const selectPitchesOptions = createSelector(selectPitches, (pitches) => pitches.map((pitch) => ({
+  label: pitch.name,
+  value: pitch.id
+})));

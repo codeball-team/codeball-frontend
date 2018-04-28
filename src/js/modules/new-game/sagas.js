@@ -14,9 +14,7 @@ export default function* newGameSagas() {
 
 function* onReset() {
   const canAddGame = yield select(selectCanAddGame);
-  if (canAddGame) {
-    document.querySelector('input').focus();
-  } else {
+  if (!canAddGame) {
     yield put(push('/unauthorized'));
   }
 }
