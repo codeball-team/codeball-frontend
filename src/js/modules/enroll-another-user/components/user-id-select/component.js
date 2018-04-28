@@ -4,7 +4,6 @@ import { Select } from 'components/ui';
 
 class UserIdSelect extends Component {
   static propTypes = {
-    className: PropTypes.string,
     options: PropTypes.array.isRequired,
     value: PropTypes.number,
     onChange: PropTypes.func.isRequired

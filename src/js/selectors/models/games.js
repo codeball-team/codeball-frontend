@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { findById, sortByMany } from 'utils';
+import { findById } from 'utils';
 import { pitchesSelector } from 'selectors/models/pitches';
 
 export const gamesSelector = createSelector(

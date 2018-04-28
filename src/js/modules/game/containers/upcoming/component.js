@@ -4,7 +4,6 @@ import {
   PERMISSION_CLOSE_ENROLLMENT, PERMISSION_DRAW_TEAMS,
   PERMISSION_END_GAME, PERMISSION_ENROLL, PERMISSION_ENROLL_ANOTHER_USER
 } from 'constants';
-import { EnrollAnotherUserModel } from 'models';
 import { SaveButton, ShuffleButton, Render } from 'components/ui';
 import {
   GameEnrollmentFormSection,
@@ -17,22 +16,16 @@ import NotLoaded from 'game/components/not-loaded';
 
 class Upcoming extends Component {
   static propTypes = {
-    enrollAnotherUser: PropTypes.object.isRequired,
     enrolledUsersPerStatus: PropTypes.array.isRequired,
     game: PropTypes.object.isRequired,
     hasGameLoaded: PropTypes.bool.isRequired,
     hasPermission: PropTypes.func.isRequired,
-    isEnrollAnotherUserEditing: PropTypes.bool.isRequired,
     numberOfEnrolledUsers: PropTypes.number.isRequired,
     selectedEnrollmentStatus: PropTypes.string,
     unenrolledUsers: PropTypes.array.isRequired,
     onCloseEnrollment: PropTypes.func.isRequired,
     onDrawTeams: PropTypes.func.isRequired,
     onEndGame: PropTypes.func.isRequired,
-    onEnrollAnotherUserCancel: PropTypes.func.isRequired,
-    onEnrollAnotherUserEdit: PropTypes.func.isRequired,
-    onEnrollAnotherUserIdChange: PropTypes.func.isRequired,
-    onEnrollAnotherUserSubmit: PropTypes.func.isRequired,
     onEnrollmentStatusChange: PropTypes.func.isRequired,
     onMount: PropTypes.func.isRequired
   };
@@ -42,25 +35,19 @@ class Upcoming extends Component {
   render() {
     const {
       hasPermission,
-      enrollAnotherUser,
       enrolledUsersPerStatus,
       game: {
         isEnrollmentOver,
         isGameOver
       },
       hasGameLoaded,
-      isEnrollAnotherUserEditing,
       numberOfEnrolledUsers,
       selectedEnrollmentStatus,
       unenrolledUsers,
       onCloseEnrollment,
       onDrawTeams,
       onEndGame,
-      onEnrollmentStatusChange,
-      onEnrollAnotherUserEdit,
-      onEnrollAnotherUserCancel,
-      onEnrollAnotherUserSubmit,
-      onEnrollAnotherUserIdChange
+      onEnrollmentStatusChange
     } = this.props;
 
     return (
