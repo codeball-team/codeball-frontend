@@ -1,8 +1,6 @@
 import { Section } from 'components/ui';
 import {
-  NewGame,
-  NewPitch
+  NewGame
 } from 'components/codeball';
 
 export const NewGameSection = Section(NewGame);
-export const NewPitchSection = Section(NewPitch);

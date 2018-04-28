@@ -1,18 +1,16 @@
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-pitch/state';
-import { newPitchContainerSelector } from 'selectors/containers';
+import { selectDataIsLoading, selectIsValid } from 'new-pitch/selectors';
 import { ContainerComponent } from 'components/base';
 import NewPitch from './component';
 
 export default ContainerComponent(NewPitch, {
-  mapStateToProps: newPitchContainerSelector,
+  mapStateToProps: (state) => ({
+    isLoading: selectDataIsLoading(state),
+    isValid: selectIsValid(state)
+  }),
   mapDispatchToProps: {
-    onAddressChange: actions.newPitch.changeAddress,
-    onMinCapacityChange: actions.newPitch.changeMinCapacity,
-    onMaxCapacityChange: actions.newPitch.changeMaxCapacity,
     onMount: actions.newPitch.reset,
-    onNameChange: actions.newPitch.changeName,
-    onTypeChange: actions.newPitch.changeType,
     onSubmit: actions.newPitch.submit
   },
   periodicDataUpdates: true,

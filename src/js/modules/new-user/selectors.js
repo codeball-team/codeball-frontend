@@ -1,8 +1,13 @@
 import { createSelector } from 'reselect';
 import { ROLE_STRING } from 'constants';
 import { NewUserModel } from 'models';
+import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/selectors';
 
 export const selectRoot = (state) => state.newUser;
+export const selectDataIsLoading = createSelector(
+  [ selectCurrentUserIsLoading ],
+  (...isLoading) => isLoading.some(Boolean)
+);
 export const selectFirstName = createSelector(selectRoot, ({ firstName }) => firstName);
 export const selectFirstNameDisplayValue = selectFirstName;
 export const selectFirstNameIsValid = createSelector(selectRoot, NewUserModel.isFirstNameValid);

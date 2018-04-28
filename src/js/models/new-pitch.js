@@ -1,4 +1,5 @@
 import { model } from 'utils';
+import { PITCH_MAX_CAPACITY, PITCH_MIN_CAPACITY } from 'constants';
 import { isInteger, isNotEmptyString } from 'utils/validation';
 
 const NewPitchModel = model({
@@ -17,18 +18,18 @@ const NewPitchModel = model({
 
     isCapacityValid({ minCapacity, maxCapacity }) {
       return [
-        this.isMinCapacityValid({ minCapacity }),
-        this.isMaxCapacityValid({ maxCapacity }),
+        NewPitchModel.isMinCapacityValid({ minCapacity }),
+        NewPitchModel.isMaxCapacityValid({ maxCapacity }),
         minCapacity <= maxCapacity
       ].every(Boolean);
     },
 
     isMinCapacityValid({ minCapacity }) {
-      return isInteger(minCapacity) && minCapacity >= 2;
+      return isInteger(minCapacity) && minCapacity >= PITCH_MIN_CAPACITY;
     },
 
     isMaxCapacityValid({ maxCapacity }) {
-      return isInteger(maxCapacity) && maxCapacity <= 22;
+      return isInteger(maxCapacity) && maxCapacity <= PITCH_MAX_CAPACITY;
     },
 
     isNameValid({ name }) {
