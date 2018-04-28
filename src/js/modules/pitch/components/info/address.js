@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from 'components/ui';
+import { Icon } from 'components';
 import styles from './styles.scss';
 
 const getMapsUrl = (address) => `https://www.google.com/maps/?q=${encodeURIComponent(address)}`;

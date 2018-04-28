@@ -8,7 +8,7 @@ import {
   selectMinCapacity,
   selectMinCapacityOptions
 } from 'new-pitch/selectors';
-import { InputWrapper, RangePicker } from 'components/ui';
+import { InputWrapper, RangePicker } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectCapacityDisplayValue(state),

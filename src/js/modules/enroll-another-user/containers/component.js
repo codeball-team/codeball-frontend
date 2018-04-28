@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Render } from 'components/ui';
+import { Form, Render } from 'components';
 import UserIdSelect from 'enroll-another-user/components/user-id-select';
 
 class EnrollAnotherUser extends Component {

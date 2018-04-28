@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Select } from 'components/ui';
+import { Select } from 'components';
 
 class UserIdSelect extends Component {
   static propTypes = {

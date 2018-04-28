@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'components/ui';
+import { Form } from 'components';
 import DateInput from 'new-game/components/date-input';
 import DurationInput from 'new-game/components/duration-input';
 import PitchIdInput from 'new-game/components/pitch-id-input';

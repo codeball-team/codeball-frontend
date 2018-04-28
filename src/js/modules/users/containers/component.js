@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Render } from 'components/ui';
-import { AddUserButton } from 'components/codeball';
+import { Render } from 'components';
+import AddUserButton from 'new-user/components/add-button';
 import List from 'users/components/list';
 
 const Users = ({ canAddNew }) => (

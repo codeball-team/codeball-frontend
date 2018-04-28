@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List } from 'components/ui';
+import { List } from 'components';
 import Item from './item';
 
 const Users = ({ className, users }) => (

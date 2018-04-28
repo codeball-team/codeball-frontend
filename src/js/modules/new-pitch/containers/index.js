@@ -1,7 +1,7 @@
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-pitch/state';
 import { selectDataIsLoading, selectIsValid } from 'new-pitch/selectors';
-import { ContainerComponent } from 'components/base';
+import { ContainerComponent } from 'components';
 import NewPitch from './component';
 
 export default ContainerComponent(NewPitch, {

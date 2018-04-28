@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Render } from 'components/ui';
+import { Render } from 'components';
 import NotLoaded from 'user/components/not-loaded';
 import Profile from 'user/components/profile';
 

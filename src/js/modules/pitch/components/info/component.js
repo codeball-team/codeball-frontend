@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'underscore';
 import { PITCH_TYPE_STRING } from 'constants';
-import { Render } from 'components/ui';
+import { Render } from 'components';
 import PitchAddress from './address';
 import PitchCapacity from './capacity';
 import PitchType from './type';

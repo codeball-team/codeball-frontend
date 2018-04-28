@@ -9,7 +9,7 @@ import {
   selectTimeIsValid
 } from 'new-game/selectors';
 import { padLeft } from 'utils';
-import { InputWrapper, RangePicker } from 'components/ui';
+import { InputWrapper, RangePicker } from 'components';
 
 const valueFormatter = (value) => padLeft(value, 2);
 

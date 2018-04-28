@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PITCH_TYPE_STRING } from 'constants';
-import { Icon } from 'components/ui';
+import { Icon } from 'components';
 import styles from './styles.scss';
 
 const PitchType = ({ type }) => (

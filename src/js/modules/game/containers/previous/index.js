@@ -3,7 +3,7 @@ import { actions } from 'game/state';
 import { actions as pitchesActions } from 'pitches/state';
 import { actions as usersActions } from 'users/state';
 import { selectHasLoaded, selectDataIsLoading } from 'game/selectors';
-import { ContainerComponent } from 'components/base';
+import { ContainerComponent } from 'components';
 import Previous from './component';
 
 export default ContainerComponent(Previous, {

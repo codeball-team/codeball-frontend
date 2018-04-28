@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'components/ui';
+import { Form } from 'components';
 import FirstNameInput from 'new-user/components/first-name-input';
 import LastNameInput from 'new-user/components/last-name-input';
 import EmailInput from 'new-user/components/email-input';

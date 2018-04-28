@@ -1,7 +1,7 @@
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'pitch/state';
 import { selectDataIsLoading, selectHasLoaded } from 'pitch/selectors';
-import { ContainerComponent } from 'components/base';
+import { ContainerComponent } from 'components';
 import Pitch from './component';
 
 export default ContainerComponent(Pitch, {

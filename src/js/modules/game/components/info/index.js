@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { selectGame, selectPitch, selectPitchName } from 'game/selectors';
-import { Section } from 'components/ui';
+import { Section } from 'components';
 import Info from './component';
 
 const mapStateToProps = (state) => ({

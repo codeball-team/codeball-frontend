@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'new-user/components/form';
-import { CancelButton, SaveButton } from 'components/ui';
+import { CancelButton, SaveButton } from 'components';
 
 class NewUser extends Component {
   static propTypes = {

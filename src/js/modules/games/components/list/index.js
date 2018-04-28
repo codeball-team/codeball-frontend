@@ -1,4 +1,4 @@
-import { Section } from 'components/ui';
+import { Section } from 'components';
 import List from './component';
 
 export default Section(List);

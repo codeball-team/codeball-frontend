@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { actions } from 'game/state';
 import { selectCanEditGameScore } from 'current-user/selectors';
 import { selectIsEditing } from 'game/selectors';
-import { Section } from 'components/ui';
+import { Section } from 'components';
 import Score from './component';
 
 const mapStateToProps = (state) => ({

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'new-pitch/state';
 import { selectType, selectTypeDisplayValue, selectTypeIsValid, selectTypeOptions } from 'new-pitch/selectors';
-import { InputWrapper, ValuePicker } from 'components/ui';
+import { InputWrapper, ValuePicker } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectTypeDisplayValue(state),

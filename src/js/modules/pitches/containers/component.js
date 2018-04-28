@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Render } from 'components/ui';
-import { AddPitchButton } from 'components/codeball';
+import { Render } from 'components';
+import AddPitchButton from 'new-pitch/components/add-button';
 import PitchesList from 'pitches/components/list';
 
 const Pitches = ({ canAddNew }) => (

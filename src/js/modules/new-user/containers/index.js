@@ -1,7 +1,7 @@
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-user/state';
 import { selectDataIsLoading, selectIsValid } from 'new-user/selectors';
-import { ContainerComponent } from 'components/base';
+import { ContainerComponent } from 'components';
 import NewUser from './component';
 
 export default ContainerComponent(NewUser, {

@@ -4,7 +4,7 @@ import { MONTH_YEAR_FORMAT } from 'constants';
 import { noop } from 'utils';
 import { actions } from 'new-game/state';
 import { selectDateDisplayValue, selectDateIsValid, selectSelectedDate } from 'new-game/selectors';
-import { Calendar, InputWrapper } from 'components/ui';
+import { Calendar, InputWrapper } from 'components';
 
 const mapStateToProps = (state) => ({
   dateFormat: MONTH_YEAR_FORMAT,

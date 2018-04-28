@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { selectTeamAUsers, selectTeamBUsers } from 'game/selectors';
-import { Section } from 'components/ui';
+import { Section } from 'components';
 import Lineup from './component';
 
 const mapStateToProps = (state) => ({

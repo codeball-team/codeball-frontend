@@ -4,7 +4,7 @@ import { actions as pitchesActions } from 'pitches/state';
 import { actions as usersActions } from 'users/state';
 import { selectCanAddGame } from 'current-user/selectors';
 import { selectDataIsLoading } from 'games/selectors';
-import { ContainerComponent } from 'components/base';
+import { ContainerComponent } from 'components';
 import Games from './component';
 
 export default ContainerComponent(Games, {

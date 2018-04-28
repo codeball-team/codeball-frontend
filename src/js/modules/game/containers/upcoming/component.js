@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SaveButton, ShuffleButton, Render } from 'components/ui';
+import { SaveButton, ShuffleButton, Render } from 'components';
 import EnrollAnotherUser from 'enroll-another-user/containers';
 import Enrollments from 'game/components/enrollments';
 import EnrollmentForm from 'game/components/enrollment-form';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { USER_MISSING_PICTURE_URL } from 'constants';
-import { Link, ListItem } from 'components/ui';
+import { Link, ListItem } from 'components';
 import styles from './styles.scss';
 
 const Item = ({

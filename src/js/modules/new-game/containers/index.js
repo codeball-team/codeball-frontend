@@ -2,7 +2,7 @@ import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-game/state';
 import { actions as pitchesActions } from 'pitches/state';
 import { selectDataIsLoading, selectIsValid } from 'new-game/selectors';
-import { ContainerComponent } from 'components/base';
+import { ContainerComponent } from 'components';
 import NewGame from './component';
 
 export default ContainerComponent(NewGame, {

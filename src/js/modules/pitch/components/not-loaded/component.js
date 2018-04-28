@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NotLoaded, Render } from 'components/ui';
-import { AddPitchButton } from 'components/codeball';
+import { NotLoaded, Render } from 'components';
+import AddPitchButton from 'new-pitch/components/add-button';
 
 const PitchNotLoaded = ({ canAddNew }) => (
   <NotLoaded message="There is no such pitch">

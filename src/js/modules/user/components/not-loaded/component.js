@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NotLoaded, Render } from 'components/ui';
-import { AddUserButton } from 'components/codeball';
+import { NotLoaded, Render } from 'components';
+import AddUserButton from 'new-user/components/add-button';
 
 const UserNotLoaded = ({ canAddNew }) => (
   <NotLoaded message="There is no such player">

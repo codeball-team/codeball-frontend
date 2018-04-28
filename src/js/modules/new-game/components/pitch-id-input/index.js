@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { actions } from 'new-game/state';
 import { selectPitchId, selectPitchIdDisplayValue, selectPitchIdIsValid } from 'new-game/selectors';
 import { selectPitchesOptions } from 'pitches/selectors';
-import { InputWrapper, Select } from 'components/ui';
+import { InputWrapper, Select } from 'components';
 
 const mapStateToProps = (state) => ({
   clearable: false,

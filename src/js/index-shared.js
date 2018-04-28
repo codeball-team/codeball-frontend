@@ -7,7 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 import configureStore from './store/configure-store';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import App from 'components/app';
+import App from 'modules/app';
 
 export default (Wrapper) => {
   FastClick.attach(document.body);
@@ -29,8 +29,8 @@ export default (Wrapper) => {
   };
 
   if (module.hot) {
-    module.hot.accept('components/app', () => {
-      const NextApp = require('components/app').default;
+    module.hot.accept('modules/app', () => {
+      const NextApp = require('modules/app').default;
       render(NextApp);
     });
   }

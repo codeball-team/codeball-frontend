@@ -17,7 +17,7 @@ import {
   selectNumberOfEnrolledUsers,
   selectNumberOfNotEnrolledUsers
 } from 'game/selectors';
-import { ContainerComponent } from 'components/base';
+import { ContainerComponent } from 'components';
 import Upcoming from './component';
 
 export default ContainerComponent(Upcoming, {

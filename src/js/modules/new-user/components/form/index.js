@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'new-user/state';
 import { selectIsValid } from 'new-user/selectors';
-import { Section } from 'components/ui';
+import { Section } from 'components';
 import NewUser from './component';
 
 const mapStateToProps = (state) => ({

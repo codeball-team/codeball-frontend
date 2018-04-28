@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'components/ui';
+import { Form } from 'components';
 import AddressInput from 'new-pitch/components/address-input';
 import CapacityInput from 'new-pitch/components/capacity-input';
 import NameInput from 'new-pitch/components/name-input';

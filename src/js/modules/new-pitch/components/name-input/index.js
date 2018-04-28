@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'new-pitch/state';
 import { selectName, selectNameDisplayValue, selectNameIsValid } from 'new-pitch/selectors';
-import { EditableText, InputWrapper } from 'components/ui';
+import { EditableText, InputWrapper } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectNameDisplayValue(state),

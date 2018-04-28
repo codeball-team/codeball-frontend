@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { formatRange } from 'utils';
-import { Icon } from 'components/ui';
+import { Icon } from 'components';
 import styles from './styles.scss';
 
 const PitchCapacity = ({ maxCapacity, minCapacity }) => (

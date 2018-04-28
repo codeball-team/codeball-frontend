@@ -6,7 +6,7 @@ import {
   selectUserIdDisplayValue,
   selectUserIdIsValid
 } from 'enroll-another-user/selectors';
-import { InputWrapper } from 'components/ui';
+import { InputWrapper } from 'components';
 import UserIdSelect from './component';
 
 const mapStateToProps = (state) => ({

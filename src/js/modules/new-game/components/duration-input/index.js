@@ -6,7 +6,7 @@ import {
   selectDurationIsValid,
   selectDurationOptions
 } from 'new-game/selectors';
-import { InputWrapper, ValuePicker } from 'components/ui';
+import { InputWrapper, ValuePicker } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectDurationDisplayValue(state),

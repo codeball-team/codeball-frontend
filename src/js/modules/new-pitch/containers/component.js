@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'new-pitch/components/form';
-import { CancelButton, SaveButton } from 'components/ui';
+import { CancelButton, SaveButton } from 'components';
 
 class NewPitch extends Component {
   static propTypes = {

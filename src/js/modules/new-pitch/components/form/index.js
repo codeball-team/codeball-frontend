@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'new-pitch/state';
 import { selectIsValid } from 'new-pitch/selectors';
-import { Section } from 'components/ui';
+import { Section } from 'components';
 import NewPitch from './component';
 
 const mapStateToProps = (state) => ({

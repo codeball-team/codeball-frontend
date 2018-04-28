@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Render } from 'components/ui';
+import { Render } from 'components';
 import Lineup from 'game/components/lineup';
 import NotLoaded from 'game/components/not-loaded';
 import Score from 'game/components/score';

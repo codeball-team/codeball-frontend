@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Button } from 'components/ui';
+import { Button } from 'components';
 import styles from './styles.scss';
 
 class Option extends Component {

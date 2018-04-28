@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NotLoaded, Render } from 'components/ui';
-import { AddGameButton } from 'components/codeball';
+import { NotLoaded, Render } from 'components';
+import AddGameButton from 'new-game/components/add-button';
 
 const GameNotLoaded = ({ canAddNew }) => (
   <NotLoaded message="There is no such game">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { CancelButton, SaveButton } from 'components/ui';
+import { CancelButton, SaveButton } from 'components';
 import Form from 'new-game/components/form';
 
 class NewGame extends Component {

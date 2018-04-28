@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'new-user/state';
 import { selectFirstName, selectFirstNameDisplayValue, selectFirstNameIsValid } from 'new-user/selectors';
-import { EditableText, InputWrapper } from 'components/ui';
+import { EditableText, InputWrapper } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectFirstNameDisplayValue(state),

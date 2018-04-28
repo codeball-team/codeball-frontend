@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { selectPitches } from 'pitches/selectors';
-import { Section } from 'components/ui';
+import { Section } from 'components';
 import List from './component';
 
 const mapStateToProps = (state) => {

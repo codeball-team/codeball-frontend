@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { selectEmail, selectName, selectPictureUrl, selectRoleString } from 'user/selectors';
-import { Section } from 'components/ui';
+import { Section } from 'components';
 import Profile from './component';
 
 const mapStateToProps = (state) => ({

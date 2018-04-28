@@ -1,6 +1,5 @@
 import { selectArePending } from 'ajax/selectors';
-import { ContainerComponent } from 'components/base';
-import { Spinner } from 'components/ui';
+import { ContainerComponent, Spinner } from 'components';
 
 export default ContainerComponent(Spinner, {
   mapStateToProps: (state) => ({

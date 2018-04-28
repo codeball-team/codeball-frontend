@@ -7,7 +7,7 @@ import {
   ENROLLMENT_STATUS_STRING,
   ENROLLMENT_STATUS_YES
 } from 'constants';
-import { Render } from 'components/ui';
+import { Render } from 'components';
 import List from './list';
 import styles from './styles.scss';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, ListItem } from 'components/ui';
+import { Link, ListItem } from 'components';
 import styles from './styles.scss';
 
 const Item = ({ children, pitch: { address, id, name } }) => (

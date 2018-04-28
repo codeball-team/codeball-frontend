@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { actions } from 'new-user/state';
 import { selectAddUserOptions } from 'current-user/selectors';
 import { selectRole, selectRoleDisplayValue, selectRoleIsValid } from 'new-user/selectors';
-import { InputWrapper, ValuePicker } from 'components/ui';
+import { InputWrapper, ValuePicker } from 'components';
 import styles from './styles.scss';
 
 const mapStateToProps = (state) => ({
