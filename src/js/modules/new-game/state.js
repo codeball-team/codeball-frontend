@@ -1,6 +1,7 @@
 import { createActions, handleActions } from 'redux-actions';
 import { createAjaxActions, noop } from 'utils';
-import { GameModel, NewGameModel } from 'models';
+import GameModel from 'game/model';
+import NewGameModel from 'new-game/model';
 
 const initialState = new NewGameModel();
 

@@ -1,5 +1,5 @@
 import { actions } from 'ajax/state';
-import { ErrorModel } from 'models';
+import ErrorModel from 'ajax/model';
 
 export default (...params) => {
   if (typeof params[0] === 'string') {

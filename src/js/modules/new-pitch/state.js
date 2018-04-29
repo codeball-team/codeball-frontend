@@ -1,6 +1,7 @@
 import { createActions, handleActions } from 'redux-actions';
 import { createAjaxActions, noop } from 'utils';
-import { PitchModel, NewPitchModel } from 'models';
+import NewPitchModel from 'new-pitch/model';
+import PitchModel from 'pitch/model';
 
 const initialState = new NewPitchModel();
 

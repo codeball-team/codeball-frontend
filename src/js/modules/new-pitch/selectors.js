@@ -7,7 +7,7 @@ import {
   PITCH_TYPE_STRING
 } from 'constants';
 import { formatRange } from 'utils';
-import { NewPitchModel } from 'models';
+import NewPitchModel from 'new-pitch/model';
 import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/selectors';
 
 export const selectRoot = (state) => state.newPitch;

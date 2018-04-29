@@ -1,7 +1,20 @@
 import moment from 'moment';
 import { javaToUnixTimestamp, model } from 'utils';
-import { DATE_FORMAT, TIME_FORMAT } from 'constants';
-import { EnrollmentModel } from 'models';
+import { DATE_FORMAT, ENROLLMENT_STATUS_YES, TIME_FORMAT } from 'constants';
+
+export const EnrollmentModel = model({
+  getDefaultAttributes: () => ({
+    enrollmentStatus: ENROLLMENT_STATUS_YES,
+    userId: undefined
+  }),
+
+  fromServerFormat(serverResponse) {
+    return new EnrollmentModel({
+      enrollmentStatus: serverResponse.enrollmentStatus,
+      userId: serverResponse.userId
+    });
+  }
+});
 
 const GameModel = model({
   getDefaultAttributes: () => ({

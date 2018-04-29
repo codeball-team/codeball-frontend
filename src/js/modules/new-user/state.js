@@ -1,6 +1,7 @@
 import { createActions, handleActions } from 'redux-actions';
 import { createAjaxActions, noop } from 'utils';
-import { NewUserModel, UserModel } from 'models';
+import NewUserModel from 'new-user/model';
+import UserModel from 'user/model';
 
 const initialState = new NewUserModel();
 

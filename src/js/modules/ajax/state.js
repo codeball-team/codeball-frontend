@@ -1,6 +1,6 @@
 import _ from 'underscore';
 import { createActions, handleActions } from 'redux-actions';
-import { ErrorModel } from 'models';
+import ErrorModel from 'ajax/model';
 
 const initialState = {
   errors: [],

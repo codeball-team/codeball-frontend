@@ -1,6 +1,6 @@
 import { combineActions, createActions } from 'redux-actions';
 import { ajaxReducer, createAjaxActions, noop, parseNumber } from 'utils';
-import { GameModel } from 'models';
+import GameModel from 'game/model';
 import { actions as newGameActions } from 'new-game/state';
 import { actions as enrollAnotherUserActions } from 'enroll-another-user/state';
 

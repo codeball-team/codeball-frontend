@@ -1,6 +1,7 @@
 import { createActions, handleActions } from 'redux-actions';
 import { createAjaxActions, noop } from 'utils';
-import { EnrollAnotherUserModel, GameModel } from 'models';
+import GameModel from 'game/model';
+import EnrollAnotherUserModel from 'enroll-another-user/model';
 
 const initialState = {
   ...new EnrollAnotherUserModel(),

@@ -1,6 +1,6 @@
 import { createActions } from 'redux-actions';
 import { ajaxReducer, createAjaxActions, noop } from 'utils';
-import { PitchModel } from 'models';
+import PitchModel from 'pitch/model';
 import { actions as newPitchActions } from 'new-pitch/state';
 
 const initialState = {

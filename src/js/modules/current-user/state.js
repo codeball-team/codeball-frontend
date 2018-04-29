@@ -1,6 +1,6 @@
 import { createActions } from 'redux-actions';
 import { ajaxReducer, createAjaxActions, noop } from 'utils';
-import { UserModel } from 'models';
+import UserModel from 'user/model';
 
 const initialState = {
   currentUser: new UserModel()

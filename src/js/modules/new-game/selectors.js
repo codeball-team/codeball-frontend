@@ -7,7 +7,7 @@ import {
   MINUTE_OPTIONS
 } from 'constants';
 import { findLabelByValue, padLeft } from 'utils';
-import { NewGameModel } from 'models';
+import NewGameModel from 'new-game/model';
 import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/selectors';
 import { selectIsLoading as selectPitchesIsLoading, selectPitchesOptions } from 'pitches/selectors';
 

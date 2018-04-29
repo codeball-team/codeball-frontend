@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { findLabelByValue } from 'utils';
-import { EnrollAnotherUserModel } from 'models';
 import { selectUsersOptions } from 'users/selectors';
+import EnrollAnotherUserModel from 'enroll-another-user/model';
 
 export const selectRoot = (state) => state.enrollAnotherUser;
 export const selectEnrollmentStatus = createSelector(selectRoot, ({ enrollmentStatus }) => enrollmentStatus);
