@@ -4,7 +4,7 @@ import { push } from 'react-router-redux';
 import { API_DEBOUNCE } from 'constants';
 import { actions } from 'new-game/state';
 import { selectCanAddGame } from 'current-user/selectors';
-import { selectNewGame } from 'new-game/selectors';
+import { selectNewGamePayload } from 'new-game/selectors';
 import { postNewGame } from 'new-game/api';
 
 export default function* newGameSagas() {
@@ -22,7 +22,7 @@ function* onReset() {
 function* onSubmit() {
   yield call(delay, API_DEBOUNCE);
   try {
-    const newGame = yield select(selectNewGame);
+    const newGame = yield select(selectNewGamePayload);
     const game = yield call(postNewGame, newGame);
     yield put(actions.newGame.submitSuccess(game));
     yield put(push(`/games/upcoming/${game.id}`));

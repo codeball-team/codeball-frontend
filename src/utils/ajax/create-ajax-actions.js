@@ -10,7 +10,7 @@ export default (...params) => {
 
 const createAjaxActionsMap = (successPayloadCreator, map) => Object.keys(map).reduce(
   (actionsMap, name) => {
-    const payloadCreator = actionsMap[name];
+    const payloadCreator = map[name];
     Object.assign(actionsMap, createAjaxActionsSet(name, [ payloadCreator, successPayloadCreator ]));
     return actionsMap;
   },

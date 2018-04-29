@@ -11,6 +11,7 @@ import NewPitchModel from 'new-pitch/model';
 import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/selectors';
 
 export const selectRoot = (state) => state.newPitch;
+export const selectNewPitchPayload = createSelector(selectRoot, NewPitchModel.toServerFormat);
 export const selectDataIsLoading = createSelector(
   [ selectCurrentUserIsLoading ],
   (...isLoading) => isLoading.some(Boolean)

@@ -42,13 +42,11 @@ export default ajaxReducer(initialState, ajaxActions, {
     actions.game.loadSuccess,
     actions.game.saveScoreSuccess,
     enrollAnotherUserActions.enrollAnotherUser.submitSuccess,
-    newGameActions.newGame.submit,
     newGameActions.newGame.submitSuccess
   )]: (state, { payload: game }) => ({ ...initialState, game }),
 
   [combineActions(
     actions.game.saveScoreFailure,
-    newGameActions.newGame.submit,
     newGameActions.newGame.submitFailure
   )]: (state) => ({ ...state, isEditing: true }),
 

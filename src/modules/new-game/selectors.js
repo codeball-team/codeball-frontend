@@ -12,6 +12,7 @@ import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/sele
 import { selectIsLoading as selectPitchesIsLoading, selectPitchesOptions } from 'pitches/selectors';
 
 export const selectRoot = (state) => state.newGame;
+export const selectNewGamePayload = createSelector(selectRoot, NewGameModel.toServerFormat);
 export const selectDataIsLoading = createSelector(
   [ selectCurrentUserIsLoading, selectPitchesIsLoading ],
   (...isLoading) => isLoading.some(Boolean)

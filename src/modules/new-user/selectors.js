@@ -4,6 +4,7 @@ import NewUserModel from 'new-user/model';
 import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/selectors';
 
 export const selectRoot = (state) => state.newUser;
+export const selectNewUserPayload = createSelector(selectRoot, NewUserModel.toServerFormat);
 export const selectDataIsLoading = createSelector(
   [ selectCurrentUserIsLoading ],
   (...isLoading) => isLoading.some(Boolean)
