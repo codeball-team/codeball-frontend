@@ -6,5 +6,5 @@ export const selectNonSilentErrors = createSelector(
   [ selectErrors ],
   (errors) => errors.filter(({ isSilent }) => !isSilent)
 );
-export const selectPendingCount = createSelector(selectRoot, ({ pendingCount }) => pendingCount);
+export const selectPendingCount = createSelector(selectRoot, ({ pending }) => pending.length);
 export const selectArePending = createSelector(selectPendingCount, (count) => count > 0);
