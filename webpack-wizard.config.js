@@ -7,14 +7,14 @@ module.exports = (webpackWizard, { resolveCwdPath }) => {
     input: {
       favicon: resolveCwdPath('html/favicon.ico'),
       html: resolveCwdPath('html/index.html'),
-      js: resolveCwdPath('src/js/index.js'),
-      jsDev: resolveCwdPath('src/js/index-dev.js'),
+      js: resolveCwdPath('src/index.js'),
+      jsDev: resolveCwdPath('src/index-dev.js'),
       styles: [
-        resolveCwdPath('src/js/styles')
+        resolveCwdPath('src/styles')
       ],
       modules: [
-        resolveCwdPath('src/js'),
-        resolveCwdPath('src/js/modules')
+        resolveCwdPath('src'),
+        resolveCwdPath('src/modules')
       ]
     }
   });
