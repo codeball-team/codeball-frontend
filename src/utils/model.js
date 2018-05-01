@@ -1,4 +1,4 @@
-import { defaults } from 'lodash-es';
+import defaults from 'defaults';
 import { noop } from 'utils';
 
 export default (options) => {

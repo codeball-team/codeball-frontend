@@ -80,10 +80,10 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "defaults": "^1.0.3",
     "fastclick": "^1.0.6",
     "history": "^4.7.2",
     "js-md5": "0.7.3",
-    "lodash-es": "^4.17.10",
     "moment": "^2.22.1",
     "node-normalize-scss": "^3.0.0",
     "prop-types": "^15.6.1",
@@ -101,6 +101,7 @@
     "redux-actions": "^2.3.0",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "unique-by": "^1.0.0"
   }
 }

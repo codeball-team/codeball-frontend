@@ -51,7 +51,7 @@ const onAjaxStart = (state) => ({
   isLoading: true
 });
 
-const onAjaxFailure = (state, action) => ({
+const onAjaxFailure = (state) => ({
   ...state,
   hasLoaded: false,
   isLoading: false

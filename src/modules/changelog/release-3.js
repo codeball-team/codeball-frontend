@@ -43,7 +43,7 @@ const Relase3 = () => (
           <li>Introducing prop-types</li>
           <li>Introducing re-reselect</li>
           <li>Removing superagent in favor of fetch</li>
-          <li>Removing underscore in favor of lodash-es</li>
+          <li>Removing underscore</li>
           <li>Upgrading dependencies</li>
         </ul>
       </li>

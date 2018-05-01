@@ -1,4 +1,4 @@
-import { uniqBy } from 'lodash-es';
+import uniqueBy from 'unique-by';
 import { createActions, handleActions } from 'redux-actions';
 import ErrorModel from 'ajax/model';
 
@@ -32,7 +32,7 @@ export default handleActions({
 
   [actions.ajax.failure]: (state, { payload: { error, type } }) => ({
     ...state,
-    errors: uniqBy([ ...state.errors, error ], JSON.stringify),
+    errors: uniqueBy([ ...state.errors, error ], JSON.stringify),
     pending: state.pending.filter((pending) => pending !== type)
   }),
 
