@@ -6,7 +6,7 @@ export * from './buttons';
 export BodyBackground from './body-background';
 export Button from './button';
 export ButtonsPanel from './buttons-panel';
-export ContainerComponent from './container';
+export Container from './container';
 export Errors from './errors';
 export Form, { EditableText, InputWrapper, NumberPicker, RangePicker, ValuePicker } from './form';
 export Icon from './icon';

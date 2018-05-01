@@ -1,18 +1,21 @@
+import { connect } from 'react-redux';
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'pitches/state';
 import { selectCanAddPitch } from 'current-user/selectors';
 import { selectDataIsLoading } from 'pitches/selectors';
-import { ContainerComponent } from 'components';
+import { Container } from 'components';
 import Pitches from './component';
 
-export default ContainerComponent(Pitches, {
-  mapStateToProps: (state) => ({
-    canAddNew: selectCanAddPitch(state),
-    isLoading: selectDataIsLoading(state)
-  }),
-  periodicDataUpdates: true,
-  updateData: ({ dispatch }) => {
+const mapStateToProps = (state) => ({
+  canAddNew: selectCanAddPitch(state),
+  isLoading: selectDataIsLoading(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateData: () => {
     dispatch(currentUserActions.currentUser.load());
     dispatch(actions.pitches.load());
   }
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container(Pitches));

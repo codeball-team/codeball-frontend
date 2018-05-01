@@ -1,20 +1,21 @@
+import { connect } from 'react-redux';
 import { actions as currentUserActions } from 'current-user/state';
 import { actions } from 'new-pitch/state';
 import { selectDataIsLoading, selectIsValid } from 'new-pitch/selectors';
-import { ContainerComponent } from 'components';
+import { Container } from 'components';
 import NewPitch from './component';
 
-export default ContainerComponent(NewPitch, {
-  mapStateToProps: (state) => ({
-    isLoading: selectDataIsLoading(state),
-    isValid: selectIsValid(state)
-  }),
-  mapDispatchToProps: {
-    onMount: actions.newPitch.reset,
-    onSubmit: actions.newPitch.submit
-  },
-  periodicDataUpdates: true,
-  updateData: ({ dispatch }) => {
+const mapStateToProps = (state) => ({
+  isLoading: selectDataIsLoading(state),
+  isValid: selectIsValid(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onMount: () => dispatch(actions.newPitch.reset()),
+  onSubmit: () => dispatch(actions.newPitch.submit()),
+  updateData: () => {
     dispatch(currentUserActions.currentUser.load());
   }
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container(NewPitch));

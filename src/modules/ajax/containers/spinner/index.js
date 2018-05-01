@@ -1,9 +1,10 @@
+import { connect } from 'react-redux';
 import { selectArePending } from 'ajax/selectors';
-import { ContainerComponent, Spinner } from 'components';
+import { Container, Spinner } from 'components';
 
-export default ContainerComponent(Spinner, {
-  mapStateToProps: (state) => ({
-    placement: 'fixed',
-    show: selectArePending(state)
-  })
+const mapStateToProps = (state) => ({
+  placement: 'fixed',
+  show: selectArePending(state)
 });
+
+export default connect(mapStateToProps)(Container(Spinner));

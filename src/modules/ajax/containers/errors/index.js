@@ -1,12 +1,14 @@
+import { connect } from 'react-redux';
 import { actions } from 'ajax/state';
 import { selectNonSilentErrors } from 'ajax/selectors';
-import { ContainerComponent, Errors } from 'components';
+import { Container, Errors } from 'components';
 
-export default ContainerComponent(Errors, {
-  mapStateToProps: (state) => ({
-    errors: selectNonSilentErrors(state)
-  }),
-  mapDispatchToProps: {
-    onErrorAcknowledge: actions.ajax.acknowledge
-  }
+const mapStateToProps = (state) => ({
+  errors: selectNonSilentErrors(state)
 });
+
+const mapDispatchToProps = {
+  onErrorAcknowledge: actions.ajax.acknowledge
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container(Errors));
