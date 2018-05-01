@@ -101,7 +101,6 @@
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
-    "superagent": "^3.8.2",
     "underscore": "^1.9.0"
   }
 }
