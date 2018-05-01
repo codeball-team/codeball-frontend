@@ -19,8 +19,7 @@ export default (history) => {
 
 const createEnhancer = (history) => composer(applyMiddleware(
   sagaMiddleware,
-  routerMiddleware(history),
-  require('redux-thunk').default
+  routerMiddleware(history)
 ));
 
 const enableHmrForReducers = (store) => {
