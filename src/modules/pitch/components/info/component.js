@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import _ from 'underscore';
 import { PITCH_TYPE_STRING } from 'constants';
 import { Render } from 'components';
 import Address from './address';
@@ -13,10 +12,10 @@ import styles from './styles.scss';
 const Info = ({ className, pitch: { address, maxCapacity, minCapacity, type, url } }) => (
   <div className={classNames(styles.pitchInfo, className)}>
     <Address address={address} />
-    <Render when={!_.isUndefined(url)}>
+    <Render when={url}>
       <Webpage url={url} />
     </Render>
-    <Render when={!_.isUndefined(PITCH_TYPE_STRING[type])}>
+    <Render when={PITCH_TYPE_STRING[type]}>
       <Type type={type} />
     </Render>
     <Capacity maxCapacity={maxCapacity} minCapacity={minCapacity} />

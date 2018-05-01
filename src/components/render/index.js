@@ -4,7 +4,7 @@ const Render = ({ children, when }) => when ? children : null;
 
 Render.propTypes = {
   children: PropTypes.node,
-  when: PropTypes.bool
+  when: PropTypes.any
 };
 
 export default Render;

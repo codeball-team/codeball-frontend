@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import { defaults } from 'lodash-es';
 import { noop } from 'utils';
 
 export default (options) => {
@@ -21,10 +21,7 @@ export default (options) => {
     static arrayFromServerFormat = (array = []) => array.map(Model.fromServerFormat);
 
     constructor(attributes) {
-      Object.assign(
-        this,
-        _({ ...attributes }).defaults(getDefaultAttributes())
-      );
+      Object.assign(this, defaults({ ...attributes }, getDefaultAttributes()));
     }
   }
 
@@ -42,9 +39,7 @@ const wrapFromServerFormat = (Model, fromServerFormat) => {
       return new Model();
     }
 
-    _.defaults(serverResponse, defaultEmptyArrays);
-
-    return fromServerFormat(serverResponse);
+    return fromServerFormat(defaults(serverResponse, defaultEmptyArrays));
   };
 };
 

@@ -315,7 +315,7 @@ module.exports = {
 
     // React
     'react/display-name': 'off',
-    'react/forbid-prop-types': ['error', {
+    'react/forbid-prop-types': ['off', {
       'forbid': ['any']
     }],
     'react/jsx-no-comment-textnodes': 'error',
