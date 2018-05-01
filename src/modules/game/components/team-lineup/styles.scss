@@ -1,6 +1,6 @@
 .team-lineup {
-  @include flex-child-grow(100%);
   @include ellipsis;
+  flex: 1 1 100%;
 }
 
 .name {

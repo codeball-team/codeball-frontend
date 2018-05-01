@@ -1,8 +1,8 @@
 .users-list-item {
-  @include flex-parent;
+  display: flex;
 
   .picture {
-    @include flex-child;
+    flex: 0 0 auto;
     width: 50px;
     height: 50px;
     margin-right: $spacing-l;
@@ -17,7 +17,7 @@
   }
 
   .name {
-    @include flex-child-grow;
     @include ellipsis;
+    flex: 1 1 auto;
   }
 }

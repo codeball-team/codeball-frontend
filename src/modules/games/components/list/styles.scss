@@ -1,5 +1,7 @@
 .games-list-item {
-  @include flex-parent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .date-time {
     @include ellipsis;
@@ -12,14 +14,14 @@
     }
 
     @include phone {
-      @include flex-child-grow;
+      flex: 1 1 auto;
       min-width: 0;
     }
   }
 
   .pitch {
-    @include flex-child-grow;
     @include ellipsis;
+    flex: 1 1 auto;
     margin-right: $spacing-l;
 
     @include phone {
@@ -28,6 +30,6 @@
   }
 
   .score {
-    @include flex-child;
+    flex: 0 0 auto;
   }
 }

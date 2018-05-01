@@ -1,5 +1,5 @@
 .enrollment-status {
-  @include flex-child;
+  flex: 0 0 auto;
   margin-left: $spacing-s;
 
   @include phone {
