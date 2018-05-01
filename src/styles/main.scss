@@ -59,11 +59,13 @@ hr {
 
 main {
   ul {
+    -webkit-padding-start: $spacing-l;
+
     li {
-      padding-bottom: 2px;
+      padding-bottom: 5px;
 
       > ul {
-        padding-top: 4px;
+        padding-top: 5px;
       }
     }
   }
