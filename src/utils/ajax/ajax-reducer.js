@@ -52,19 +52,16 @@ const onAjaxStart = (state) => ({
 });
 
 const onAjaxFailure = (state, action) => ({
-  ...onAjaxEnd(state, action),
-  hasLoaded: false
+  ...state,
+  hasLoaded: false,
+  isLoading: false
 });
 
 const onAjaxSuccess = (state, action) => ({
-  ...onAjaxEnd(state, action),
-  hasLoaded: true
-});
-
-const onAjaxEnd = (state, { payload }) => ({
   ...state,
+  hasLoaded: true,
   isLoading: false,
-  lastUpdateHash: getObjectHash(payload)
+  lastUpdateHash: getObjectHash(action.payload)
 });
 
 export default ajaxReducer;
