@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'underscore';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { periodicCallback } from 'utils';
+import { noop, periodicCallback } from 'utils';
 import { AUTO_REFRESH_DELAY } from 'constants';
 import { LoadableContent } from 'components';
 
@@ -66,11 +65,11 @@ const handleOptions = (options = {}) => {
     mapStateToProps = () => null,
     mergeProps,
     periodicDataUpdates = false,
-    updateData = _.noop
+    updateData = noop
   } = options;
 
   return {
-    doesNotNeedUpdatingData: updateData === _.noop,
+    doesNotNeedUpdatingData: updateData === noop,
     mapDispatchToProps: getMapDispatchToProps(mapDispatchToProps),
     mapStateToProps,
     mergeProps,

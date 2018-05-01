@@ -9,14 +9,11 @@ class BodyBackground extends Component {
     images: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
   };
 
-  componentDidMount = () => {
-    const { images } = this.props;
-    this.changeBackground(images);
-  };
+  componentDidMount = () => this.changeBackground(this.props.images);
 
   changeBackground = (images, imageId = randomInteger(images.length)) => {
     const imageUrl = images[imageId];
-    body.style.backgroundImage = `url(${imageUrl})`;
+    body.style.backgroundImage = `url("${imageUrl}")`;
   };
 
   render() {

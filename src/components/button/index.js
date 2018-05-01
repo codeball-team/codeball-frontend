@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import _ from 'underscore';
 import { Link } from 'components';
 import styles from './styles.scss';
 
-const Button = ({ children, className, isDisabled, redirect, onClick = _.noop }) => {
+const Button = ({ children, className, isDisabled, redirect, onClick }) => {
   const button = (
     <div
       className={classNames(
