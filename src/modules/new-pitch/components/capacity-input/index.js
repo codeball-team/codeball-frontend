@@ -23,8 +23,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onMaxChange: actions.newPitch.changeMaxCapacity,
-  onMinChange: actions.newPitch.changeMinCapacity
+  onMaxChange: actions.changeMaxCapacity,
+  onMinChange: actions.changeMinCapacity
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(RangePicker));

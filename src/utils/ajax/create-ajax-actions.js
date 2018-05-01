@@ -21,20 +21,20 @@ const createAjaxActionsSet = (name, [ payloadCreator, successPayloadCreator ]) =
   [name]: [
     payloadCreator,
     () => ({
-      ajax: actions.ajax.start
+      ajax: actions.start
     })
   ],
   [`${name}Failure`]: [
     ErrorModel.fromServerFormat,
     (response) => ({
-      ajax: actions.ajax.failure,
+      ajax: actions.failure,
       response
     })
   ],
   [`${name}Success`]: [
     successPayloadCreator,
     (response) => ({
-      ajax: actions.ajax.success,
+      ajax: actions.success,
       response
     })
   ]

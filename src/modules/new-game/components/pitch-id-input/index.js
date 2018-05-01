@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onChange: ({ value }) => dispatch(actions.newGame.changePitchId(value))
+  onChange: ({ value }) => dispatch(actions.changePitchId(value))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(Select));

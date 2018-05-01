@@ -16,12 +16,12 @@ export const actions = createActions({
       submit: noop
     })
   }
-});
+}).newUser;
 
 export default handleActions({
-  [actions.newUser.changeEmail]: (state, { payload: email }) => ({ ...state, email }),
-  [actions.newUser.changeFirstName]: (state, { payload: firstName }) => ({ ...state, firstName }),
-  [actions.newUser.changeLastName]: (state, { payload: lastName }) => ({ ...state, lastName }),
-  [actions.newUser.changeRole]: (state, { payload: role }) => ({ ...state, role }),
-  [actions.newUser.reset]: () => initialState
+  [actions.changeEmail]: (state, { payload: email }) => ({ ...state, email }),
+  [actions.changeFirstName]: (state, { payload: firstName }) => ({ ...state, firstName }),
+  [actions.changeLastName]: (state, { payload: lastName }) => ({ ...state, lastName }),
+  [actions.changeRole]: (state, { payload: role }) => ({ ...state, role }),
+  [actions.reset]: () => initialState
 }, initialState);

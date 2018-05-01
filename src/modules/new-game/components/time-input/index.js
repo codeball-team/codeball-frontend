@@ -27,8 +27,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onMaxChange: actions.newGame.changeMinute,
-  onMinChange: actions.newGame.changeHour
+  onMaxChange: actions.changeMinute,
+  onMinChange: actions.changeHour
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(RangePicker));

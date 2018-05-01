@@ -5,15 +5,15 @@ import { getUser } from 'user/api';
 import { actions } from 'user/state';
 
 export default function* userSagas() {
-  yield takeLatest(actions.user.load, onLoad);
+  yield takeLatest(actions.load, onLoad);
 }
 
 function* onLoad({ payload: userId }) {
   yield call(delay, API_DEBOUNCE);
   try {
     const user = yield call(getUser, userId);
-    yield put(actions.user.loadSuccess(user));
+    yield put(actions.loadSuccess(user));
   } catch (error) {
-    yield put(actions.user.loadFailure(error));
+    yield put(actions.loadFailure(error));
   }
 }

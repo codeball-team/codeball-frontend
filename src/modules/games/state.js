@@ -12,14 +12,14 @@ export const actions = createActions({
       load: noop
     })
   }
-});
+}).games;
 
 const ajaxActions = [
-  actions.games.load,
-  actions.games.loadFailure,
-  actions.games.loadSuccess
+  actions.load,
+  actions.loadFailure,
+  actions.loadSuccess
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
-  [actions.games.loadSuccess]: (state, { payload: games }) => ({ ...initialState, games })
+  [actions.loadSuccess]: (state, { payload: games }) => ({ ...initialState, games })
 });

@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onChange: actions.enrollAnotherUser.changeUserId
+  onChange: actions.changeUserId
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(UserIdSelect));

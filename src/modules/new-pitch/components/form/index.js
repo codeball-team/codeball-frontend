@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onSubmit: actions.newPitch.submit
+  onSubmit: actions.submit
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Section(NewPitch));

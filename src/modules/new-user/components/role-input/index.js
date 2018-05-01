@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onChange: actions.newUser.changeRole
+  onChange: actions.changeRole
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(ValuePicker));

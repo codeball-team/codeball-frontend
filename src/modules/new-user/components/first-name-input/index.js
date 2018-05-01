@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onChange: actions.newUser.changeFirstName
+  onChange: actions.changeFirstName
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(EditableText));

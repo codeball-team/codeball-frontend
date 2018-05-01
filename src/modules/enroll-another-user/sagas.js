@@ -7,7 +7,7 @@ import { putEnrollAnotherUser } from 'enroll-another-user/api';
 import { actions } from 'enroll-another-user/state';
 
 export default function* gameSagas() {
-  yield takeLatest(actions.enrollAnotherUser.submit, onEnrollAnotherUser);
+  yield takeLatest(actions.submit, onEnrollAnotherUser);
 }
 
 function* onEnrollAnotherUser() {
@@ -17,9 +17,9 @@ function* onEnrollAnotherUser() {
     const enrollmentStatus = yield select(selectEnrollmentStatus);
     const gameId = yield select(selectGameId);
     const game = yield call(putEnrollAnotherUser, gameId, userId, enrollmentStatus);
-    yield put(actions.enrollAnotherUser.submitSuccess(game));
-    yield put(actions.enrollAnotherUser.reset());
+    yield put(actions.submitSuccess(game));
+    yield put(actions.reset());
   } catch (error) {
-    yield put(actions.enrollAnotherUser.submitFailure(error));
+    yield put(actions.submitFailure(error));
   }
 }

@@ -12,14 +12,14 @@ export const actions = createActions({
       load: (userId) => userId
     })
   }
-});
+}).user;
 
 const ajaxActions = [
-  actions.user.load,
-  actions.user.loadFailure,
-  actions.user.loadSuccess
+  actions.load,
+  actions.loadFailure,
+  actions.loadSuccess
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
-  [actions.user.loadSuccess]: (state, { payload: user }) => ({ ...initialState, user })
+  [actions.loadSuccess]: (state, { payload: user }) => ({ ...initialState, user })
 });

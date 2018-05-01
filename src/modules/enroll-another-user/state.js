@@ -18,11 +18,11 @@ export const actions = createActions({
       submit: noop
     })
   }
-});
+}).enrollAnotherUser;
 
 export default handleActions({
-  [actions.enrollAnotherUser.edit]: (state) => ({ ...state, isEditing: true }),
-  [actions.enrollAnotherUser.changeUserId]: (state, { payload: userId }) => ({ ...state, userId }),
-  [actions.enrollAnotherUser.cancel]: () => initialState,
-  [actions.enrollAnotherUser.reset]: () => initialState
+  [actions.edit]: (state) => ({ ...state, isEditing: true }),
+  [actions.changeUserId]: (state, { payload: userId }) => ({ ...state, userId }),
+  [actions.cancel]: () => initialState,
+  [actions.reset]: () => initialState
 }, initialState);

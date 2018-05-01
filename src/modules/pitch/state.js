@@ -12,14 +12,14 @@ export const actions = createActions({
       load: (pitchId) => pitchId
     })
   }
-});
+}).pitch;
 
 const ajaxActions = [
-  actions.pitch.load,
-  actions.pitch.loadFailure,
-  actions.pitch.loadSuccess
+  actions.load,
+  actions.loadFailure,
+  actions.loadSuccess
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
-  [actions.pitch.loadSuccess]: (state, { payload: pitch }) => ({ ...initialState, pitch })
+  [actions.loadSuccess]: (state, { payload: pitch }) => ({ ...initialState, pitch })
 });

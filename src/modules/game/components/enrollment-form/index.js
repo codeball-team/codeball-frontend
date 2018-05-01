@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onChange: actions.game.changeEnrollmentStatus
+  onChange: actions.changeEnrollmentStatus
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Section(EnrollmentForm));

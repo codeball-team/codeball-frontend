@@ -13,16 +13,16 @@ export const actions = createActions({
       load: noop
     })
   }
-});
+}).pitches;
 
 const ajaxActions = [
-  actions.pitches.load,
-  actions.pitches.loadFailure,
-  actions.pitches.loadSuccess
+  actions.load,
+  actions.loadFailure,
+  actions.loadSuccess
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
-  [newPitchActions.newPitch.submitSuccess]: (state, { payload: pitch }) => ({
+  [newPitchActions.submitSuccess]: (state, { payload: pitch }) => ({
     ...state,
     pitches: [
       ...state.pitches,
@@ -30,5 +30,5 @@ export default ajaxReducer(initialState, ajaxActions, {
     ]
   }),
 
-  [actions.pitches.loadSuccess]: (state, { payload: pitches }) => ({ ...initialState, pitches })
+  [actions.loadSuccess]: (state, { payload: pitches }) => ({ ...initialState, pitches })
 });

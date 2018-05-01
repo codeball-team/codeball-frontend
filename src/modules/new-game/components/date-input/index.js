@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onClickOutside: noop,
-  onSelect: (date) => dispatch(actions.newGame.changeDate(date.valueOf()))
+  onSelect: (date) => dispatch(actions.changeDate(date.valueOf()))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(Calendar));

@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onChange: actions.game.changeScoreB
+  onChange: actions.changeScoreB
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditableText);

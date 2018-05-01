@@ -14,12 +14,12 @@ import {
 } from 'game/api';
 
 export default function* gameSagas() {
-  yield takeLatest(actions.game.changeEnrollmentStatus, onChangeEnrollmentStatus);
-  yield throttle(API_THROTTLE, actions.game.closeEnrollment, onCloseEnrollment);
-  yield throttle(API_THROTTLE, actions.game.drawTeams, onDrawTeams);
-  yield throttle(API_THROTTLE, actions.game.end, onEnd);
-  yield takeLatest(actions.game.load, onLoad);
-  yield takeLatest(actions.game.saveScore, onSaveScore);
+  yield takeLatest(actions.changeEnrollmentStatus, onChangeEnrollmentStatus);
+  yield throttle(API_THROTTLE, actions.closeEnrollment, onCloseEnrollment);
+  yield throttle(API_THROTTLE, actions.drawTeams, onDrawTeams);
+  yield throttle(API_THROTTLE, actions.end, onEnd);
+  yield takeLatest(actions.load, onLoad);
+  yield takeLatest(actions.saveScore, onSaveScore);
 }
 
 function* onChangeEnrollmentStatus({ payload: enrollmentStatus }) {
@@ -27,9 +27,9 @@ function* onChangeEnrollmentStatus({ payload: enrollmentStatus }) {
   try {
     const gameId = yield select(selectGameId);
     const game = yield call(putChangeEnrollmentStatus, gameId, enrollmentStatus);
-    yield put(actions.game.changeEnrollmentStatusSuccess(game));
+    yield put(actions.changeEnrollmentStatusSuccess(game));
   } catch (error) {
-    yield put(actions.game.changeEnrollmentStatusFailure(error));
+    yield put(actions.changeEnrollmentStatusFailure(error));
   }
 }
 
@@ -37,9 +37,9 @@ function* onCloseEnrollment() {
   try {
     const gameId = yield select(selectGameId);
     const game = yield call(putCloseEnrollment, gameId);
-    yield put(actions.game.closeEnrollmentSuccess(game));
+    yield put(actions.closeEnrollmentSuccess(game));
   } catch (error) {
-    yield put(actions.game.closeEnrollmentFailure(error));
+    yield put(actions.closeEnrollmentFailure(error));
   }
 }
 
@@ -47,9 +47,9 @@ function* onDrawTeams() {
   try {
     const gameId = yield select(selectGameId);
     const game = yield call(putDrawTeams, gameId);
-    yield put(actions.game.drawTeamsSuccess(game));
+    yield put(actions.drawTeamsSuccess(game));
   } catch (error) {
-    yield put(actions.game.drawTeamsFailure(error));
+    yield put(actions.drawTeamsFailure(error));
   }
 }
 
@@ -57,10 +57,10 @@ function* onEnd() {
   try {
     const gameId = yield select(selectGameId);
     const game = yield call(putEnd, gameId);
-    yield put(actions.game.endSuccess(game));
+    yield put(actions.endSuccess(game));
     yield put(push(`/games/previous/${gameId}`));
   } catch (error) {
-    yield put(actions.game.endFailure(error));
+    yield put(actions.endFailure(error));
   }
 }
 
@@ -68,9 +68,9 @@ function* onLoad({ payload: gameId }) {
   yield call(delay, API_DEBOUNCE);
   try {
     const game = yield call(getGame, gameId);
-    yield put(actions.game.loadSuccess(game));
+    yield put(actions.loadSuccess(game));
   } catch (error) {
-    yield put(actions.game.loadFailure(error));
+    yield put(actions.loadFailure(error));
   }
 }
 
@@ -79,8 +79,8 @@ function* onSaveScore() {
   try {
     const { id, teamAScore, teamBScore } = yield select(selectEditableGame);
     const game = yield call(putScore, id, teamAScore, teamBScore);
-    yield put(actions.game.saveScoreSuccess(game));
+    yield put(actions.saveScoreSuccess(game));
   } catch (error) {
-    yield put(actions.game.saveScoreFailure(error));
+    yield put(actions.saveScoreFailure(error));
   }
 }

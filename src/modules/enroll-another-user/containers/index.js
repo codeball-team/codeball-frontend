@@ -12,10 +12,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onCancel: actions.enrollAnotherUser.cancel,
-  onEdit: actions.enrollAnotherUser.edit,
-  onMount: actions.enrollAnotherUser.reset,
-  onSave: actions.enrollAnotherUser.submit
+  onCancel: actions.cancel,
+  onEdit: actions.edit,
+  onMount: actions.reset,
+  onSave: actions.submit
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Section(EnrollAnotherUser));

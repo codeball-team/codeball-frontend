@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onChange: actions.newGame.changeDuration
+  onChange: actions.changeDuration
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(ValuePicker));

@@ -17,13 +17,13 @@ export const actions = createActions({
       submit: noop
     })
   }
-});
+}).newPitch;
 
 export default handleActions({
-  [actions.newPitch.changeAddress]: (state, { payload: address }) => ({ ...state, address }),
-  [actions.newPitch.changeMaxCapacity]: (state, { payload: maxCapacity }) => ({ ...state, maxCapacity }),
-  [actions.newPitch.changeMinCapacity]: (state, { payload: minCapacity }) => ({ ...state, minCapacity }),
-  [actions.newPitch.changeName]: (state, { payload: name }) => ({ ...state, name }),
-  [actions.newPitch.changeType]: (state, { payload: type }) => ({ ...state, type }),
-  [actions.newPitch.reset]: () => initialState
+  [actions.changeAddress]: (state, { payload: address }) => ({ ...state, address }),
+  [actions.changeMaxCapacity]: (state, { payload: maxCapacity }) => ({ ...state, maxCapacity }),
+  [actions.changeMinCapacity]: (state, { payload: minCapacity }) => ({ ...state, minCapacity }),
+  [actions.changeName]: (state, { payload: name }) => ({ ...state, name }),
+  [actions.changeType]: (state, { payload: type }) => ({ ...state, type }),
+  [actions.reset]: () => initialState
 }, initialState);

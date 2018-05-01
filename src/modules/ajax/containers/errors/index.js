@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onErrorAcknowledge: actions.ajax.acknowledge
+  onErrorAcknowledge: actions.acknowledge
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container(Errors));

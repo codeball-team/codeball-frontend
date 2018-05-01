@@ -12,8 +12,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, { match }) => ({
   updateData: () => {
-    dispatch(currentUserActions.currentUser.load());
-    dispatch(actions.pitch.load(match.params.id));
+    dispatch(currentUserActions.load());
+    dispatch(actions.load(match.params.id));
   }
 });
 

@@ -15,10 +15,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateData: () => {
-    dispatch(actions.games.load());
-    dispatch(currentUserActions.currentUser.load());
-    dispatch(pitchesActions.pitches.load());
-    dispatch(usersActions.users.load());
+    dispatch(actions.load());
+    dispatch(currentUserActions.load());
+    dispatch(pitchesActions.load());
+    dispatch(usersActions.load());
   }
 });
 

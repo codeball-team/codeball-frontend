@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onSubmit: actions.newUser.submit
+  onSubmit: actions.submit
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Section(NewUser));

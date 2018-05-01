@@ -34,14 +34,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch, { id, match }) => ({
-  onCloseEnrollment: () => dispatch(actions.game.closeEnrollment()),
-  onDrawTeams: () => dispatch(actions.game.drawTeams()),
-  onEndGame: () => dispatch(actions.game.end()),
+  onCloseEnrollment: () => dispatch(actions.closeEnrollment()),
+  onDrawTeams: () => dispatch(actions.drawTeams()),
+  onEndGame: () => dispatch(actions.end()),
   updateData: () => {
-    dispatch(currentUserActions.currentUser.load());
-    dispatch(actions.game.load(id || match.params.id));
-    dispatch(pitchesActions.pitches.load());
-    dispatch(usersActions.users.load());
+    dispatch(currentUserActions.load());
+    dispatch(actions.load(id || match.params.id));
+    dispatch(pitchesActions.load());
+    dispatch(usersActions.load());
   }
 });
 

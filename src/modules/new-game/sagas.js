@@ -8,8 +8,8 @@ import { selectNewGamePayload } from 'new-game/selectors';
 import { postNewGame } from 'new-game/api';
 
 export default function* newGameSagas() {
-  yield takeLatest(actions.newGame.reset, onReset);
-  yield takeLatest(actions.newGame.submit, onSubmit);
+  yield takeLatest(actions.reset, onReset);
+  yield takeLatest(actions.submit, onSubmit);
 }
 
 function* onReset() {
@@ -24,9 +24,9 @@ function* onSubmit() {
   try {
     const newGame = yield select(selectNewGamePayload);
     const game = yield call(postNewGame, newGame);
-    yield put(actions.newGame.submitSuccess(game));
+    yield put(actions.submitSuccess(game));
     yield put(push(`/games/upcoming/${game.id}`));
   } catch (error) {
-    yield put(actions.newGame.submitFailure(error));
+    yield put(actions.submitFailure(error));
   }
 }

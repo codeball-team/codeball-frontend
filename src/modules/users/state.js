@@ -14,16 +14,16 @@ export const actions = createActions({
       load: noop
     })
   }
-});
+}).users;
 
 const ajaxActions = [
-  actions.users.load,
-  actions.users.loadFailure,
-  actions.users.loadSuccess
+  actions.load,
+  actions.loadFailure,
+  actions.loadSuccess
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
-  [currentUserActions.currentUser.loadSuccess]: (state, { payload: user }) => {
+  [currentUserActions.loadSuccess]: (state, { payload: user }) => {
     const { users } = state;
     const userIndex = users.findIndex(({ id }) => id === user.id);
 
@@ -37,7 +37,7 @@ export default ajaxReducer(initialState, ajaxActions, {
     };
   },
 
-  [newUserActions.newUser.submitSuccess]: (state, { payload: user }) => ({
+  [newUserActions.submitSuccess]: (state, { payload: user }) => ({
     ...state,
     users: [
       ...state.users,
@@ -45,5 +45,5 @@ export default ajaxReducer(initialState, ajaxActions, {
     ]
   }),
 
-  [actions.users.loadSuccess]: (state, { payload: users }) => ({ ...initialState, users })
+  [actions.loadSuccess]: (state, { payload: users }) => ({ ...initialState, users })
 });

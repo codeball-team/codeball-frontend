@@ -4,14 +4,14 @@ import { getGames } from 'games/api';
 import { actions } from 'games/state';
 
 export default function* gamesSagas() {
-  yield throttle(API_THROTTLE, actions.games.load, onLoad);
+  yield throttle(API_THROTTLE, actions.load, onLoad);
 }
 
 function* onLoad() {
   try {
     const games = yield call(getGames);
-    yield put(actions.games.loadSuccess(games));
+    yield put(actions.loadSuccess(games));
   } catch (error) {
-    yield put(actions.games.loadFailure(error));
+    yield put(actions.loadFailure(error));
   }
 }

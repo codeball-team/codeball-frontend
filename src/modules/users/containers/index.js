@@ -13,8 +13,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateData: () => {
-    dispatch(currentUserActions.currentUser.load());
-    dispatch(actions.users.load());
+    dispatch(currentUserActions.load());
+    dispatch(actions.load());
   }
 });
 

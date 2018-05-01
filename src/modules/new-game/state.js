@@ -17,13 +17,13 @@ export const actions = createActions({
       submit: noop
     })
   }
-});
+}).newGame;
 
 export default handleActions({
-  [actions.newGame.changeDate]: (state, { payload: date }) => ({ ...state, date }),
-  [actions.newGame.changeDuration]: (state, { payload: duration }) => ({ ...state, duration }),
-  [actions.newGame.changeHour]: (state, { payload: hour }) => ({ ...state, hour }),
-  [actions.newGame.changeMinute]: (state, { payload: minute }) => ({ ...state, minute }),
-  [actions.newGame.changePitchId]: (state, { payload: pitchId }) => ({ ...state, pitchId }),
-  [actions.newGame.reset]: () => initialState
+  [actions.changeDate]: (state, { payload: date }) => ({ ...state, date }),
+  [actions.changeDuration]: (state, { payload: duration }) => ({ ...state, duration }),
+  [actions.changeHour]: (state, { payload: hour }) => ({ ...state, hour }),
+  [actions.changeMinute]: (state, { payload: minute }) => ({ ...state, minute }),
+  [actions.changePitchId]: (state, { payload: pitchId }) => ({ ...state, pitchId }),
+  [actions.reset]: () => initialState
 }, initialState);

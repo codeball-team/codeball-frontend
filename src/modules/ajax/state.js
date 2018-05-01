@@ -19,10 +19,10 @@ export const actions = createActions({
     start: normalizeType,
     success: normalizeType
   }
-});
+}).ajax;
 
 export default handleActions({
-  [actions.ajax.acknowledge]: (state, { payload: errorIndex }) => ({
+  [actions.acknowledge]: (state, { payload: errorIndex }) => ({
     ...state,
     errors: [
       ...state.errors.slice(0, errorIndex),
@@ -30,18 +30,18 @@ export default handleActions({
     ]
   }),
 
-  [actions.ajax.failure]: (state, { payload: { error, type } }) => ({
+  [actions.failure]: (state, { payload: { error, type } }) => ({
     ...state,
     errors: uniqueBy([ ...state.errors, error ], JSON.stringify),
     pending: state.pending.filter((pending) => pending !== type)
   }),
 
-  [actions.ajax.start]: (state, { payload: type }) => ({
+  [actions.start]: (state, { payload: type }) => ({
     ...state,
     pending: [ ...state.pending, type ]
   }),
 
-  [actions.ajax.success]: (state, { payload: type }) => ({
+  [actions.success]: (state, { payload: type }) => ({
     ...state,
     pending: state.pending.filter((pending) => pending !== type)
   })

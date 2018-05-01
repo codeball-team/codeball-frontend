@@ -5,15 +5,15 @@ import { getPitch } from 'pitch/api';
 import { actions } from 'pitch/state';
 
 export default function* pitchSagas() {
-  yield takeLatest(actions.pitch.load, onLoad);
+  yield takeLatest(actions.load, onLoad);
 }
 
 function* onLoad({ payload: pitchId }) {
   yield call(delay, API_DEBOUNCE);
   try {
     const pitch = yield call(getPitch, pitchId);
-    yield put(actions.pitch.loadSuccess(pitch));
+    yield put(actions.loadSuccess(pitch));
   } catch (error) {
-    yield put(actions.pitch.loadFailure(error));
+    yield put(actions.loadFailure(error));
   }
 }

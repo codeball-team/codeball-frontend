@@ -8,8 +8,8 @@ import { selectNewPitchPayload } from 'new-pitch/selectors';
 import { postNewPitch } from 'new-pitch/api';
 
 export default function* newPitchSagas() {
-  yield takeLatest(actions.newPitch.reset, onReset);
-  yield takeLatest(actions.newPitch.submit, onSubmit);
+  yield takeLatest(actions.reset, onReset);
+  yield takeLatest(actions.submit, onSubmit);
 }
 
 function* onReset() {
@@ -26,9 +26,9 @@ function* onSubmit() {
   try {
     const newPitch = yield select(selectNewPitchPayload);
     const pitch = yield call(postNewPitch, newPitch);
-    yield put(actions.newPitch.submitSuccess(pitch));
+    yield put(actions.submitSuccess(pitch));
     yield put(push(`/pitches/${pitch.id}`));
   } catch (error) {
-    yield put(actions.newPitch.submitFailure(error));
+    yield put(actions.submitFailure(error));
   }
 }

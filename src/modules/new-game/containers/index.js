@@ -12,11 +12,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onMount: () => dispatch(actions.newGame.reset()),
-  onSubmit: () => dispatch(actions.newGame.submit()),
+  onMount: () => dispatch(actions.reset()),
+  onSubmit: () => dispatch(actions.submit()),
   updateData: () => {
-    dispatch(currentUserActions.currentUser.load());
-    dispatch(pitchesActions.pitches.load());
+    dispatch(currentUserActions.load());
+    dispatch(pitchesActions.load());
   }
 });
 

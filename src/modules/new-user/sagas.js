@@ -8,8 +8,8 @@ import { selectNewUserPayload } from 'new-user/selectors';
 import { postNewUser } from 'new-user/api';
 
 export default function* newUserSagas() {
-  yield takeLatest(actions.newUser.reset, onReset);
-  yield takeLatest(actions.newUser.submit, onSubmit);
+  yield takeLatest(actions.reset, onReset);
+  yield takeLatest(actions.submit, onSubmit);
 }
 
 function* onReset() {
@@ -26,9 +26,9 @@ function* onSubmit() {
   try {
     const newUser = yield select(selectNewUserPayload);
     const user = yield call(postNewUser, newUser);
-    yield put(actions.newUser.submitSuccess(user));
+    yield put(actions.submitSuccess(user));
     yield put(push(`/players/${user.id}`));
   } catch (error) {
-    yield put(actions.newUser.submitFailure(error));
+    yield put(actions.submitFailure(error));
   }
 }

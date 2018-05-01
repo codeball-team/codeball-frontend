@@ -12,14 +12,14 @@ export const actions = createActions({
       load: noop
     })
   }
-});
+}).currentUser;
 
 const ajaxActions = [
-  actions.currentUser.load,
-  actions.currentUser.loadFailure,
-  actions.currentUser.loadSuccess
+  actions.load,
+  actions.loadFailure,
+  actions.loadSuccess
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
-  [actions.currentUser.loadSuccess]: (state, { payload: currentUser }) => ({ ...initialState, currentUser })
+  [actions.loadSuccess]: (state, { payload: currentUser }) => ({ ...initialState, currentUser })
 });

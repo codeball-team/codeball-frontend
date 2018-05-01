@@ -4,14 +4,14 @@ import { getCurrentUser } from 'current-user/api';
 import { actions } from 'current-user/state';
 
 export default function* currentUserSagas() {
-  yield throttle(API_THROTTLE, actions.currentUser.load, onLoad);
+  yield throttle(API_THROTTLE, actions.load, onLoad);
 }
 
 function* onLoad() {
   try {
     const currentUser = yield call(getCurrentUser);
-    yield put(actions.currentUser.loadSuccess(currentUser));
+    yield put(actions.loadSuccess(currentUser));
   } catch (error) {
-    yield put(actions.currentUser.loadFailure(error));
+    yield put(actions.loadFailure(error));
   }
 }

@@ -11,10 +11,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onMount: () => dispatch(actions.newUser.reset()),
-  onSubmit: () => dispatch(actions.newUser.submit()),
+  onMount: () => dispatch(actions.reset()),
+  onSubmit: () => dispatch(actions.submit()),
   updateData: () => {
-    dispatch(currentUserActions.currentUser.load());
+    dispatch(currentUserActions.load());
   }
 });
 

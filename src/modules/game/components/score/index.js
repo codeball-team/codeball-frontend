@@ -13,9 +13,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onCancel: actions.game.editCancel,
-  onEdit: actions.game.edit,
-  onSave: actions.game.saveScore
+  onCancel: actions.editCancel,
+  onEdit: actions.edit,
+  onSave: actions.saveScore
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Section(Score));

@@ -25,32 +25,32 @@ export const actions = createActions({
       saveScore: noop
     })
   }
-});
+}).game;
 
 const ajaxActions = [
-  actions.game.load,
-  actions.game.loadFailure,
-  actions.game.loadSuccess
+  actions.load,
+  actions.loadFailure,
+  actions.loadSuccess
 ];
 
 export default ajaxReducer(initialState, ajaxActions, {
   [combineActions(
-    actions.game.changeEnrollmentStatusSuccess,
-    actions.game.closeEnrollmentSuccess,
-    actions.game.drawTeamsSuccess,
-    actions.game.endSuccess,
-    actions.game.loadSuccess,
-    actions.game.saveScoreSuccess,
-    enrollAnotherUserActions.enrollAnotherUser.submitSuccess,
-    newGameActions.newGame.submitSuccess
+    actions.changeEnrollmentStatusSuccess,
+    actions.closeEnrollmentSuccess,
+    actions.drawTeamsSuccess,
+    actions.endSuccess,
+    actions.loadSuccess,
+    actions.saveScoreSuccess,
+    enrollAnotherUserActions.submitSuccess,
+    newGameActions.submitSuccess
   )]: (state, { payload: game }) => ({ ...initialState, game }),
 
   [combineActions(
-    actions.game.saveScoreFailure,
-    newGameActions.newGame.submitFailure
+    actions.saveScoreFailure,
+    newGameActions.submitFailure
   )]: (state) => ({ ...state, isEditing: true }),
 
-  [actions.game.edit]: (state) => ({
+  [actions.edit]: (state) => ({
     ...state,
     editedGame: {
       ...state.game
@@ -58,13 +58,13 @@ export default ajaxReducer(initialState, ajaxActions, {
     isEditing: true
   }),
 
-  [actions.game.editCancel]: (state) => ({
+  [actions.editCancel]: (state) => ({
     ...state,
     editedGame: initialState.editedGame,
     isEditing: false
   }),
 
-  [actions.game.changeScoreA]: (state, { payload: teamAScore }) => ({
+  [actions.changeScoreA]: (state, { payload: teamAScore }) => ({
     ...state,
     editedGame: {
       ...state.editedGame,
@@ -72,7 +72,7 @@ export default ajaxReducer(initialState, ajaxActions, {
     }
   }),
 
-  [actions.game.changeScoreB]: (state, { payload: teamBScore }) => ({
+  [actions.changeScoreB]: (state, { payload: teamBScore }) => ({
     ...state,
     editedGame: {
       ...state.editedGame,

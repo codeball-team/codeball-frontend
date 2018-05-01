@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onChange: actions.newPitch.changeType
+  onChange: actions.changeType
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input(ValuePicker));
