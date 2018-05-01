@@ -1,3 +1,5 @@
+// https://github.com/Hacker0x01/react-datepicker/issues/1361
+
 const fs = require('fs');
 
 const missingLine = 'module.exports.Calendar = WrappedCalendar;';
