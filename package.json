@@ -81,7 +81,6 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "defaults": "^1.0.3",
-    "fastclick": "^1.0.6",
     "history": "^4.7.2",
     "js-md5": "0.7.3",
     "moment": "^2.22.1",

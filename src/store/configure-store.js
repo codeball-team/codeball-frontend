@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import reduxSaga from 'redux-saga';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { routerMiddleware } from 'react-router-redux';
-import rootReducer from './reducers';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import reduxSaga from 'redux-saga';
+import reducer from './reducer';
 import sagas from './sagas';
 
 const composer = process.env.NODE_ENV === 'development' ? composeWithDevTools : compose;
@@ -11,21 +11,20 @@ const sagaMiddleware = createSagaMiddleware();
 const initialState = undefined;
 
 export default (history) => {
-  const store = createStore(rootReducer, initialState, createEnhancer(history));
+  const store = createStore(reducer, initialState, createEnhancer(history));
   sagaMiddleware.run(sagas);
   enableHmrForReducers(store);
   return store;
 };
 
-const createEnhancer = (history) => composer(applyMiddleware(
+const createEnhancer = (history) => compose(applyMiddleware(
   sagaMiddleware,
   routerMiddleware(history)
 ));
 
 const enableHmrForReducers = (store) => {
   if (module.hot) {
-    module.hot.accept('./reducers', () =>
-      store.replaceReducer(require('./reducers').default)
-    );
+    const replaceReducer = () => store.replaceReducer(require('./reducer').default);
+    module.hot.accept('./reducer', replaceReducer);
   }
 };
