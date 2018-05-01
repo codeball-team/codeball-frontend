@@ -1,18 +1,16 @@
-.user-profile {
-  .picture {
-    width: 128px;
-    height: 128px;
-    margin-bottom: $spacing-s;
-    background-color: $highlight-color;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50%;
-  }
+.picture {
+  width: 128px;
+  height: 128px;
+  margin-bottom: $spacing-s;
+  background-color: $highlight-color;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
 
-  .info {
-    .info-row {
-      @include ellipsis;
-      margin-bottom: $spacing-s;
-    }
+.info {
+  .info-row {
+    @include ellipsis;
+    margin-bottom: $spacing-s;
   }
 }

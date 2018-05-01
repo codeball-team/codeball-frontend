@@ -20,3 +20,4 @@ export const selectUsersOptions = createSelector(
     value: id
   }))
 );
+export const selectTitle = createSelector(selectUsers, (users) => `Players (${users.length})`);

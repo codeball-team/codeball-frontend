@@ -8,7 +8,8 @@ import Score from './component';
 const mapStateToProps = (state) => ({
   canEdit: selectCanEditGameScore(state),
   isEditable: true,
-  isEditing: selectIsEditing(state)
+  isEditing: selectIsEditing(state),
+  title: 'Result'
 });
 
 const mapDispatchToProps = {

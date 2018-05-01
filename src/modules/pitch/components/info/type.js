@@ -4,7 +4,7 @@ import { PITCH_TYPE_STRING } from 'constants';
 import { Icon } from 'components';
 import styles from './styles.scss';
 
-const PitchType = ({ type }) => (
+const Type = ({ type }) => (
   <div className={styles.info} title="Pitch type">
     <Icon name="layers" />
     <a href="http://www.worldsoccershop.com/buyers-guide-boots.html">
@@ -13,8 +13,8 @@ const PitchType = ({ type }) => (
   </div>
 );
 
-PitchType.propTypes = {
+Type.propTypes = {
   type: PropTypes.string
 };
 
-export default PitchType;
+export default Type;

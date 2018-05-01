@@ -2,14 +2,12 @@ import _ from 'underscore';
 import { createActions, handleActions } from 'redux-actions';
 import ErrorModel from 'ajax/model';
 
+const normalizeType = (type) => type.replace('Success', '').replace('Failure', '');
+
 const initialState = {
   errors: [],
   pending: []
 };
-
-const normalizeType = (type) => type
-  .replace('Success', '')
-  .replace('Failure', '');
 
 export const actions = createActions({
   ajax: {

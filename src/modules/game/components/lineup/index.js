@@ -5,7 +5,8 @@ import Lineup from './component';
 
 const mapStateToProps = (state) => ({
   teamA: selectTeamAUsers(state),
-  teamB: selectTeamBUsers(state)
+  teamB: selectTeamBUsers(state),
+  title: 'Lineups'
 });
 
 export default connect(mapStateToProps)(Section(Lineup));

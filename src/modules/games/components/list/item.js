@@ -1,37 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, ListItem } from 'components';
+import DateTime from './date-time';
+import Pitch from './pitch';
+import Score from './score';
 import styles from './styles.scss';
 
-const Item = ({
-  game: {
-    id,
-    date,
-    pitch: {
-      name: pitchName
-    },
-    teamAScore,
-    teamBScore,
-    time
-  },
-  hideScore,
-  urlFormatter
-}) => (
-  <Link to={urlFormatter(id)}>
+const Item = ({ game, hideScore, urlFormatter }) => (
+  <Link to={urlFormatter(game.id)}>
     <ListItem className={styles.gamesListItem}>
-      <div className={styles.dateTime}>
-        {date} {time}
-      </div>
-
-      <div className={styles.pitch}>
-        {pitchName}
-      </div>
-
-      {!hideScore && (
-        <div className={styles.score}>
-          {teamAScore} : {teamBScore}
-        </div>
-      )}
+      <DateTime date={game.date} time={game.time} />
+      <Pitch pitch={game.pitch} />
+      <Score
+        hideScore={hideScore}
+        teamAScore={game.teamAScore}
+        teamBScore={game.teamBScore} />
     </ListItem>
   </Link>
 );

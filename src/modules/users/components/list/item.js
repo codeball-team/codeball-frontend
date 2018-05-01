@@ -1,32 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { USER_MISSING_PICTURE_URL } from 'constants';
 import { Link, ListItem } from 'components';
+import Picture from './picture';
+import Name from './name';
 import styles from './styles.scss';
 
-const Item = ({
-  children,
-  className,
-  user: {
-    firstName,
-    id,
-    lastName,
-    pictureUrl
-  }
-}) => (
-  <Link to={`/players/${id}`}>
+const Item = ({ children, className, user }) => (
+  <Link to={`/players/${user.id}`}>
     <ListItem className={classNames(styles.usersListItem, className)}>
-      <div
-        className={styles.picture}
-        style={{
-          backgroundImage: `url("${pictureUrl || USER_MISSING_PICTURE_URL}")`
-        }} />
-
-      <div className={styles.name}>
-        {lastName} {firstName}
-      </div>
-
+      <Picture url={user.pictureUrl} />
+      <Name firstName={user.firstName} lastName={user.lastName} />
       {children}
     </ListItem>
   </Link>

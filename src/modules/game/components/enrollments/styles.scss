@@ -1,15 +1,9 @@
-.game-enrollment {
-  .game-enrollment-list {
-    .game-enrollment-list-item {
-      .enrollment-status {
-        @include flex-child;
-        margin-left: $spacing-s;
+.enrollment-status {
+  @include flex-child;
+  margin-left: $spacing-s;
 
-        @include phone {
-          display: none;
-        }
-      }
-    }
+  @include phone {
+    display: none;
   }
 }
 

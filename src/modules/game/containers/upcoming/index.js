@@ -15,7 +15,6 @@ import {
   selectDataIsLoading,
   selectIsEnrollmentOver,
   selectIsGameOver,
-  selectNumberOfEnrolledUsers,
   selectNumberOfNotEnrolledUsers
 } from 'game/selectors';
 import { Container } from 'components';
@@ -31,7 +30,6 @@ const mapStateToProps = (state) => ({
   isEnrollmentOver: selectIsEnrollmentOver(state),
   isGameOver: selectIsGameOver(state),
   isLoading: selectDataIsLoading(state),
-  numberOfEnrolledUsers: selectNumberOfEnrolledUsers(state),
   numberOfNotEnrolledUsers: selectNumberOfNotEnrolledUsers(state)
 });
 

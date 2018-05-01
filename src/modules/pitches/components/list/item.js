@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, ListItem } from 'components';
+import Address from './address';
+import Name from './name';
 import styles from './styles.scss';
 
-const Item = ({ children, pitch: { address, id, name } }) => (
-  <Link to={`/pitches/${id}`}>
+const Item = ({ children, pitch }) => (
+  <Link to={`/pitches/${pitch.id}`}>
     <ListItem className={styles.pitchesListItem}>
-      <div className={styles.name}>
-        {name}
-      </div>
-
-      <div className={styles.address}>
-        {address}
-      </div>
-
+      <Name name={pitch.name} />
+      <Address address={pitch.address} />
       {children}
     </ListItem>
   </Link>

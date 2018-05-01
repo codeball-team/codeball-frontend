@@ -13,3 +13,4 @@ export const selectPitchesOptions = createSelector(selectPitches, (pitches) => p
   label: pitch.name,
   value: pitch.id
 })));
+export const selectTitle = createSelector(selectPitches, (pitches) => `Pitches (${pitches.length})`);

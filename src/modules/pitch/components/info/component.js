@@ -4,22 +4,22 @@ import classNames from 'classnames';
 import _ from 'underscore';
 import { PITCH_TYPE_STRING } from 'constants';
 import { Render } from 'components';
-import PitchAddress from './address';
-import PitchCapacity from './capacity';
-import PitchType from './type';
-import PitchWebpage from './webpage';
+import Address from './address';
+import Capacity from './capacity';
+import Type from './type';
+import Webpage from './webpage';
 import styles from './styles.scss';
 
 const Info = ({ className, pitch: { address, maxCapacity, minCapacity, type, url } }) => (
   <div className={classNames(styles.pitchInfo, className)}>
-    <PitchAddress address={address} />
+    <Address address={address} />
     <Render when={!_.isUndefined(url)}>
-      <PitchWebpage url={url} />
+      <Webpage url={url} />
     </Render>
     <Render when={!_.isUndefined(PITCH_TYPE_STRING[type])}>
-      <PitchType type={type} />
+      <Type type={type} />
     </Render>
-    <PitchCapacity maxCapacity={maxCapacity} minCapacity={minCapacity} />
+    <Capacity maxCapacity={maxCapacity} minCapacity={minCapacity} />
   </div>
 );
 

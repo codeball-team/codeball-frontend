@@ -17,7 +17,6 @@ const Upcoming = ({
   hasLoaded,
   isEnrollmentOver,
   isGameOver,
-  numberOfEnrolledUsers,
   numberOfNotEnrolledUsers,
   onCloseEnrollment,
   onDrawTeams,
@@ -46,19 +45,19 @@ const Upcoming = ({
     </Render>
 
     <Render when={canEnroll && hasLoaded && !isEnrollmentOver}>
-      <EnrollmentForm title="Are you going?" />
+      <EnrollmentForm />
     </Render>
 
     <Render when={canEnrollAnotherUser && hasLoaded && !isEnrollmentOver && numberOfNotEnrolledUsers > 0}>
-      <EnrollAnotherUser title="Enroll another player" />
+      <EnrollAnotherUser />
     </Render>
 
     <Render when={hasLoaded && isEnrollmentOver}>
-      <Lineup title="Lineups" />
+      <Lineup />
     </Render>
 
     <Render when={hasLoaded}>
-      <Enrollments title={`Enrolled players (${numberOfEnrolledUsers})`} />
+      <Enrollments />
     </Render>
   </main>
 );
@@ -72,7 +71,6 @@ Upcoming.propTypes = {
   hasLoaded: PropTypes.bool,
   isEnrollmentOver: PropTypes.bool,
   isGameOver: PropTypes.bool,
-  numberOfEnrolledUsers: PropTypes.number,
   numberOfNotEnrolledUsers: PropTypes.number,
   onCloseEnrollment: PropTypes.func.isRequired,
   onDrawTeams: PropTypes.func.isRequired,

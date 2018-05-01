@@ -5,7 +5,7 @@ import styles from './styles.scss';
 
 const getMapsUrl = (address) => `https://www.google.com/maps/?q=${encodeURIComponent(address)}`;
 
-const PitchAddress = ({ address }) => (
+const Address = ({ address }) => (
   <div className={styles.info} title="Pitch address">
     <Icon name="location" />
     <a href={getMapsUrl(address)}>
@@ -14,8 +14,8 @@ const PitchAddress = ({ address }) => (
   </div>
 );
 
-PitchAddress.propTypes = {
+Address.propTypes = {
   address: PropTypes.string
 };
 
-export default PitchAddress;
+export default Address;

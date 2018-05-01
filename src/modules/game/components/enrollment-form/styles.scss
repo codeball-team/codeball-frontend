@@ -1,32 +1,32 @@
 .game-enrollment-form {
   @include flex-parent(center, flex-start);
   align-content: stretch;
+}
 
-  .option {
-    @include flex-child-grow(100%);
-    padding: $spacing-s;
-    border: 0;
-    font-size: $font-size-s;
-    margin-right: $spacing-m;
+.option {
+  @include flex-child-grow(100%);
+  padding: $spacing-s;
+  border: 0;
+  font-size: $font-size-s;
+  margin-right: $spacing-m;
 
-    @include small-phone {
-      margin-right: $spacing-s;
-    }
+  @include small-phone {
+    margin-right: $spacing-s;
+  }
 
-    &:last-child {
-      margin-right: 0;
-    }
+  &:last-child {
+    margin-right: 0;
+  }
 
-    &.yes {
-      @include clickable-effects($bg-color-success);
-    }
+  &.yes {
+    @include clickable-effects($bg-color-success);
+  }
 
-    &.no {
-      @include clickable-effects($bg-color-danger);
-    }
+  &.no {
+    @include clickable-effects($bg-color-danger);
+  }
 
-    &.maybe {
-      @include clickable-effects($bg-color-default-alert);
-    }
+  &.maybe {
+    @include clickable-effects($bg-color-default-alert);
   }
 }

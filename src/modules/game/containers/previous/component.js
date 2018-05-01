@@ -12,8 +12,8 @@ const Previous = ({ hasLoaded }) => (
     </Render>
 
     <Render when={hasLoaded}>
-      <Score title="Result" />
-      <Lineup title="Lineups" />
+      <Score />
+      <Lineup />
     </Render>
   </main>
 );

@@ -22,7 +22,15 @@ export const selectPreviousGames = createSelector(
   selectGames,
   (games) => games.filter(({ isGameOver }) => isGameOver)
 );
+export const selectPreviousGamesTitle = createSelector(
+  [ selectPreviousGames ],
+  (games) => `Previous games (${games.length})`
+);
 export const selectUpcomingGames = createSelector(
   selectGames,
   (games) => games.filter(({ isGameOver }) => !isGameOver)
+);
+export const selectUpcomingGamesTitle = createSelector(
+  [ selectUpcomingGames ],
+  (games) => `Upcoming games (${games.length})`
 );

@@ -90,3 +90,8 @@ export const selectTeamBUsers = createSelector([ selectUsers, selectTeamB ], map
 export const selectDate = createSelector(selectGame, ({ date }) => date);
 export const selectDuration = createSelector(selectGame, ({ duration }) => duration);
 export const selectTime = createSelector(selectGame, ({ time }) => time);
+
+export const selectEnrollmentsTitle = createSelector(
+  [ selectNumberOfEnrolledUsers ],
+  (numberOfEnrolledUsers) => `Enrolled players (${numberOfEnrolledUsers})`
+);

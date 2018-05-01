@@ -7,7 +7,8 @@ import EnrollAnotherUser from './component';
 const mapStateToProps = (state) => ({
   canEdit: true,
   isEditable: true,
-  isEditing: selectIsEditing(state)
+  isEditing: selectIsEditing(state),
+  title: 'Enroll another player'
 });
 
 const mapDispatchToProps = {
