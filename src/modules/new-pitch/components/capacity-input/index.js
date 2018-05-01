@@ -8,7 +8,7 @@ import {
   selectMinCapacity,
   selectMinCapacityOptions
 } from 'new-pitch/selectors';
-import { InputWrapper, RangePicker } from 'components';
+import { Input, RangePicker } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectCapacityDisplayValue(state),
@@ -27,4 +27,4 @@ const mapDispatchToProps = {
   onMinChange: actions.newPitch.changeMinCapacity
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(RangePicker));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(RangePicker));

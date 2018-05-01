@@ -5,10 +5,10 @@ import { periodicCallback } from 'utils';
 import { AUTO_REFRESH_DELAY } from 'constants';
 import { LoadableContent } from 'components';
 
-const Container = (ComponentClass) => {
+const CreateContainer = (ComponentClass) => {
   const periodicUpdates = periodicCallback(AUTO_REFRESH_DELAY);
 
-  class Wrapper extends Component {
+  class Container extends Component {
     static propTypes = {
       id: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
       isLoading: PropTypes.bool,
@@ -59,7 +59,7 @@ const Container = (ComponentClass) => {
     }
   }
 
-  return withRouter(Wrapper);
+  return withRouter(Container);
 };
 
-export default Container;
+export default CreateContainer;

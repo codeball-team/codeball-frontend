@@ -8,7 +8,7 @@ export Button from './button';
 export ButtonsPanel from './buttons-panel';
 export Container from './container';
 export Errors from './errors';
-export Form, { EditableText, InputWrapper, NumberPicker, RangePicker, ValuePicker } from './form';
+export Form, { EditableText, Input, NumberPicker, RangePicker, ValuePicker } from './form';
 export Icon from './icon';
 export IconButton from './icon-button';
 export Link from './link';

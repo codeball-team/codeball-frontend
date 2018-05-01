@@ -4,7 +4,7 @@ import { MONTH_YEAR_FORMAT } from 'constants';
 import { noop } from 'utils';
 import { actions } from 'new-game/state';
 import { selectDateDisplayValue, selectDateIsValid, selectSelectedDate } from 'new-game/selectors';
-import { Calendar, InputWrapper } from 'components';
+import { Calendar, Input } from 'components';
 
 const mapStateToProps = (state) => ({
   dateFormat: MONTH_YEAR_FORMAT,
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch) => ({
   onSelect: (date) => dispatch(actions.newGame.changeDate(date.valueOf()))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(Calendar));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(Calendar));

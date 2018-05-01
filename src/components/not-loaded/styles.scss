@@ -1,19 +1,19 @@
 .not-loaded {
   text-align: center;
+}
 
-  .message {
-    margin: $spacing-l;
+.message {
+  margin: $spacing-l;
+}
+
+.button {
+  margin: $spacing-l;
+
+  .icon {
+    margin-right: $spacing-xs;
   }
 
-  .button {
-    margin: $spacing-l;
-
-    .icon {
-      margin-right: $spacing-xs;
-    }
-
-    .label {
-      display: inline;
-    }
+  .label {
+    display: inline;
   }
 }

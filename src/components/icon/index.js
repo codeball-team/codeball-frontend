@@ -8,9 +8,7 @@ const Icon = ({ className, name, ...restProps }) => {
   const IconComponent = icons[name];
 
   return (
-    <IconComponent
-      {...restProps}
-      className={classNames(styles.icon, className)} />
+    <IconComponent className={classNames(styles.icon, className)} {...restProps} />
   );
 };
 

@@ -22,11 +22,11 @@ $spinner-size: 40px;
   &.visible {
     opacity: 1;
   }
+}
 
-  .spinner-image {
-    color: $fg-color;
-    width: $spinner-size;
-    height: $spinner-size;
-    animation: spin 1.4s linear infinite;
-  }
+.spinner-image {
+  color: $fg-color;
+  width: $spinner-size;
+  height: $spinner-size;
+  animation: spin 1.4s linear infinite;
 }

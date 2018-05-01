@@ -19,9 +19,9 @@ const RangePicker = ({
   <div className={classNames(styles.rangePicker, className)}>
     <NumberPicker
       className={styles.minPicker}
-      values={minOptions}
       value={min}
       valueFormatter={valueFormatter}
+      values={minOptions}
       vertical={vertical}
       onChange={onMinChange} />
 
@@ -29,9 +29,9 @@ const RangePicker = ({
 
     <NumberPicker
       className={styles.maxPicker}
-      values={maxOptions}
       value={max}
       valueFormatter={valueFormatter}
+      values={maxOptions}
       vertical={vertical}
       onChange={onMaxChange} />
   </div>

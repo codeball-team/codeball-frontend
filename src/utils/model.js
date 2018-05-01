@@ -1,9 +1,10 @@
 import _ from 'underscore';
+import { noop } from 'utils';
 
 export default (options) => {
   const {
     getDefaultAttributes,
-    fromServerFormat = _.noop,
+    fromServerFormat = noop,
     validators = {},
     ...otherStatic
   } = options;

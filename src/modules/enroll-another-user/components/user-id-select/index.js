@@ -6,7 +6,7 @@ import {
   selectUserIdDisplayValue,
   selectUserIdIsValid
 } from 'enroll-another-user/selectors';
-import { InputWrapper } from 'components';
+import { Input } from 'components';
 import UserIdSelect from './component';
 
 const mapStateToProps = (state) => ({
@@ -21,4 +21,4 @@ const mapDispatchToProps = {
   onChange: actions.enrollAnotherUser.changeUserId
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(UserIdSelect));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(UserIdSelect));

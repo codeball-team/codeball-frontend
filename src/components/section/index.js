@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
+import { noop } from 'utils';
 import { CancelButton, EditButton, SaveButton, ButtonsPanel, Render } from 'components';
 import styles from './styles.scss';
 
-const SectionDecorator = (ChildComponent) => {
+const CreateSection = (ChildComponent) => {
   const Section = (props) => {
     const {
       buttons,
@@ -13,9 +14,9 @@ const SectionDecorator = (ChildComponent) => {
       isEditable,
       isEditing,
       title,
-      onCancel = _.noop,
-      onEdit = _.noop,
-      onSave = _.noop
+      onCancel = noop,
+      onEdit = noop,
+      onSave = noop
     } = props;
     const childProps = {
       ..._(props).omit(_(Section.propTypes).keys()),
@@ -30,30 +31,12 @@ const SectionDecorator = (ChildComponent) => {
           </div>
 
           <ButtonsPanel className={styles.buttonsPanel}>
-            <Render
-              when={[
-                canEdit,
-                isEditable,
-                !isEditing
-              ]}>
+            <Render when={canEdit && isEditable && !isEditing}>
               <EditButton onClick={onEdit} />
             </Render>
 
-            <Render
-              when={[
-                canEdit,
-                isEditable,
-                isEditing
-              ]}>
+            <Render when={canEdit && isEditable && isEditing}>
               <CancelButton onClick={onCancel} />
-            </Render>
-
-            <Render
-              when={[
-                canEdit,
-                isEditable,
-                isEditing
-              ]}>
               <SaveButton isDisabled={!canSubmit} onClick={onSave} />
             </Render>
 
@@ -81,4 +64,4 @@ const SectionDecorator = (ChildComponent) => {
   return Section;
 };
 
-export default SectionDecorator;
+export default CreateSection;

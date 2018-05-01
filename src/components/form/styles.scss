@@ -1,17 +1,15 @@
-.form {
-  .submit-button-container {
-    text-align: right;
+.submit-button-container {
+  text-align: right;
+}
 
-    .submit-button {
-      margin-top: $spacing-l;
+.submit-button {
+  margin-top: $spacing-l;
 
-      .icon {
-        margin-right: $spacing-s;
-      }
+  .icon {
+    margin-right: $spacing-s;
+  }
 
-      .label {
-        display: inline;
-      }
-    }
+  .label {
+    display: inline;
   }
 }

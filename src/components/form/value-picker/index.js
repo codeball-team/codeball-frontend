@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ValuePickerOption from './option';
+import Option from './option';
 import styles from './styles.scss';
 
 class ValuePicker extends Component {
@@ -16,23 +16,15 @@ class ValuePicker extends Component {
     onChange: PropTypes.func.isRequired
   };
 
-  onChange = (value) => {
-    const { onChange } = this.props;
-    onChange(value);
-  };
+  onChange = (value) => this.props.onChange(value);
 
   render() {
-    const {
-      className,
-      optionClassName,
-      options,
-      value: currentValue
-    } = this.props;
+    const { className, optionClassName, options, value: currentValue } = this.props;
 
     return (
       <div className={classNames(styles.valuePicker, className)}>
         {options.map(({ label, value }, index) => (
-          <ValuePickerOption
+          <Option
             key={index}
             className={classNames(
               optionClassName,

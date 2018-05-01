@@ -36,12 +36,7 @@ class NumberPicker extends Component {
   };
 
   render() {
-    const {
-      className,
-      value,
-      valueFormatter,
-      vertical
-    } = this.props;
+    const { className, value, valueFormatter, vertical } = this.props;
 
     return (
       <div

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import _ from 'underscore';
+import { noop } from 'utils';
 import styles from './styles.scss';
 
 class EditableText extends Component {
@@ -21,22 +21,13 @@ class EditableText extends Component {
     isEditing: false,
     type: 'text',
     text: '',
-    onChange: _.noop
+    onChange: noop
   };
 
-  onChange = (event) => {
-    const { onChange } = this.props;
-    onChange(event.target.value);
-  };
+  onChange = (event) => this.props.onChange(event.target.value);
 
   render() {
-    const {
-      className,
-      isDisabled,
-      isEditing,
-      text,
-      ...childProps
-    } = this.props;
+    const { className, isDisabled, isEditing, text, ...childProps } = this.props;
 
     if (isEditing) {
       return (

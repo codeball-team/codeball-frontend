@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.scss';
 
-class ValuePickerOption extends Component {
+class Option extends Component {
   static propTypes = {
     className: PropTypes.string,
     label: PropTypes.string,
@@ -24,12 +24,12 @@ class ValuePickerOption extends Component {
 
     return (
       <div
-        onClick={this.onClick}
-        className={classNames(styles.valuePickerOption, className)}>
+        className={classNames(styles.valuePickerOption, className)}
+        onClick={this.onClick}>
         {label}
       </div>
     );
   }
 }
 
-export default ValuePickerOption;
+export default Option;

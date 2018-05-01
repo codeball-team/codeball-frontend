@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Button, Icon } from 'components';
 import styles from './styles.scss';
 
-const IconButtonDecorator = (props) => {
+const CreateIconButton = (props) => {
   const {
     icon: defaultIcon,
     label: defaultLabel,
@@ -40,4 +40,4 @@ const IconButtonDecorator = (props) => {
   return IconButton;
 };
 
-export default IconButtonDecorator;
+export default CreateIconButton;

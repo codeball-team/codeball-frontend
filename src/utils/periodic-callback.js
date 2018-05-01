@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import { noop } from 'utils';
 
 export default (delay) => {
   if (!delay) {
@@ -6,7 +6,7 @@ export default (delay) => {
   }
 
   let intervalDescriptor = null;
-  let intervalCallback = _.noop;
+  let intervalCallback = noop;
 
   return {
     start(callback) {
@@ -27,7 +27,7 @@ export default (delay) => {
 };
 
 const nullPeriodicCallback = () => {
-  let intervalCallback = _.noop;
+  let intervalCallback = noop;
 
   return {
     start(callback) {
@@ -39,6 +39,6 @@ const nullPeriodicCallback = () => {
       this.start(intervalCallback);
     },
 
-    end: _.noop
+    end: noop
   };
 };

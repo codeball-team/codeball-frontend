@@ -12,20 +12,13 @@ class Error extends Component {
     onErrorAcknowledge: PropTypes.func.isRequired
   };
 
-  onErrorAcknowledge = (event) => {
+  onErrorAcknowledge = () => {
     const { onErrorAcknowledge, errorIndex } = this.props;
-    event.preventDefault();
     onErrorAcknowledge(errorIndex);
   };
 
   render() {
-    const {
-      className,
-      error: {
-        title,
-        message
-      }
-    } = this.props;
+    const { className, error: { title, message } } = this.props;
 
     return (
       <div className={classNames(styles.error, className)}>

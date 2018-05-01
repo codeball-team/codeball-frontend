@@ -5,9 +5,9 @@ import { Icon, Render } from 'components';
 import Value from './value';
 import styles from './styles.scss';
 
-const InputWrapperDecorator = (ChildComponent) => {
-  const InputWrapper = ({ className, childClassName, displayValue, isValid, label, ...restProps }) => (
-    <div className={classNames(styles.inputWrapper, className)}>
+const CreateInput = (ChildComponent) => {
+  const Input = ({ className, childClassName, displayValue, isValid, label, ...restProps }) => (
+    <div className={classNames(styles.inputInput, className)}>
       <div className={styles.label}>
         <div className={styles.title}>
           {label}
@@ -39,7 +39,7 @@ const InputWrapperDecorator = (ChildComponent) => {
     </div>
   );
 
-  InputWrapper.propTypes = {
+  Input.propTypes = {
     childClassName: PropTypes.string,
     className: PropTypes.string,
     displayValue: PropTypes.string,
@@ -47,7 +47,7 @@ const InputWrapperDecorator = (ChildComponent) => {
     label: PropTypes.string.isRequired
   };
 
-  return InputWrapper;
+  return Input;
 };
 
-export default InputWrapperDecorator;
+export default CreateInput;

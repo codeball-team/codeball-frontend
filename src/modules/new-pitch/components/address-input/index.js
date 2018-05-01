@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'new-pitch/state';
 import { selectAddress, selectAddressDisplayValue, selectAddressIsValid } from 'new-pitch/selectors';
-import { EditableText, InputWrapper } from 'components';
+import { EditableText, Input } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectAddressDisplayValue(state),
@@ -15,4 +15,4 @@ const mapDispatchToProps = {
   onChange: actions.newPitch.changeAddress
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(EditableText));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(EditableText));

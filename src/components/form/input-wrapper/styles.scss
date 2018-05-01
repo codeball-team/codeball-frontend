@@ -10,37 +10,37 @@
   &:last-child {
     border-bottom: 0;
   }
+}
 
-  .label {
-    display: flex;
-    align-items: center;
-    padding-bottom: $spacing-s;
+.label {
+  display: flex;
+  align-items: center;
+  padding-bottom: $spacing-s;
+}
 
-    .title {
-      @include ellipsis;
+.title {
+  @include ellipsis;
 
-      flex: 1 1 auto;
-      margin-right: $spacing-l;
-    }
+  flex: 1 1 auto;
+  margin-right: $spacing-l;
+}
 
-    .text-highlight {
-      color: $yellow;
-    }
+.text-highlight {
+  color: $yellow;
+}
 
-    .validation {
-      flex: 0 1 auto;
+.validation {
+  flex: 0 1 auto;
 
-      &.valid {
-        color: $bg-color-success;
-      }
+  &.valid {
+    color: $bg-color-success;
+  }
 
-      &.invalid {
-        color: $bg-color-danger;
-      }
+  &.invalid {
+    color: $bg-color-danger;
+  }
 
-      .icon {
-        margin-right: 0;
-      }
-    }
+  .icon {
+    margin-right: 0;
   }
 }

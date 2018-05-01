@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'new-user/state';
 import { selectFirstName, selectFirstNameDisplayValue, selectFirstNameIsValid } from 'new-user/selectors';
-import { EditableText, InputWrapper } from 'components';
+import { EditableText, Input } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectFirstNameDisplayValue(state),
@@ -15,4 +15,4 @@ const mapDispatchToProps = {
   onChange: actions.newUser.changeFirstName
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(EditableText));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(EditableText));

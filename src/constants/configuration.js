@@ -1,5 +1,3 @@
-import _ from 'underscore';
-
 export const AUTO_REFRESH_DELAY = 10000;
 export const USER_MISSING_PICTURE_URL = require('../images/user-missing-picture.png');
 
@@ -13,4 +11,4 @@ export const DURATION_OPTIONS = [ 60, 90, 120, 150, 180 ].map((minutes) => ({
   value: minutes
 }));
 export const MINUTE_OPTIONS = [ 0, 15, 30, 45 ];
-export const HOUR_OPTIONS = _.range(0, 24);
+export const HOUR_OPTIONS = Array.from({ length: 24 }).map((_, index) => index);

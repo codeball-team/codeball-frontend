@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { actions } from 'new-game/state';
 import { selectPitchId, selectPitchIdDisplayValue, selectPitchIdIsValid } from 'new-game/selectors';
 import { selectPitchesOptions } from 'pitches/selectors';
-import { InputWrapper, Select } from 'components';
+import { Input, Select } from 'components';
 
 const mapStateToProps = (state) => ({
   clearable: false,
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => ({
   onChange: ({ value }) => dispatch(actions.newGame.changePitchId(value))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(Select));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(Select));

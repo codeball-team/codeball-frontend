@@ -9,7 +9,7 @@ import {
   selectTimeIsValid
 } from 'new-game/selectors';
 import { padLeft } from 'utils';
-import { InputWrapper, RangePicker } from 'components';
+import { Input, RangePicker } from 'components';
 
 const valueFormatter = (value) => padLeft(value, 2);
 
@@ -31,4 +31,4 @@ const mapDispatchToProps = {
   onMinChange: actions.newGame.changeHour
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(RangePicker));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(RangePicker));

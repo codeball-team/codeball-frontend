@@ -6,7 +6,7 @@ import {
   selectDurationIsValid,
   selectDurationOptions
 } from 'new-game/selectors';
-import { InputWrapper, ValuePicker } from 'components';
+import { Input, ValuePicker } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectDurationDisplayValue(state),
@@ -20,4 +20,4 @@ const mapDispatchToProps = {
   onChange: actions.newGame.changeDuration
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(ValuePicker));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(ValuePicker));

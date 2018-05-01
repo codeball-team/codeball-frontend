@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'new-pitch/state';
 import { selectType, selectTypeDisplayValue, selectTypeIsValid, selectTypeOptions } from 'new-pitch/selectors';
-import { InputWrapper, ValuePicker } from 'components';
+import { Input, ValuePicker } from 'components';
 
 const mapStateToProps = (state) => ({
   displayValue: selectTypeDisplayValue(state),
@@ -15,4 +15,4 @@ const mapDispatchToProps = {
   onChange: actions.newPitch.changeType
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputWrapper(ValuePicker));
+export default connect(mapStateToProps, mapDispatchToProps)(Input(ValuePicker));

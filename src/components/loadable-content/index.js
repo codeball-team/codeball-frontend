@@ -15,6 +15,7 @@ class LoadableContent extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       hasBeenFullyLoaded: false
     };
