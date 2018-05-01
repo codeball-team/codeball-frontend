@@ -1,5 +1,3 @@
-import _ from 'underscore';
-
 export const PITCH_MAX_CAPACITY = 22;
 export const PITCH_MIN_CAPACITY = 2;
 
@@ -17,7 +15,7 @@ export const PITCH_TYPE_STRING = {
   [PITCH_TYPE_SOFT_GROUND]: 'Soft ground'
 };
 
-export const PITCH_TYPE_OPTIONS = _(PITCH_TYPE_STRING).map((label, value) => ({
-  label,
+export const PITCH_TYPE_OPTIONS = Object.keys(PITCH_TYPE_STRING).map((value) => ({
+  label: PITCH_TYPE_STRING[value],
   value
 }));

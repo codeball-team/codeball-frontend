@@ -48,6 +48,9 @@ nav.navigation {
         }
 
         .icon {
+          margin-right: 6px;
+          margin-top: -5px;
+
           @include tablet-and-smaller {
             position: relative;
             top: -$spacing-s;

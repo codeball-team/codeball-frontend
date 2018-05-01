@@ -3,10 +3,8 @@ import { actions } from 'new-user/state';
 import { selectAddUserOptions } from 'current-user/selectors';
 import { selectRole, selectRoleDisplayValue, selectRoleIsValid } from 'new-user/selectors';
 import { Input, ValuePicker } from 'components';
-import styles from './styles.scss';
 
 const mapStateToProps = (state) => ({
-  childClassName: styles.roleInput,
   displayValue: selectRoleDisplayValue(state),
   isEditing: true,
   isValid: selectRoleIsValid(state),

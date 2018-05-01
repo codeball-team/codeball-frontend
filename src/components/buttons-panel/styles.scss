@@ -1,6 +1,7 @@
 .buttons-panel {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
 
   .button {
     @include ellipsis;

@@ -11,5 +11,6 @@ export padLeft from './pad-left';
 export parseNumber from './parse-number';
 export periodicCallback from './periodic-callback';
 export randomInteger from './random-integer';
+export range from './range';
 export sortByMany from './sort-by-many';
 export { javaToUnixTimestamp, unixToJavaTimestamp } from './timestamp';

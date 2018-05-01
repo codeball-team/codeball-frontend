@@ -7,7 +7,7 @@ import styles from './styles.scss';
 
 const CreateInput = (ChildComponent) => {
   const Input = ({ className, childClassName, displayValue, isValid, label, ...restProps }) => (
-    <div className={classNames(styles.inputInput, className)}>
+    <div className={classNames(styles.input, className)}>
       <div className={styles.label}>
         <div className={styles.title}>
           {label}

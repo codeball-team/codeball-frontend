@@ -1,7 +1,6 @@
 .value-picker {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 
   .value-picker-option {
     @include transparent-clickable-effects;

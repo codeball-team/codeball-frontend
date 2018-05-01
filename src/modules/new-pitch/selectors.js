@@ -1,4 +1,3 @@
-import _ from 'underscore';
 import { createSelector } from 'reselect';
 import {
   PITCH_MAX_CAPACITY,
@@ -6,7 +5,7 @@ import {
   PITCH_TYPE_OPTIONS,
   PITCH_TYPE_STRING
 } from 'constants';
-import { formatRange } from 'utils';
+import { formatRange, range } from 'utils';
 import NewPitchModel from 'new-pitch/model';
 import { selectIsLoading as selectCurrentUserIsLoading } from 'current-user/selectors';
 
@@ -34,11 +33,11 @@ export const selectCapacityDisplayValue = createSelector(
 );
 export const selectMaxCapacityOptions = createSelector(
   [ selectMinCapacity ],
-  (minCapacity) => _.range(minCapacity, PITCH_MAX_CAPACITY + 1, 2)
+  (minCapacity) => range(minCapacity, PITCH_MAX_CAPACITY + 1, 2)
 );
 export const selectMinCapacityOptions = createSelector(
   [ selectMaxCapacity ],
-  (maxCapacity) => _.range(PITCH_MIN_CAPACITY, maxCapacity + 1, 2)
+  (maxCapacity) => range(PITCH_MIN_CAPACITY, maxCapacity + 1, 2)
 );
 export const selectCapacityIsValid = createSelector(selectRoot, NewPitchModel.isCapacityValid);
 export const selectIsValid = createSelector(
