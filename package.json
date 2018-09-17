@@ -1,7 +1,7 @@
 {
   "name": "Codeball",
   "description": "Codeball",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "contributors": [
     {
       "name": "Kamil Mielnik",
@@ -24,8 +24,8 @@
     "analyze-bundle": "better-npm-run analyze-bundle",
     "build": "better-npm-run build",
     "build:prod": "better-npm-run build:prod",
-    "lint": "eslint config src --ext .js",
-    "lint:fix": "eslint config src --ext .js --fix",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "eslint src --ext .js --fix",
     "postinstall": "node scripts/fix-react-datepicker.js",
     "start": "better-npm-run start",
     "start:prod": "better-npm-run start:prod"
@@ -68,15 +68,16 @@
     }
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^9.0.0",
     "better-npm-run": "^0.1.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.6.0",
     "eslint-plugin-react": "^7.7.0",
     "http-server": "^0.11.1",
+    "node-normalize-scss": "^8.0.0",
     "react-hot-loader": "^4.1.2",
     "redux-devtools-extension": "^2.13.2",
-    "webpack-bundle-analyzer": "^2.11.1",
-    "webpack-wizard": "0.1.0-beta.19"
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-wizard": "0.1.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -84,7 +85,6 @@
     "history": "^4.7.2",
     "js-md5": "0.7.3",
     "moment": "^2.22.1",
-    "node-normalize-scss": "^3.0.0",
     "prop-types": "^15.6.1",
     "re-reselect": "^2.0.0",
     "react": "^16.3.2",
